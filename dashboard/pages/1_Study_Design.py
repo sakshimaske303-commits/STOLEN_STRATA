@@ -20,7 +20,7 @@ card(
     badge="Where",
 )
 
-st.image("../outputs/maps/01_study_area_overview.png", use_container_width=True)
+st.image(map_image("01_study_area_overview.png"), use_container_width=True)
 
 c1, c2 = st.columns(2)
 with c1:

@@ -11,7 +11,7 @@ col1, col2 = st.columns(2)
 col1.metric("Mann-Whitney U p-value", f"{d.ROAD_PROXIMITY_MANNWHITNEY_P}")
 col2.metric("Test", "Degraded vs Non-Degraded Road Distance")
 
-st.image("../outputs/maps/06_network_proximity.png", use_container_width=True)
+st.image(map_image("06_road_network_proximity.png"), use_container_width=True)
 
 card(
     "Method",

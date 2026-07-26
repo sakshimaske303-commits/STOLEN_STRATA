@@ -14,7 +14,7 @@ c2.metric("Bare-Earth Area, 2025", f"{d.BARE_2025_HA} ha")
 c3.metric("Net Conversion", f"{d.NET_CONVERSION_HA} ha", f"{d.NET_CONVERSION_PCT}%")
 c4.metric("Terraces Flagged Degraded", f"{d.DEGRADED_COUNT} / {d.TOTAL_TERRACES}")
 
-st.image("../outputs/maps/02_terrace_degradation_status.png", use_container_width=True)
+st.image(map_image("02_terrace_degradation_status.png"), use_container_width=True)
 
 card(
     "Method",

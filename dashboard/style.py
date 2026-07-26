@@ -11,6 +11,7 @@ styling stays consistent across the whole multi-page app.
 """
 
 import streamlit as st
+import os
 
 # ---- Palette -----------------------------------------------------------
 BG_PRIMARY   = "#0A0E1A"   # near-black navy — app background
@@ -223,3 +224,9 @@ def map_placeholder(caption: str = "Map will be uploaded here"):
         f'<div class="ss-placeholder">🗺️ &nbsp; {caption}</div>',
         unsafe_allow_html=True,
     )
+
+def map_image(filename):
+    """Resolve a static map PNG path relative to this file — works both
+    locally and on Streamlit Cloud regardless of working directory."""
+    base_dir = os.path.dirname(os.path.abspath(__file__))
+    return os.path.join(base_dir, "..", "outputs", "maps", filename)
