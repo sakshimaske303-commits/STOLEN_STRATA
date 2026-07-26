@@ -1,5 +1,5 @@
 import streamlit as st
-from style import inject_css, card, map_placeholder, page_title, GOLD
+from style import inject_css, card, map_placeholder, page_title, map_image, GOLD
 import data as d
 
 st.set_page_config(page_title="GOVERNANCE AND INFRASTRUCTURE | Stolen Strata", page_icon="🛣️", layout="wide")
