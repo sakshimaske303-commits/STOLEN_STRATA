@@ -96,7 +96,7 @@ Mean bare-earth fraction across all 201 terraces was essentially flat between 19
 
 **Figure 4.** Terrace-level degradation status, 1994–2025, showing the spatial distribution of likely-degraded terraces (25 of 201) relative to stable terraces.
 
-![Four-Point Bare-Earth Trend, 1994–2025](outputs/figures/dashboard_charts/bare_earth_trend.png)
+![Four-Point Bare-Earth Trend, 1994–2025](outputs/figures/01_bare_earth_trend_1994_2025.png)
 
 **Figure 5.** Mean bare-earth fraction across all 201 terraces at four time points, showing three decades of relative stability followed by a sharp post-2015 acceleration.
 
@@ -104,15 +104,15 @@ Mean bare-earth fraction across all 201 terraces was essentially flat between 19
 
 Converting bare-earth fraction into absolute area, total bare-earth cover across all 201 terraces rose from 32.2 hectares in 1994 to 222.6 hectares in 2025 — a net conversion of 190.3 hectares, 5.8% of total mapped terrace area. Of this net loss, 128.2 hectares (67%) occurred within the 25 terraces already flagged as likely-degraded, even though those terraces account for only 9.7% of total mapped area: loss is heavily concentrated rather than diffuse.
 
-![Bare-Earth Area, 1994 vs. 2025](outputs/figures/dashboard_charts/bare_earth_area_comparison.png)
+![Bare-Earth Area, 1994 vs. 2025](outputs/figures/02_bare_earth_area_comparison.png)
 
 **Figure 6.** Total bare-earth area across all mapped terraces, 1994 versus 2025.
 
-![Loss Concentration Among Flagged Terraces](outputs/figures/dashboard_charts/loss_concentration_donut.png)
+![Loss Concentration Among Flagged Terraces](outputs/figures/03_degradation_loss_concentration.png)
 
 **Figure 7.** Share of total net bare-earth loss occurring within the 25 terraces flagged as likely-degraded, relative to their share of total mapped terrace area.
 
-![Degraded vs. Stable Terrace Classification](outputs/figures/dashboard_charts/degraded_vs_stable_donut.png)
+![Degraded vs. Stable Terrace Classification](outputs/figures/05_degraded_vs_stable_terraces.png)
 
 **Figure 8.** Classification split of all 201 delineated terraces into likely-degraded (25) and stable (176) categories.
 
@@ -124,7 +124,7 @@ The Saffron Index flagged 14 of 201 terraces as likely saffron-cultivating, tota
 
 **Figure 9.** Detected saffron-cultivating terraces overlaid against proximity to the nearest degraded terrace.
 
-![Saffron Proximity-Risk Sensitivity](outputs/figures/dashboard_charts/saffron_proximity_sensitivity.png)
+![Saffron Proximity-Risk Sensitivity](outputs/figures/04_saffron_proximity_sensitivity.png)
 
 **Figure 10.** Share of saffron-cultivating terraces classified "at risk" across a range of proximity thresholds to the nearest degraded terrace, from 500 m to 2,500 m.
 
@@ -135,6 +135,10 @@ Degraded terraces sat a mean 75.6 m from the nearest road (median 0.0 m — over
 ![Road Network Proximity](outputs/maps/06_road_network_proximity.png)
 
 **Figure 11.** Degraded and intact terraces overlaid against the OpenStreetMap drivable road network, illustrating the closer road proximity of degraded terraces.
+
+![Distance to Nearest Road by Degradation Status](outputs/figures/04_road_distance_by_status.png)
+
+**Figure 12.** Distribution of terrace-to-nearest-road distance, compared between degraded and intact terraces (Mann-Whitney U, p = 0.0116).
 
 ## 5. Discussion
 
@@ -176,3 +180,16 @@ FAO GIAHS. (2012). *Saffron Heritage Site of Kashmir in India* (Part 1). Globall
 
 Press Post. (2026). Rs 400 cr PM Saffron Mission halts slide in Kashmir, 2,598 ha brought under rejuvenation.
 
+---
+
+**Full dataset, code, and reproducible pipeline**: github.com/sakshimaske303-commits/STOLEN_STRATA
+**Live interactive dashboard**: *(link to be added upon deployment)*
+
+**Interactive maps** (GitHub Pages):
+- Study Area Overview: https://sakshimaske303-commits.github.io/STOLEN_STRATA/outputs/interactive_maps/01_study_area_overview/index.html
+- Terrace Degradation Status: https://sakshimaske303-commits.github.io/STOLEN_STRATA/outputs/interactive_maps/02_terrace_degradation_status/index.html
+- Delineated Terrace Boundaries: https://sakshimaske303-commits.github.io/STOLEN_STRATA/outputs/interactive_maps/03_terrace_boundaries/index.html
+- Validation at Saffron Fields, Lethpora: https://sakshimaske303-commits.github.io/STOLEN_STRATA/outputs/interactive_maps/04_validation_lethpora/index.html
+- Road Network Proximity: https://sakshimaske303-commits.github.io/STOLEN_STRATA/outputs/interactive_maps/06_road_network_proximity/index.html
+
+*(Saffron Proximity-Risk is excluded — its buffer-zone symbology didn't export cleanly to the interactive format; the static version above, Figure 9, is correct.)*
