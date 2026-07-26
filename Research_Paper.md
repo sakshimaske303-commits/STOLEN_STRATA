@@ -180,16 +180,3 @@ FAO GIAHS. (2012). *Saffron Heritage Site of Kashmir in India* (Part 1). Globall
 
 Press Post. (2026). Rs 400 cr PM Saffron Mission halts slide in Kashmir, 2,598 ha brought under rejuvenation.
 
----
-
-**Full dataset, code, and reproducible pipeline**: github.com/sakshimaske303-commits/STOLEN_STRATA
-**Live interactive dashboard**: *(link to be added upon deployment)*
-
-**Interactive maps** (GitHub Pages):
-- Study Area Overview: https://sakshimaske303-commits.github.io/STOLEN_STRATA/outputs/interactive_maps/01_study_area_overview/index.html
-- Terrace Degradation Status: https://sakshimaske303-commits.github.io/STOLEN_STRATA/outputs/interactive_maps/02_terrace_degradation_status/index.html
-- Delineated Terrace Boundaries: https://sakshimaske303-commits.github.io/STOLEN_STRATA/outputs/interactive_maps/03_terrace_boundaries/index.html
-- Validation at Saffron Fields, Lethpora: https://sakshimaske303-commits.github.io/STOLEN_STRATA/outputs/interactive_maps/04_validation_lethpora/index.html
-- Road Network Proximity: https://sakshimaske303-commits.github.io/STOLEN_STRATA/outputs/interactive_maps/06_road_network_proximity/index.html
-
-*(Saffron Proximity-Risk is excluded — its buffer-zone symbology didn't export cleanly to the interactive format; the static version above, Figure 9, is correct.)*
