@@ -4,7 +4,7 @@
 
 ## 🔗 Live Dashboard
 
-**[View the interactive dashboard →](#)** *(link to be added upon deployment)*
+**[View the interactive dashboard →](https://stolenstrata-ekmgvmukfnfkpigxtgsak6.streamlit.app/)**
 
 ## 📄 Project Documentation
 
@@ -22,6 +22,8 @@ Built on the same **"Trust, But Verify"** philosophy as the rest of this portfol
 
 ---
 
+## 🗺️ Interactive Maps
+
 Interactive geospatial maps are hosted separately via GitHub Pages. Sample links:
 
 **Terrace Delineation and Degradation**
@@ -33,7 +35,7 @@ Interactive geospatial maps are hosted separately via GitHub Pages. Sample links
 **Infrastructure**
 - [Road Network Proximity](https://sakshimaske303-commits.github.io/STOLEN_STRATA/outputs/interactive_maps/06_road_network_proximity/index.html)
 
-*(For the full interactive experience with dynamic legends and key observations, visit the [live dashboard](#) → Interactive Maps page)*
+*(For the full interactive experience with dynamic legends and key observations, visit the [live dashboard](https://stolenstrata-ekmgvmukfnfkpigxtgsak6.streamlit.app/) → Interactive Maps page)*
 
 ---
 
