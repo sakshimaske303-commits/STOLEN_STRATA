@@ -1,0 +1,17 @@
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
+venv/
+env/
+.venv/
+.DS_Store
+
+# Raw/large raster data — not needed to run the dashboard
+data/raw/
+*.tif
+*.tiff
+
+# QGIS backups
+*.qgz~
+*.gpkg-shm
+*.gpkg-wal
