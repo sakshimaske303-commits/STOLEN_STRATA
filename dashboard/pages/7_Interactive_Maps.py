@@ -17,7 +17,7 @@ card(
 )
 
 # Change this to your GitHub Pages URL once maps are pushed live
-MAP_SERVER_BASE = "http://localhost:8000"
+MAP_SERVER_BASE = "https://sakshimaske303-commits.github.io/STOLEN_STRATA/outputs/interactive_maps"
 
 MAPS = {
     "Road Network Proximity": "06_road_network_proximity",
