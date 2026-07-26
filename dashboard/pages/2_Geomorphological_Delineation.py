@@ -13,7 +13,7 @@ c2.metric("After Area + Elevation Filter", f"{d.TOTAL_TERRACES}")
 c3.metric("Total Mapped Terrace Area", f"{d.TOTAL_AREA_KM2} km²")
 
 st.image(map_image("03_terrace_boundaries.png"), use_container_width=True)
-  st.image(map_image("04_validation_lethpora.png"), use_container_width=True)
+st.image(map_image("04_validation_lethpora.png"), use_container_width=True)
 
 card(
     "Method",
