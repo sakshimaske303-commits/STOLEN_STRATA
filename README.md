@@ -12,7 +12,7 @@
 |---|---|
 | 📘 [`Project_Journal.md`](./Project_Journal.md) | Polished project summary — methodology, findings, conclusions (start here) |
 | 📗 [`Research_Paper.md`](./Research_Paper.md) | Formal academic paper — literature review, statistical methodology, results, discussion |
-| 📙 [`Development_Log.md`](./Development_Log.md) | Full technical development log — every bug, debugging session, and methodology iteration |
+| 📙 [`Devlopment_Log.md`](./Devlopment_Log.md) | Full technical development log — every bug, debugging session, and methodology iteration |
 
 ---
 
