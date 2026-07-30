@@ -34,53 +34,55 @@ col4.metric("Terraces Flagged Degraded", f"{d.DEGRADED_COUNT}", f"{d.DEGRADED_PC
 
 st.markdown("<br>", unsafe_allow_html=True)
 
-c1, c2 = st.columns([1.3, 1])
-with c1:
-    card(
-        "The Question",
-        """
-        <p>The Kashmir Valley's <b>karewas</b> — flat-topped Plio-Pleistocene terraces left behind by an
-        ancient intermontane lake — are being quietly flattened by unregulated soil mining and urban
-        sprawl. The loess capping these terraces is exactly what makes them suitable for saffron
-        (<i>Crocus sativus</i>) cultivation, a Geographical Indication-tagged crop central to the Pampore
-        belt's economy. Journalistic accounts document the loss anecdotally. No systematic,
-        multi-decadal, satellite-based quantification has previously connected the physical erasure
-        of this landform to the economic fate of the industry it sustains — until now.</p>
-        """,
-        badge="Research Gap",
-    )
-    card(
-        "The Approach",
-        """
-        <p>A fully scripted, reproducible Python pipeline — DEM-derived Topographic Position Index (TPI)
-        and slope thresholding to algorithmically delineate terrace boundaries, Landsat/Sentinel-2
-        time-series via Google Earth Engine to detect bare-earth land-cover change across a 1994–2025
-        window, zonal saffron-signature detection, and proximity/statistical testing against road
-        infrastructure. QGIS is used only for visual quality assurance — never for manual digitization.</p>
-        """,
-        badge="Methodology",
-    )
-with c2:
-    card(
-        "Headline Finding",
-        f"""
-        <p style="font-size:1.4rem; color:{GOLD}; font-weight:800; margin-bottom:0.2rem;">
-            {d.NET_CONVERSION_HA} ha lost
-        </p>
-        <p style="color:#9AA5B8; margin-top:0;">of karewa terrace converted to bare earth, 1994–2025</p>
-        <hr>
-        <p style="font-size:1.4rem; color:{GOLD}; font-weight:800; margin-bottom:0.2rem;">
-            {d.DEGRADED_POLY_LOSS_SHARE_OF_TOTAL_LOSS_PCT}% of that loss
-        </p>
-        <p style="color:#9AA5B8; margin-top:0;">is concentrated within just {d.DEGRADED_COUNT} of {d.TOTAL_TERRACES} terraces ({d.DEGRADED_PCT_OF_TERRACES}%)</p>
-        <hr>
-        <p style="font-size:1.4rem; color:{GOLD}; font-weight:800; margin-bottom:0.2rem;">
-            p = {d.ROAD_PROXIMITY_MANNWHITNEY_P}
-        </p>
-        <p style="color:#9AA5B8; margin-top:0;">degradation is statistically linked to road proximity</p>
-        """,
-        badge="At A Glance",
-    )
+# ============================================================
+# THREE CARDS — stacked vertically, full width, one after another
+# ============================================================
+card(
+    "The Question",
+    """
+    <p>The Kashmir Valley's <b>karewas</b> — flat-topped Plio-Pleistocene terraces left behind by an
+    ancient intermontane lake — are being quietly flattened by unregulated soil mining and urban
+    sprawl. The loess capping these terraces is exactly what makes them suitable for saffron
+    (<i>Crocus sativus</i>) cultivation, a Geographical Indication-tagged crop central to the Pampore
+    belt's economy. Journalistic accounts document the loss anecdotally. No systematic,
+    multi-decadal, satellite-based quantification has previously connected the physical erasure
+    of this landform to the economic fate of the industry it sustains — until now.</p>
+    """,
+    badge="Research Gap",
+)
+
+card(
+    "The Approach",
+    """
+    <p>A fully scripted, reproducible Python pipeline — DEM-derived Topographic Position Index (TPI)
+    and slope thresholding to algorithmically delineate terrace boundaries, Landsat/Sentinel-2
+    time-series via Google Earth Engine to detect bare-earth land-cover change across a 1994–2025
+    window, zonal saffron-signature detection, and proximity/statistical testing against road
+    infrastructure. QGIS is used only for visual quality assurance — never for manual digitization.</p>
+    """,
+    badge="Methodology",
+)
+
+card(
+    "Headline Finding",
+    f"""
+    <p style="font-size:1.4rem; color:{GOLD}; font-weight:800; margin-bottom:0.2rem;">
+        {d.NET_CONVERSION_HA} ha lost
+    </p>
+    <p style="color:#9AA5B8; margin-top:0;">of karewa terrace converted to bare earth, 1994–2025</p>
+    <hr>
+    <p style="font-size:1.4rem; color:{GOLD}; font-weight:800; margin-bottom:0.2rem;">
+        {d.DEGRADED_POLY_LOSS_SHARE_OF_TOTAL_LOSS_PCT}% of that loss
+    </p>
+    <p style="color:#9AA5B8; margin-top:0;">is concentrated within just {d.DEGRADED_COUNT} of {d.TOTAL_TERRACES} terraces ({d.DEGRADED_PCT_OF_TERRACES}%)</p>
+    <hr>
+    <p style="font-size:1.4rem; color:{GOLD}; font-weight:800; margin-bottom:0.2rem;">
+        p = {d.ROAD_PROXIMITY_MANNWHITNEY_P}
+    </p>
+    <p style="color:#9AA5B8; margin-top:0;">degradation is statistically linked to road proximity</p>
+    """,
+    badge="At A Glance",
+)
 
 st.markdown("---")
 st.markdown(
@@ -90,6 +92,89 @@ st.markdown(
         → Saffron Vulnerability → Governance &amp; Infrastructure → Explore Trends → Interactive Maps →
         Methodology &amp; Data → About &amp; GitHub.
     </p>
+    """,
+    unsafe_allow_html=True,
+)
+
+st.markdown("<br>", unsafe_allow_html=True)
+
+CYAN = "#22D3EE"
+
+# ============================================================
+# FULL PROJECT DOCUMENTATION
+# ============================================================
+st.markdown(
+    f"""
+    <p style="text-align:center; color:{GOLD}; font-weight:700; font-size:1.1rem; margin-bottom:0.5rem;">
+        Full Project Documentation
+    </p>
+    """,
+    unsafe_allow_html=True,
+)
+
+doc_col1, doc_col2, doc_col3 = st.columns(3)
+
+with doc_col1:
+    with open("../Research_Paper.pdf", "rb") as f:
+        st.download_button(
+            label="📗 Research Paper",
+            data=f,
+            file_name="Research_Paper.pdf",
+            mime="application/pdf",
+            use_container_width=True
+        )
+
+with doc_col2:
+    with open("../Project_Journal.pdf", "rb") as f:
+        st.download_button(
+            label="📘 Project Journal",
+            data=f,
+            file_name="Project_Journal.pdf",
+            mime="application/pdf",
+            use_container_width=True
+        )
+
+with doc_col3:
+    with open("../Devlopment_Log.pdf", "rb") as f:
+        st.download_button(
+            label="📙 Development Log",
+            data=f,
+            file_name="Devlopment_Log.pdf",
+            mime="application/pdf",
+            use_container_width=True
+        )
+
+# ============================================================
+# FOOTER — name, role, and GitHub link, in a styled card
+# ============================================================
+st.markdown(
+    f"""
+    <div style='
+        background-color:rgba(34, 211, 238, 0.08);
+        border: 2px solid {CYAN};
+        border-radius: 14px;
+        padding: 28px 32px;
+        margin-top: 2.5rem;
+        text-align: center;
+    '>
+        <p style='font-size:2rem; font-weight:800; color:{GOLD}; margin-bottom:4px;'>
+            Sakshi D. Maske
+        </p>
+        <p style='font-size:1.05rem; color:#9AA5B8; margin-top:0; margin-bottom:18px;'>
+            Independent Geospatial Researcher
+        </p>
+        <a href='https://github.com/sakshimaske303-commits/STOLEN_STRATA' target='_blank' style='
+            display:inline-block;
+            background-color:{CYAN};
+            padding:12px 26px;
+            border-radius:8px;
+            text-decoration:none;
+        '>
+            <span style='color:{MAROON} !important; font-weight:700; font-size:1rem;'>
+                🔗 View Full Project on GitHub
+            </span>
+        </a>
+    </div>
     """,
     unsafe_allow_html=True,
 )
