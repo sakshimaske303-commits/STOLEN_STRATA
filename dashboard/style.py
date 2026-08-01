@@ -26,7 +26,6 @@ MUTED        = "#9AA5B8"   # secondary / muted text
 
 CHART_SEQUENCE = [MAROON, GOLD, TEAL, MAROON_LIGHT, "#5C6B8A", "#E8C468"]
 
-
 def inject_css():
     st.markdown(
         f"""
@@ -42,6 +41,43 @@ def inject_css():
         .block-container,
         [data-testid="stAppViewBlockContainer"] {{
             padding-top: 1.5rem !important;
+        }}
+
+        /* ---- Sidebar collapse/expand button — safety net covering every
+        naming variant Streamlit has used across versions. The button exists
+        by default, but on a dark theme like this one it renders low-contrast
+        (near-invisible) and can fail to show on mobile without this. ---- */
+        [data-testid="collapsedControl"],
+        [data-testid="stSidebarCollapsedControl"],
+        [data-testid="stSidebarCollapseButton"],
+        [data-testid="baseButton-header"],
+        [data-testid="stHeader"] button,
+        [data-testid*="ollapse" i],
+        button[kind="header"] {{
+            display: flex !important;
+            visibility: visible !important;
+            opacity: 1 !important;
+            z-index: 999999 !important;
+        }}
+        [data-testid="collapsedControl"],
+        [data-testid="stSidebarCollapsedControl"] {{
+            position: fixed !important;
+            top: 12px !important;
+            left: 12px !important;
+            background: {BG_PANEL} !important;
+            border: 1.5px solid {MAROON} !important;
+            border-radius: 8px !important;
+            padding: 4px !important;
+        }}
+        [data-testid="collapsedControl"] svg,
+        [data-testid="stSidebarCollapsedControl"] svg,
+        [data-testid="stSidebarCollapseButton"] svg,
+        [data-testid="baseButton-header"] svg,
+        [data-testid="stHeader"] button svg,
+        button[kind="header"] svg {{
+            fill: {GOLD} !important;
+            stroke: {GOLD} !important;
+            opacity: 1 !important;
         }}
 
         h1, h2, h3, h4, .stMarkdown h1, .stMarkdown h2, .stMarkdown h3 {{
@@ -194,7 +230,6 @@ def inject_css():
         unsafe_allow_html=True,
     )
 
-
 def page_title(title: str, subtitle: str = None):
     """Big, bold, centered page-title block — use at the top of every page
     instead of a raw st.markdown("# ...") so every page matches."""
@@ -209,7 +244,6 @@ def page_title(title: str, subtitle: str = None):
         unsafe_allow_html=True,
     )
 
-
 def card(title: str, body_html: str, badge: str = None):
     """Render a styled content card."""
     badge_html = f'<span class="ss-badge">{badge}</span><br>' if badge else ""
@@ -217,7 +251,6 @@ def card(title: str, body_html: str, badge: str = None):
         f'<div class="ss-card">{badge_html}<h3>{title}</h3>{body_html}</div>',
         unsafe_allow_html=True,
     )
-
 
 def map_placeholder(caption: str = "Map will be uploaded here"):
     st.markdown(
