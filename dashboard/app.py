@@ -27,9 +27,14 @@ st.markdown(
 
 st.markdown(
     f"""
+    <style>
+        .doi-badge-link {{ text-decoration:none; }}
+        .doi-badge-card {{ transition: transform 0.18s ease, box-shadow 0.18s ease, filter 0.18s ease; cursor: pointer; }}
+        .doi-badge-link:hover .doi-badge-card {{ transform: translateY(-3px) scale(1.02); box-shadow: 0 10px 32px rgba(139, 30, 63, 0.6); filter: brightness(1.08); }}
+    </style>
     <div style="display:flex; justify-content:center; margin: 6px 0 18px 0;">
-        <a href="https://doi.org/10.5281/zenodo.21766464" target="_blank" style="text-decoration:none;">
-            <div style="
+        <a href="https://doi.org/10.5281/zenodo.21766464" target="_blank" class="doi-badge-link" style="text-decoration:none;">
+            <div class="doi-badge-card" style="
                 display:flex; align-items:center; gap:18px;
                 background: linear-gradient(145deg, {BG_CARD}, {BG_PANEL});
                 border: 2px solid {MAROON};
@@ -39,8 +44,9 @@ st.markdown(
             ">
                 <span style="font-size:2.1rem; line-height:1;">📦</span>
                 <div style="text-align:left;">
-                    <div style="color:{GOLD}; font-family:'Montserrat',sans-serif; font-weight:800; font-size:1.05rem; letter-spacing:0.4px;">
-                        ARCHIVED &amp; CITABLE ON ZENODO
+                    <div style="color:{GOLD}; font-family:'Montserrat',sans-serif; font-weight:800; font-size:1.05rem; letter-spacing:0.4px; display:flex; align-items:center; gap:8px;">
+                        <span>ARCHIVED &amp; CITABLE ON ZENODO</span>
+                        <span style="opacity:0.8; font-size:0.95rem;">↗</span>
                     </div>
                     <div style="color:{CREAM}; font-family:'Montserrat',sans-serif; font-weight:900; font-size:1.35rem; margin-top:2px;">
                         DOI: 10.5281/zenodo.21766464
@@ -145,13 +151,13 @@ st.markdown(
 doc_col1, doc_col2, doc_col3 = st.columns(3)
 
 with doc_col1:
-    pdf_path = os.path.join(ROOT_DIR, "Research_Paper.pdf")
+    pdf_path = os.path.join(ROOT_DIR, "SS_Research_Paper.pdf")
     try:
         with open(pdf_path, "rb") as f:
             st.download_button(
                 label="📗 Research Paper",
                 data=f,
-                file_name="Research_Paper.pdf",
+                file_name="SS_Research_Paper.pdf",
                 mime="application/pdf",
                 use_container_width=True
             )
@@ -159,27 +165,27 @@ with doc_col1:
         st.warning("Research_Paper.pdf not found.")
 
 with doc_col2:
-    pdf_path = os.path.join(ROOT_DIR, "Project_Journal.pdf")
+    pdf_path = os.path.join(ROOT_DIR, "SS_Project_Report.pdf")
     try:
         with open(pdf_path, "rb") as f:
             st.download_button(
-                label="📘 Project Journal",
+                label="📘 Project Report",
                 data=f,
-                file_name="Project_Journal.pdf",
+                file_name="SS_Project_Report.pdf",
                 mime="application/pdf",
                 use_container_width=True
             )
     except FileNotFoundError:
-        st.warning("Project_Journal.pdf not found.")
+        st.warning("SS_Project_Report.pdf not found.")
 
 with doc_col3:
-    pdf_path = os.path.join(ROOT_DIR, "Devlopment_Log.pdf")
+    pdf_path = os.path.join(ROOT_DIR, "SS_Development_Log.pdf")
     try:
         with open(pdf_path, "rb") as f:
             st.download_button(
                 label="📙 Development Log",
                 data=f,
-                file_name="Devlopment_Log.pdf",
+                file_name="SS_Development_Log.pdf",
                 mime="application/pdf",
                 use_container_width=True
             )
