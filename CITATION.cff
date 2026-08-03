@@ -7,6 +7,11 @@ authors:
     given-names: "Sakshi D."
 repository-code: "https://github.com/sakshimaske303-commits/STOLEN_STRATA"
 url: "https://github.com/sakshimaske303-commits/STOLEN_STRATA"
+identifiers:
+  - type: doi
+    value: "10.5281/zenodo.21766464"
+    description: "Zenodo archive of Stolen Strata v1.0.0"
+doi: "10.5281/zenodo.21766464"
 abstract: >-
   A satellite remote-sensing study quantifying the loss of Kashmir's karewa
   terraces — elevated, flat-topped remnants of a Pliocene-Pleistocene

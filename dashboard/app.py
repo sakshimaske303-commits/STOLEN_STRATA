@@ -1,6 +1,6 @@
 import streamlit as st
 import os
-from style import inject_css, card, GOLD, MAROON
+from style import inject_css, card, GOLD, MAROON, BG_CARD, BG_PANEL, CREAM
 import data as d
 
 st.set_page_config(
@@ -20,6 +20,34 @@ st.markdown(
             Quantifying the Anthropogenic Erasure of Kashmir's Karewa Terraces<br>and Its Threat to the Saffron Economy
         </p>
         <p style="color:#9AA5B8; font-size:0.95rem;">Sakshi D. Maske &nbsp;·&nbsp; Kashmir Valley, Jammu &amp; Kashmir, India</p>
+    </div>
+    """,
+    unsafe_allow_html=True,
+)
+
+st.markdown(
+    f"""
+    <div style="display:flex; justify-content:center; margin: 6px 0 18px 0;">
+        <a href="https://doi.org/10.5281/zenodo.21766464" target="_blank" style="text-decoration:none;">
+            <div style="
+                display:flex; align-items:center; gap:18px;
+                background: linear-gradient(145deg, {BG_CARD}, {BG_PANEL});
+                border: 2px solid {MAROON};
+                border-radius: 14px;
+                padding: 16px 32px;
+                box-shadow: 0 4px 20px rgba(139, 30, 63, 0.35);
+            ">
+                <span style="font-size:2.1rem; line-height:1;">📦</span>
+                <div style="text-align:left;">
+                    <div style="color:{GOLD}; font-family:'Montserrat',sans-serif; font-weight:800; font-size:1.05rem; letter-spacing:0.4px;">
+                        ARCHIVED &amp; CITABLE ON ZENODO
+                    </div>
+                    <div style="color:{CREAM}; font-family:'Montserrat',sans-serif; font-weight:900; font-size:1.35rem; margin-top:2px;">
+                        DOI: 10.5281/zenodo.21766464
+                    </div>
+                </div>
+            </div>
+        </a>
     </div>
     """,
     unsafe_allow_html=True,

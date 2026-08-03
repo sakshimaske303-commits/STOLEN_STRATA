@@ -2,6 +2,8 @@
 
 **Quantifying how much of Kashmir's karewa terraces have been lost to unregulated mining — and what that means for the saffron economy they sustain.**
 
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.21766464.svg)](https://doi.org/10.5281/zenodo.21766464)
+
 ## 🔗 Live Dashboard
 
 **[View the interactive dashboard →](https://stolenstrata-ekmgvmukfnfkpigxtgsak6.streamlit.app/)**
