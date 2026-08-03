@@ -44,10 +44,15 @@ card(
     badge="Validation",
 )
 
-st.markdown(
+card(
+    "Geomorphometric Characterisation",
     f"""
-    <p style="color:{GOLD}; font-weight:700;">Geomorphometric characterisation (compactness index,
-    per-terrace mean slope) is being finalised — see the Methodology &amp; Data page for status.</p>
+    <p>Compactness index (4π·Area/Perimeter²) and per-terrace mean slope were computed and tested
+    against degradation status. Degraded terraces are significantly less compact — more irregular
+    and dissected — than intact ones (mean {d.COMPACTNESS_MEAN_DEGRADED} vs. {d.COMPACTNESS_MEAN_INTACT},
+    Mann-Whitney p = {d.COMPACTNESS_MWU_P}), consistent with mining scars breaking up an originally
+    smooth terrace outline. Internal slope does not differ significantly by status
+    (p = {d.SLOPE_MWU_P}). See the Methodology &amp; Data page for the full pipeline step.</p>
     """,
-    unsafe_allow_html=True,
+    badge="Supplementary Finding",
 )

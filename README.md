@@ -46,7 +46,7 @@ Interactive geospatial maps are hosted separately via GitHub Pages. Sample links
 - Identifies saffron-cultivating terraces using an inverted-phenology signature, then quantifies their proximity to already-degraded terraces as a leading-indicator risk metric
 - Tests whether degraded terraces are statistically closer to road infrastructure than intact ones, using a Mann-Whitney U test against the OpenStreetMap road network
 - Benchmarks detected saffron extent against an independent FAO baseline, reporting the resulting shortfall transparently as a detection-recall limitation rather than a land-loss claim
-- Presents all findings through a nine-page interactive Streamlit dashboard combining live charts, static QGIS cartography, and interactive QGIS-based web maps
+- Presents all findings through an eight-page interactive Streamlit dashboard combining live charts, static QGIS cartography, and interactive QGIS-based web maps
 
 ## 🔬 Key Findings
 
@@ -62,7 +62,7 @@ Full methodology, including the governance-alignment question this study could n
 
 ```text
 STOLEN_STRATA/
-├── dashboard/                       # Streamlit dashboard (9 pages)
+├── dashboard/                       # Streamlit dashboard (8 pages)
 │   └── pages/                       # Individual dashboard pages
 ├── data/
 │   ├── raw/                         # DEM, satellite composites (gitignored)
@@ -75,11 +75,10 @@ STOLEN_STRATA/
 │   ├── interactive_maps/            # QGIS2Web interactive web-map exports
 │   └── figures/dashboard_charts/    # Exported Plotly chart PNGs
 ├── notebooks/                       # Exploratory analysis notebooks
-├── docs/                            # Project documentation
 ├── Project_Journal.md               # Polished project summary and methodology
 ├── Research_Paper.md                # Formal academic research paper
-├── Development_Log.md               # Full technical development log
-└── requirements.txt
+├── Devlopment_Log.md                # Full technical development log
+└── requirements.txt                 # Full pipeline dependencies (see also dashboard/requirements.txt)
 ```
 
 ## 🛠️ Tech Stack
@@ -112,6 +111,10 @@ streamlit run app.py
 
 Independent Geospatial Researcher
 
+## 📜 License
+
+This project is licensed under [CC BY 4.0](LICENSE). See `CITATION.cff` for citation metadata.
+
 ---
 
-*This project's full development process — including every debugging session, methodology iteration, and technical decision — is documented in `Development_Log.md` for full transparency and reproducibility.*
+*This project's full development process — including every debugging session, methodology iteration, and technical decision — is documented in `Devlopment_Log.md` for full transparency and reproducibility.*

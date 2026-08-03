@@ -91,7 +91,7 @@ st.markdown(
     <p style="text-align:center; color:#9AA5B8; font-size:0.9rem;">
         Use the sidebar to navigate — Study Design → Geomorphological Delineation → Degradation Analysis
         → Saffron Vulnerability → Governance &amp; Infrastructure → Explore Trends → Interactive Maps →
-        Methodology &amp; Data → About &amp; GitHub.
+        Methodology &amp; Data. (Author and GitHub link are at the bottom of this page.)
     </p>
     """,
     unsafe_allow_html=True,

@@ -1,0 +1,51 @@
+cff-version: 1.2.0
+message: "If you use this software or its findings, please cite it using the metadata below."
+title: "Stolen Strata: Quantifying the Anthropogenic Erasure of Kashmir's Karewa Terraces and Its Threat to the Saffron Economy"
+type: software
+authors:
+  - family-names: "Maske"
+    given-names: "Sakshi D."
+repository-code: "https://github.com/sakshimaske303-commits/STOLEN_STRATA"
+url: "https://github.com/sakshimaske303-commits/STOLEN_STRATA"
+abstract: >-
+  A satellite remote-sensing study quantifying the loss of Kashmir's karewa
+  terraces — elevated, flat-topped remnants of a Pliocene-Pleistocene
+  intermontane lake basin that underlie one of Kashmir's most economically
+  important agricultural systems, the saffron cultivation belt of Pampore —
+  to unregulated soil mining and unplanned urban expansion. This study
+  delineates 201 karewa terraces (3,305.3 hectares) across the central
+  Kashmir Valley using a Topographic Position Index and slope-threshold
+  terrain analysis, then tracks their bare-earth land-cover fraction across
+  four time points (1994, 2005, 2015, 2025) using season-matched Landsat and
+  Sentinel-2 composites. Mean bare-earth fraction rose from 1.84% to 8.43%
+  over the study period, concentrated almost entirely in the final decade;
+  190.3 hectares of terrace surface converted to bare earth, 67% of it
+  within just 12.4% of terraces. A saffron-signature index, exploiting the
+  crop's inverted phenology, identifies 14 likely saffron-cultivating
+  terraces, 43% of which lie within 1 km of an already-degraded terrace
+  despite no direct overlap. A Mann-Whitney U test confirms degraded
+  terraces sit significantly closer to road infrastructure than intact
+  terraces (p = 0.0116), consistent with an accessibility-driven model of
+  unregulated extraction. Threshold-sensitivity sweeps, a resolution-matched
+  robustness check (resampling the 2025 Sentinel-2 composite to the 30m
+  Landsat pixel size used in earlier years), and effect-size/multiple-
+  comparison corrections on all statistical tests confirm these results are
+  not artefacts of a single arbitrary cutoff, sensor change, or uncorrected
+  p-value. Together these results establish karewa degradation as a recent,
+  accelerating, spatially concentrated, and infrastructure-linked
+  phenomenon, with direct implications for how saffron-sector policy
+  investment should be spatially targeted.
+keywords:
+  - karewa terraces
+  - Kashmir
+  - saffron
+  - land degradation
+  - remote sensing
+  - multi-temporal change detection
+  - unregulated mining
+  - geomorphology
+  - Google Earth Engine
+  - spatial statistics
+license: CC-BY-4.0
+version: 1.0.0
+date-released: "2026-08-03"

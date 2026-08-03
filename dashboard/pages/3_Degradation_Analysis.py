@@ -88,3 +88,22 @@ card(
     """,
     badge="Interpretation",
 )
+
+card(
+    "Robustness: Is the Post-2015 Jump a Resolution Artefact?",
+    f"""
+    <p>1994/2005/2015 use 30 m Landsat while 2025 uses 10 m Sentinel-2 — finer resolution could inflate
+    the apparent jump by catching smaller bare-earth patches. Resampling 2025 down to 30 m (matching the
+    earlier years) and rerunning the pipeline: mean bare-earth fraction falls from
+    <b>{d.RESOLUTION_CHECK_10M_PCT}%</b> to <b>{d.RESOLUTION_CHECK_30M_PCT}%</b>, and net conversion from
+    <b>{d.RESOLUTION_CHECK_10M_NET_HA} ha</b> to <b>{d.RESOLUTION_CHECK_30M_NET_HA} ha</b> — a real,
+    quantified ~13% resolution effect. But the acceleration survives it: even at matched 30 m resolution,
+    7.48% remains roughly 2.8× the flat 2005/2015 baseline (~2.6%). Resolution modestly inflates the
+    magnitude; it does not create the trend.</p>
+    <p>The 15-percentage-point degradation threshold itself was also swept from 5 to 30 points: the
+    reported 25-terrace count sits in a stable 23–31 range across the 12–20 point neighbourhood — see
+    <code>src/analysis/11_threshold_sensitivity.py</code> and
+    <code>src/analysis/12_robustness_and_effect_sizes.py</code> for the full sweeps.</p>
+    """,
+    badge="Added: External AI Review",
+)

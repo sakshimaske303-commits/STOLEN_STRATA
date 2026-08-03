@@ -17,7 +17,9 @@ steps = [
     ("07", "Absolute Area Loss", "Total terrace area, 1994 vs 2025 bare-earth area, net conversion, concentration within degraded subset.", f"{d.NET_CONVERSION_HA} ha net loss ({d.NET_CONVERSION_PCT}%)"),
     ("08", "Multi-Temporal Trend", "Adds 2005 and 2015 NDVI (Landsat 5 / Landsat 8) for a 4-point trend.", "1.84% → 2.62% → 2.63% → 8.43%"),
     ("09", "Road Proximity", "osmnx road network extraction; distance to nearest road per terrace; Mann-Whitney U test.", f"p = {d.ROAD_PROXIMITY_MANNWHITNEY_P}"),
-    ("10", "Geomorphometrics & Figures", "Compactness Index (4π·Area/Perimeter²) and mean slope per terrace, tested against degradation status; first static figure set.", "pending confirmed run" if not d.GEOMORPHOMETRICS_CONFIRMED else "confirmed"),
+    ("10", "Geomorphometrics & Figures", "Compactness Index (4π·Area/Perimeter²) and mean slope per terrace, tested against degradation status; first static figure set.", f"compactness p={d.COMPACTNESS_MWU_P} (significant), slope p={d.SLOPE_MWU_P} (n.s.) — confirmed" if d.GEOMORPHOMETRICS_CONFIRMED else "pending confirmed run"),
+    ("11", "Threshold Sensitivity", "Sweeps the TPI/slope, degradation, and saffron thresholds across a neighbourhood of plausible values — added after External AI Review flagged all three as chosen by visual inspection with no reported sensitivity check.", "degradation: 23-31 terraces across 12-20pp; saffron proximity-risk: 39-44% across 0.05-0.175"),
+    ("12", "Robustness & Effect Sizes", "Resamples 2025 Sentinel-2 to 30m (matching earlier years' Landsat) to quantify the resolution-mismatch effect; adds rank-biserial effect sizes and a Holm-Bonferroni correction across the 3 Mann-Whitney tests.", "resolution: 8.43%→7.48% (real, modest); road proximity + compactness survive correction"),
 ]
 
 for num, title, method, result in steps:
@@ -30,27 +32,28 @@ st.markdown("---")
 st.markdown("### Repository Structure")
 st.code(
     """
-Stolen_Strata/
+STOLEN_STRATA/
 ├── data/
-│   ├── raw/          # GEE exports (DEM, NDVI composites, Saffron Index)
+│   ├── raw/          # GEE exports (DEM, NDVI composites, Saffron Index) — gitignored
 │   ├── interim/       # intermediate candidates, reprojected rasters
 │   └── processed/     # final geopackages used by the dashboard
 ├── src/
-│   ├── acquisition/   # GEE Code Editor scripts (JS)
-│   ├── preprocessing/
+│   ├── acquisition/   # reserved for scripted GEE acquisition (currently empty —
+│   │                   #   acquisition was run interactively in the GEE Code Editor)
+│   ├── preprocessing/  # reserved, currently empty
 │   ├── analysis/      # 01–10, the scripts described above
 │   └── visualization/
 ├── notebooks/
 ├── outputs/
 │   ├── maps/
-│   ├── figures/
-│   └── tables/
+│   ├── interactive_maps/
+│   └── figures/
 ├── dashboard/          # this Streamlit app
-├── docs/
-│   ├── research_paper/
-│   ├── project_journal/
-│   └── development_log/
-└── tests/
+├── tests/
+├── Research_Paper.md
+├── Project_Journal.md
+├── Devlopment_Log.md
+└── requirements.txt
     """,
     language="text",
 )
