@@ -71,24 +71,6 @@ card(
 
 st.markdown("---")
 st.markdown(
-    f"""
-    <div style="text-align:center; padding-top:1rem; padding-bottom:1rem;">
-        <p style="color:{GOLD}; font-size:1.1rem; margin-bottom:0.3rem;">
-            📦 Full code, data, and reproducible pipeline
-        </p>
-        <p style="margin-bottom:1.8rem;">
-            <a href="https://github.com/sakshimaske303-commits/STOLEN_STRATA" target="_blank"
-               style="color:{GOLD}; font-weight:700; font-size:1.05rem; text-decoration:none;">
-                github.com/sakshimaske303-commits/STOLEN_STRATA
-            </a>
-        </p>
-        <p style="color:#8A94AD; font-size:0.9rem; letter-spacing:0.15em; margin-bottom:0.3rem;">
-            PROJECT AUTHOR
-        </p>
-        <p style="font-weight:800; font-size:1.4rem; letter-spacing:0.05em;">
-            SAKSHI D. MASKE
-        </p>
-    </div>
-    """,
+    "<p style='text-align:center; color:#8A94AD; font-size:0.9rem;'>STOLEN STRATA — Quantifying the Anthropogenic Erasure of Kashmir's Karewa Terraces</p>",
     unsafe_allow_html=True,
 )

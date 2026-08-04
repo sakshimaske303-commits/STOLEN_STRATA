@@ -133,8 +133,8 @@ def inject_css():
 
         /* Sidebar */
         section[data-testid="stSidebar"] {{
-            background-color: {BG_PANEL} !important;
-            border-right: 2px solid {MAROON};
+            background: linear-gradient(180deg, {BG_PANEL} 0%, {BG_PRIMARY} 100%) !important;
+            border-right: 1px solid rgba(139, 30, 63, 0.3);
         }}
         section[data-testid="stSidebar"] * {{
             color: {CREAM} !important;
@@ -143,6 +143,21 @@ def inject_css():
             font-family: 'Montserrat', sans-serif !important;
             font-weight: 700 !important;
             font-size: 0.95rem !important;
+        }}
+
+        section[data-testid="stSidebar"] a {{
+            border-radius: 8px !important;
+            padding: 8px 14px !important;
+            transition: all 0.2s ease;
+        }}
+        section[data-testid="stSidebar"] a:hover {{
+            background: rgba(139, 30, 63, 0.18) !important;
+            border-left: 3px solid {MAROON};
+        }}
+        section[data-testid="stSidebar"] a[aria-current="page"] {{
+            background: rgba(212, 175, 55, 0.18) !important;
+            border-left: 3px solid {GOLD};
+            font-weight: 800 !important;
         }}
 
         /* Metrics */
