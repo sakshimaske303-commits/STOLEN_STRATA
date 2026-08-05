@@ -123,9 +123,9 @@ st.markdown("---")
 st.markdown(
     f"""
     <p style="text-align:center; color:#9AA5B8; font-size:0.9rem;">
-        Use the sidebar to navigate — Study Design → Geomorphological Delineation → Degradation Analysis
-        → Saffron Vulnerability → Governance &amp; Infrastructure → Explore Trends → Interactive Maps →
-        Methodology &amp; Data. (Author and GitHub link are at the bottom of this page.)
+        Use the sidebar to navigate — Study Design → Theoretical Foundations → Geomorphological Delineation
+        → Degradation Analysis → Saffron Vulnerability → Governance &amp; Infrastructure → Explore Trends →
+        Interactive Maps → Methodology &amp; Data. (Author and GitHub link are at the bottom of this page.)
     </p>
     """,
     unsafe_allow_html=True,
@@ -162,7 +162,7 @@ with doc_col1:
                 use_container_width=True
             )
     except FileNotFoundError:
-        st.warning("Research_Paper.pdf not found.")
+        st.warning("SS_Research_Paper.pdf not found.")
 
 with doc_col2:
     pdf_path = os.path.join(ROOT_DIR, "SS_Project_Report.pdf")
@@ -190,7 +190,7 @@ with doc_col3:
                 use_container_width=True
             )
     except FileNotFoundError:
-        st.warning("Devlopment_Log.pdf not found.")
+        st.warning("SS_Development_Log.pdf not found.")
 
 # ============================================================
 # FOOTER — name, role, and GitHub link, in a styled card
