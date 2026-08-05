@@ -1,4 +1,5 @@
 import streamlit as st
+import os
 from style import inject_css, card, page_title, GOLD
 import data as d
 
@@ -6,6 +7,60 @@ st.set_page_config(page_title="METHODOLOGY AND DATA | Stolen Strata", page_icon=
 inject_css()
 
 page_title("🧪 METHODOLOGY AND DATA", "Full pipeline, script-by-script")
+
+# ============================================================
+# PROOF-OF-WORK POPOVERS — tiny, pulsing "📸" buttons next to the
+# exact pipeline step they back up. Click to reveal the screenshot
+# inline; nothing pushes the page layout around. Drop the PNGs into
+# outputs/proof_screenshots/ (see PROOF_MAP below) and these activate
+# automatically — until then each falls back to a quiet "not added
+# yet" note instead of breaking the page.
+# ============================================================
+st.markdown(f"""
+<style>
+    div[data-testid="stPopover"] button {{
+        animation: proof-blink 1.8s ease-in-out infinite;
+        border: 3px solid {GOLD} !important;
+        width: 32px !important;
+        height: 32px !important;
+        border-radius: 50% !important;
+        padding: 0 !important;
+        min-height: unset !important;
+        min-width: unset !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+    }}
+    div[data-testid="stPopover"] button p {{
+        margin: 0 !important;
+        font-size: 0.95rem !important;
+        line-height: 1 !important;
+    }}
+    @keyframes proof-blink {{
+        0%, 100% {{ box-shadow: 0 0 0px rgba(212, 175, 55, 0); }}
+        50% {{ box-shadow: 0 0 12px rgba(212, 175, 55, 0.85); }}
+    }}
+</style>
+""", unsafe_allow_html=True)
+
+PROOF_DIR = os.path.join(os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))), "outputs", "proof_screenshots")
+
+def proof_popover(filename, caption):
+    path = os.path.join(PROOF_DIR, filename)
+    with st.popover("📸"):
+        if os.path.exists(path):
+            st.image(path, caption=caption, use_container_width=True)
+        else:
+            st.caption(f"Screenshot not added yet — save it as `outputs/proof_screenshots/{filename}`.")
+
+PROOF_MAP = {
+    "01": ("01_extract_karewa_terraces_vscode.png", "01_extract_karewa_terraces.py open in VS Code — the DEM-based TPI/slope extraction that generates the raw terrace candidate polygons."),
+    "03": ("06_terrace_degradation_qgis.png", "Terrace degradation status (stable vs. likely-degraded, from the NDVI bare-earth-fraction classification) across the Budgam–Pampore–Pulwama karewa belt, in QGIS."),
+    "04": ("02_saffron_terraces_qgis.png", "Degraded terraces and the saffron overlay loaded together in QGIS over a satellite basemap — the terrace-vs-saffron-cultivation view at the heart of this project's thesis."),
+    "09": ("05_road_proximity_qgis.png", "The road network loaded alongside terrace degradation status in QGIS — the layer behind the road-proximity Mann-Whitney test."),
+    "11": ("03_threshold_sensitivity_vscode.png", "11_threshold_sensitivity.py open in VS Code — added after an external AI review flagged all three thresholds as chosen by visual inspection with no reported sensitivity check."),
+    "12": ("04_robustness_effect_sizes_vscode.png", "12_robustness_and_effect_sizes.py open in VS Code — the resolution-mismatch quantification and Holm-Bonferroni correction across the three Mann-Whitney tests."),
+}
 
 steps = [
     ("01", "Extract Karewa Terraces", "DEM reprojected to UTM43N; slope via np.gradient; TPI via uniform_filter (window=17); threshold TPI>3 & slope<8°; vectorised via rasterio.features.shapes.", f"{d.TOTAL_CANDIDATES_RAW:,} raw candidate polygons"),
@@ -27,6 +82,11 @@ for num, title, method, result in steps:
         f"{num} — {title}",
         f"<p>{method}</p><p style='color:{GOLD}; font-weight:700; margin-bottom:0;'>Result: {result}</p>",
     )
+    if num in PROOF_MAP:
+        filename, caption = PROOF_MAP[num]
+        pc1, pc2 = st.columns([0.92, 0.08])
+        with pc2:
+            proof_popover(filename, caption)
 
 st.markdown("---")
 st.markdown("### Repository Structure")
