@@ -12,9 +12,10 @@
 
 | Document | What's Inside |
 |---|---|
-| 📘 [`Project_Journal.md`](./Project_Journal.md) | Polished project summary — methodology, findings, conclusions (start here) |
-| 📗 [`Research_Paper.md`](./Research_Paper.md) | Formal academic paper — literature review, statistical methodology, results, discussion |
-| 📙 [`Devlopment_Log.md`](./Devlopment_Log.md) | Full technical development log — every bug, debugging session, and methodology iteration |
+| ⚡ [`SS_Executive_Summary.pdf`](./SS_Executive_Summary.pdf) | One-page executive summary — question, method, headline finding, robustness checklist (start here) |
+| 📘 [`SS_Project_Report.md`](./SS_Project_Report.md) | Polished project summary — methodology, findings, conclusions |
+| 📗 [`SS_Research_Paper.md`](./SS_Research_Paper.md) | Formal academic paper — literature review, statistical methodology, results, discussion |
+| 📙 [`SS_Development_Log.md`](./SS_Development_Log.md) | Full technical development log — every bug, debugging session, and methodology iteration |
 
 ---
 
@@ -58,7 +59,7 @@ Interactive geospatial maps are hosted separately via GitHub Pages. Sample links
 
 **Saffron is not yet directly overlapped by degradation — but it is close.** Of 14 detected saffron-cultivating terraces, 43% sit within 1 km of an already-degraded terrace, and the nearest is just 80 m away. This is reported as an encroachment-risk finding, not a direct-loss one, and the underlying detected-area shortfall against the FAO baseline is documented openly rather than glossed over.
 
-Full methodology, including the governance-alignment question this study could not yet test, is documented in the dashboard's Methodology page and in `Project_Journal.md`.
+Full methodology, including the governance-alignment question this study could not yet test, is documented in the dashboard's Methodology page and in `SS_Project_Report.md`.
 
 ## 🗂️ Repository Structure
 
@@ -77,9 +78,10 @@ STOLEN_STRATA/
 │   ├── interactive_maps/            # QGIS2Web interactive web-map exports
 │   └── figures/dashboard_charts/    # Exported Plotly chart PNGs
 ├── notebooks/                       # Exploratory analysis notebooks
-├── Project_Journal.md               # Polished project summary and methodology
-├── Research_Paper.md                # Formal academic research paper
-├── Devlopment_Log.md                # Full technical development log
+├── SS_Executive_Summary.pdf         # One-page executive summary
+├── SS_Project_Report.md             # Polished project summary and methodology
+├── SS_Research_Paper.md             # Formal academic research paper
+├── SS_Development_Log.md            # Full technical development log
 └── requirements.txt                 # Full pipeline dependencies (see also dashboard/requirements.txt)
 ```
 
@@ -119,4 +121,4 @@ This project is licensed under [CC BY 4.0](LICENSE). See `CITATION.cff` for cita
 
 ---
 
-*This project's full development process — including every debugging session, methodology iteration, and technical decision — is documented in `Devlopment_Log.md` for full transparency and reproducibility.*
+*This project's full development process — including every debugging session, methodology iteration, and technical decision — is documented in `SS_Development_Log.md` for full transparency and reproducibility.*

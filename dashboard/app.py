@@ -70,6 +70,25 @@ col4.metric("Terraces Flagged Degraded", f"{d.DEGRADED_COUNT}", f"{d.DEGRADED_PC
 st.markdown("<br>", unsafe_allow_html=True)
 
 # ============================================================
+# WHY THIS MATTERS — real-world stakes callout
+# ============================================================
+card(
+    "⚡ Why This Matters",
+    f"""
+    <p>This isn't just a landform story. The karewas' loess cap is the only reason Kashmir's
+    Geographical Indication-tagged saffron (<i>Crocus sativus</i>) grows here at all — a crop the FAO's
+    own baseline ties to roughly {d.FAO_FARM_FAMILIES:,} farming families. Every hectare mined for
+    construction aggregate is permanently unavailable to that economy: unlike a fallow field, a
+    flattened terrace cannot be replanted. The finding that degradation tracks road proximity
+    (p = {d.ROAD_PROXIMITY_MANNWHITNEY_P}) turns an abstract land-cover statistic into an actionable
+    lever — unregulated mining is not randomly distributed, it is access-driven, meaning targeted
+    permitting and monitoring along road corridors near saffron-adjacent terraces could measurably slow
+    it before the post-2015 acceleration reaches deeper into the Geographical Indication belt.</p>
+    """,
+    badge="Real-World Stakes",
+)
+
+# ============================================================
 # THREE CARDS — stacked vertically, full width, one after another
 # ============================================================
 card(
@@ -148,9 +167,23 @@ st.markdown(
     unsafe_allow_html=True,
 )
 
-doc_col1, doc_col2, doc_col3 = st.columns(3)
+doc_col1, doc_col2, doc_col3, doc_col4 = st.columns(4)
 
 with doc_col1:
+    pdf_path = os.path.join(ROOT_DIR, "SS_Executive_Summary.pdf")
+    try:
+        with open(pdf_path, "rb") as f:
+            st.download_button(
+                label="⚡ Executive Summary",
+                data=f,
+                file_name="SS_Executive_Summary.pdf",
+                mime="application/pdf",
+                use_container_width=True
+            )
+    except FileNotFoundError:
+        st.warning("SS_Executive_Summary.pdf not found.")
+
+with doc_col2:
     pdf_path = os.path.join(ROOT_DIR, "SS_Research_Paper.pdf")
     try:
         with open(pdf_path, "rb") as f:
@@ -164,7 +197,7 @@ with doc_col1:
     except FileNotFoundError:
         st.warning("SS_Research_Paper.pdf not found.")
 
-with doc_col2:
+with doc_col3:
     pdf_path = os.path.join(ROOT_DIR, "SS_Project_Report.pdf")
     try:
         with open(pdf_path, "rb") as f:
@@ -178,7 +211,7 @@ with doc_col2:
     except FileNotFoundError:
         st.warning("SS_Project_Report.pdf not found.")
 
-with doc_col3:
+with doc_col4:
     pdf_path = os.path.join(ROOT_DIR, "SS_Development_Log.pdf")
     try:
         with open(pdf_path, "rb") as f:
