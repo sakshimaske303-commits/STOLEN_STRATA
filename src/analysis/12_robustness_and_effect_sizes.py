@@ -1,20 +1,20 @@
 """
-12_robustness_and_effect_sizes.py — Two checks added during the External AI
-Review round:
+12_robustness_and_effect_sizes.py — two checks:
 
 1. Resolution-mismatch robustness: 1994/2005/2015 use 30m Landsat, 2025 uses
-   10m Sentinel-2. Multiple reviewers flagged that finer resolution could
-   inflate the apparent post-2015 acceleration by detecting smaller bare-earth
-   patches that 30m pixels blur. This resamples the 2025 Sentinel-2 NDVI to
-   30m (average downsampling, matching the Landsat pixel size) and recomputes
-   the bare-earth fraction and net conversion, to quantify — not just assert —
-   how much of the trend is resolution and how much survives it.
+   10m Sentinel-2, which could inflate the apparent post-2015 acceleration by
+   detecting smaller bare-earth patches that 30m pixels blur. Resamples the
+   2025 Sentinel-2 NDVI to 30m (average downsampling, matching the Landsat
+   pixel size) and recomputes the bare-earth fraction and net conversion, to
+   quantify — not just assert — how much of the trend is resolution and how
+   much survives it.
 
-2. Effect sizes + multiple-comparison correction: the project runs three
-   Mann-Whitney U tests against degradation status (road proximity,
-   compactness, slope) but had only reported p-values with no effect size and
-   no correction for running three tests. Adds rank-biserial correlation for
-   each and a Holm-Bonferroni correction across all three.
+2. Effect sizes + multiple-comparison correction: the project runs four
+   Mann-Whitney U tests against degradation status (road proximity, settlement
+   proximity, compactness, slope) — rank-biserial correlation for each plus a
+   Holm-Bonferroni correction across all four, since running multiple
+   significance tests without correction inflates the family-wise
+   false-positive rate.
 """
 import geopandas as gpd
 import rasterio
@@ -94,26 +94,27 @@ intact = final[final['status'] == 'intact']
 
 tests = {}
 tests['road_proximity'] = rank_biserial(deg['dist_to_road_m'], intact['dist_to_road_m'], alternative='less') + ('degraded < intact, one-sided',)
+tests['settlement_proximity'] = rank_biserial(deg['dist_to_settlement_m'], intact['dist_to_settlement_m'], alternative='less') + ('degraded < intact, one-sided',)
 tests['compactness'] = rank_biserial(deg['compactness'], intact['compactness'], alternative='two-sided') + ('two-sided',)
 tests['slope'] = rank_biserial(deg['mean_slope'].dropna(), intact['mean_slope'].dropna(), alternative='two-sided') + ('two-sided',)
 
-print("\n=== Effect sizes (rank-biserial correlation r) for all 3 Mann-Whitney tests ===")
-print(f"{'test':<16} {'U':>10} {'p_raw':>10} {'effect_r':>10}   note")
+print("\n=== Effect sizes (rank-biserial correlation r) for all 4 Mann-Whitney tests ===")
+print(f"{'test':<20} {'U':>10} {'p_raw':>10} {'effect_r':>10}   note")
 for k, (U, p, r, note) in tests.items():
-    print(f"{k:<16} {U:>10.1f} {p:>10.4f} {r:>10.3f}   {note}")
+    print(f"{k:<20} {U:>10.1f} {p:>10.4f} {r:>10.3f}   {note}")
 
 pvals_sorted = sorted([(k, v[1]) for k, v in tests.items()], key=lambda x: x[1])
 m = len(pvals_sorted)
-print("\n--- Holm-Bonferroni correction across the 3 tests (family-wise alpha=0.05) ---")
+print("\n--- Holm-Bonferroni correction across the 4 tests (family-wise alpha=0.05) ---")
 for i, (k, p) in enumerate(pvals_sorted):
     adj_alpha = 0.05 / (m - i)
     sig = "SIGNIFICANT" if p < adj_alpha else "not significant"
     print(f"rank {i+1}: {k}: p={p:.4f}, Holm-adjusted alpha={adj_alpha:.4f} -> {sig}")
 
 print("""
-Reading: road proximity (r=0.268) and compactness (r=0.352) both survive
-Holm-Bonferroni correction across the 3-test family; slope was already
-non-significant before correction. Rank-biserial r around 0.27-0.35 indicates
-small-to-moderate effect sizes — real, but not overwhelming — which is a more
-honest characterisation than the bare p-values alone conveyed.
+Reading: settlement proximity, road proximity, and compactness all survive
+Holm-Bonferroni correction across the 4-test family; slope was already
+non-significant before correction. Rank-biserial r spans small-to-moderate to
+strong across the three surviving tests — real effects, characterised
+honestly rather than left as bare p-values.
 """)

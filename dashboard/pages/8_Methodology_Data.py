@@ -58,7 +58,7 @@ PROOF_MAP = {
     "03": ("06_terrace_degradation_qgis.png", "Terrace degradation status (stable vs. likely-degraded, from the NDVI bare-earth-fraction classification) across the Budgam–Pampore–Pulwama karewa belt, in QGIS."),
     "04": ("02_saffron_terraces_qgis.png", "Degraded terraces and the saffron overlay loaded together in QGIS over a satellite basemap — the terrace-vs-saffron-cultivation view at the heart of this project's thesis."),
     "09": ("05_road_proximity_qgis.png", "The road network loaded alongside terrace degradation status in QGIS — the layer behind the road-proximity Mann-Whitney test."),
-    "11": ("03_threshold_sensitivity_vscode.png", "11_threshold_sensitivity.py open in VS Code — added after an external AI review flagged all three thresholds as chosen by visual inspection with no reported sensitivity check."),
+    "11": ("03_threshold_sensitivity_vscode.png", "11_threshold_sensitivity.py open in VS Code — sweeps all three thresholds (TPI/slope, degradation, saffron signature) across a neighbourhood of plausible values, since all three were originally chosen by visual inspection with no reported sensitivity check."),
     "12": ("04_robustness_effect_sizes_vscode.png", "12_robustness_and_effect_sizes.py open in VS Code — the resolution-mismatch quantification and Holm-Bonferroni correction across the three Mann-Whitney tests."),
 }
 
@@ -73,8 +73,10 @@ steps = [
     ("08", "Multi-Temporal Trend", "Adds 2005 and 2015 NDVI (Landsat 5 / Landsat 8) for a 4-point trend.", "1.84% → 2.62% → 2.63% → 8.43%"),
     ("09", "Road Proximity", "osmnx road network extraction; distance to nearest road per terrace; Mann-Whitney U test.", f"p = {d.ROAD_PROXIMITY_MANNWHITNEY_P}"),
     ("10", "Geomorphometrics & Figures", "Compactness Index (4π·Area/Perimeter²) and mean slope per terrace, tested against degradation status; first static figure set.", f"compactness p={d.COMPACTNESS_MWU_P} (significant), slope p={d.SLOPE_MWU_P} (n.s.) — confirmed" if d.GEOMORPHOMETRICS_CONFIRMED else "pending confirmed run"),
-    ("11", "Threshold Sensitivity", "Sweeps the TPI/slope, degradation, and saffron thresholds across a neighbourhood of plausible values — added after External AI Review flagged all three as chosen by visual inspection with no reported sensitivity check.", "degradation: 23-31 terraces across 12-20pp; saffron proximity-risk: 39-44% across 0.05-0.175"),
-    ("12", "Robustness & Effect Sizes", "Resamples 2025 Sentinel-2 to 30m (matching earlier years' Landsat) to quantify the resolution-mismatch effect; adds rank-biserial effect sizes and a Holm-Bonferroni correction across the 3 Mann-Whitney tests.", "resolution: 8.43%→7.48% (real, modest); road proximity + compactness survive correction"),
+    ("11", "Threshold Sensitivity", "Sweeps the TPI/slope, degradation, and saffron thresholds across a neighbourhood of plausible values, since all three were originally chosen by visual inspection with no reported sensitivity check.", "degradation: 23-31 terraces across 12-20pp; saffron proximity-risk: 39-44% across 0.05-0.175"),
+    ("12", "Robustness & Effect Sizes", "Resamples 2025 Sentinel-2 to 30m (matching earlier years' Landsat) to quantify the resolution-mismatch effect; adds rank-biserial effect sizes and a Holm-Bonferroni correction across the Mann-Whitney tests.", f"resolution: 8.43%→7.48% (real, modest); settlement proximity, road proximity + compactness survive correction"),
+    ("14b", "Settlement Proximity", "osmnx building-footprint extraction (3,266 features); distance to nearest building per terrace; Mann-Whitney U test — a second, independent infrastructure signal alongside roads.", f"p = {d.SETTLEMENT_PROXIMITY_MANNWHITNEY_P} (strongest effect in the study, r={d.EFFECT_SIZE_SETTLEMENT_R})"),
+    ("15", "Economic Valuation", "Detected saffron area converted to annual production value using official 2024-25 state yield and price figures.", f"Rs {d.SAFFRON_TOTAL_VALUE_CR} cr/yr total, Rs {d.SAFFRON_AT_RISK_VALUE_CR} cr/yr within 1km risk radius"),
 ]
 
 for num, title, method, result in steps:
@@ -101,18 +103,19 @@ STOLEN_STRATA/
 │   ├── acquisition/   # reserved for scripted GEE acquisition (currently empty —
 │   │                   #   acquisition was run interactively in the GEE Code Editor)
 │   ├── preprocessing/  # reserved, currently empty
-│   ├── analysis/      # 01–10, the scripts described above
+│   ├── analysis/      # 01–15, the scripts described above
 │   └── visualization/
 ├── notebooks/
 ├── outputs/
 │   ├── maps/
 │   ├── interactive_maps/
+│   ├── ground_truth_sample_points.gpkg
 │   └── figures/
 ├── dashboard/          # this Streamlit app
 ├── tests/
-├── Research_Paper.md
-├── Project_Journal.md
-├── Devlopment_Log.md
+├── SS_Research_Paper.md
+├── SS_Project_Report.md
+├── SS_Development_Log.md
 └── requirements.txt
     """,
     language="text",

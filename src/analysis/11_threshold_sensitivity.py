@@ -2,8 +2,7 @@
 11_threshold_sensitivity.py — Sensitivity analysis for the three thresholds this
 project's classifications depend on: the TPI/slope terrace-delineation pair,
 the bare-earth degradation threshold (15 percentage points), and the saffron
-NDVI-signature threshold (0.15). Added during the External AI Review round —
-four independent reviewers flagged all three thresholds as chosen by visual
+NDVI-signature threshold (0.15). All three were originally chosen by visual
 inspection with no reported sensitivity check. This script answers that
 directly: it shows each headline count/finding across a neighbourhood of
 threshold values, rather than defending a single arbitrary cutoff.

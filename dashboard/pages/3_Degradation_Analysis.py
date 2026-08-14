@@ -145,5 +145,5 @@ card(
     <code>src/analysis/11_threshold_sensitivity.py</code> and
     <code>src/analysis/12_robustness_and_effect_sizes.py</code> for the full sweeps.</p>
     """,
-    badge="Added: External AI Review",
+    badge="Robustness Check",
 )
