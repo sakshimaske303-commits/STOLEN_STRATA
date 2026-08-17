@@ -23,14 +23,14 @@ st.markdown("---")
 # ============================================================
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))  # .../dashboard
 ROOT_DIR = os.path.dirname(BASE_DIR)                                     # repo root
-IMG_PATH = os.path.join(ROOT_DIR, "outputs", "figures", "img1.png")
+IMG_PATH = os.path.join(ROOT_DIR, "outputs", "figures", "imgg1.png")
 
-col_a, col_b, col_c = st.columns([1, 4, 1])
+col_a, col_b, col_c = st.columns([0.2, 5.9, 0.2])
 with col_b:
     if os.path.exists(IMG_PATH):
         st.image(IMG_PATH, use_container_width=True)
     else:
-        st.warning("Diagram not found at outputs/figures/img1.png")
+        st.warning("Diagram not found at outputs/figures/imgg1.png")
     st.markdown(
         f"<p style='text-align:center; color:{MUTED}; font-size:0.85rem; margin-top:6px;'>"
         "🤖 AI-generated diagram — visual only</p>",
