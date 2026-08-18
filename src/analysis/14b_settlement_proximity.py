@@ -1,7 +1,4 @@
-"""Settlement-proximity test, parallel to 09_road_proximity.py — same terrace
-polygons, same Mann-Whitney design, this time against OSM building footprints
-instead of the road network. Building data came from 14a (run locally, no
-internet in this environment)."""
+"""14b_settlement_proximity.py — Mann-Whitney test, same design as 09_road_proximity.py but against OSM building footprints."""
 
 import geopandas as gpd
 from scipy.stats import mannwhitneyu

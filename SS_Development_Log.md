@@ -30,6 +30,7 @@
 19. [Comprehensive Review and Deep Verify (2026-08-02)](#comprehensive-review-and-deep-verify-2026-08-02)
 20. [Structured Review — Triage and Fixes (2026-08-03)](#structured-review--triage-and-fixes-2026-08-03)
 21. [Infrastructure, Economic, and Regulatory Extension (2026-08-14)](#infrastructure-economic-and-regulatory-extension-2026-08-14)
+22. [Interactive Map Suite and Code Cleanup Pass (2026-08-14)](#interactive-map-suite-and-code-cleanup-pass-2026-08-14)
 
 ---
 
@@ -286,4 +287,18 @@ This is a genuinely strong robustness result — the affected share rises in a *
 **Also generated during this pass:** a 150-point stratified ground-truth sample (75 mapped bare-earth, 75 mapped vegetated, `outputs/ground_truth_sample_points.gpkg`) for manual reference-labelling against a satellite basemap — this is the highest-priority item from the review passes above, and is being labelled separately since it requires visual interpretation this pipeline cannot automate. Once labelled, it will produce the confusion matrix and producer's/user's accuracy figures those passes identified as missing.
 
 **Outcome:** Two new reproducible scripts (`14b_settlement_proximity.py`, `15_economic_valuation.py`) join the pipeline, continuing its numbering and script-first convention; `12_robustness_and_effect_sizes.py` was updated in place to run across four tests rather than three, since settlement proximity is now part of the study's design rather than an add-on. SS_Research_Paper.md, SS_Project_Report.md, README.md, and the dashboard were all updated to reflect the expanded scope consistently.
+
+## Interactive Map Suite and Code Cleanup Pass (2026-08-14)
+
+**Objective:** Rebuild the interactive map suite so every layer in the study — including the two added in the previous entry — has both a static and an interactive export, add a settlement-proximity static map to match the new interactive one, and pass through every script in the repo trimming comments down to short, functional notes.
+
+**Rebuilt — all interactive maps now generated from the project's own geopackages:** the QGIS2Web export path was dropped entirely (that pipeline had already excluded the saffron proximity-risk map over broken buffer symbology). `src/visualization/build_interactive_maps.py` now builds all 8 maps directly with GeoPandas + Folium — study area overview, terrace degradation status, terrace boundaries, Lethpora validation, saffron proximity risk (rebuilt with clean buffer rendering, fixing the earlier export issue), road network proximity, settlement proximity, and saffron economic value-at-risk. The road-network layer is merged into a single geometry before export (44,622 separate LineStrings brought the file to 11 MB; one merged MultiLineString brings it to 2.6 MB with no visual loss at this zoom range). Every map's feature count was checked against its source geopackage before treating the export as correct.
+
+**Added — two new static maps:** `src/visualization/build_static_maps.py` produces `outputs/maps/07_settlement_proximity.png` and `outputs/maps/08_economic_value_at_risk.png` in the same dark print-layout style as the original six QGIS exports (sampled the exact background/panel/legend colors from `06_road_network_proximity.png` to match). The original six static maps and all ten dashboard figures were checked against current data and left as-is — none of the underlying terrace, road, or compactness numbers changed this pass, so they remain accurate; only the two new layers needed new maps.
+
+**Updated — dashboard Interactive Maps page:** `dashboard/pages/7_Interactive_Maps.py` now lists all 8 maps in its dropdown and no longer carries the "saffron map temporarily excluded" caveat, since the rebuilt version renders correctly.
+
+**Code cleanup — comments trimmed to plain, functional notes:** swept every script under `src/` and `dashboard/` for docstrings and comment blocks that had drifted into explanatory-essay territory (`11_threshold_sensitivity.py`, `12_robustness_and_effect_sizes.py`, `15_economic_valuation.py`, `14a`/`14b`, `dashboard/data.py`, `dashboard/style.py`, `dashboard/export_charts.py`, `dashboard/pages/8_Methodology_Data.py`) and cut them down to one-line, working-note-style headers. Also fixed a stale filename reference in `01_extract_karewa_terraces.py`'s threshold-calibration comment (`Devlopment_Log.md` → `SS_Development_Log.md`, matching the earlier file-naming correction) and removed a leftover conversational line from `14a_download_settlement_footprints.py`'s final print statement.
+
+**Outcome:** Two new reproducible scripts (`build_interactive_maps.py`, `build_static_maps.py`) join `src/visualization/`; all 8 interactive maps and all 8 static maps are now generated from source data rather than partly depending on a QGIS export step. SS_Research_Paper.md gained Figures 14 and 15 and a note that every static map has an interactive counterpart; README.md's Interactive Maps and Interactive Plots sections were rebuilt to list all 8 maps; the portfolio site's STOLEN STRATA card was updated to link them individually via a dropdown, matching the pattern already used for other projects.
 

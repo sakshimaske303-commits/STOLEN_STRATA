@@ -83,6 +83,8 @@ Three thresholds this study depends on — the TPI/slope pair used for terrace d
 
 ## 4. Results
 
+Every static map below (Figures 1, 2, 3, 4, 9, 11, 14, 15) has a pannable/zoomable interactive counterpart built from the same geopackage, browsable from the dashboard's Interactive Maps page or linked directly in the README.
+
 ### 4.1 Terrace Delineation and Validation
 
 The terrace-delineation pipeline produced 201 candidate polygons spanning the Pampore-Pulwama-Budgam-Srinagar karewa belt. Overlaying these polygons on satellite basemap imagery showed them tracing visible upland terrain distinct from the forested valley floor and, critically, aligning with the independently labelled "Saffron Fields, Lethpora" location — a concrete ground-truth match rather than a coincidence of thresholding.
@@ -139,7 +141,7 @@ The Saffron Index flagged 14 of 201 terraces as likely saffron-cultivating, tota
 
 **Figure 10.** Share of saffron-cultivating terraces classified "at risk" across a range of proximity thresholds to the nearest degraded terrace, from 500 m to 2,500 m.
 
-At official 2024-25 state yield and value figures (5.27 kg/ha, an implied Rs 2.73 lakh/kg), the 225.4 ha this study detects as saffron-cultivating represents an estimated Rs 32.4 crore in annual production value. Of that, the six terraces within the 1 km at-risk radius — 123.6 ha, 54.8% of the detected saffron area — account for an estimated Rs 17.8 crore annually. This is a value-at-risk figure, not a loss estimate: it expresses how much annual production value currently sits within proximity range of active degradation, consistent with Section 4.4's finding that no saffron terrace directly overlaps mapped loss yet.
+At official 2024-25 state yield and value figures (5.27 kg/ha, an implied Rs 2.73 lakh/kg), the 225.4 ha this study detects as saffron-cultivating represents an estimated Rs 32.4 crore in annual production value. Of that, the six terraces within the 1 km at-risk radius — 123.6 ha, 54.8% of the detected saffron area — account for an estimated Rs 17.8 crore annually. This is a value-at-risk figure, not a loss estimate: it expresses how much annual production value currently sits within proximity range of active degradation, consistent with Section 4.4's finding that no saffron terrace directly overlaps mapped loss yet (see Figure 15).
 
 ### 4.5 Infrastructure Association: Degradation Follows Roads and Settlements
 
@@ -156,6 +158,14 @@ Degraded terraces sat a mean 75.6 m from the nearest road (median 0.0 m — over
 ![Distance to Nearest Settlement by Degradation Status](outputs/figures/06_settlement_distance_by_status.png)
 
 **Figure 13.** Distribution of terrace-to-nearest-building distance, compared between degraded and intact terraces (Mann-Whitney U, p = 0.0001).
+
+![Degradation vs Settlement Proximity](outputs/maps/07_settlement_proximity.png)
+
+**Figure 14.** Terrace degradation status overlaid against 3,266 OpenStreetMap building footprints, the spatial counterpart to Figure 13's distance distribution.
+
+![Saffron Economic Value-at-Risk](outputs/maps/08_economic_value_at_risk.png)
+
+**Figure 15.** The six saffron terraces within the 1 km degradation-proximity radius (Rs 17.8 crore/year) against the eight beyond it, relative to the 25 degraded terraces.
 
 ### 4.6 Geomorphometric Comparison: Compactness and Slope
 

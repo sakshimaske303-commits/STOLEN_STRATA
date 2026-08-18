@@ -8,14 +8,7 @@ inject_css()
 
 page_title("🧪 METHODOLOGY AND DATA", "Full pipeline, script-by-script")
 
-# ============================================================
-# PROOF-OF-WORK POPOVERS — tiny, pulsing "📸" buttons next to the
-# exact pipeline step they back up. Click to reveal the screenshot
-# inline; nothing pushes the page layout around. Drop the PNGs into
-# outputs/proof_screenshots/ (see PROOF_MAP below) and these activate
-# automatically — until then each falls back to a quiet "not added
-# yet" note instead of breaking the page.
-# ============================================================
+# Proof-of-work popovers — pulsing 📸 buttons, click to reveal screenshot
 st.markdown(f"""
 <style>
     div[data-testid="stPopover"] button {{

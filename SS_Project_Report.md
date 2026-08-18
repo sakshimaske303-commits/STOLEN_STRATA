@@ -78,13 +78,17 @@ RQ4's governance-alignment question stayed open (no fabricated policy-alignment 
 
 A 150-point stratified ground-truth sample (75 mapped bare-earth, 75 mapped vegetated) was generated for manual reference-labelling against a satellite basemap — the accuracy-assessment gap remains the single highest-priority item for future work, now with the sampling design in place pending manual labelling.
 
+### Phase 9 — Full Interactive and Static Map Suite
+
+Every analytical layer in the study — including settlement proximity and saffron economic value-at-risk, added in Phase 8 — now has both a static print-layout map and a pannable/zoomable interactive Leaflet export, built directly from the project's own geopackages rather than depending on a QGIS export step. Eight interactive maps and eight static maps cover terrace delineation, degradation status, saffron proximity risk, road and settlement proximity, and economic value-at-risk, all linked from the dashboard's Interactive Maps page and the README.
+
 ## Final Findings
 
 Karewa terrace surfaces show a genuine, quantifiable degradation signal, supporting Hypothesis H1: 190.3 hectares converted to bare-earth land cover since 1994, with the majority of that loss occurring only in the final decade of the study period — degradation here is recent and accelerating, not a steady multi-decadal process. The saffron-proximity pathway (H2) is also supported: while no saffron terrace directly overlaps mapped degradation yet, a substantial share sits within encroachment range — an estimated Rs 17.8 crore in annual production value — making this an early-warning finding rather than a direct-loss one. The infrastructure-access pathway (H3) is statistically confirmed against both infrastructure layers tested — degradation is significantly associated with road proximity and, more strongly still, settlement proximity, consistent with an accessibility-driven, economically rational model of unregulated mining rather than a geographically random one. The governance-alignment question (RQ4) remains open on the policy-targeting question specifically, limited by data availability rather than by the underlying analytical framework — but this study does establish that karewa land currently has no legal protection at all, regardless of how policy investment is targeted.
 
 ## Deliverables
 
-A fully reproducible, script-first geospatial pipeline spanning DEM-derived terrace delineation, four-point multi-temporal degradation detection, saffron-signature classification, dual infrastructure-proximity testing (roads and settlements), and economic valuation; a validated dataset of 201 karewa terraces carrying bare-earth fraction, degradation status, and infrastructure-proximity attributes; an eight-page interactive Streamlit dashboard presenting all findings alongside static and interactive QGIS-based cartography and Plotly interactive charts; a public, version-controlled GitHub repository; and a set of publication-quality maps and figures for the research paper and portfolio.
+A fully reproducible, script-first geospatial pipeline spanning DEM-derived terrace delineation, four-point multi-temporal degradation detection, saffron-signature classification, dual infrastructure-proximity testing (roads and settlements), and economic valuation; a validated dataset of 201 karewa terraces carrying bare-earth fraction, degradation status, and infrastructure-proximity attributes; a nine-page interactive Streamlit dashboard presenting all findings alongside eight static print-layout maps, eight interactive Leaflet maps, and Plotly interactive charts; a public, version-controlled GitHub repository; and a set of publication-quality maps and figures for the research paper and portfolio.
 
 ## Limitations
 

@@ -1,21 +1,4 @@
-"""
-12_robustness_and_effect_sizes.py — two checks:
-
-1. Resolution-mismatch robustness: 1994/2005/2015 use 30m Landsat, 2025 uses
-   10m Sentinel-2, which could inflate the apparent post-2015 acceleration by
-   detecting smaller bare-earth patches that 30m pixels blur. Resamples the
-   2025 Sentinel-2 NDVI to 30m (average downsampling, matching the Landsat
-   pixel size) and recomputes the bare-earth fraction and net conversion, to
-   quantify — not just assert — how much of the trend is resolution and how
-   much survives it.
-
-2. Effect sizes + multiple-comparison correction: the project runs four
-   Mann-Whitney U tests against degradation status (road proximity, settlement
-   proximity, compactness, slope) — rank-biserial correlation for each plus a
-   Holm-Bonferroni correction across all four, since running multiple
-   significance tests without correction inflates the family-wise
-   false-positive rate.
-"""
+"""12_robustness_and_effect_sizes.py — resolution-mismatch check (resample 2025 to 30m) + effect sizes/Holm-Bonferroni across the 4 Mann-Whitney tests."""
 import geopandas as gpd
 import rasterio
 from rasterio.warp import calculate_default_transform, reproject, Resampling
@@ -111,10 +94,4 @@ for i, (k, p) in enumerate(pvals_sorted):
     sig = "SIGNIFICANT" if p < adj_alpha else "not significant"
     print(f"rank {i+1}: {k}: p={p:.4f}, Holm-adjusted alpha={adj_alpha:.4f} -> {sig}")
 
-print("""
-Reading: settlement proximity, road proximity, and compactness all survive
-Holm-Bonferroni correction across the 4-test family; slope was already
-non-significant before correction. Rank-biserial r spans small-to-moderate to
-strong across the three surviving tests — real effects, characterised
-honestly rather than left as bare p-values.
-""")
+print("\nSettlement, road, and compactness survive Holm-Bonferroni correction; slope doesn't.")

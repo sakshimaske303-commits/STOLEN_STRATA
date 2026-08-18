@@ -27,7 +27,7 @@ Built on the same **"Trust, But Verify"** philosophy as the rest of this portfol
 
 ## 🗺️ Interactive Maps
 
-Interactive geospatial maps are hosted separately via GitHub Pages. Sample links:
+Eight fully interactive, pannable/zoomable maps, built directly from this project's own geopackages and hosted via GitHub Pages:
 
 **Terrace Delineation and Degradation**
 - [Study Area Overview](https://sakshimaske303-commits.github.io/STOLEN_STRATA/outputs/interactive_maps/01_study_area_overview/index.html)
@@ -35,15 +35,22 @@ Interactive geospatial maps are hosted separately via GitHub Pages. Sample links
 - [Delineated Terrace Boundaries](https://sakshimaske303-commits.github.io/STOLEN_STRATA/outputs/interactive_maps/03_terrace_boundaries/index.html)
 - [Validation at Saffron Fields, Lethpora](https://sakshimaske303-commits.github.io/STOLEN_STRATA/outputs/interactive_maps/04_validation_lethpora/index.html)
 
+**Saffron and Economic Risk**
+- [Saffron Proximity Risk](https://sakshimaske303-commits.github.io/STOLEN_STRATA/outputs/interactive_maps/05_saffron_proximity_risk/index.html)
+- [Saffron Economic Value-at-Risk](https://sakshimaske303-commits.github.io/STOLEN_STRATA/outputs/interactive_maps/08_economic_value_at_risk/index.html)
+
 **Infrastructure**
 - [Road Network Proximity](https://sakshimaske303-commits.github.io/STOLEN_STRATA/outputs/interactive_maps/06_road_network_proximity/index.html)
+- [Settlement Proximity](https://sakshimaske303-commits.github.io/STOLEN_STRATA/outputs/interactive_maps/07_settlement_proximity/index.html)
 
-*(For the full interactive experience with dynamic legends and key observations, visit the [live dashboard](https://stolenstrata-ekmgvmukfnfkpigxtgsak6.streamlit.app/) → Interactive Maps page)*
+*(Same eight maps are also browsable from a single dropdown on the [live dashboard](https://stolenstrata-ekmgvmukfnfkpigxtgsak6.streamlit.app/) → Interactive Maps page)*
 
 **Interactive Plots**
 - [Distance to Nearest Settlement by Degradation Status](outputs/figures/06_settlement_distance_by_status.png)
+- [Degradation vs Settlement Proximity (static map)](outputs/maps/07_settlement_proximity.png)
+- [Saffron Economic Value-at-Risk (static map)](outputs/maps/08_economic_value_at_risk.png)
 
-*(Settlement-proximity, economic-valuation, and legal-status findings are presented as live charts and cards on the dashboard's Governance and Saffron Vulnerability pages — visit the [live dashboard](https://stolenstrata-ekmgvmukfnfkpigxtgsak6.streamlit.app/) for the full interactive versions)*
+*(Settlement-proximity, economic-valuation, and legal-status findings are also presented as live charts and cards on the dashboard's Governance and Saffron Vulnerability pages — visit the [live dashboard](https://stolenstrata-ekmgvmukfnfkpigxtgsak6.streamlit.app/) for the full interactive versions)*
 
 ---
 
@@ -55,7 +62,7 @@ Interactive geospatial maps are hosted separately via GitHub Pages. Sample links
 - Tests whether degraded terraces are statistically closer to infrastructure than intact ones, using Mann-Whitney U tests against both the OpenStreetMap road network and building footprints — two independent accessibility signals
 - Benchmarks detected saffron extent against an independent FAO baseline, reporting the resulting shortfall transparently as a detection-recall limitation rather than a land-loss claim
 - Investigates whether any legal protection regime currently governs karewa excavation in Jammu & Kashmir, through J&K legislative reporting rather than a fabricated policy-alignment table
-- Presents all findings through an eight-page interactive Streamlit dashboard combining live charts, static QGIS cartography, and interactive QGIS-based web maps
+- Presents all findings through a nine-page interactive Streamlit dashboard combining live charts, static QGIS cartography, and interactive QGIS-based web maps
 
 ## 🔬 Key Findings
 
@@ -73,7 +80,7 @@ Full methodology, including the governance-alignment question this study could n
 
 ```text
 STOLEN_STRATA/
-├── dashboard/                       # Streamlit dashboard (8 pages)
+├── dashboard/                       # Streamlit dashboard (9 pages)
 │   └── pages/                       # Individual dashboard pages
 ├── data/
 │   ├── raw/                         # DEM, satellite composites (gitignored)
@@ -81,10 +88,11 @@ STOLEN_STRATA/
 ├── src/
 │   ├── analysis/                    # Terrace delineation, change detection, statistical tests,
 │   │                                 #   settlement proximity, economic valuation, ground-truth sampling
-│   └── visualization/               # AOI, settlement, and road-network export scripts
+│   └── visualization/               # AOI/settlement/road exports, interactive map builder (folium),
+│                                     #   static print-layout map builder (matplotlib)
 ├── outputs/
-│   ├── maps/                        # Static QGIS print-layout map exports
-│   ├── interactive_maps/            # QGIS2Web interactive web-map exports
+│   ├── maps/                        # Static print-layout map exports (8 maps)
+│   ├── interactive_maps/            # Interactive Leaflet web-map exports (8 maps)
 │   ├── figures/dashboard_charts/    # Exported Plotly chart PNGs
 │   ├── ground_truth_sample_points.gpkg  # Stratified sample for manual accuracy-assessment labelling
 │   └── economic_valuation_results.json
@@ -98,7 +106,7 @@ STOLEN_STRATA/
 
 ## 🛠️ Tech Stack
 
-Python · GeoPandas · Rasterio · NumPy / SciPy · Plotly · Kaleido · Streamlit · QGIS · QGIS2Web · GitHub Pages · Google Earth Engine · OSMnx
+Python · GeoPandas · Rasterio · NumPy / SciPy · Plotly · Kaleido · Folium · Matplotlib · Streamlit · QGIS · GitHub Pages · Google Earth Engine · OSMnx
 
 ## 📚 Data Sources
 

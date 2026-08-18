@@ -1,12 +1,4 @@
-"""
-11_threshold_sensitivity.py — Sensitivity analysis for the three thresholds this
-project's classifications depend on: the TPI/slope terrace-delineation pair,
-the bare-earth degradation threshold (15 percentage points), and the saffron
-NDVI-signature threshold (0.15). All three were originally chosen by visual
-inspection with no reported sensitivity check. This script answers that
-directly: it shows each headline count/finding across a neighbourhood of
-threshold values, rather than defending a single arbitrary cutoff.
-"""
+"""11_threshold_sensitivity.py — sweeps the TPI/slope, degradation, and saffron thresholds."""
 import geopandas as gpd
 import rasterio
 from rasterio.warp import calculate_default_transform, reproject, Resampling
@@ -92,16 +84,6 @@ for t in [0.05, 0.10, 0.125, 0.15, 0.175, 0.20, 0.25]:
     marker = "  <-- used" if t == 0.15 else ""
     print(f"{t:>10} {n:>4} {area_ha:>9.1f} {at_risk:>13} {pct:>12.0f}%{marker}")
 
-print("""
-Reading: the degradation-threshold and saffron-threshold sweeps both show the
-project's headline classifications sitting in a broad, stable neighbourhood
-rather than perched on an isolated spike — the 12-20pp degradation-threshold
-range flags 23-31 terraces (vs. the reported 25), and the proximity-risk share
-stays within 39-44% across the 0.05-0.175 saffron-threshold range (only
-diverging at very small n above 0.175, where 4-6 detected terraces make any
-percentage noisy). The TPI/slope grid is smooth and monotonic around the
-chosen (3, 8) pair, with no discontinuity nearby. None of this proves the
-thresholds are 'correct' in an absolute sense — no independently labelled
-validation set exists to calibrate against — but it does show the reported
-counts are not an artefact of one arbitrarily lucky cutoff.
-""")
+print("\nDegradation threshold: 23-31 terraces flagged across 12-20pp (reported: 25).")
+print("Saffron threshold: 39-44% proximity-risk share across 0.05-0.175 (noisy below n=6).")
+print("TPI/slope grid: smooth and monotonic around the chosen (3, 8) pair.")

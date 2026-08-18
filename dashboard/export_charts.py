@@ -1,16 +1,4 @@
-"""
-export_charts.py — Export the dashboard's Plotly charts as high-resolution PNGs
-for use in the research paper / portfolio, matching the dashboard's dark
-maroon/gold theme.
-
-Run from inside the dashboard/ folder:
-
-    python export_charts.py
-
-Output lands in ../outputs/figures/dashboard_charts/ (i.e.
-Stolen_Strata/outputs/figures/dashboard_charts/) by default. Re-run this any
-time you update numbers in data.py to regenerate all five PNGs.
-"""
+"""export_charts.py — exports dashboard Plotly charts as PNGs. Run: python export_charts.py"""
 
 import os
 import plotly.graph_objects as go

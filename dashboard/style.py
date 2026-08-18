@@ -1,14 +1,4 @@
-"""
-style.py — Shared visual theme for the Stolen Strata dashboard.
-
-Palette: "Loess Noir" — deep navy-black base, wine-maroon accent, antique gold
-highlight, cream text. Chosen to echo the project's subject matter: a dark,
-ancient sediment (the karewa loess) cut through with the maroon of exposed,
-disturbed earth and the gold of saffron.
-
-Import and call inject_css() at the top of every page (including app.py) so
-styling stays consistent across the whole multi-page app.
-"""
+"""style.py — shared theme ("Loess Noir": navy-black, wine-maroon, antique gold, cream). Call inject_css() on every page."""
 
 import streamlit as st
 import os

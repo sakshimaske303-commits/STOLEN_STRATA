@@ -1,21 +1,10 @@
-"""Economic value-at-risk for the saffron-proximity finding (Section 4.4 / map5).
-Framed as annual production value sitting within proximity range of active
-degradation, not as a realized loss — no saffron terrace directly overlaps
-mapped degradation, so a loss claim would misstate the finding.
-
-Yield and price come from the same official 2024-25 J&K Legislative Assembly
-figures (Agriculture Production Department, in reply to MLA Hasnain Masoodi,
-reported in Greater Kashmir / Kashmir Life, Feb 2026): 19.58 MT produced from
-3,715 ha statewide, valued at Rs 534.53 crore. Price-per-kg is not stated
-directly in the assembly reply; it's derived here as value / quantity from
-that same source rather than pulled from a separate retail listing, so yield,
-area and price are all internally consistent with one official dataset.
-"""
+"""15_economic_valuation.py — saffron value-at-risk in rupees, not just hectares."""
 
 import json
 import geopandas as gpd
 
-# --- Official 2024-25 J&K saffron figures (source: see docstring) ---
+# Official 2024-25 J&K figures — J&K Legislative Assembly, Agriculture Production
+# Dept, reply to MLA Hasnain Masoodi, Feb 2026 (Greater Kashmir / Kashmir Life).
 STATEWIDE_PRODUCTION_KG = 19.58 * 1000
 STATEWIDE_AREA_HA = 3715
 STATEWIDE_VALUE_RS = 534.53 * 1e7

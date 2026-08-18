@@ -65,11 +65,8 @@ tpi = dem - uniform_filter(dem, size=window_size)
 print(f"Slope range: {slope.min():.1f} / {slope.max():.1f}")
 print(f"TPI range: {tpi.min():.2f} / {tpi.max():.2f} / mean {tpi.mean():.2f}")
 
-# Calibrated thresholds (see Devlopment_Log.md "Day 1"): an initial TPI>5/slope<5 pass
-# produced only 115 thin, sliver-shaped candidates after filtering — geomorphologically
-# implausible for a terrace tread. Loosening to TPI>3/slope<8 recovered 201 proper
-# blob-shaped candidates, cross-validated against the Saffron Fields, Lethpora ground
-# truth. This is the threshold pair that produced every reported result in this project.
+# Calibrated thresholds (SS_Development_Log.md "Day 1") — TPI>5/slope<5 gave only
+# 115 sliver candidates; TPI>3/slope<8 recovered 201 proper blob-shaped ones.
 tpi_threshold = 3
 slope_threshold = 8
 karewa_mask = (tpi > tpi_threshold) & (slope < slope_threshold)

@@ -1,12 +1,4 @@
-"""
-data.py — Central results store for the Stolen Strata dashboard.
-
-These figures are transcribed from the outputs of src/analysis/01-09 (and,
-where noted, are pending confirmation from 10_geomorphometrics_and_figures.py).
-When you re-run any analysis script and the numbers change, update them here —
-every dashboard page reads from this single module so there is only one
-place to keep in sync.
-"""
+"""data.py — central results store for the dashboard. Update here when analysis numbers change."""
 
 # ---- Terrace delineation (01, 02) --------------------------------------
 TOTAL_CANDIDATES_RAW = 6789          # TPI/slope threshold output, pre-filter
