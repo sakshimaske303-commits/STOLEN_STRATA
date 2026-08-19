@@ -42,7 +42,6 @@ st.markdown(
                 padding: 16px 32px;
                 box-shadow: 0 4px 20px rgba(139, 30, 63, 0.35);
             ">
-                <span style="font-size:2.1rem; line-height:1;">📦</span>
                 <div style="text-align:left;">
                     <div style="color:{GOLD}; font-family:'Montserrat',sans-serif; font-weight:800; font-size:1.05rem; letter-spacing:0.4px; display:flex; align-items:center; gap:8px;">
                         <span>ARCHIVED &amp; CITABLE ON ZENODO</span>
@@ -73,7 +72,7 @@ st.markdown("<br>", unsafe_allow_html=True)
 # WHY THIS MATTERS — real-world stakes callout
 # ============================================================
 card(
-    "⚡ Why This Matters",
+    "Why This Matters",
     f"""
     <p>This isn't just a landform story. The karewas' loess cap is the only reason Kashmir's
     Geographical Indication-tagged saffron (<i>Crocus sativus</i>) grows here at all — a crop the FAO's
@@ -174,7 +173,7 @@ with doc_col1:
     try:
         with open(pdf_path, "rb") as f:
             st.download_button(
-                label="⚡ Executive Summary",
+                label="Executive Summary",
                 data=f,
                 file_name="SS_Executive_Summary.pdf",
                 mime="application/pdf",
@@ -188,7 +187,7 @@ with doc_col2:
     try:
         with open(pdf_path, "rb") as f:
             st.download_button(
-                label="📗 Research Paper",
+                label="Research Paper",
                 data=f,
                 file_name="SS_Research_Paper.pdf",
                 mime="application/pdf",
@@ -202,7 +201,7 @@ with doc_col3:
     try:
         with open(pdf_path, "rb") as f:
             st.download_button(
-                label="📘 Project Report",
+                label="Project Report",
                 data=f,
                 file_name="SS_Project_Report.pdf",
                 mime="application/pdf",
@@ -216,7 +215,7 @@ with doc_col4:
     try:
         with open(pdf_path, "rb") as f:
             st.download_button(
-                label="📙 Development Log",
+                label="Development Log",
                 data=f,
                 file_name="SS_Development_Log.pdf",
                 mime="application/pdf",
@@ -252,7 +251,7 @@ st.markdown(
             text-decoration:none;
         '>
             <span style='color:{GOLD} !important; font-weight:700; font-size:1rem;'>
-                🔗 View Full Project on GitHub
+                View Full Project on GitHub
             </span>
         </a>
     </div>

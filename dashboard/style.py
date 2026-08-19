@@ -259,7 +259,7 @@ def card(title: str, body_html: str, badge: str = None):
 
 def map_placeholder(caption: str = "Map will be uploaded here"):
     st.markdown(
-        f'<div class="ss-placeholder">🗺️ &nbsp; {caption}</div>',
+        f'<div class="ss-placeholder">{caption}</div>',
         unsafe_allow_html=True,
     )
 

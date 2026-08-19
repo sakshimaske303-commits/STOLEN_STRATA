@@ -19,7 +19,7 @@ st.markdown(
     ">
         <div style="color:{GOLD}; font-family:'Montserrat',sans-serif; font-weight:800;
                     font-size:0.85rem; letter-spacing:0.6px; text-transform:uppercase; margin-bottom:0.7rem;">
-            🔍 Robustness At a Glance
+            Robustness At a Glance
         </div>
         <div style="display:flex; flex-wrap:wrap; gap:0.5rem;">
             <span style="background:rgba(46,204,113,0.15); border:1px solid #2ECC71; color:#2ECC71;

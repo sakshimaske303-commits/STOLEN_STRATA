@@ -8,7 +8,7 @@ inject_css()
 
 page_title("🧪 METHODOLOGY AND DATA", "Full pipeline, script-by-script")
 
-# Proof-of-work popovers — pulsing 📸 buttons, click to reveal screenshot
+# Proof-of-work popovers — pulsing buttons, click to reveal screenshot
 st.markdown(f"""
 <style>
     div[data-testid="stPopover"] button {{
@@ -40,7 +40,7 @@ PROOF_DIR = os.path.join(os.path.dirname(os.path.dirname(os.path.dirname(os.path
 
 def proof_popover(filename, caption):
     path = os.path.join(PROOF_DIR, filename)
-    with st.popover("📸"):
+    with st.popover("Proof"):
         if os.path.exists(path):
             st.image(path, caption=caption, use_container_width=True)
         else:

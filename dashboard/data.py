@@ -39,7 +39,7 @@ AT_RISK_1000M_TOTAL = 14
 AT_RISK_1000M_PCT = round(AT_RISK_1000M_COUNT / AT_RISK_1000M_TOTAL * 100, 0)
 
 SENSITIVITY_THRESHOLDS_M = [500, 750, 1000, 1500, 2000, 2500]
-SENSITIVITY_AT_RISK_PCT = [21, 29, 43, 71, 86, 93]  # all 6 points independently recomputed from raw data and confirmed exact (Deep Verify, 2026-08-02)
+SENSITIVITY_AT_RISK_PCT = [21, 29, 43, 71, 86, 93]  # all 6 points independently recomputed from raw data and confirmed exact (Deep Verify)
 
 # ---- Road proximity / governance (09) -------------------------------------
 ROAD_PROXIMITY_MANNWHITNEY_P = 0.0116
@@ -77,7 +77,7 @@ KAREWA_LEGAL_STATUS_FINDING = (
     "excavation permissions the bill would restrict."
 )
 
-# ---- Geomorphometrics (10 — confirmed 2026-08-02) -------------------------
+# ---- Geomorphometrics (10 — confirmed) -------------------------
 GEOMORPHOMETRICS_CONFIRMED = True
 COMPACTNESS_MEAN_INTACT = 0.191      # 4*pi*Area/Perimeter^2; 1.0 = circular/compact
 COMPACTNESS_MEAN_DEGRADED = 0.138

@@ -1,21 +1,21 @@
-# 🏔️ STOLEN STRATA — A Landform Under Erasure
+# STOLEN STRATA — A Landform Under Erasure
 
 **Quantifying how much of Kashmir's karewa terraces have been lost to unregulated mining — and what that means for the saffron economy they sustain.**
 
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.21766464.svg)](https://doi.org/10.5281/zenodo.21766464)
 
-## 🔗 Live Dashboard
+## Live Dashboard
 
 **[View the interactive dashboard →](https://stolenstrata-ekmgvmukfnfkpigxtgsak6.streamlit.app/)**
 
-## 📄 Project Documentation
+## Project Documentation
 
 | Document | What's Inside |
 |---|---|
-| ⚡ [`SS_Executive_Summary.pdf`](./SS_Executive_Summary.pdf) | One-page executive summary — question, method, headline finding, robustness checklist (start here) |
-| 📘 [`SS_Project_Report.md`](./SS_Project_Report.md) | Polished project summary — methodology, findings, conclusions |
-| 📗 [`SS_Research_Paper.md`](./SS_Research_Paper.md) | Formal academic paper — literature review, statistical methodology, results, discussion |
-| 📙 [`SS_Development_Log.md`](./SS_Development_Log.md) | Full technical development log — every bug, debugging session, and methodology iteration |
+| [`SS_Executive_Summary.pdf`](./SS_Executive_Summary.pdf) | One-page executive summary — question, method, headline finding, robustness checklist (start here) |
+| [`SS_Project_Report.md`](./SS_Project_Report.md) | Polished project summary — methodology, findings, conclusions |
+| [`SS_Research_Paper.md`](./SS_Research_Paper.md) | Formal academic paper — literature review, statistical methodology, results, discussion |
+| [`SS_Development_Log.md`](./SS_Development_Log.md) | Full technical development log — every bug, debugging session, and methodology iteration |
 
 ---
 
@@ -25,7 +25,7 @@ Built on the same **"Trust, But Verify"** philosophy as the rest of this portfol
 
 ---
 
-## 🗺️ Interactive Maps
+## Interactive Maps
 
 Eight fully interactive, pannable/zoomable maps, built directly from this project's own geopackages and hosted via GitHub Pages:
 
@@ -54,7 +54,7 @@ Eight fully interactive, pannable/zoomable maps, built directly from this projec
 
 ---
 
-## 📊 What This Project Does
+## What This Project Does
 
 - Delineates 201 karewa terrace boundaries algorithmically from a Copernicus DEM using a Topographic Position Index and slope threshold — no manual digitization
 - Tracks bare-earth land-cover fraction across four independent time points (1994, 2005, 2015, 2025) using season-matched Landsat and Sentinel-2 composites, revealing when degradation actually accelerated rather than assuming a steady multi-decadal trend
@@ -64,7 +64,7 @@ Eight fully interactive, pannable/zoomable maps, built directly from this projec
 - Investigates whether any legal protection regime currently governs karewa excavation in Jammu & Kashmir, through J&K legislative reporting rather than a fabricated policy-alignment table
 - Presents all findings through a nine-page interactive Streamlit dashboard combining live charts, static QGIS cartography, and interactive QGIS-based web maps
 
-## 🔬 Key Findings
+## Key Findings
 
 **Degradation is recent and accelerating, not a slow multi-decadal process.** Mean bare-earth fraction across all 201 terraces was essentially flat from 1994 to 2015, then more than tripled between 2015 and 2025 — 190.3 hectares converted to bare-earth land cover overall, 67% of it concentrated within just 12.4% of terraces.
 
@@ -76,7 +76,7 @@ Eight fully interactive, pannable/zoomable maps, built directly from this projec
 
 Full methodology, including the governance-alignment question this study could not yet test, is documented in the dashboard's Methodology page and in `SS_Project_Report.md`.
 
-## 🗂️ Repository Structure
+## Repository Structure
 
 ```text
 STOLEN_STRATA/
@@ -104,11 +104,11 @@ STOLEN_STRATA/
 └── requirements.txt                 # Full pipeline dependencies (see also dashboard/requirements.txt)
 ```
 
-## 🛠️ Tech Stack
+## Tech Stack
 
 Python · GeoPandas · Rasterio · NumPy / SciPy · Plotly · Kaleido · Folium · Matplotlib · Streamlit · QGIS · GitHub Pages · Google Earth Engine · OSMnx
 
-## 📚 Data Sources
+## Data Sources
 
 | Dataset | Provider |
 |---|---|
@@ -118,7 +118,7 @@ Python · GeoPandas · Rasterio · NumPy / SciPy · Plotly · Kaleido · Folium 
 | Road Network | OpenStreetMap (via OSMnx) |
 | Saffron Cultivation Baseline | FAO GIAHS — Saffron Heritage Site of Kashmir |
 
-## ▶️ Running Locally
+## Running Locally
 
 ```bash
 git clone https://github.com/sakshimaske303-commits/STOLEN_STRATA.git
@@ -128,13 +128,13 @@ cd dashboard
 streamlit run app.py
 ```
 
-## 👤 Author
+## Author
 
 **Sakshi D. Maske**
 
 Independent Geospatial Researcher
 
-## 📜 License
+## License
 
 This project is licensed under [CC BY 4.0](LICENSE). See `CITATION.cff` for citation metadata.
 

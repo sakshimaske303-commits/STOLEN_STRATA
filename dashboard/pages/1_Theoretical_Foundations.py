@@ -33,20 +33,7 @@ with col_b:
         st.warning("Diagram not found at outputs/figures/imgg1.png")
     st.markdown(
         f"<p style='text-align:center; color:{MUTED}; font-size:0.85rem; margin-top:6px;'>"
-        "🤖 AI-generated diagram — visual only</p>",
-        unsafe_allow_html=True,
-    )
-    st.markdown(
-        f"""
-        <div style="background: {BG_CARD}; border: 1px solid rgba(212,175,55,0.3);
-                    border-radius: 10px; padding: 14px 20px; margin-top: 6px;">
-            <p style="color:{MUTED}; font-size:0.85rem; font-style:italic; margin:0; text-align:center;">
-                Generated with an AI image tool from a fully-specified brief — every process, label, and
-                physical relationship shown was authored by me from my own understanding of
-                Quaternary landform genesis; the AI was directed to illustrate it, not to originate it.
-            </p>
-        </div>
-        """,
+        "AI was used to help generate this image, but the concept and every detail in it are mine.</p>",
         unsafe_allow_html=True,
     )
 
