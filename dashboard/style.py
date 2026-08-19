@@ -33,10 +33,7 @@ def inject_css():
             padding-top: 1.5rem !important;
         }}
 
-        /* ---- Sidebar collapse/expand button — safety net covering every
-        naming variant Streamlit has used across versions. The button exists
-        by default, but on a dark theme like this one it renders low-contrast
-        (near-invisible) and can fail to show on mobile without this. ---- */
+        /* Collapse button — covers all testid variants; was near-invisible on dark theme */
         [data-testid="collapsedControl"],
         [data-testid="stSidebarCollapsedControl"],
         [data-testid="stSidebarCollapseButton"],
