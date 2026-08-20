@@ -1,4 +1,5 @@
 import streamlit as st
+import streamlit.components.v1 as components
 from style import inject_css, card, map_placeholder, page_title, map_image, GOLD
 import data as d
 
@@ -20,7 +21,15 @@ card(
     badge="Where",
 )
 
-st.image(map_image("01_study_area_overview.png"), use_container_width=True)
+components.iframe(
+    src="https://sakshimaske303-commits.github.io/STOLEN_STRATA/outputs/interactive_maps/01_study_area_overview/index.html",
+    height=560,
+    scrolling=True,
+)
+st.markdown(
+    "<p style='text-align:center; font-size:0.85rem; color:#999;'>The three-district study area boundary, waterways, and settlements — pan, zoom, and click features to inspect them.</p>",
+    unsafe_allow_html=True,
+)
 
 c1, c2 = st.columns(2)
 with c1:
