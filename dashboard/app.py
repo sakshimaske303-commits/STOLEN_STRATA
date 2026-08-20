@@ -2,6 +2,7 @@ import streamlit as st
 import os
 from style import inject_css, card, GOLD, MAROON, BG_CARD, BG_PANEL, CREAM
 import data as d
+from doc_viewer import render_doc_viewer
 
 st.set_page_config(
     page_title="Stolen Strata | Kashmir Karewa Terraces",
@@ -166,63 +167,28 @@ st.markdown(
     unsafe_allow_html=True,
 )
 
-doc_col1, doc_col2, doc_col3, doc_col4 = st.columns(4)
+_all_docs = [
+    {"label": "Executive Summary", "filename": "SS_Executive_Summary.pdf"},
+    {"label": "Research Paper", "filename": "SS_Research_Paper.pdf"},
+    {"label": "Project Report", "filename": "SS_Project_Report.pdf"},
+    {"label": "Development Log", "filename": "SS_Development_Log.pdf"},
+]
+_docs = [d for d in _all_docs if os.path.exists(os.path.join(BASE_DIR, "static", d["filename"]))]
+_missing = [d for d in _all_docs if d not in _docs]
 
-with doc_col1:
-    pdf_path = os.path.join(ROOT_DIR, "SS_Executive_Summary.pdf")
-    try:
-        with open(pdf_path, "rb") as f:
-            st.download_button(
-                label="Executive Summary",
-                data=f,
-                file_name="SS_Executive_Summary.pdf",
-                mime="application/pdf",
-                use_container_width=True
-            )
-    except FileNotFoundError:
-        st.warning("SS_Executive_Summary.pdf not found.")
-
-with doc_col2:
-    pdf_path = os.path.join(ROOT_DIR, "SS_Research_Paper.pdf")
-    try:
-        with open(pdf_path, "rb") as f:
-            st.download_button(
-                label="Research Paper",
-                data=f,
-                file_name="SS_Research_Paper.pdf",
-                mime="application/pdf",
-                use_container_width=True
-            )
-    except FileNotFoundError:
-        st.warning("SS_Research_Paper.pdf not found.")
-
-with doc_col3:
-    pdf_path = os.path.join(ROOT_DIR, "SS_Project_Report.pdf")
-    try:
-        with open(pdf_path, "rb") as f:
-            st.download_button(
-                label="Project Report",
-                data=f,
-                file_name="SS_Project_Report.pdf",
-                mime="application/pdf",
-                use_container_width=True
-            )
-    except FileNotFoundError:
-        st.warning("SS_Project_Report.pdf not found.")
-
-with doc_col4:
-    pdf_path = os.path.join(ROOT_DIR, "SS_Development_Log.pdf")
-    try:
-        with open(pdf_path, "rb") as f:
-            st.download_button(
-                label="Development Log",
-                data=f,
-                file_name="SS_Development_Log.pdf",
-                mime="application/pdf",
-                use_container_width=True
-            )
-    except FileNotFoundError:
-        st.warning("SS_Development_Log.pdf not found.")
+if _docs:
+    render_doc_viewer(
+        docs=_docs,
+        colors={
+            "navy_dark": BG_PANEL,
+            "navy_med": BG_CARD,
+            "magenta": MAROON,
+            "teal": GOLD,
+            "text_light": CREAM,
+        },
+    )
+for d in _missing:
+    st.warning(f"{d['filename']} not found.")
 
 # ============================================================
 # FOOTER — name, role, and GitHub link, in a styled card

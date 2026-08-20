@@ -7,3 +7,6 @@ textColor = "#F5F1E8"
 font = "sans serif"
 
 
+
+[server]
+enableStaticServing = true
