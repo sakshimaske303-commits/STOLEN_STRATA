@@ -4,7 +4,10 @@ numpy
 scipy
 osmnx
 matplotlib
+matplotlib-scalebar
 shapely
+folium
+branca
 streamlit>=1.32
 plotly>=5.18
 kaleido==0.2.1

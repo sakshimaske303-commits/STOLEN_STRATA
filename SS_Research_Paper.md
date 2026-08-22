@@ -1,6 +1,8 @@
-# Sakshi D. Maske
+# Stolen Strata: Quantifying the Anthropogenic Erasure of Kashmir's Karewa Terraces and Its Threat to the Saffron Economy
 
-Independent Geospatial Researcher
+Sakshi D. Maske
+
+*Independent Geospatial Researcher*
 
 ## Abstract
 

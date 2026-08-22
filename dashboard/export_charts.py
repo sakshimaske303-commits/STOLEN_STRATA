@@ -6,7 +6,7 @@ import plotly.graph_objects as go
 from style import MAROON, MAROON_LIGHT, GOLD, TEAL, BG_CARD, BG_PRIMARY, CREAM
 import data as d
 
-OUT_DIR = os.path.join("..", "outputs", "figures", "dashboard_charts")
+OUT_DIR = os.path.join("..", "outputs", "figures")
 os.makedirs(OUT_DIR, exist_ok=True)
 
 WIDTH, HEIGHT, SCALE = 1300, 800, 3  # high-res for print/paper use

@@ -15,3 +15,6 @@ data/raw/
 *.qgz~
 *.gpkg-shm
 *.gpkg-wal
+
+# osmnx HTTP response cache
+cache/

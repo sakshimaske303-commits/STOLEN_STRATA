@@ -155,5 +155,3 @@ ECONOMIC_VALUATION_NOTE = (
     "value sits within proximity range of active degradation, not a realized-loss "
     "estimate: no saffron terrace directly overlaps mapped degradation."
 )
-
-GITHUB_URL_PLACEHOLDER = "https://github.com/YOUR-USERNAME/Stolen-Strata"

@@ -1,1 +1,0 @@
-var json_aoi_bbox_2 = {"type":"FeatureCollection","name":"aoi_bbox_2","crs":{"type":"name","properties":{"name":"urn:ogc:def:crs:OGC:1.3:CRS84"}},"features":[{"type":"Feature","properties":{"fid":"1","name":"Study Area AOI"},"geometry":{"type":"Polygon","coordinates":[[[75.15,33.85],[75.15,34.15],[74.75,34.15],[74.75,33.85],[75.15,33.85]]]}}]}

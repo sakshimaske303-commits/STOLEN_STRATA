@@ -82,7 +82,7 @@ st.table(
         "Data": [
             "Landsat 5/7/8/9 archive (1990s–2026)",
             "Sentinel-2 (2015–2026)",
-            "DEM (SRTM/Copernicus)",
+            "DEM (Copernicus GLO-30)",
             "Saffron cultivation extent",
             "National Saffron Mission documentation",
             "OpenStreetMap road network",

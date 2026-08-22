@@ -93,7 +93,7 @@ STOLEN_STRATA/
 ├── outputs/
 │   ├── maps/                        # Static print-layout map exports (8 maps)
 │   ├── interactive_maps/            # Interactive Leaflet web-map exports (8 maps)
-│   ├── figures/dashboard_charts/    # Exported Plotly chart PNGs
+│   ├── figures/                     # Static maps, matplotlib figures, and exported Plotly chart PNGs
 │   ├── ground_truth_sample_points.gpkg  # Stratified sample for manual accuracy-assessment labelling
 │   └── economic_valuation_results.json
 ├── notebooks/                       # Exploratory analysis notebooks
