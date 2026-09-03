@@ -143,7 +143,7 @@ The Saffron Index flagged 14 of 201 terraces as likely saffron-cultivating, tota
 
 **Figure 10.** Share of saffron-cultivating terraces classified "at risk" across a range of proximity thresholds to the nearest degraded terrace, from 500 m to 2,500 m.
 
-At official 2024-25 state yield and value figures (5.27 kg/ha, an implied Rs 2.73 lakh/kg), the 225.4 ha this study detects as saffron-cultivating represents an estimated Rs 32.4 crore in annual production value. Of that, the six terraces within the 1 km at-risk radius — 123.6 ha, 54.8% of the detected saffron area — account for an estimated Rs 17.8 crore annually. This is a value-at-risk figure, not a loss estimate: it expresses how much annual production value currently sits within proximity range of active degradation, consistent with Section 4.4's finding that no saffron terrace directly overlaps mapped loss yet (see Figure 15).
+At official 2024-25 state yield and value figures (5.27 kg/ha, an implied Rs 2.73 lakh/kg), the 225.4 ha this study detects as saffron-cultivating represents an estimated Rs 32.4 crore in annual production value. Of that, the six terraces within the 1 km at-risk radius — 123.6 ha, 54.8% of the detected saffron area — account for an estimated Rs 17.8 crore annually. This is a value-at-risk figure, not a loss estimate: it expresses how much annual production value currently sits within proximity range of active degradation, consistent with the finding earlier in this section that no saffron terrace directly overlaps mapped loss yet (see Figure 15).
 
 ### 4.5 Infrastructure Association: Degradation Follows Roads and Settlements
 

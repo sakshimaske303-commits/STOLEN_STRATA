@@ -143,8 +143,8 @@ st.markdown(
     f"""
     <p style="text-align:center; color:#9AA5B8; font-size:0.9rem;">
         Use the sidebar to navigate — Study Design → Theoretical Foundations → Geomorphological Delineation
-        → Degradation Analysis → Saffron Vulnerability → Governance &amp; Infrastructure → Explore Trends →
-        Interactive Maps → Methodology &amp; Data. (Author and GitHub link are at the bottom of this page.)
+        → Degradation Analysis → Saffron Vulnerability → Governance &amp; Infrastructure → Ground Verification
+        → Explore Trends → Interactive Maps → Methodology &amp; Data. (Author and GitHub link are at the bottom of this page.)
     </p>
     """,
     unsafe_allow_html=True,
@@ -170,7 +170,6 @@ st.markdown(
 _all_docs = [
     {"label": "Executive Summary", "filename": "SS_Executive_Summary.pdf"},
     {"label": "Research Paper", "filename": "SS_Research_Paper.pdf"},
-    {"label": "Project Report", "filename": "SS_Project_Report.pdf"},
     {"label": "Development Log", "filename": "SS_Development_Log.pdf"},
 ]
 _docs = [d for d in _all_docs if os.path.exists(os.path.join(BASE_DIR, "static", d["filename"]))]

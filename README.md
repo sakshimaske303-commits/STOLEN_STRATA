@@ -12,8 +12,7 @@
 
 | Document | What's Inside |
 |---|---|
-| [`SS_Executive_Summary.pdf`](./SS_Executive_Summary.pdf) | One-page executive summary — question, method, headline finding, robustness checklist (start here) |
-| [`SS_Project_Report.md`](./SS_Project_Report.md) | Polished project summary — methodology, findings, conclusions |
+| [`SS_Executive_Summary.pdf`](./SS_Executive_Summary.pdf) ([.md source](./SS_Executive_Summary.md)) | One-page executive summary — project overview, question, method, headline finding, robustness checklist (start here) |
 | [`SS_Research_Paper.md`](./SS_Research_Paper.md) | Formal academic paper — literature review, statistical methodology, results, discussion |
 | [`SS_Development_Log.md`](./SS_Development_Log.md) | Full technical development log — every bug, debugging session, and methodology iteration |
 
@@ -74,7 +73,7 @@ Eight fully interactive, pannable/zoomable maps, built directly from this projec
 
 **No law currently protects karewa land from excavation.** A private member's bill proposing a dedicated Karewa Protection Authority, mandatory environmental impact assessment, and penalties of up to ₹10 lakh and five years' imprisonment remains pending as of the most recent reporting located, while the Revenue and Geology & Mining Departments continue to issue the excavation permissions the bill would restrict. This means the infrastructure-proximity findings above describe extraction proceeding in a genuinely unregulated space, not enforcement failure against an existing rule.
 
-Full methodology, including the governance-alignment question this study could not yet test, is documented in the dashboard's Methodology page and in `SS_Project_Report.md`.
+Full methodology, including the governance-alignment question this study could not yet test, is documented in the dashboard's Methodology page and in `SS_Research_Paper.md`.
 
 ## Repository Structure
 
@@ -91,14 +90,14 @@ STOLEN_STRATA/
 │   └── visualization/               # AOI/settlement/road exports, interactive map builder (folium),
 │                                     #   static print-layout map builder (matplotlib)
 ├── outputs/
-│   ├── maps/                        # Static print-layout map exports (8 maps)
+│   ├── maps/                        # Static print-layout map exports (8 maps, plus chart-image duplicates also available in outputs/figures/)
 │   ├── interactive_maps/            # Interactive Leaflet web-map exports (8 maps)
 │   ├── figures/                     # Static maps, matplotlib figures, and exported Plotly chart PNGs
 │   ├── ground_truth_sample_points.gpkg  # Stratified sample for manual accuracy-assessment labelling
 │   └── economic_valuation_results.json
 ├── notebooks/                       # Exploratory analysis notebooks
 ├── SS_Executive_Summary.pdf         # One-page executive summary
-├── SS_Project_Report.md             # Polished project summary and methodology
+├── SS_Executive_Summary.md          # Executive summary source (incl. Project Overview)
 ├── SS_Research_Paper.md             # Formal academic research paper
 ├── SS_Development_Log.md            # Full technical development log
 └── requirements.txt                 # Full pipeline dependencies (see also dashboard/requirements.txt)
