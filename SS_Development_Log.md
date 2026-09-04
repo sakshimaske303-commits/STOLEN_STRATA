@@ -21,6 +21,7 @@ My log covers everything. I built a terrain analysis code using TPI nd slope cut
 11. [Entry 11](#entry-11)
 12. [Entry 12](#entry-12)
 13. [Entry 13](#entry-13)
+14. [Entry 14](#entry-14)
 
 ---
 
@@ -225,4 +226,12 @@ Threw away the old QGIS2Web software path entirely. That lazy export system was 
 So I coded two new fixed map pictures. I wrote a fresh visualization code script named `src/visualization/build_static_maps.py` which successfully spits out two clean image files named `outputs/maps/07_settlement_proximity.png` and `outputs/maps/08_economic_value_at_risk.png`. (To ensure they match perfectly, I opened my old `06_road_network_proximity.png` file, copied the exact hex color codes for the dark background canvas, the panels, n the txt legends, n applied them to my new maps so everything looks uniform)........... So I did a quick quality check on my six old static maps nd all ten dashboard charts against my current database tables n chose to leave them untouched because none of my core terrace boundaries, road networks, or shape compactness metrics changed at all during this pass. They are completely accurate on their own. I only needed to generate new visuals for my two brand new study layers.
 
 This wraps up my visualization milestone cleanly. Two new fully automated Python scripts join my `src/visualization/` folder under the names `build_interactive_maps.py` n `build_static_maps.py`. Now, every single one of my 8 live web maps and 8 print ready static images comes directly from my own source data arrays instead of depending on tht messy manual QGIS export step. Finally, I went back to my main report file `SS_Research_Paper.md`, added two new image blocks for Figure 14 and Figure 15, nd typed a quick note explaining tht every single static map image has a live interactive twin webpage tht they can open nd click on.
+
+## Entry 14
+
+Went out nd actually stood on the ground for once instead of jst staring at satellite pixels. On 3rd September 2026 I went to Lethpora in Pulwama—same exact saffron belt where my algorithm already lined up with the "Saffron Fields, Lethpora" map label back when I was validating my terrace boundaries—nd took 4 GPS tagged photos directly on the karewa terraces there, all clustered tightly around 33.97°N, 74.95°E.
+
+Gotta be honest abt wht these photos actually show tho. Saffron only flowers for a tiny 2-3 week window in October-November, so right now in early September the fields jst look like plain, freshly tilled, dormant soil, not green crop. Tht is completely normal for this point in the season, not a sign tht nothing is planted there. Nd I need to be careful not to mix this up with my actual degradation classifier—tht bare, tilled look in my photos is NOT the same thing as the bare-earth signal my whole pipeline is built on, because my classifier needs a persistent multi year rise in bare ground, not one random seasonal photo taken at the wrong time of year. So honestly, this little field check does not prove or disprove degradation either way, it's jst me physically confirming the same patch of ground my satellite data is talking abt.
+
+This is also not replacing my bigger 150 point ground truth accuracy sample from Entry 12—tht one is still sitting there unlabeled, exact same as before, still my number one priority job. This was jst a smaller, separate, honest check to go stand on the actual dirt for once. Planning to go back in October 2026 during peak bloom season to get a proper before nd after pair on the exact same coordinates. Added all 4 photos as a brand new Ground Verification page on the dashboard.
 
