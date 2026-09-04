@@ -1,3 +1,7 @@
+import sys, os
+sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..')))
+import config
+
 import geopandas as gpd
 import rasterio
 from rasterio.mask import mask
@@ -9,7 +13,7 @@ gdf['area_km2'] = gdf.geometry.area / 1e6
 print(f"Total polygons: {len(gdf)}")
 print(gdf['area_km2'].describe())
 
-min_area_km2 = 0.05
+min_area_km2 = config.MIN_TERRACE_AREA_KM2
 filtered = gdf[gdf['area_km2'] >= min_area_km2].copy()
 print(f"Polygons after area filter (>= {min_area_km2} km2): {len(filtered)}")
 
@@ -24,7 +28,7 @@ def get_mean_elevation(geom, src):
 with rasterio.open('data/interim/DEM_UTM43N.tif') as src:
     filtered['mean_elevation'] = filtered.geometry.apply(lambda g: get_mean_elevation(g, src))
 
-elevation_min, elevation_max = 1550, 2000
+elevation_min, elevation_max = config.ELEVATION_MIN_M, config.ELEVATION_MAX_M
 filtered_elev = filtered[
     (filtered['mean_elevation'] >= elevation_min) & (filtered['mean_elevation'] <= elevation_max)
 ].copy()

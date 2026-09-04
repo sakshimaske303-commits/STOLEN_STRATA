@@ -1,8 +1,12 @@
+import sys, os
+sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..')))
+import config
+
 import osmnx as ox
 import geopandas as gpd
 
 # Same bbox used in script 09
-north, south, east, west = 34.15, 33.85, 75.15, 74.75
+north, south, east, west = config.AOI_NORTH, config.AOI_SOUTH, config.AOI_EAST, config.AOI_WEST
 
 G = ox.graph_from_bbox(bbox=(west, south, east, north), network_type="drive")
 edges = ox.graph_to_gdfs(G, nodes=False, edges=True)

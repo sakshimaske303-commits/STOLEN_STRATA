@@ -1,10 +1,14 @@
+import sys, os
+sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..')))
+import config
+
 import geopandas as gpd
 import rasterio
 from rasterio.warp import calculate_default_transform, reproject, Resampling
 from rasterio.mask import mask
 import numpy as np
 
-DST_CRS = 'EPSG:32643'
+DST_CRS = config.DST_CRS
 
 def reproject_raster(src_path, dst_path, dst_crs=DST_CRS):
     with rasterio.open(src_path) as src:
@@ -29,7 +33,7 @@ gdf = gpd.read_file('data/processed/karewa_bare_earth_change.gpkg')
 print(f"Loaded {len(gdf)} karewa terrace polygons")
 
 # --- Step 3: Zonal bare-earth fraction for each of 4 years ---
-BARE_THRESHOLD = 0.15
+BARE_THRESHOLD = config.BARE_EARTH_NDVI_THRESHOLD
 
 def zonal_bare_fraction(geom, raster_path, threshold=BARE_THRESHOLD):
     with rasterio.open(raster_path) as src:

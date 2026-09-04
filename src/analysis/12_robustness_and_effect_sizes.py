@@ -1,4 +1,8 @@
 """12_robustness_and_effect_sizes.py — resolution-mismatch check (resample 2025 to 30m) + effect sizes/Holm-Bonferroni across the 4 Mann-Whitney tests."""
+import sys, os
+sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..')))
+import config
+
 import geopandas as gpd
 import rasterio
 from rasterio.warp import calculate_default_transform, reproject, Resampling
@@ -9,7 +13,7 @@ from scipy.stats import mannwhitneyu
 # ============================================================
 # Part 1 — Resample 2025 Sentinel-2 to 30m, recompute bare-earth fraction
 # ============================================================
-DST_CRS = 'EPSG:32643'
+DST_CRS = config.DST_CRS
 src_path = 'data/raw/StolenStrata_NDVI_2025.tif'
 dst_path = 'data/interim/NDVI_2025_UTM43N_30m.tif'
 
@@ -28,7 +32,7 @@ print(f"Resampled 2025 Sentinel-2 NDVI to 30m: {width}x{height} px")
 
 gdf = gpd.read_file('data/processed/karewa_bare_earth_change.gpkg')
 
-BARE_THRESHOLD = 0.15
+BARE_THRESHOLD = config.BARE_EARTH_NDVI_THRESHOLD
 def zonal_bare_fraction(geom, raster_path, threshold=BARE_THRESHOLD):
     with rasterio.open(raster_path) as src:
         try:
@@ -47,8 +51,8 @@ mean_30m = gdf['bare_frac_2025_30m'].mean() * 100
 bare_1994_ha = (gdf['area_km2'] * gdf['bare_frac_1994']).sum() * 100
 bare_2025_10m_ha = (gdf['area_km2'] * gdf['bare_frac_2025']).sum() * 100
 bare_2025_30m_ha = (gdf['area_km2'] * gdf['bare_frac_2025_30m']).sum() * 100
-degraded_10m = int((gdf['bare_frac_2025'] - gdf['bare_frac_1994'] >= 0.15).sum())
-degraded_30m = int((gdf['bare_frac_2025_30m'] - gdf['bare_frac_1994'] >= 0.15).sum())
+degraded_10m = int((gdf['bare_frac_2025'] - gdf['bare_frac_1994'] >= config.DEGRADATION_LOSS_THRESHOLD).sum())
+degraded_30m = int((gdf['bare_frac_2025_30m'] - gdf['bare_frac_1994'] >= config.DEGRADATION_LOSS_THRESHOLD).sum())
 
 print("\n=== Resolution-mismatch robustness check ===")
 print(f"Mean bare-earth fraction, 2025 @ native ~10m Sentinel-2: {mean_10m:.2f}%")

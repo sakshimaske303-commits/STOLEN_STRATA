@@ -1,10 +1,14 @@
+import sys, os
+sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..')))
+import config
+
 import geopandas as gpd
 import rasterio
 from rasterio.warp import calculate_default_transform, reproject, Resampling
 from rasterio.mask import mask
 import numpy as np
 
-DST_CRS = 'EPSG:32643'
+DST_CRS = config.DST_CRS
 
 def reproject_raster(src_path, dst_path, dst_crs=DST_CRS):
     with rasterio.open(src_path) as src:
@@ -29,7 +33,7 @@ gdf = gpd.read_file('data/interim/karewa_candidates_filtered.gpkg')
 print(f"Loaded {len(gdf)} karewa terrace polygons")
 
 # --- Step 3: Zonal BARE-EARTH FRACTION per polygon (more sensitive than mean NDVI) ---
-BARE_THRESHOLD = 0.15  # pixels below this NDVI = bare earth / mining / built-up
+BARE_THRESHOLD = config.BARE_EARTH_NDVI_THRESHOLD  # pixels below this NDVI = bare earth / mining / built-up
 
 def zonal_bare_fraction(geom, raster_path, threshold=BARE_THRESHOLD):
     with rasterio.open(raster_path) as src:
@@ -50,7 +54,7 @@ gdf['bare_frac_change'] = gdf['bare_frac_2025'] - gdf['bare_frac_1994']
 print(gdf[['bare_frac_1994', 'bare_frac_2025', 'bare_frac_change']].describe())
 
 # --- Step 5: Flag degrading terraces ---
-loss_threshold = 0.15  # 15 percentage-point increase in bare-earth share — tune after seeing describe()
+loss_threshold = config.DEGRADATION_LOSS_THRESHOLD  # 15 percentage-point increase in bare-earth share — tune after seeing describe()
 gdf['status'] = np.where(gdf['bare_frac_change'] >= loss_threshold, 'likely_degraded', 'intact')
 print(gdf['status'].value_counts())
 

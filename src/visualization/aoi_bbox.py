@@ -1,9 +1,13 @@
+import sys, os
+sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..')))
+import config
+
 import geopandas as gpd
 from shapely.geometry import box
 
 # Study area bounding box (from project brief)
-minx, maxx = 74.75, 75.15
-miny, maxy = 33.85, 34.15
+minx, maxx = config.AOI_WEST, config.AOI_EAST
+miny, maxy = config.AOI_SOUTH, config.AOI_NORTH
 
 aoi = gpd.GeoDataFrame(
     {"name": ["Study Area AOI"]},

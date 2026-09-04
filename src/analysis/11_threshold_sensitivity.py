@@ -1,4 +1,8 @@
 """11_threshold_sensitivity.py — sweeps the TPI/slope, degradation, and saffron thresholds."""
+import sys, os
+sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..')))
+import config
+
 import geopandas as gpd
 import rasterio
 from rasterio.warp import calculate_default_transform, reproject, Resampling
@@ -24,7 +28,7 @@ with rasterio.open('data/interim/DEM_UTM43N.tif') as src:
     nodata_val = src.nodata
 if nodata_val is not None:
     dem[dem == nodata_val] = np.nan
-trim = 10
+trim = config.DEM_EDGE_TRIM_PX
 dem = dem[trim:-trim, trim:-trim]
 transform = rasterio.transform.from_origin(
     transform.c + trim * transform.a, transform.f + trim * transform.e,
@@ -32,7 +36,7 @@ transform = rasterio.transform.from_origin(
 dem = fill_nan_nearest(dem)
 dy, dx = np.gradient(dem, pixel_size)
 slope = np.degrees(np.arctan(np.sqrt(dx**2 + dy**2)))
-window_size = 17
+window_size = config.TPI_WINDOW_SIZE
 tpi = dem - uniform_filter(dem, size=window_size)
 
 print("=== TPI / slope threshold grid (candidate count after area filter only, pre-elevation-filter) ===")
@@ -45,7 +49,7 @@ for tpi_t in [2, 3, 4]:
         gdf_t = gpd.GeoDataFrame.from_features(list(results), crs=crs)
         gdf_t['area_km2'] = gdf_t.geometry.area / 1e6
         n_raw = len(gdf_t)
-        n_filt = int((gdf_t['area_km2'] >= 0.05).sum())
+        n_filt = int((gdf_t['area_km2'] >= config.MIN_TERRACE_AREA_KM2).sum())
         marker = "  <-- used" if (tpi_t, slope_t) == (3, 8) else ""
         print(f"{tpi_t:>6} {slope_t:>7} {n_raw:>13} {n_filt:>15}{marker}")
 

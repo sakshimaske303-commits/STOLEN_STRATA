@@ -82,7 +82,7 @@ STOLEN_STRATA/
 ├── dashboard/                       # Streamlit dashboard (11 pages: app.py home + 10 pages/)
 │   └── pages/                       # Individual dashboard pages
 ├── data/
-│   ├── raw/                         # DEM, satellite composites (gitignored)
+│   ├── raw/                         # DEM, satellite composites (gitignored — see DATA_ACCESS.md)
 │   └── processed/                   # Terrace, saffron, road-, and settlement-proximity datasets
 ├── src/
 │   ├── analysis/                    # Terrace delineation, change detection, statistical tests,
@@ -96,6 +96,8 @@ STOLEN_STRATA/
 │   ├── ground_truth_sample_points.gpkg  # Stratified sample for manual accuracy-assessment labelling
 │   └── economic_valuation_results.json
 ├── notebooks/                       # Exploratory analysis notebooks
+├── config.py                        # Shared AOI/CRS/threshold constants used across src/analysis and src/visualization
+├── DATA_ACCESS.md                   # What each data/raw/ file is and how it was pulled
 ├── SS_Executive_Summary.pdf         # One-page executive summary
 ├── SS_Executive_Summary.md          # Executive summary source (incl. Project Overview)
 ├── SS_Research_Paper.md             # Formal academic research paper

@@ -1,3 +1,7 @@
+import sys, os
+sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..')))
+import config
+
 import rasterio
 from rasterio.warp import calculate_default_transform, reproject, Resampling
 import numpy as np
@@ -15,7 +19,7 @@ def fill_nan_nearest(arr):
 # --- Step 1: Reproject DEM to UTM 43N (already validated working) ---
 src_path = 'data/raw/StolenStrata_DEM_GLO30.tif'
 utm_path = 'data/interim/DEM_UTM43N.tif'
-dst_crs = 'EPSG:32643'
+dst_crs = config.DST_CRS
 
 with rasterio.open(src_path) as src:
     src_nodata = src.nodata if src.nodata is not None else -9999.0
@@ -46,7 +50,7 @@ if nodata_val is not None:
     dem[dem == nodata_val] = np.nan
 
 # Trim 10-pixel border where reprojection edge artifacts concentrate
-trim = 10
+trim = config.DEM_EDGE_TRIM_PX
 dem = dem[trim:-trim, trim:-trim]
 transform = rasterio.transform.from_origin(
     transform.c + trim * transform.a, transform.f + trim * transform.e,
@@ -59,7 +63,7 @@ print(f"DEM valid range after cleanup: {dem.min():.1f} / {dem.max():.1f}")
 dy, dx = np.gradient(dem, pixel_size)
 slope = np.degrees(np.arctan(np.sqrt(dx**2 + dy**2)))
 
-window_size = 17
+window_size = config.TPI_WINDOW_SIZE
 tpi = dem - uniform_filter(dem, size=window_size)
 
 print(f"Slope range: {slope.min():.1f} / {slope.max():.1f}")
@@ -67,8 +71,8 @@ print(f"TPI range: {tpi.min():.2f} / {tpi.max():.2f} / mean {tpi.mean():.2f}")
 
 # Calibrated thresholds (SS_Development_Log.md "Day 1") — TPI>5/slope<5 gave only
 # 115 sliver candidates; TPI>3/slope<8 recovered 201 proper blob-shaped ones.
-tpi_threshold = 3
-slope_threshold = 8
+tpi_threshold = config.TPI_THRESHOLD
+slope_threshold = config.SLOPE_THRESHOLD_DEG
 karewa_mask = (tpi > tpi_threshold) & (slope < slope_threshold)
 print(f"Karewa candidate pixels: {karewa_mask.sum()} out of {karewa_mask.size}")
 

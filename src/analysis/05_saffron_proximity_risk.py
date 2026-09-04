@@ -1,3 +1,7 @@
+import sys, os
+sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..')))
+import config
+
 import geopandas as gpd
 
 gdf = gpd.read_file('data/processed/karewa_saffron_overlay.gpkg')
@@ -12,7 +16,7 @@ saffron['dist_to_nearest_degraded_m'] = saffron.geometry.apply(lambda g: g.dista
 
 print(saffron['dist_to_nearest_degraded_m'].describe())
 
-near_threshold_m = 1000  # 1 km — tune after seeing describe()
+near_threshold_m = config.SAFFRON_RISK_DISTANCE_M  # 1 km — tune after seeing describe()
 saffron['at_risk'] = saffron['dist_to_nearest_degraded_m'] <= near_threshold_m
 print(saffron['at_risk'].value_counts())
 

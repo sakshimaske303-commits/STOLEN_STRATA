@@ -1,9 +1,13 @@
 """14a_download_settlement_footprints.py — run locally, needs live internet (Overpass)."""
+import sys, os
+sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..')))
+import config
+
 import osmnx as ox
 import geopandas as gpd
 
 # Same AOI as 09_road_proximity.py
-north, south, east, west = 34.15, 33.85, 75.15, 74.75
+north, south, east, west = config.AOI_NORTH, config.AOI_SOUTH, config.AOI_EAST, config.AOI_WEST
 
 print("Downloading building footprints from OpenStreetMap...")
 tags = {"building": True}

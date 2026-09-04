@@ -1,10 +1,14 @@
+import sys, os
+sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..')))
+import config
+
 import geopandas as gpd
 import rasterio
 from rasterio.warp import calculate_default_transform, reproject, Resampling
 from rasterio.mask import mask
 import numpy as np
 
-DST_CRS = 'EPSG:32643'
+DST_CRS = config.DST_CRS
 
 def reproject_raster(src_path, dst_path, dst_crs=DST_CRS):
     with rasterio.open(src_path) as src:
@@ -42,7 +46,7 @@ gdf['saffron_index'] = gdf.geometry.apply(lambda g: zonal_mean_band(g, 'data/int
 print(gdf['saffron_index'].describe())
 
 # --- Step 4: Classify likely-saffron terraces (tune threshold after seeing describe() above) ---
-saffron_threshold = 0.15
+saffron_threshold = config.SAFFRON_INDEX_THRESHOLD
 gdf['likely_saffron'] = gdf['saffron_index'] >= saffron_threshold
 print(gdf['likely_saffron'].value_counts())
 
