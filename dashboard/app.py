@@ -186,8 +186,8 @@ if _docs:
             "text_light": CREAM,
         },
     )
-for d in _missing:
-    st.warning(f"{d['filename']} not found.")
+for missing_doc in _missing:
+    st.warning(f"{missing_doc['filename']} not found.")
 
 # ============================================================
 # FOOTER — name, role, and GitHub link, in a styled card
