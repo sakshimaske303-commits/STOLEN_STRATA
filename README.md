@@ -18,9 +18,9 @@
 
 ---
 
-STOLEN STRATA is a geospatial framework that algorithmically delineates Kashmir's karewa terraces from terrain data alone, then tracks their loss to unregulated soil mining and urban expansion across a 31-year satellite record. Rather than relying on site-specific or anecdotal reporting, every terrace boundary, degradation flag, and proximity risk in this project is derived from a fully scripted pipeline — connecting a geologically singular landform to the saffron economy it sustains, valued in rupee terms rather than left as a hectare count, to the road and settlement infrastructure that makes its unregulated extraction economically viable in the first place, and to the legal framework — or near-total absence of one — currently governing that extraction.
+STOLEN STRATA is a geospatial framework that automatically delineates Kashmir's karewa terraces from terrain data and tracks their disappearance to unchecked soil mining and urbanization, using a 31-year satellite record of the region (1994-2025). Every terrace boundary, degradation flag, and proximity-risk figure in this project runs through one fully scripted pipeline connecting a geologically unique landform to the economy it makes possible — saffron, valued here in rupees rather than just hectares — and to the reason its extraction remains economically viable: there's currently no legal framework regulating it.
 
-Built on the same **"Trust, But Verify"** philosophy as the rest of this portfolio — every hypothesis is tested rigorously, and every finding is reported honestly, including a saffron-detection shortfall against an independent baseline and a governance question this study could not yet answer for lack of accessible data.
+This isn't a marketing brochure — it's built in the same "trust, but check" spirit as the rest of this portfolio: every hypothesis is tested thoroughly and every finding reported honestly, including the saffron-detection shortfall against an independent FAO baseline, and the governance-alignment question this study couldn't test due to a lack of accessible data.
 
 ---
 
@@ -44,7 +44,7 @@ Eight fully interactive, pannable/zoomable maps, built directly from this projec
 
 *(Same eight maps are also browsable from a single dropdown on the [live dashboard](https://stolenstrata-ekmgvmukfnfkpigxtgsak6.streamlit.app/) → Interactive Maps page)*
 
-**Interactive Plots**
+**Additional Static Figures**
 - [Distance to Nearest Settlement by Degradation Status](outputs/figures/06_settlement_distance_by_status.png)
 - [Degradation vs Settlement Proximity (static map)](outputs/maps/07_settlement_proximity.png)
 - [Saffron Economic Value-at-Risk (static map)](outputs/maps/08_economic_value_at_risk.png)
@@ -55,31 +55,31 @@ Eight fully interactive, pannable/zoomable maps, built directly from this projec
 
 ## What This Project Does
 
-- Delineates 201 karewa terrace boundaries algorithmically from a Copernicus DEM using a Topographic Position Index and slope threshold — no manual digitization
-- Tracks bare-earth land-cover fraction across four independent time points (1994, 2005, 2015, 2025) using season-matched Landsat and Sentinel-2 composites, revealing when degradation actually accelerated rather than assuming a steady multi-decadal trend
-- Identifies saffron-cultivating terraces using an inverted-phenology signature, then quantifies their proximity to already-degraded terraces as a leading-indicator risk metric, converted into an estimated ₹/year value-at-risk figure using official state saffron yield and price data
-- Tests whether degraded terraces are statistically closer to infrastructure than intact ones, using Mann-Whitney U tests against both the OpenStreetMap road network and building footprints — two independent accessibility signals
-- Benchmarks detected saffron extent against an independent FAO baseline, reporting the resulting shortfall transparently as a detection-recall limitation rather than a land-loss claim
-- Investigates whether any legal protection regime currently governs karewa excavation in Jammu & Kashmir, through J&K legislative reporting rather than a fabricated policy-alignment table
-- Presents all findings through a nine-page interactive Streamlit dashboard combining live charts, static QGIS cartography, and interactive QGIS-based web maps
+- Automatically delineates the boundaries of 201 karewa terraces from the Copernicus DEM using a TPI and slope threshold — no manual digitization.
+- Reveals the point in time when bare-earth land-cover conversion actually accelerated — showing this isn't a steady multi-decadal process — using season-matched Landsat and Sentinel-2 composites at four time points (1994, 2005, 2015, 2025).
+- Detects saffron-cultivating terraces using an inverted-phenology signature, and quantifies each one's distance to the nearest degraded terrace as a leading risk indicator, expressed as an estimated rupee value-at-risk using official state saffron yield and price data.
+- Compares degraded terraces against the OpenStreetMap road network and building footprints — two independent accessibility measures — using Mann-Whitney U tests to check whether degraded terraces are more accessible.
+- Benchmarks detected saffron area against an independent FAO baseline rather than claiming a loss of cropland, and reports the resulting detection-recall shortfall transparently.
+- Identifies whether any legislation currently exists to block unregulated karewa excavation in J&K.
+- Shares all results on an interactive 11-page Streamlit dashboard with live charts, static QGIS-rendered maps, and interactive maps.
 
 ## Key Findings
 
-**Degradation is recent and accelerating, not a slow multi-decadal process.** Mean bare-earth fraction across all 201 terraces was essentially flat from 1994 to 2015, then more than tripled between 2015 and 2025 — 190.3 hectares converted to bare-earth land cover overall, 67% of it concentrated within just 12.4% of terraces.
+The fraction of bare earth (bare-earth land cover) in 201 terraces was close to unchanged from 1994 to 2015 but jumped more than threefold between 2015 and 2025 (190.3 hectares of bare-earth land cover overall, most of which came from just 12.4% of terraces).
 
-**Degradation follows both roads and settlements.** Degraded terraces sit a mean 75.6 m from the nearest drivable road (vs. 133.1 m for intact terraces, p = 0.0116) and a mean 455.9 m from the nearest building footprint (vs. 999.7 m for intact terraces, p = 0.0001) — two independent infrastructure signals, both statistically significant, consistent with an accessibility-driven model of unregulated mining rather than randomly distributed loss. Settlement proximity is the strongest statistical effect in the entire study.
+Degraded terraces sit significantly closer to both drivable roads (75.6 m vs. 133.1 m for intact terraces, p = 0.0116) and building footprints (455.9 m vs. 999.7 m for intact terraces, p = 0.0001) than intact terraces do. Both infrastructure signals agree in direction, and settlement proximity is the single strongest statistical effect in the entire study — evidence that the pattern of loss isn't random.
 
-**Saffron is not yet directly overlapped by degradation — but it is close, and worth real money.** Of 14 detected saffron-cultivating terraces, 43% sit within 1 km of an already-degraded terrace, and the nearest is just 80 m away. At official 2024-25 state saffron yield and value figures, that at-risk subset represents an estimated ₹17.8 crore in annual production value — 55% of the ₹32.4 crore this study's detected saffron area is estimated to generate in total. This is reported as an encroachment-risk finding, not a direct-loss one, and the underlying detected-area shortfall against the FAO baseline is documented openly rather than glossed over.
+Fourteen saffron-cultivating terraces were detected; 43% sit within 1 km of an already-degraded terrace, with the nearest just 80 m away. That at-risk subset represents an estimated ₹17.8 crore in annual production value at official 2024-25 saffron yield and price figures — 55% of the total production value this study attributes to the detected saffron area. This is a value-at-risk finding, not a claim of loss already incurred, and the shortfall against the FAO baseline is documented openly rather than glossed over.
 
-**No law currently protects karewa land from excavation.** A private member's bill proposing a dedicated Karewa Protection Authority, mandatory environmental impact assessment, and penalties of up to ₹10 lakh and five years' imprisonment remains pending as of the most recent reporting located, while the Revenue and Geology & Mining Departments continue to issue the excavation permissions the bill would restrict. This means the infrastructure-proximity findings above describe extraction proceeding in a genuinely unregulated space, not enforcement failure against an existing rule.
+At present there is no legislation to protect karewa surfaces from being dug up. As of the last update reported, a private member's bill for a separate Karewa Protection Authority and for a mandatory environmental impact assessment and penalty of up to five years' imprisonment or ₹10 lakh is pending; the Revenue and Geology & Mining Department continue to grant the excavation licences it would prohibit. This means the infrastructure-proximity findings aren't evidence that enforcement is failing — there's no rule yet to fail against. They simply show extraction happening in a genuinely unregulated space.
 
-Full methodology, including the governance-alignment question this study could not yet test, is documented in the dashboard's Methodology page and in `SS_Research_Paper.md`.
+The methodology in this study, including the governance-alignment question this study wasn't yet able to test, is described on the dashboard's Methodology page and in `SS_Research_Paper.md`.
 
 ## Repository Structure
 
 ```text
 STOLEN_STRATA/
-├── dashboard/                       # Streamlit dashboard (9 pages)
+├── dashboard/                       # Streamlit dashboard (11 pages: app.py home + 10 pages/)
 │   └── pages/                       # Individual dashboard pages
 ├── data/
 │   ├── raw/                         # DEM, satellite composites (gitignored)

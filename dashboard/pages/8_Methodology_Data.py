@@ -106,8 +106,8 @@ STOLEN_STRATA/
 │   └── figures/
 ├── dashboard/          # this Streamlit app
 ├── tests/
+├── SS_Executive_Summary.md
 ├── SS_Research_Paper.md
-├── SS_Project_Report.md
 ├── SS_Development_Log.md
 └── requirements.txt
     """,
