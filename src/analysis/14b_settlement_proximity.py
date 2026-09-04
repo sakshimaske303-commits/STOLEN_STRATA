@@ -1,10 +1,14 @@
 """14b_settlement_proximity.py — Mann-Whitney test, same design as 09_road_proximity.py but against OSM building footprints."""
 
+import sys, os
+sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..')))
+import config
+
 import geopandas as gpd
 from scipy.stats import mannwhitneyu
 
 buildings = gpd.read_file("data/processed/settlement_footprints_osm.gpkg")
-buildings = buildings.to_crs("EPSG:32643")
+buildings = buildings.to_crs(config.DST_CRS)
 buildings_union = buildings.geometry.union_all()
 print(f"Loaded {len(buildings)} building footprints")
 
