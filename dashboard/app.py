@@ -33,7 +33,27 @@ st.markdown(
         .doi-badge-card {{ transition: transform 0.18s ease, box-shadow 0.18s ease, filter 0.18s ease; cursor: pointer; }}
         .doi-badge-link:hover .doi-badge-card {{ transform: translateY(-3px) scale(1.02); box-shadow: 0 10px 32px rgba(139, 30, 63, 0.6); filter: brightness(1.08); }}
     </style>
-    <div style="display:flex; justify-content:center; margin: 6px 0 18px 0;">
+    <div style="display:flex; justify-content:center; flex-wrap:wrap; gap:16px; margin: 6px 0 18px 0;">
+        <a href="https://eartharxiv.org/repository/view/14805/" target="_blank" class="doi-badge-link" style="text-decoration:none;">
+            <div class="doi-badge-card" style="
+                display:flex; align-items:center; gap:18px;
+                background: linear-gradient(145deg, {BG_CARD}, {BG_PANEL});
+                border: 2px solid {MAROON};
+                border-radius: 14px;
+                padding: 16px 32px;
+                box-shadow: 0 4px 20px rgba(139, 30, 63, 0.35);
+            ">
+                <div style="text-align:left;">
+                    <div style="color:{GOLD}; font-family:'Montserrat',sans-serif; font-weight:800; font-size:1.05rem; letter-spacing:0.4px; display:flex; align-items:center; gap:8px;">
+                        <span>PREPRINT ON EARTHARXIV</span>
+                        <span style="opacity:0.8; font-size:0.95rem;">↗</span>
+                    </div>
+                    <div style="color:{CREAM}; font-family:'Montserrat',sans-serif; font-weight:900; font-size:1.35rem; margin-top:2px;">
+                        Read the preprint
+                    </div>
+                </div>
+            </div>
+        </a>
         <a href="https://doi.org/10.5281/zenodo.21766464" target="_blank" class="doi-badge-link" style="text-decoration:none;">
             <div class="doi-badge-card" style="
                 display:flex; align-items:center; gap:18px;
