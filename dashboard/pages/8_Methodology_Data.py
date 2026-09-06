@@ -52,7 +52,7 @@ PROOF_MAP = {
     "04": ("02_saffron_terraces_qgis.png", "Degraded terraces and the saffron overlay loaded together in QGIS over a satellite basemap — the terrace-vs-saffron-cultivation view at the heart of this project's thesis."),
     "09": ("05_road_proximity_qgis.png", "The road network loaded alongside terrace degradation status in QGIS — the layer behind the road-proximity Mann-Whitney test."),
     "11": ("03_threshold_sensitivity_vscode.png", "11_threshold_sensitivity.py open in VS Code — sweeps all three thresholds (TPI/slope, degradation, saffron signature) across a neighbourhood of plausible values, since all three were originally chosen by visual inspection with no reported sensitivity check."),
-    "12": ("04_robustness_effect_sizes_vscode.png", "12_robustness_and_effect_sizes.py open in VS Code — the resolution-mismatch quantification and Holm-Bonferroni correction across the three Mann-Whitney tests."),
+    "12": ("04_robustness_effect_sizes_vscode.png", "12_robustness_and_effect_sizes.py open in VS Code — the resolution-mismatch quantification and Holm-Bonferroni correction across the four Mann-Whitney tests."),
 }
 
 steps = [
