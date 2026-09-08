@@ -21,7 +21,7 @@ How much of Kashmir's karewa terraces (the physical basis of the region's saffro
 
 Geomorphologic boundaries of 201 karewa terraces, calculated algorithmically from a Copernicus DEM using a Topographic Position Index and slope threshold (TPI > 3, slope < 8°). No manual digitization anywhere in that step.
 
-We used the term 'bare-earth land-cover fraction' from four season matched time points for Landsat 5/7/8/9 and Sentinel-2 (1994, 2005, 2015 and 2025) and tracked the change when and not if, land-cover fraction degraded. Saffron-cultivating terraces came out of an inverted-phenology NDVI signature, which I then converted into an estimated rupee value-at-risk figure using official 2024-25 J&K state saffron yield and price data. A rupee figure moves a policy conversation in a way a hectare count doesn't.
+We used the term 'bare-earth land-cover fraction' from four seasonally-aligned time points for Landsat 5/7/8/9 and Sentinel-2 (1994, 2005, 2015 and 2025) and tracked the change when and not if, land-cover fraction degraded. Saffron-cultivating terraces came out of an inverted-phenology NDVI signature, which I then converted into an estimated rupee value-at-risk figure using official 2024-25 J&K state saffron yield and price data. A rupee figure moves a policy conversation in a way a hectare count doesn't.
 
 Two Mann-Whitney U tests, one with the OpenStreetMap road network, and one with 3,266 building-scale OpenStreetMap buildings, test if degraded terraces are statistically closer to infrastructure than intact ones. On top of that: a threshold-sensitivity sweep, a quantification of the Landsat/Sentinel-2 mismatching of resolution sizes, and rank-biserial coefficients and a Holm-Bonferroni correction across all four tests so that those numbers would last longer than one conveniently set threshold. A follow-up search of the development of the J&K legislation is conducted to determine whether there are any current legislations which guard against excavation of karewa lands.
 
@@ -44,7 +44,7 @@ As of today, there does not exist any legislation to safeguard karewa land from 
 
 Settlement proximity, compactness, and road proximity all survive Holm-Bonferroni correction across the four-test family (family-wise α = 0.05); slope was already non-significant before correction.
 
-## Validation & Robustness Checklist
+## Robustness & Evidence Checklist
 
 ✓ Two independent infrastructure-proximity signals (road network and 3,266 OSM building footprints) agree in direction
 
