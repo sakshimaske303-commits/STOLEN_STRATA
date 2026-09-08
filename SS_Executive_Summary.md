@@ -11,7 +11,7 @@ The headline number is 190.3 hectares of terrace surface converted to bare earth
 
 I didn't want to limit my analysis to a hectare count, so I took the analysis a bit further. Does degradation track road and settlement access? It does. It works more strongly for settlements than for roads. So how much is the saffron-proximity risk worth in money? Converted into rupees using official state yield and price data, it comes out to an estimated Rs 17.8 crore in annual production value (a number that makes sense to a district agriculture office in a way a hectare figure doesn't).
 
-What's also not discussed in most satellite studies of this sort: is this illegal at all? No. At present, there are no laws that safeguard karewa land from being excavated. A protection bill is pending in the J&K Legislative Assembly, and in the interim extraction permits continue to be issued. Combine the geomorphology, the economics, and the legal void, and this is no longer just a change-detection exercise: it is a landform loss that carries a price tag, and it hands policymakers a lever worth pulling.
+What's also not discussed in most satellite studies of this sort: is this illegal at all? No. As of the most recent legislative reporting available, no identified law safeguards karewa land from being excavated. A protection bill is pending in the J&K Legislative Assembly, and in the interim extraction permits continue to be issued. Combine the geomorphology, the economics, and the legal void, and this is no longer just a change-detection exercise: it is a landform loss that carries a price tag, and it hands policymakers a lever worth pulling.
 
 ## The Question
 
