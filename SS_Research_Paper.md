@@ -149,7 +149,7 @@ None of the 14 saffron terraces directly overlap a degraded one, though the near
 
 At official 2024-25 yield and value figures (5.27 kg/ha, an implied Rs 2.73 lakh/kg), the 225.4 ha this study detects as saffron-cultivating comes out to roughly Rs 32.4 crore in annual production value. The 6 terraces sitting inside the 1 km at-risk radius account for 123.6 ha of that, 54.8% of the detected saffron area, worth an estimated Rs 17.8 crore annually. This number is easy to misread, so here's what it says: it's how much production value sits close to active degradation right now, not how much has already been lost. Figure 15 shows why: no saffron terrace overlaps mapped loss yet.
 
-### 4.5 Infrastructure Association: Degradation Follows Roads and Settlements
+### 4.5 Infrastructure Association: Degradation Sits Closer to Roads and Settlements
 
 Roads first. Degraded terraces sat a mean 75.6 m from the nearest road, median 0.0 m, meaning more than half of them are directly adjacent to or intersecting a road already. Intact terraces sat further out: mean 133.1 m, median 38.5 m. A one-sided Mann-Whitney U test confirms the difference (p = 0.0116).
 
@@ -222,7 +222,6 @@ Then there is the legal crumb, which isn't even misaligned targeting (the RQ4 qu
 - The 201 terrace polygons themselves come from the current Copernicus DEM, and that same fixed set of 201 is what the 1994-2025 NDVI history is then measured against. A terrace that had already been substantially excavated or erased before this DEM was captured simply wouldn't register as a terrace-shaped landform today, so it would never enter this 201-polygon set to begin with. That means the 190.3 ha figure is the bare-earth conversion measured within the terraces that a present-day, DEM-based algorithm can still recognize as terraces now, not a full historical accounting of every karewa surface that has ever existed across this belt.
 - As a small, separate check alongside that still-unlabelled 150-point sample, I visited the Lethpora saffron belt in person on 3 September 2026 and took 4 GPS-tagged photographs across the same terraces used in the Section 4.1 plausibility check, clustered around 33.97°N, 74.95°E. Saffron flowers only in a short October–November window, so what these photos show is dormant, freshly-tilled soil, not visible crop. That's what an active, pre-flowering saffron plot is supposed to look like at this time of year, not evidence that nothing is planted there. This bare, tilled appearance is not the same signal as the persistent, multi-year bare-earth increase the degradation classifier looks for, so one seasonal photo like this can't confirm or rule out degradation on its own. It's a small field anchor, not a validation exercise. I'm planning a return visit in October 2026, during peak bloom, to get a proper before/after pair at the same coordinates.
 - The areas with low level (0-40%) of vegetation that were pinpointed in this study have not yet been looked at for crop stress or impacts from drought as reported at the ground level by the districts.
-- If referred to elsewhere in this project, the rainfall anomaly at the District level is derived from 1 region-wide climatological baseline instead of 1 per District.
 
 ## 7. Conclusion
 
