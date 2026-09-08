@@ -1,35 +1,35 @@
-# STOLEN STRATA — A Landform Under Erasure
+# STOLEN STRATA: A Landform Under Erasure
 ### Quantifying the Anthropogenic Erasure of Kashmir's Karewa Terraces
 
 Executive Summary · DOI: 10.5281/zenodo.21766464 · Sakshi D. Maske
 
 ## Project Overview
 
-The karewas of Kashmir are a genuinely rare landform — an intermontane lake infill with flat-topped surfaces, not seen anywhere else on the planet at this scale. Their loess cap is the only reason Geographical Indication-tagged saffron grows in the Pampore belt at all. This is why I wrote STOLEN STRATA as a single line, not as an individual map: from the geology of the ancient lake basin, to the terraces it formed, to the saffron economy those terraces make possible, to the mining now systematically erasing them.
+The karewas of Kashmir are a rare landform, an intermontane lake infill with flat-topped surfaces, not seen anywhere else on the planet at this scale. Their loess cap is the only reason Geographical Indication-tagged saffron grows in the Pampore belt at all. This is why I wrote STOLEN STRATA as a single line, not as an individual map: from the geology of the ancient lake basin, to the terraces it formed, to the saffron economy those terraces make possible, to the mining now systematically erasing them.
 
-The headline number is 190.3 hectares of terrace surface converted to bare earth since 1994. But the shape of that loss matters more than the total figure — it's essentially flat right up to 2015, then more than triples in the decade since. Recent, not gradual.
+The headline number is 190.3 hectares of terrace surface converted to bare earth since 1994. But the shape of that loss matters more than the total figure; it's essentially flat right up to 2015, then more than triples in the decade since. Recent, not gradual.
 
-I didn't want to limit my analysis to a hectare count, so I took the analysis a bit further. Does degradation actually track road and settlement access? It does — more strongly for settlements than for roads. So what is the saffron-proximity risk actually worth? Converted into rupees using official state yield and price data, it comes out to an estimated Rs 17.8 crore in annual production value — a number that makes sense to a district agriculture office in a way a hectare figure doesn't.
+I didn't want to limit my analysis to a hectare count, so I took the analysis a bit further. Does degradation track road and settlement access? It does. It works more strongly for settlements than for roads. So how much is the saffron-proximity risk worth in money? Converted into rupees using official state yield and price data, it comes out to an estimated Rs 17.8 crore in annual production value (a number that makes sense to a district agriculture office in a way a hectare figure doesn't).
 
-What's also not discussed in most satellite studies of this sort: is this actually illegal? No. At present, there are no laws that safeguard karewa land from being excavated. A protection bill is pending in the J&K Legislative Assembly, and in the interim extraction permits continue to be issued. Combine the geomorphology, the economics, and the legal void, and this stops being a change-detection exercise. It becomes a landform loss with a price tag and an open policy lever attached.
+What's also not discussed in most satellite studies of this sort: is this illegal at all? No. At present, there are no laws that safeguard karewa land from being excavated. A protection bill is pending in the J&K Legislative Assembly, and in the interim extraction permits continue to be issued. Combine the geomorphology, the economics, and the legal void, and this is no longer just a change-detection exercise: it is a landform loss that carries a price tag, and it hands policymakers a lever worth pulling.
 
 ## The Question
 
-How much of Kashmir's karewa terraces — the physical basis of the region's saffron economy — has been lost to unregulated soil mining, and does that loss follow an accessibility-driven pattern rather than a random one? Apart from the hectare count, what is that loss actually worth in rupees to the saffron economy it threatens, and what legislation, if any, currently governs the extraction driving it?
+How much of Kashmir's karewa terraces (the physical basis of the region's saffron economy) has been lost to unregulated soil mining, and does that loss line up with accessibility, or is it random? Apart from the hectare count, what is that loss worth in rupees to the saffron economy it threatens, and what legislation, if any, currently governs the extraction driving it?
 
 ## The Method
 
 Geomorphologic boundaries of 201 karewa terraces, calculated algorithmically from a Copernicus DEM using a Topographic Position Index and slope threshold (TPI > 3, slope < 8°). No manual digitization anywhere in that step.
 
-We used the term 'bare-earth land-cover fraction' from four season matched time points for Landsat 5/7/8/9 and Sentinel-2 — 1994, 2005, 2015 and 2025 — and tracked the change when and not if, land-cover fraction degraded. Saffron-cultivating terraces came out of an inverted-phenology NDVI signature, which I then converted into an estimated rupee value-at-risk figure using official 2024-25 J&K state saffron yield and price data — because a rupee figure moves a policy conversation in a way a hectare count doesn't.
+We used the term 'bare-earth land-cover fraction' from four season matched time points for Landsat 5/7/8/9 and Sentinel-2 (1994, 2005, 2015 and 2025) and tracked the change when and not if, land-cover fraction degraded. Saffron-cultivating terraces came out of an inverted-phenology NDVI signature, which I then converted into an estimated rupee value-at-risk figure using official 2024-25 J&K state saffron yield and price data. A rupee figure moves a policy conversation in a way a hectare count doesn't.
 
 Two Mann-Whitney U tests, one with the OpenStreetMap road network, and one with 3,266 building-scale OpenStreetMap buildings, test if degraded terraces are statistically closer to infrastructure than intact ones. On top of that: a threshold-sensitivity sweep, a quantification of the Landsat/Sentinel-2 mismatching of resolution sizes, and rank-biserial coefficients and a Holm-Bonferroni correction across all four tests so that those numbers would last longer than one conveniently set threshold. A follow-up search of the development of the J&K legislation is conducted to determine whether there are any current legislations which guard against excavation of karewa lands.
 
 ## The Finding
 
-Degradation has happened fairly recently, and is happening quickly rather than slowly over multi-decades. Mean bare-earth fraction sat essentially flat from 1994 to 2015 — 1.84% → 2.62% → 2.63% — then more than tripled by 2025, to 8.43%. That's equivalent to an area of 190.3 hectares net converted, and 67% of that within 12.4% of the terraces.
+Degradation has happened fairly recently, and it is moving at a fast pace, not a slow one, over multi-decades. Mean bare-earth fraction sat essentially flat from 1994 to 2015 (1.84% → 2.62% → 2.63%), then more than tripled by 2025, to 8.43%. That's equivalent to an area of 190.3 hectares net converted, and 67% of that within 12.4% of the terraces.
 
-The degraded terraces, compared to the intact ones, are found to be statistically significantly near to the foot of building (455.9 m vs. 999.7 m, p = 0.0001) and drivable roads (75.6 m vs. 133.1 m, p = 0.0116). Both infrastructure signals point the same direction — and settlement proximity is the strongest statistical effect in the entire study.
+The degraded terraces, compared to the intact ones, are found to be statistically significantly near to the foot of building (455.9 m vs. 999.7 m, p = 0.0001) and drivable roads (75.6 m vs. 133.1 m, p = 0.0116). Both infrastructure signals point the same direction. Settlement proximity is the strongest statistical effect in the entire study.
 
 Forty-three percent (43%) of the detected saffron-cultivating terraces are located within 1km of already degraded land. If both the at-risk and the other sections of a saffron growing area follow the official state yield and price at which it is marketed, then the total production value for this detected area comes to an estimated ₹32.4 crore per year, 55% of which would be generated by the at-risk subset.
 
@@ -46,38 +46,38 @@ Settlement proximity, compactness, and road proximity all survive Holm-Bonferron
 
 ## Validation & Robustness Checklist
 
-✓ Two independent infrastructure-proximity signals — road network and 3,266 OSM building footprints — agree in direction
+✓ Two independent infrastructure-proximity signals (road network and 3,266 OSM building footprints) agree in direction
 
 ✓ Threshold-sensitivity sweep over the three classification thresholds (TPI/slope, degradation, saffron signature); the reported counts sit in a stable neighbourhood, not an isolated spike
 
-✓ Resolution-mismatch check — 2025 Sentinel-2 resampled to Landsat 30 m; a real, but modest effect of ~13%, that does not reverse the acceleration
+✓ Resolution-mismatch check: 2025 Sentinel-2 resampled to Landsat 30 m; a modest effect of about 13%, which does not reverse the acceleration
 
 ✓ Rank-biserial effect sizes and Holm-Bonferroni correction computed across the full four-test family
 
-✓ Economic valuation cross-verified — yield independently recomputed from raw production/area figures (19.58 MT / 3,715 ha = 5.271 kg/ha) matches the officially reported 5.27 kg/ha
+✓ Economic valuation cross-verified: yield independently recomputed from raw production/area figures (19.58 MT / 3,715 ha = 5.271 kg/ha) matches the officially reported 5.27 kg/ha
 
-✓ Saffron detection benchmarked openly against an independent FAO baseline, reported as a recall shortfall rather than smoothed over
+✓ Saffron detection benchmarked openly against an independent FAO baseline; the recall shortfall is reported plainly, with nothing smoothed over
 
-! Stratified, structured ground-truth sample (n=150), collected for a planned formal accuracy assessment, but not yet manually labelled, hence a stated next step, but not a finished check.
+! Stratified, structured ground-truth sample (n=150), collected for a planned formal accuracy assessment. Manual labelling has not happened yet, so this stays a step for later work, still open.
 
-! Detected saffron area (225.4 ha) is significantly lower than the FAO baseline area (3200-ha), which is not an expectation adjustment, rather it is a detection recall limitation.
+! Detected saffron area (225.4 ha) is significantly lower than the FAO baseline area (3200-ha). This points to a detection recall limitation, and no adjustment to expectations fixes it.
 
-! Spatially resolved allocation data was not available to conduct governance-alignment testing (RQ4) and so deferred rather than estimated, without a source, were that alignment.
+! Spatially resolved allocation data was not available to conduct governance-alignment testing (RQ4), so that alignment check was put off instead of guessed at without a proper source.
 
-## Honest Limitation
+## Limitations
 
 All thresholds used in the various types of classifications of this study were assessed visually and using a sensitivity sweep, but not by a formal procedure of comparing with independent ground-truth points, which are labeled in advance. There is a 150 point stratified sample that exists for that purpose, but the manual labelling and confusion matrix are yet to be created.
 
-This economic valuation is based on a statewide yield and price which is applied to all detected saffron terraces in the same manner. The actual value per terrace may be bounded by soil quality or the awareness premium that one is able to command from Pampore as compared with non-GI premium, so the figure at ₹17.8 crore should not be considered as an exact valuation. The legal protection finding cannot be more up-to-date than the most recent reporting made by legislators, so, in the case of this private member's bill, verification is necessary because the status can change frequently without the media attention afforded by the other sources studied in this report.
+This economic valuation is based on a statewide yield and price which is applied to all detected saffron terraces in the same manner. The value per terrace may be bounded by soil quality or the awareness premium that one is able to command from Pampore as compared with non-GI premium, so the figure at ₹17.8 crore should not be considered as an exact valuation. The legal protection finding cannot be more up-to-date than the most recent reporting made by legislators, so, in the case of this private member's bill, verification is necessary because the status can change frequently without the media attention afforded by the other sources studied in this report.
 
-An additional point to note: that closeness to the settlement may also be due to the general human activity gradient and not just the economics of transportation. And do note that the 2005 time point is a nine-year Landsat composite (2001-2009), not a single-year snapshot — my original single-year query came back empty, so I widened the window. That blurs the intermittent degradation moments in the trend, but it does not affect the two endpoints of the trend (1994 and 2015), which anchor the overall shape of the trend.
+An additional point to note: that closeness to the settlement may also be due to the general human activity gradient and not just the economics of transportation. And do note that the 2005 time point is a nine-year Landsat composite (2001-2009), not a single-year snapshot. My original single-year query came back empty, so I widened the window. That blurs the intermittent degradation moments in the trend, but it does not affect the two endpoints of the trend (1994 and 2015), which anchor the overall shape of the trend.
 
-## Real-World Relevance
+## Practical Relevance
 
-Combined, two independent infrastructure-accessibility signals and a documented legal vacuum make for an actionable governance picture, in a context in which the extraction is focused where it's logistically easiest to do – and there's no dedicated protection legislation in place.
+Combined, two independent infrastructure-accessibility signals and a documented legal vacuum give officials a governance picture they can act on, in a context in which the extraction is focused where it's logistically easiest to do, and there's no dedicated protection legislation in place.
 
-I framed the saffron-proximity risk in rupees and not an abstract hectare count, because there is a very good reason to do so — it makes the crux of the saffron-proximity issue, which is the threat to the physical erosion of the terraces, directly relate to the livelihoods of those growing this crop. It also ties the finding to the pending Karewa Protection Authority bill this study identifies as the one concrete policy lever currently on the table.
+I framed the saffron-proximity risk in rupees and not an abstract hectare count, because there is a very good reason to do so: it makes the crux of the saffron-proximity issue, which is the threat to the physical erosion of the terraces, directly relate to the livelihoods of those growing this crop. It also ties the finding to the pending Karewa Protection Authority bill this study identifies as the one concrete policy lever currently on the table.
 
 GitHub: github.com/sakshimaske303-commits/STOLEN_STRATA | Live Dashboard: stolenstrata-ekmgvmukfnfkpigxtgsak6.streamlit.app | Zenodo DOI: 10.5281/zenodo.21766464
 
-Sakshi D. Maske — Independent Geospatial Researcher
+Sakshi D. Maske, Independent Geospatial Researcher
