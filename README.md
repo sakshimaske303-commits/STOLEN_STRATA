@@ -18,9 +18,9 @@
 
 ---
 
-STOLEN STRATA is a geospatial framework that automatically delineates Kashmir's karewa terraces from terrain data and tracks their disappearance to unchecked soil mining and urbanization, using a 31-year satellite record of the region (1994-2025). Every terrace boundary, degradation flag, and proximity-risk figure in this project runs through one fully scripted pipeline connecting a geologically unique landform to the economy it makes possible — saffron, valued here in rupees rather than just hectares — and to the reason its extraction remains economically viable: there's currently no legal framework regulating it.
+STOLEN STRATA is a geospatial framework that automatically delineates Kashmir's karewa terraces from terrain data and tracks bare-earth conversion on them — a signal consistent with unchecked soil mining and urbanization, though the spectral classifier alone can't distinguish mining from construction, tillage, or natural erosion — using a 31-year satellite record of the region (1994-2025). Every terrace boundary, degradation flag, and proximity-risk figure in this project runs through one fully scripted pipeline connecting a geologically unique landform to the economy it makes possible — saffron, valued here in rupees rather than just hectares — and to the reason its extraction remains economically viable: there's currently no legal framework regulating it.
 
-This isn't a marketing brochure — it's built in the same "trust, but check" spirit as the rest of this portfolio: every hypothesis is tested thoroughly and every finding reported honestly, including the saffron-detection shortfall against an independent FAO baseline, and the governance-alignment question this study couldn't test due to a lack of accessible data.
+This isn't a marketing brochure — it's built in the same "trust, but check" spirit as the rest of this portfolio: every hypothesis this study could test statistically was tested, and every finding reported honestly, including the saffron-detection shortfall against an independent FAO baseline, and the governance-alignment question (RQ4) this study couldn't test due to a lack of accessible data.
 
 ---
 

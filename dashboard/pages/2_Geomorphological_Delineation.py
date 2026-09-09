@@ -38,10 +38,12 @@ card(
     <p>An initial stricter threshold (TPI &gt; 5, slope &lt; 5°) produced thin, sliver-shaped polygons —
     a geomorphologically implausible shape for a depositional terrace tread. Thresholds were loosened
     (TPI &gt; 3, slope &lt; 8°) to recover blob-shaped polygons consistent with real terrace
-    morphology, and the result was cross-validated against the known <b>Saffron Fields, Lethpora</b>
-    location, where mapped polygons correctly overlapped the documented cultivation area.</p>
+    morphology. Thresholds were set from polygon shape alone, not from this location; afterward, the
+    resulting boundaries were checked as a <b>plausibility check</b> against the known
+    <b>Saffron Fields, Lethpora</b> location, where mapped polygons lined up with the documented
+    cultivation area — a spatial-consistency check, not an independent accuracy validation.</p>
     """,
-    badge="Validation",
+    badge="Plausibility Check",
 )
 
 card(

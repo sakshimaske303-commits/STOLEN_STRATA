@@ -76,6 +76,16 @@ def rank_biserial(x, y, alternative='two-sided'):
     return U, p, r
 
 final = gpd.read_file('data/processed/karewa_final_with_geomorphometrics.gpkg')
+
+# karewa_final_with_geomorphometrics.gpkg (written by script 10) never gets a
+# dist_to_settlement_m column of its own — that column is only ever computed and
+# written by script 14b, into a separate file (karewa_settlement_proximity.gpkg).
+# Pull it in here explicitly by terrace id instead of assuming script 10 carries it,
+# so this script is reproducible on a clean re-run regardless of what order 10/14a/14b
+# happen to have left on disk. Run 09 -> 10 -> 14a -> 14b before this script.
+settlement = gpd.read_file('data/processed/karewa_settlement_proximity.gpkg')[['terrace_candidate', 'dist_to_settlement_m']]
+final = final.drop(columns=['dist_to_settlement_m'], errors='ignore').merge(settlement, on='terrace_candidate', how='left')
+
 deg = final[final['status'] == 'likely_degraded']
 intact = final[final['status'] == 'intact']
 
