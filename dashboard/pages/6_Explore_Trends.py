@@ -9,7 +9,7 @@ inject_css()
 page_title("📈 EXPLORE TRENDS", "Interactive views across the full analytical pipeline")
 
 tab1, tab2, tab3, tab4 = st.tabs(
-    ["Bare-Earth Trend", "Area Loss Breakdown", "Saffron Proximity", "Degradation Concentration"]
+    ["Bare-Earth Trend", "Bare-Earth Area Breakdown", "Saffron Proximity", "Degradation Concentration"]
 )
 
 # --- Tab 1: bare-earth trend (duplicated interactive control here for one-stop exploration)
@@ -40,7 +40,7 @@ with tab1:
     st.plotly_chart(fig, width='stretch')
     st.caption("Modest rise 1994–2015 (2005 is a 2001–2009 composite), then more than tripling 2015–2025 — the clearest acceleration signal in the dataset. Points are joined with straight lines; there are no observations between them.")
 
-# --- Tab 2: area loss breakdown
+# --- Tab 2: bare-earth area breakdown
 with tab2:
     st.markdown("#### Where the 190.3 ha of Net Bare-Earth Increase Sits")
     fig2 = go.Figure()
@@ -61,7 +61,7 @@ with tab2:
     st.plotly_chart(fig2, width='stretch')
 
     fig3 = go.Figure(data=[go.Pie(
-        labels=["Loss within the 25 flagged 'degraded' terraces", "Loss diffused across remaining terraces"],
+        labels=["Bare-earth increase within the 25 flagged 'degraded' terraces", "Increase spread across remaining terraces"],
         values=[d.DEGRADED_POLY_LOSS_HA, d.NET_CONVERSION_HA - d.DEGRADED_POLY_LOSS_HA],
         hole=0.55,
         marker=dict(colors=[MAROON, "#2A3550"]),
@@ -74,7 +74,7 @@ with tab2:
                            font=dict(size=16, color=GOLD, family="Montserrat"), showarrow=False)],
     )
     st.plotly_chart(fig3, width='stretch')
-    st.caption(f"{d.DEGRADED_POLY_LOSS_HA} ha of the {d.NET_CONVERSION_HA} ha net loss sits inside just {d.DEGRADED_COUNT} terraces ({d.DEGRADED_PCT_OF_TERRACES}% of the 201 mapped) — degradation is spatially concentrated, not diffuse.")
+    st.caption(f"{d.DEGRADED_POLY_LOSS_HA} ha of the {d.NET_CONVERSION_HA} ha net bare-earth increase sits inside just {d.DEGRADED_COUNT} terraces ({d.DEGRADED_PCT_OF_TERRACES}% of the 201 mapped) — degradation is spatially concentrated, not diffuse.")
 
 # --- Tab 3: saffron proximity
 with tab3:

@@ -79,7 +79,7 @@ card(
     separate these from tillage or erosion). In absolute terms, total
     bare-earth area within mapped terraces rose from {d.BARE_1994_HA} ha to {d.BARE_2025_HA} ha — a net
     conversion of <b>{d.NET_CONVERSION_HA} ha ({d.NET_CONVERSION_PCT}% of total mapped terrace area)</b>.
-    Strikingly, <b>{d.DEGRADED_POLY_LOSS_SHARE_OF_TOTAL_LOSS_PCT}%</b> of that loss
+    Strikingly, <b>{d.DEGRADED_POLY_LOSS_SHARE_OF_TOTAL_LOSS_PCT}%</b> of that increase
     ({d.DEGRADED_POLY_LOSS_HA} ha) is concentrated within the {d.DEGRADED_COUNT} flagged terraces alone
     — while those terraces cover only 9.7% of the mapped terrace area. Degradation is not diffuse
     background noise across the landscape; it is spatially concentrated.</p>
