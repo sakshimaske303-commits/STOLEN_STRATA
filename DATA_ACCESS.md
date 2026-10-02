@@ -16,9 +16,11 @@ than guessed at.
 | `StolenStrata_DEM_GLO30.tif` | `01_extract_karewa_terraces.py` | Copernicus DEM GLO-30 (30m), via Google Earth Engine | AOI: 33.85–34.15°N, 74.75–75.15°E (Pampore / Pulwama / Budgam / Zewan, central Kashmir) |
 | `StolenStrata_NDVI_1994_v2.tif` | `03_ndvi_change_detection.py` | Landsat 5, Google Earth Engine | Season-matched to the June–September window (originally pulled from a wider 1993–1996 stack, then narrowed to match the 2025 window — see Entry 3) |
 | `StolenStrata_NDVI_2025.tif` | `03_ndvi_change_detection.py`, `12_robustness_and_effect_sizes.py` | Sentinel-2, Google Earth Engine | June–September window, ~10m native resolution |
-| `StolenStrata_NDVI_2005.tif` | `08_multitemporal_trend.py` | Landsat 5, Google Earth Engine | **Not a single-year image** — the May–October / low-cloud query for 2005 alone returned nothing, so the window was widened to a 9-year span (2001–2009) centered on 2005, with no cloud filter and a median composite used to suppress cloud noise instead (see Entry 8, and the caveat already in `SS_Executive_Summary.md`) |
+| `StolenStrata_NDVI_2005.tif` | `08_multitemporal_trend.py` | Landsat 5, Google Earth Engine | **Not a single-year image** — the June–September / low-cloud Landsat 5 query for 2005 alone returned nothing, so the window was widened to May–October and a 9-year span (2001–2009) centered on 2005, with no cloud filter and a median composite used to suppress cloud noise instead (see Entry 8, and the caveat already in `SS_Executive_Summary.md`) |
 | `StolenStrata_NDVI_2015.tif` | `08_multitemporal_trend.py` | Landsat 8, Google Earth Engine | May–October window |
 | `StolenStrata_SaffronIndex_2025_v2.tif` | `04_saffron_overlay.py` | Sentinel-2, Google Earth Engine (3-band index raster, band 1 = Saffron_Index) | March window — chosen because saffron's leaf canopy grows out post-flowering, after winter snowmelt, not during the October–November flowering period (see Entry 5) |
+
+`data/raw/` also contains `StolenStrata_Slope.tif`, the original Earth Engine slope export. It is entirely NaN (the corrupted export described in Entry 2 of the development log) and is not used; slope is computed locally from the DEM.
 
 Everything else the pipeline needs is either downloaded live at run time
 (the OSM road network and building footprints, via `osmnx`/Overpass in

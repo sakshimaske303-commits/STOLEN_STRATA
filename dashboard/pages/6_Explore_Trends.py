@@ -25,7 +25,7 @@ with tab1:
             text=[f"{v}%" for v in d.TREND_BARE_FRAC_PCT],
             textposition="top center",
             textfont=dict(color=GOLD, size=13, family="Montserrat"),
-            line=dict(color=MAROON, width=4, shape="spline"),
+            line=dict(color=MAROON, width=4),  # straight segments: a spline invents a dip between 2005 and 2015
             marker=dict(size=13, color=GOLD, line=dict(color=MAROON, width=2)),
             fill="tozeroy" if show_fill else None,
             fillcolor="rgba(139,30,63,0.18)",
@@ -38,11 +38,11 @@ with tab1:
         height=440, margin=dict(l=10, r=10, t=30, b=10),
     )
     st.plotly_chart(fig, width='stretch')
-    st.caption("Flat 1994–2015, then more than tripling 2015–2025 — the clearest acceleration signal in the dataset.")
+    st.caption("Modest rise 1994–2015 (2005 is a 2001–2009 composite), then more than tripling 2015–2025 — the clearest acceleration signal in the dataset. Points are joined with straight lines; there are no observations between them.")
 
 # --- Tab 2: area loss breakdown
 with tab2:
-    st.markdown("#### Where the 190.3 ha of Net Conversion Sits")
+    st.markdown("#### Where the 190.3 ha of Net Bare-Earth Increase Sits")
     fig2 = go.Figure()
     fig2.add_trace(go.Bar(
         x=["1994 Bare Earth", "2025 Bare Earth"],

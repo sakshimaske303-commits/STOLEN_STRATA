@@ -36,7 +36,7 @@ fig1.add_trace(go.Scatter(
     text=[f"{v}%" for v in d.TREND_BARE_FRAC_PCT],
     textposition="top center",
     textfont=dict(color=GOLD, size=18),
-    line=dict(color=MAROON, width=5, shape="spline"),
+    line=dict(color=MAROON, width=5),  # straight segments: only 4 observations; a spline invents a dip between 2005 and 2015
     marker=dict(size=16, color=GOLD, line=dict(color=MAROON, width=2)),
     fill="tozeroy", fillcolor="rgba(139,30,63,0.20)",
 ))

@@ -57,13 +57,13 @@ PROOF_MAP = {
 
 steps = [
     ("01", "Extract Karewa Terraces", "DEM reprojected to UTM43N; slope via np.gradient; TPI via uniform_filter (window=17); threshold TPI>3 & slope<8°; vectorised via rasterio.features.shapes.", f"{d.TOTAL_CANDIDATES_RAW:,} raw candidate polygons"),
-    ("02", "Filter Terrace Candidates", "Area filter (≥0.05 km²) + elevation filter (1550–2000 m) via zonal stats.", f"{d.TOTAL_TERRACES} filtered polygons"),
-    ("03", "NDVI Change Detection", "Season-matched (Jun–Sep) NDVI composites, 1994 vs 2025; bare-earth fraction (% pixels < NDVI 0.15) per polygon.", f"{d.DEGRADED_COUNT}/{d.TOTAL_TERRACES} classified likely_degraded"),
+    ("02", "Filter Terrace Candidates", "Area filter (≥0.05 km²) + elevation filter (1550–2000 m) via zonal stats; the elevation filter removes none of the area-filtered polygons.", f"{d.TOTAL_TERRACES} filtered polygons"),
+    ("03", "NDVI Change Detection", "Season-matched (Jun–Sep) NDVI composites, 1994 vs 2025; bare-earth fraction (% pixels < NDVI 0.15) per polygon; likely_degraded = rise of ≥ 15 percentage points.", f"{d.DEGRADED_COUNT}/{d.TOTAL_TERRACES} classified likely_degraded"),
     ("04", "Saffron Overlay", "Saffron Index = March NDVI − summer NDVI (inverse phenology); threshold 0.15.", f"{d.SAFFRON_POLYGONS} polygons flagged likely_saffron"),
     ("05", "Saffron Proximity Risk", "Distance from saffron polygons to union of degraded terrace geometries; sensitivity loop across 500–2500 m.", f"mean {d.PROXIMITY_MEAN_M} m, min {d.PROXIMITY_MIN_M} m"),
     ("06", "Saffron Area Benchmark", "Detected saffron area vs FAO GIAHS baseline (3,200 ha).", f"{d.SAFFRON_AREA_HA} ha detected — reported as a recall limitation, not a loss statistic"),
     ("07", "Absolute Area Loss", "Total terrace area, 1994 vs 2025 bare-earth area, net conversion, concentration within degraded subset.", f"{d.NET_CONVERSION_HA} ha net loss ({d.NET_CONVERSION_PCT}%)"),
-    ("08", "Multi-Temporal Trend", "Adds 2005 and 2015 NDVI (Landsat 5 / Landsat 8) for a 4-point trend.", "1.84% → 2.62% → 2.63% → 8.43%"),
+    ("08", "Multi-Temporal Trend", "Adds 2005 (Landsat 5, May–Oct 2001–2009 median composite) and 2015 (Landsat 8, May–Oct) NDVI for a 4-time-slice trend.", "1.84% → 2.62% → 2.63% → 8.43%"),
     ("09", "Road Proximity", "osmnx road network extraction; distance to nearest road per terrace; Mann-Whitney U test.", f"p = {d.ROAD_PROXIMITY_MANNWHITNEY_P}"),
     ("10", "Geomorphometrics & Figures", "Compactness Index (4π·Area/Perimeter²) and mean slope per terrace, tested against degradation status; first static figure set.", f"compactness p={d.COMPACTNESS_MWU_P} (significant), slope p={d.SLOPE_MWU_P} (n.s.) — confirmed" if d.GEOMORPHOMETRICS_CONFIRMED else "pending confirmed run"),
     ("11", "Threshold Sensitivity", "Sweeps the TPI/slope, degradation, and saffron thresholds across a neighbourhood of plausible values, since all three were originally chosen by visual inspection with no reported sensitivity check.", "degradation: 23-31 terraces across 12-20pp; saffron proximity-risk: 39-44% across 0.05-0.175"),
@@ -96,16 +96,17 @@ STOLEN_STRATA/
 │   ├── acquisition/   # reserved for scripted GEE acquisition (currently empty —
 │   │                   #   acquisition was run interactively in the GEE Code Editor)
 │   ├── preprocessing/  # reserved, currently empty
-│   ├── analysis/      # 01–15, the scripts described above
+│   ├── analysis/      # 01–15, the scripts described above (no 13; the ground-truth
+│   │                   #   sampling script is not in the repo)
 │   └── visualization/
-├── notebooks/
+├── notebooks/         # currently empty
 ├── outputs/
 │   ├── maps/
 │   ├── interactive_maps/
 │   ├── ground_truth_sample_points.gpkg
 │   └── figures/
 ├── dashboard/          # this Streamlit app
-├── tests/
+├── tests/             # currently empty
 ├── SS_Executive_Summary.md
 ├── SS_Research_Paper.md
 ├── SS_Development_Log.md
@@ -117,7 +118,7 @@ STOLEN_STRATA/
 card(
     "Tools",
     """
-    <p>Google Earth Engine (JavaScript, Code Editor) for Landsat 5/7/8 and Sentinel-2 acquisition ·
+    <p>Google Earth Engine (JavaScript, Code Editor) for Landsat 5/8 and Sentinel-2 acquisition ·
     Python (rasterio, geopandas, numpy, scipy, osmnx, matplotlib) for the entire analytical pipeline ·
     QGIS used exclusively for visual quality-assurance, never for production digitization · Streamlit
     + Plotly for this dashboard.</p>

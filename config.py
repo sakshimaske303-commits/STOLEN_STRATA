@@ -27,8 +27,9 @@ AOI_WEST = 74.75
 
 # --- Step 1: Karewa terrace delineation (01_extract_karewa_terraces.py) ---
 DEM_EDGE_TRIM_PX = 10    # pixels trimmed from each DEM edge (reprojection artifacts concentrate there)
-TPI_WINDOW_SIZE = 17     # uniform_filter window for Topographic Position Index (~510m neighborhood at 30m/px)
-TPI_THRESHOLD = 3        # TPI above this = locally elevated
+TPI_WINDOW_SIZE = 17     # uniform_filter window for Topographic Position Index (~455 m neighbourhood: the reprojected
+                         # UTM DEM grid is ~26.8 m/px, not 30 m)
+TPI_THRESHOLD = 3        # TPI above this (metres) = locally elevated
 SLOPE_THRESHOLD_DEG = 8  # slope below this (degrees) = relatively flat
 # Calibrated per SS_Development_Log.md "Day 1": TPI>5 / slope<5 gave only 115
 # thin, sliver-shaped candidates; TPI>3 / slope<8 recovered 201 proper
@@ -38,12 +39,15 @@ SLOPE_THRESHOLD_DEG = 8  # slope below this (degrees) = relatively flat
 MIN_TERRACE_AREA_KM2 = 0.05
 ELEVATION_MIN_M = 1550
 ELEVATION_MAX_M = 2000
+# Note: at the chosen TPI/slope pair the elevation band removes none of the 201
+# area-filtered polygons — it is a consistency check, not an active filter.
 
 # --- Step 3: Bare-earth degradation (03_ndvi_change_detection.py, 08, 12) ---
 BARE_EARTH_NDVI_THRESHOLD = 0.15    # pixels below this NDVI = bare earth / mining / built-up
 DEGRADATION_LOSS_THRESHOLD = 0.15   # bare-earth-fraction increase (as a fraction, e.g. 0.15 = 15pp) to flag "likely_degraded"
-# Sensitivity swept in 11_threshold_sensitivity.py Part 2 (5-30pp): 23-31
-# terraces flagged across that range, vs. 25 reported at the chosen threshold.
+# Sensitivity swept in 11_threshold_sensitivity.py Part 2 (5-30pp): 14-49
+# terraces flagged across the full range; 23-31 across the 12-20pp neighbourhood,
+# vs. 25 at the chosen 15pp threshold.
 
 # --- Step 4: Saffron detection (04_saffron_overlay.py) ---
 SAFFRON_INDEX_THRESHOLD = 0.15

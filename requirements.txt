@@ -5,6 +5,7 @@ scipy
 osmnx
 matplotlib
 matplotlib-scalebar
+contextily  # optional: web-tile backdrop for static maps 01/04 (falls back to DEM hillshade)
 shapely
 folium
 branca

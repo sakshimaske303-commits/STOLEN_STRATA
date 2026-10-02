@@ -60,14 +60,24 @@ print(f"Mean bare-earth fraction, 2025 @ resampled 30m:          {mean_30m:.2f}%
 print(f"Net conversion (1994->2025) @ 10m: {bare_2025_10m_ha-bare_1994_ha:.1f} ha")
 print(f"Net conversion (1994->2025) @ 30m: {bare_2025_30m_ha-bare_1994_ha:.1f} ha")
 print(f"Degraded terrace count @ 10m: {degraded_10m}   @ 30m: {degraded_30m}")
-print(f"For reference, the flat 2005/2015 baseline was 2.62%/2.63% — even at 30m,")
-print(f"2025's {mean_30m:.2f}% remains ~{mean_30m/2.63:.1f}x that baseline: the acceleration survives")
-print(f"resolution-matching, though at a smaller magnitude than the native-resolution figure.")
+trend = gpd.read_file('data/processed/karewa_multitemporal_trend.gpkg')
+mean_2005 = trend['bare_frac_2005'].mean() * 100
+mean_2015 = trend['bare_frac_2015'].mean() * 100
+jump_10m = mean_10m - mean_2015
+jump_30m = mean_30m - mean_2015
+net_10m = bare_2025_10m_ha - bare_1994_ha
+net_30m = bare_2025_30m_ha - bare_1994_ha
+print(f"Reduction in net 1994->2025 conversion from resolution matching: {100*(net_10m-net_30m)/net_10m:.1f}%")
+print(f"Post-2015 jump (2015->2025): {jump_10m:.2f}pp @10m vs {jump_30m:.2f}pp @30m "
+      f"({100*(jump_10m-jump_30m)/jump_10m:.1f}% smaller)")
+print(f"For reference, the 2005/2015 levels were {mean_2005:.2f}%/{mean_2015:.2f}% — even at 30m,")
+print(f"2025's {mean_30m:.2f}% remains ~{mean_30m/mean_2015:.1f}x the 2015 level. This tests pixel size only;")
+print(f"Landsat vs Sentinel-2 spectral/processing differences are not isolated by this check.")
 
 gdf.to_file('data/processed/karewa_resolution_robustness_check.gpkg', driver='GPKG')
 
 # ============================================================
-# Part 2 — Effect sizes + Holm-Bonferroni across the 3 Mann-Whitney tests
+# Part 2 — Effect sizes + Holm-Bonferroni across the 4 Mann-Whitney tests
 # ============================================================
 def rank_biserial(x, y, alternative='two-sided'):
     n1, n2 = len(x), len(y)
@@ -83,8 +93,17 @@ final = gpd.read_file('data/processed/karewa_final_with_geomorphometrics.gpkg')
 # Pull it in here explicitly by terrace id instead of assuming script 10 carries it,
 # so this script is reproducible on a clean re-run regardless of what order 10/14a/14b
 # happen to have left on disk. Run 09 -> 10 -> 14a -> 14b before this script.
-settlement = gpd.read_file('data/processed/karewa_settlement_proximity.gpkg')[['terrace_candidate', 'dist_to_settlement_m']]
-final = final.drop(columns=['dist_to_settlement_m'], errors='ignore').merge(settlement, on='terrace_candidate', how='left')
+# NOTE: 'terrace_candidate' is the raster value written by rasterio.features.shapes
+# in script 01 and is 1 for EVERY polygon, so it cannot be used as a join key —
+# merging on it produces a 201 x 201 = 40,401-row cross join and silently breaks
+# every test below. Both files carry the same 201 polygons in the same row order
+# (both descend from karewa_road_proximity.gpkg), so join by row position after
+# asserting the geometries really are identical.
+settlement = gpd.read_file('data/processed/karewa_settlement_proximity.gpkg')
+assert len(settlement) == len(final), "settlement and final layers have different row counts"
+assert settlement.geometry.geom_equals(final.geometry).all(), "row order differs between layers"
+final = final.drop(columns=['dist_to_settlement_m'], errors='ignore')
+final['dist_to_settlement_m'] = settlement['dist_to_settlement_m'].values
 
 deg = final[final['status'] == 'likely_degraded']
 intact = final[final['status'] == 'intact']
@@ -103,9 +122,19 @@ for k, (U, p, r, note) in tests.items():
 pvals_sorted = sorted([(k, v[1]) for k, v in tests.items()], key=lambda x: x[1])
 m = len(pvals_sorted)
 print("\n--- Holm-Bonferroni correction across the 4 tests (family-wise alpha=0.05) ---")
+stopped = False
+survivors = []
 for i, (k, p) in enumerate(pvals_sorted):
     adj_alpha = 0.05 / (m - i)
-    sig = "SIGNIFICANT" if p < adj_alpha else "not significant"
+    # Holm is step-down: once one test fails, every later (larger-p) test also fails.
+    if stopped or p >= adj_alpha:
+        stopped = True
+        sig = "not significant"
+    else:
+        sig = "SIGNIFICANT"
+        survivors.append(k)
     print(f"rank {i+1}: {k}: p={p:.4f}, Holm-adjusted alpha={adj_alpha:.4f} -> {sig}")
 
-print("\nSettlement, road, and compactness survive Holm-Bonferroni correction; slope doesn't.")
+print(f"\nSurvive Holm-Bonferroni: {', '.join(survivors) if survivors else 'none'}")
+print("Note: these are terrace-level tests; spatial autocorrelation between neighbouring")
+print("terraces is not modelled, so p-values may overstate the evidence.")

@@ -46,8 +46,8 @@ ROAD_PROXIMITY_MANNWHITNEY_P = 0.0116
 ROAD_PROXIMITY_FINDING = (
     "Degraded karewa terraces sit statistically significantly closer to the "
     "OpenStreetMap road network than non-degraded terraces (Mann-Whitney U test, "
-    "p = 0.0116), consistent with an infrastructure-accessibility driver of "
-    "unregulated soil mining."
+    "p = 0.0116) — an association consistent with, but not proof of, accessibility-"
+    "driven soil mining."
 )
 
 # ---- Settlement proximity — second infrastructure signal (14b) ------------
@@ -60,21 +60,23 @@ SETTLEMENT_PROXIMITY_FINDING = (
     "Degraded karewa terraces also sit statistically significantly closer to OpenStreetMap "
     "building footprints (3,266 features) than non-degraded terraces — mean 455.9 m "
     "(median 202.0 m) versus 999.7 m (median 816.6 m) for intact terraces (Mann-Whitney U "
-    "test, p = 0.0001) — an independent second infrastructure-accessibility signal, and the "
-    "strongest statistical effect of any test in this study."
+    "test, p = 0.0001) — a second, distinct (though spatially correlated) infrastructure "
+    "signal, and the largest effect of any test in this study. OSM building coverage in this "
+    "area is incomplete, so this distance partly reflects where buildings have been mapped."
 )
 
 # ---- Karewa legal-protection status (regulatory context) ------------------
 KAREWA_LEGAL_STATUS_FINDING = (
-    "No statute currently protects karewa land from excavation in Jammu & Kashmir. A "
-    "private member's bill introduced by Dr. Syed Bashir Veeri, MLA for Bijbehara, would "
-    "prohibit clay, sand, and gravel excavation in ecologically sensitive karewa zones, "
-    "permit mining only in already-degraded areas subject to J&K State Environmental Impact "
-    "Assessment Authority approval, and establish a dedicated Karewa Protection Authority "
-    "with penalties of up to Rs 10 lakh and five years' imprisonment for violations — but as "
-    "of the most recent reporting located for this study, it remained pending rather than "
-    "enacted, with the Revenue and Geology & Mining Departments continuing to issue the "
-    "excavation permissions the bill would restrict."
+    "No karewa-specific statute currently protects karewa land from excavation in Jammu & "
+    "Kashmir; excavation proceeds under general Revenue and Geology & Mining permissions. A "
+    "private member's bill, the J&K Karewa Protection Bill, 2025, introduced by Dr. Syed "
+    "Bashir Veeri, MLA for Bijbehara, would prohibit clay, sand, and gravel excavation in "
+    "ecologically sensitive karewa zones, permit mining only in already-degraded areas with "
+    "prior approval from a Karewa Protection Authority and the J&K State Environmental Impact "
+    "Assessment Authority, and set fines of up to Rs 10 lakh per violation and up to five "
+    "years' imprisonment for repeat offences — but as of the most recent reporting located "
+    "for this study (February 2025), it remained pending rather than enacted, with those "
+    "departments continuing to issue the excavation permissions the bill would restrict."
 )
 
 # ---- Geomorphometrics (10 — confirmed) -------------------------
@@ -89,11 +91,12 @@ COMPACTNESS_NOTE = (
     "Compactness Index (4π·Area/Perimeter²) and mean slope per terrace were computed "
     "and tested against degradation status via Mann-Whitney U (see "
     "src/analysis/10_geomorphometrics_and_figures.py), then independently recomputed "
-    "from the raw DEM during Deep Verify and confirmed exact. Degraded terraces are "
-    "significantly less compact / more dissected than intact ones (mean 0.138 vs. "
-    "0.191, p = 0.0044) — consistent with irregular mining-scarred boundaries replacing "
-    "the smooth original terrace outline. Mean internal slope does not differ "
-    "significantly by status (2.89° vs. 3.06° for degraded, p = 0.1711)."
+    "and confirmed exact. Degraded terraces are significantly less compact than intact "
+    "ones as a group (mean 0.138 vs. 0.191, p = 0.0044). This is not evidence of mining "
+    "scars in the outline: the DEM comes from 2011-2015 TanDEM-X acquisitions, before most "
+    "of the measured change, and compactness alone does not pick out the degraded terraces "
+    "(the 25 least compact include only 2 of them). Mean internal slope does not differ "
+    "significantly by status (2.89° intact vs. 3.06° degraded, p = 0.1711)."
 )
 
 # ---- Threshold sensitivity, resolution robustness, effect sizes (11, 12)
@@ -117,13 +120,14 @@ EFFECT_SIZE_COMPACTNESS_R = 0.352
 EFFECT_SIZE_SLOPE_R = -0.170
 HOLM_BONFERRONI_NOTE = (
     "Rank-biserial effect sizes: settlement proximity r=0.465, compactness r=0.352, "
-    "road proximity r=0.268, slope r=-0.170. Settlement proximity is the strongest "
-    "effect in the study; road proximity and compactness are small-to-moderate; slope "
-    "is negligible. Holm-Bonferroni correction across all 4 tests (family-wise "
+    "road proximity r=0.268, slope r=-0.170. Settlement proximity is the largest "
+    "effect in the study (moderate); compactness is moderate; road proximity is "
+    "small-to-moderate; slope is small and non-significant. Holm-Bonferroni correction across all 4 tests (family-wise "
     "α=0.05): settlement proximity (p=0.0001, adj. threshold 0.0125), compactness "
     "(p=0.0044, adj. threshold 0.0167), and road proximity (p=0.0116, adj. threshold "
     "0.025) all remain significant; slope was already non-significant before "
-    "correction."
+    "correction. These are terrace-level tests with no adjustment for spatial "
+    "clustering, so the p-values may overstate the evidence."
 )
 
 ROBUSTNESS_NOTE = (
@@ -133,9 +137,9 @@ ROBUSTNESS_NOTE = (
     "Saffron-threshold sweep (0.05-0.25): the 43% proximity-risk share stays within "
     "39-44% across 0.05-0.175, only destabilising below n=6 detected terraces. "
     "Resampling 2025 to 30m (matching earlier years) drops bare-earth fraction from "
-    "8.43% to 7.48% and net conversion from 190.3 to 165.2 ha — a real ~13% "
-    "resolution effect, but the acceleration survives it (7.48% is still ~2.8x the "
-    "flat 2005/2015 baseline)."
+    "8.43% to 7.48% and net conversion from 190.3 to 165.2 ha (~13%; the 2015-2025 "
+    "jump shrinks ~16%), but the acceleration survives it (7.48% is still ~2.8x the "
+    "2015 level). Only pixel size is tested; other Landsat/Sentinel-2 differences are not."
 )
 
 # ---- Economic valuation of saffron-proximity risk (15) --------------------
@@ -148,7 +152,7 @@ ECONOMIC_VALUATION_NOTE = (
     "At official 2024-25 J&K state saffron figures (19.58 MT from 3,715 ha, valued at "
     "Rs 534.53 crore — J&K Legislative Assembly, Agriculture Production Dept.), which "
     "imply a yield of 5.27 kg/ha and a price of roughly Rs 2.73 lakh/kg, the 225.4 ha "
-    "this study detects as saffron-cultivating represents an estimated Rs 32.4 crore "
+    "of terraces this study flags as likely saffron represents an estimated Rs 32.4 crore "
     "in annual production value. Of that, the 123.6 ha within the 1 km at-risk radius "
     "(6 of 14 terraces) represents an estimated Rs 17.8 crore annually — 55% of the "
     "total. This is a value-at-risk figure expressing how much annual production "

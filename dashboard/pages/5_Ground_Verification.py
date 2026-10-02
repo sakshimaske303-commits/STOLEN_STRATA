@@ -15,7 +15,7 @@ card(
     checking against something physical wherever possible — not as a replacement for the systematic
     accuracy-assessment sample already built into the methodology
     (<code>outputs/ground_truth_sample_points.gpkg</code>), but as an independent, on-the-ground
-    look at the same belt used in the <b>Validation at Saffron Fields, Lethpora</b> interactive map
+    look at the same belt used in the <b>Plausibility Check at Saffron Fields, Lethpora</b> interactive map
     (see Interactive Maps).</p>
     """,
     badge="Field Check",
@@ -28,8 +28,10 @@ c3.metric("Coordinate Cluster", "33.97°N, 74.95°E")
 
 st.markdown("## Field Photographs")
 st.markdown(
-    "Four GPS-tagged photographs, captured 3 September 2026 directly on the karewa terraces this "
-    "study delineates, within the same saffron belt as the Lethpora validation map."
+    "Four photographs with a GPS-stamp overlay, captured 3 September 2026 on the Lethpora karewa "
+    "plateau shown in the plausibility-check map. These points lie in the plateau's flat interior, "
+    "outside all 201 delineated polygons (about 0.5 km from the nearest one): the delineation rings this "
+    "plateau's rims and spurs but does not include its interior."
 )
 
 GT_DIR = os.path.join(os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))), "outputs", "ground_truth_photos")

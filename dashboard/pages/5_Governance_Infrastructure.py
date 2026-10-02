@@ -10,7 +10,7 @@ page_title("🛣️ GOVERNANCE AND INFRASTRUCTURE", "Is degradation an accessibi
 col1, col2, col3 = st.columns(3)
 col1.metric("Road proximity p-value", f"{d.ROAD_PROXIMITY_MANNWHITNEY_P}")
 col2.metric("Settlement proximity p-value", f"{d.SETTLEMENT_PROXIMITY_MANNWHITNEY_P}")
-col3.metric("Legal protection status", "No statute")
+col3.metric("Karewa-specific law", "None (Feb 2025)")
 
 st.image(map_image("06_road_network_proximity.png"), use_container_width=True)
 
@@ -25,7 +25,9 @@ card(
     infrastructure layer independently, then compared between degraded and non-degraded terraces
     using a <b>Mann-Whitney U test</b> — a non-parametric test appropriate here because terrace-to-
     infrastructure distances are non-normally distributed and zero-inflated near dense settlement
-    edges (a terrace whose boundary touches or is crossed by a road correctly registers 0 m).</p>
+    edges (a terrace whose boundary touches or is crossed by a road correctly registers 0 m). The many
+    zeros enter as tied ranks, which reduces the test's power. The tests treat the 201 terraces as
+    independent; spatial clustering is not adjusted for, so p-values may overstate the evidence.</p>
     """,
     badge="Pipeline Stage 4",
 )
@@ -35,7 +37,7 @@ card(
     f"""
     <p>{d.ROAD_PROXIMITY_FINDING}</p>
     <p>{d.SETTLEMENT_PROXIMITY_FINDING}</p>
-    <p>Both results are consistent with an accessibility-driven model of unregulated mining: extraction
+    <p>Both results are consistent with an accessibility-driven model of mining: extraction
     is economically viable where the marginal cost of transporting excavated material to a construction
     or brick-kiln market is lowest, i.e. near existing roads and built-up areas — rather than being
     randomly distributed across the karewa landscape irrespective of infrastructure. That settlement
@@ -60,8 +62,8 @@ card(
     running four tests without correction inflates the family-wise false-positive rate. Rank-biserial
     effect sizes — settlement proximity r={d.EFFECT_SIZE_SETTLEMENT_R}, compactness
     r={d.EFFECT_SIZE_COMPACTNESS_R}, road proximity r={d.EFFECT_SIZE_ROAD_R}, slope
-    r={d.EFFECT_SIZE_SLOPE_R} — show settlement proximity as the strongest effect in the study
-    (moderate-to-large), with road proximity and compactness small-to-moderate and slope negligible.
+    r={d.EFFECT_SIZE_SLOPE_R} — show settlement proximity as the largest effect in the study
+    (moderate), compactness moderate, road proximity small-to-moderate, and slope small and non-significant.
     Applying a Holm-Bonferroni correction across the 4-test family (α=0.05): settlement proximity
     (p=0.0001, adjusted threshold 0.0125), compactness (p=0.0044, adjusted threshold 0.0167), and road
     proximity (p=0.0116, adjusted threshold 0.025) all remain significant; slope was already
@@ -74,11 +76,11 @@ card(
     "Policy Framing (RQ4)",
     """
     <p>The project's fourth research question asks whether current agricultural policy investment
-    (e.g. National Saffron Mission funding) is spatially aligned with karewa land that remains
+    (e.g. National Mission on Saffron funding) is spatially aligned with karewa land that remains
     geomorphologically and agronomically intact — or is instead directed toward land already under
-    active erosion pressure. A targeted search for spatially resolved PM Saffron Mission site- or
-    district-level allocation data found only aggregate, valley-wide figures (2,598 ha under
-    rejuvenation, Rs 400 crore) — no dataset at a resolution this study's terrace-level map could be
+    active erosion pressure. A targeted search for spatially resolved National Mission on Saffron site- or
+    district-level allocation data found only aggregate, valley-wide figures (about 2,598 ha already brought
+    under rejuvenation out of 3,665 ha identified, about Rs 400 crore project cost) — no dataset at a resolution this study's terrace-level map could be
     meaningfully overlaid against. This page is framed honestly around that constraint rather than
     fabricating a district-level comparison from figures that don't exist at that resolution. The
     road- and settlement-proximity and degradation-hotspot layers developed here nonetheless provide an
@@ -94,11 +96,11 @@ card(
     f"""
     <p>{d.KAREWA_LEGAL_STATUS_FINDING}</p>
     <p>This reframes how the road- and settlement-proximity results above should be read: they are not
-    evidence of enforcement failure against an existing rule, since no rule currently exists to enforce.
-    They describe the spatial signature of extraction proceeding in a genuinely unregulated space. That
-    changes the policy ask this study supports — from "enforce existing protections more consistently"
-    to "establish a protection regime in the first place" — informed by the terrace-level risk map this
-    study produces.</p>
+    evidence of a karewa protection rule being poorly enforced, since no such rule exists yet.
+    They describe the spatial signature of extraction proceeding under general permits without
+    karewa-specific protection. That changes the policy ask this study supports — from "enforce existing
+    protections more consistently" to "establish a karewa protection regime in the first place" — informed
+    by the terrace-level map this study produces.</p>
     <p style="color:#9AA5B8; font-size:0.92rem;">Reflects the most recent legislative reporting located
     as of this study's research date; legislative status can change and should be independently
     re-checked before being treated as current.</p>

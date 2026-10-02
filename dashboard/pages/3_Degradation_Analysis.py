@@ -24,7 +24,7 @@ st.markdown(
         <div style="display:flex; flex-wrap:wrap; gap:0.5rem;">
             <span style="background:rgba(46,204,113,0.15); border:1px solid #2ECC71; color:#2ECC71;
                          padding:0.35rem 0.8rem; border-radius:999px; font-size:0.82rem; font-weight:600;">
-                ✓ Season-matched composites (June–Sept, both years) — corrected a seasonal-mismatch NDVI artefact before it became the headline number
+                ✓ Season-matched 1994/2025 endpoints (June–Sept) — corrected a seasonal-mismatch NDVI artefact before it became the headline number (2005/2015 use May–Oct)
             </span>
             <span style="background:rgba(46,204,113,0.15); border:1px solid #2ECC71; color:#2ECC71;
                          padding:0.35rem 0.8rem; border-radius:999px; font-size:0.82rem; font-weight:600;">
@@ -40,7 +40,7 @@ st.markdown(
             </span>
             <span style="background:rgba(212,175,55,0.15); border:1px solid {GOLD}; color:{GOLD};
                          padding:0.35rem 0.8rem; border-radius:999px; font-size:0.82rem; font-weight:700;">
-                ! ~13% of the post-2015 jump's magnitude is attributable to the 10 m→30 m resolution difference — real, quantified, and disclosed rather than folded silently into the headline number
+                ! Resolution matching (10 m→30 m) cuts net 1994–2025 conversion by ~13% and the 2015–2025 jump by ~16% — real, quantified, and disclosed rather than folded silently into the headline number
             </span>
         </div>
     </div>
@@ -75,12 +75,14 @@ card(
     "Result",
     f"""
     <p>Of {d.TOTAL_TERRACES} delineated terraces, <b>{d.DEGRADED_COUNT} ({d.DEGRADED_PCT_OF_TERRACES}%)</b>
-    show a bare-earth increase consistent with mining or built-up conversion. In absolute terms, total
+    show a bare-earth increase consistent with mining or built-up conversion (the classifier cannot
+    separate these from tillage or erosion). In absolute terms, total
     bare-earth area within mapped terraces rose from {d.BARE_1994_HA} ha to {d.BARE_2025_HA} ha — a net
     conversion of <b>{d.NET_CONVERSION_HA} ha ({d.NET_CONVERSION_PCT}% of total mapped terrace area)</b>.
     Strikingly, <b>{d.DEGRADED_POLY_LOSS_SHARE_OF_TOTAL_LOSS_PCT}%</b> of that loss
     ({d.DEGRADED_POLY_LOSS_HA} ha) is concentrated within the {d.DEGRADED_COUNT} flagged terraces alone
-    — degradation is not diffuse background noise across the landscape, it is spatially concentrated.</p>
+    — while those terraces cover only 9.7% of the mapped terrace area. Degradation is not diffuse
+    background noise across the landscape; it is spatially concentrated.</p>
     """,
     badge="Finding",
 )
@@ -120,8 +122,8 @@ st.plotly_chart(fig, width='stretch')
 card(
     "Reading the Curve",
     """
-    <p>Bare-earth fraction is essentially flat between 1994 and 2015 (1.84% → 2.62% → 2.63%) — three
-    decades of relative stability — before more than <b>tripling</b> between 2015 and 2025 (2.63% →
+    <p>Bare-earth fraction rises only modestly between 1994 and 2015 (1.84% → 2.62% → 2.63%; the 2005
+    point is a 2001–2009 composite) — two decades of relative stability — before more than <b>tripling</b> between 2015 and 2025 (2.63% →
     8.43%). This is the strongest single piece of evidence in the whole project: karewa degradation in
     this belt is a recent, accelerating phenomenon rather than a slow multi-decadal process, consistent
     with reporting of intensified mining activity in the last decade.</p>
@@ -137,9 +139,10 @@ card(
     earlier years) and rerunning the pipeline: mean bare-earth fraction falls from
     <b>{d.RESOLUTION_CHECK_10M_PCT}%</b> to <b>{d.RESOLUTION_CHECK_30M_PCT}%</b>, and net conversion from
     <b>{d.RESOLUTION_CHECK_10M_NET_HA} ha</b> to <b>{d.RESOLUTION_CHECK_30M_NET_HA} ha</b> — a real,
-    quantified ~13% resolution effect. But the acceleration survives it: even at matched 30 m resolution,
-    7.48% remains roughly 2.8× the flat 2005/2015 baseline (~2.6%). Resolution modestly inflates the
-    magnitude; it does not create the trend.</p>
+    quantified ~13% resolution effect (~16% of the 2015–2025 jump). But the acceleration survives it: even at matched 30 m resolution,
+    7.48% remains roughly 2.8× the 2015 level (2.63%). Pixel size modestly inflates the
+    magnitude; it does not create the trend. Other Landsat/Sentinel-2 differences (spectral bands,
+    processing) are not tested by this check.</p>
     <p>The 15-percentage-point degradation threshold itself was also swept from 5 to 30 points: the
     reported 25-terrace count sits in a stable 23–31 range across the 12–20 point neighbourhood — see
     <code>src/analysis/11_threshold_sensitivity.py</code> and

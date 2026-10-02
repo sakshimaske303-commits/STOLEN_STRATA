@@ -26,8 +26,12 @@ card(
     are flagged as flat, locally-elevated terrace surface — the diagnostic signature of a karewa
     tread versus its bounding scarp.</p>
     <p>Raw candidate pixels are vectorized with <code>rasterio.features.shapes</code>, then filtered to
-    polygons ≥ 0.05 km² in area and within the 1550–2000 m elevation band known to host karewa
-    exposures, removing DEM noise and non-karewa flat surfaces (river floodplain, etc.).</p>
+    polygons ≥ 0.05 km² in area, which removes DEM noise. A 1550–2000 m elevation band (known to host
+    karewa exposures) is then applied as a consistency check; at this threshold pair it removes none
+    of the 201 polygons. The TPI window is 17 pixels, about 455 m on the ~26.8 m reprojected grid.</p>
+    <p>Known limitation: because TPI rewards height relative to that ~455 m neighbourhood, the
+    polygons follow terrace rims, spurs and edges more than the broad flat interiors of large
+    plateaus. At Lethpora they ring the cultivated plateau but leave its interior out.</p>
     """,
     badge="Pipeline Stage 1",
 )
@@ -40,8 +44,9 @@ card(
     (TPI &gt; 3, slope &lt; 8°) to recover blob-shaped polygons consistent with real terrace
     morphology. Thresholds were set from polygon shape alone, not from this location; afterward, the
     resulting boundaries were checked as a <b>plausibility check</b> against the known
-    <b>Saffron Fields, Lethpora</b> location, where mapped polygons lined up with the documented
-    cultivation area — a spatial-consistency check, not an independent accuracy validation.</p>
+    <b>Saffron Fields, Lethpora</b> location, where mapped polygons cluster around the documented
+    cultivation area (tracing its rims rather than its flat interior) — a spatial-consistency check,
+    not an independent accuracy validation.</p>
     """,
     badge="Plausibility Check",
 )
@@ -50,10 +55,10 @@ card(
     "Geomorphometric Characterisation",
     f"""
     <p>Compactness index (4π·Area/Perimeter²) and per-terrace mean slope were computed and tested
-    against degradation status. Degraded terraces are significantly less compact — more irregular
-    and dissected — than intact ones (mean {d.COMPACTNESS_MEAN_DEGRADED} vs. {d.COMPACTNESS_MEAN_INTACT},
-    Mann-Whitney p = {d.COMPACTNESS_MWU_P}), consistent with mining scars breaking up an originally
-    smooth terrace outline. Internal slope does not differ significantly by status
+    against degradation status. Degraded terraces are significantly less compact than intact ones as a
+    group (mean {d.COMPACTNESS_MEAN_DEGRADED} vs. {d.COMPACTNESS_MEAN_INTACT}, Mann-Whitney p =
+    {d.COMPACTNESS_MWU_P}). Because the DEM dates from 2011–2015, before most of the measured change, this
+    describes which terrace shapes tended to degrade, not mining scars in the outline. Internal slope does not differ significantly by status
     (p = {d.SLOPE_MWU_P}). See the Methodology &amp; Data page for the full pipeline step.</p>
     """,
     badge="Supplementary Finding",

@@ -23,7 +23,7 @@ MAPS = {
     "Study Area Overview": "01_study_area_overview",
     "Terrace Degradation Status": "02_terrace_degradation_status",
     "Delineated Terrace Boundaries": "03_terrace_boundaries",
-    "Validation at Saffron Fields, Lethpora": "04_validation_lethpora",
+    "Plausibility Check at Saffron Fields, Lethpora": "04_validation_lethpora",
     "Saffron Proximity Risk": "05_saffron_proximity_risk",
     "Road Network Proximity": "06_road_network_proximity",
     "Settlement Proximity": "07_settlement_proximity",

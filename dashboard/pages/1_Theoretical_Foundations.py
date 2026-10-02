@@ -46,7 +46,7 @@ card(
     "How an Ice-Age Lake Became a Farmland Terrace",
     f"""
     <p>The karewas began as an ancient <b>intermontane lake</b> that filled the Kashmir Valley
-    during parts of the Pleistocene, accumulating thick, flat-lying layers of lacustrine and
+    during the Plio-Pleistocene, accumulating thick, flat-lying layers of lacustrine and
     glacio-fluvial sediment on its floor. Later <b>tectonic uplift</b> of the valley, combined
     with progressive incision by the Jhelum River and its tributaries, drained the lake and cut
     into those soft sediments — leaving behind the flat-topped, steep-sided terrace landform
@@ -76,12 +76,13 @@ card(
     f"""
     <p>This is the piece of theory that gives Stolen Strata's headline number its weight: the
     lake that built the karewas is gone, and the tectonic and fluvial conditions that formed
-    these terraces operated over millennia and are not active today in any way that could rebuild
+    these terraces operated over hundreds of thousands to millions of years and are not active today in any way that could rebuild
     a mined terrace. A karewa is a <b>relict landform</b> — once its strata are stripped by
     unregulated mining, both the saffron-suitable soil <em>and</em> the paleoclimate record inside
-    it are lost permanently, not on a renewable or recoverable timescale. That is what makes this
-    project's central measurement — hectares of terrace converted to bare earth — a record of
-    genuinely irreversible geomorphic and scientific loss, not a routine land-use change.</p>
+    it are lost permanently, not on a renewable or recoverable timescale. That is why the excavated
+    share of this project's central measurement matters. Note that the bare-earth signal itself also
+    counts construction, tillage and erosion, some of which is reversible, so hectares of bare-earth
+    increase are an upper-bound proxy for excavation, not a direct count of irreversible loss.</p>
     """,
     badge="Why It Matters",
 )

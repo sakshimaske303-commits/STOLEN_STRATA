@@ -11,8 +11,8 @@ page_title("📖 STUDY DESIGN", "Region, rationale, and the questions this proje
 card(
     "Study Area",
     """
-    <p>The primary study area is the central Kashmir Valley, encompassing the karewa belts of
-    <b>Pampore, Pulwama, and Budgam districts</b>, together with the type-locality exposures near
+    <p>The primary study area is the central Kashmir Valley, encompassing the karewa belts around
+    <b>Pampore</b> in <b>Pulwama, Budgam, and Srinagar districts</b>, together with the type-locality exposures near
     <b>Srinagar (Zewan section)</b>. This area holds the highest concentration of saffron-bearing
     karewas in the valley and has been repeatedly flagged in secondary literature as a hotspot of
     unregulated soil mining.</p>
@@ -27,7 +27,7 @@ components.iframe(
     scrolling=True,
 )
 st.markdown(
-    "<p style='text-align:center; font-size:0.85rem; color:#999;'>The three-district study area boundary, waterways, and settlements — pan, zoom, and click features to inspect them.</p>",
+    "<p style='text-align:center; font-size:0.85rem; color:#999;'>The three district boundaries, the study-area box, and the 201 delineated terraces — pan, zoom, and click features to inspect them.</p>",
     unsafe_allow_html=True,
 )
 
@@ -56,7 +56,7 @@ with c2:
         <li>No spatially explicit overlay of karewa loss against saffron cultivation extent has been
         published, so it is unknown how much <i>productive</i> (versus marginal) terrace land is being
         consumed.</li>
-        <li>Whether policy instruments such as the National Saffron Mission are targeting
+        <li>Whether policy instruments such as the National Mission on Saffron are targeting
         geomorphologically secure land, or land already under active erosion pressure, has not been
         assessed.</li>
         </ol>
@@ -70,7 +70,7 @@ rqs = [
     ("RQ1", "What is the net areal change in karewa terrace extent between the earliest usable Landsat archive and the present day?"),
     ("RQ2", "Where is this loss concentrated, and does it correlate with proximity to roads / urban centres / mining activity?"),
     ("RQ3", "What proportion of lost terrace area overlapped with saffron cultivation, and what does this imply for the industry's viability?"),
-    ("RQ4", "Are current policy investments (e.g. National Saffron Mission) spatially aligned with terrace land that remains intact?"),
+    ("RQ4", "Are current policy investments (e.g. National Mission on Saffron) spatially aligned with terrace land that remains intact?"),
 ]
 for col, (tag, text) in zip(rq_cols, rqs):
     with col:
@@ -80,27 +80,27 @@ st.markdown("### Data Sources")
 st.table(
     {
         "Data": [
-            "Landsat 5/7/8/9 archive (1990s–2026)",
-            "Sentinel-2 (2015–2026)",
+            "Landsat 5 / Landsat 8 (1994, 2001–2009, 2015)",
+            "Sentinel-2 (2025; March window for the saffron index)",
             "DEM (Copernicus GLO-30)",
-            "Saffron cultivation extent",
-            "National Saffron Mission documentation",
-            "OpenStreetMap road network",
+            "Saffron signature",
+            "National Mission on Saffron figures",
+            "OpenStreetMap roads and building footprints",
         ],
         "Source": [
             "USGS / Google Earth Engine",
             "Copernicus / GEE",
             "Copernicus DEM via GEE",
-            "Literature + ground-truthed via imagery",
-            "Government of India / J&K publications",
+            "Sentinel-2 NDVI index (no external saffron-extent layer)",
+            "J&K Assembly replies / press reports (aggregate only)",
             "osmnx",
         ],
         "Purpose": [
             "Multi-decadal land-cover change detection",
             "High-resolution recent-period mapping",
             "Terrace delineation via slope-break / TPI",
-            "Economic overlay layer",
-            "Policy evaluation layer",
+            "Saffron-terrace flagging and economic valuation",
+            "Context only — no spatial data, so RQ4 was not tested",
             "Infrastructure-proximity analysis",
         ],
     }

@@ -12,11 +12,17 @@ with rasterio.open('data/interim/DEM_UTM43N.tif') as src:
     crs = src.crs
     profile = src.profile
     pixel_size = transform[0]
+    nodata_val = src.nodata
+
+# Mask the DEM's -9999 nodata (and any NaN) before differencing — otherwise the
+# jump from -9999 to real elevations produces spurious ~90° slopes at the edges.
+if nodata_val is not None:
+    dem[dem == nodata_val] = np.nan
 
 dy, dx = np.gradient(dem, pixel_size)
 slope = np.degrees(np.arctan(np.sqrt(dx**2 + dy**2)))
 
-profile.update(dtype=rasterio.float32, nodata=None)
+profile.update(dtype=rasterio.float32, nodata=np.nan)
 with rasterio.open('data/interim/Slope_final_UTM43N.tif', 'w', **profile) as dst:
     dst.write(slope.astype(rasterio.float32), 1)
 print("Slope raster saved.")

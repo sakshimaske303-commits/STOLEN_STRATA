@@ -99,9 +99,9 @@ card(
     Geographical Indication-tagged saffron (<i>Crocus sativus</i>) grows here at all — a crop the FAO's
     own baseline ties to roughly {d.FAO_FARM_FAMILIES:,} farming families. Every hectare mined for
     construction aggregate is permanently unavailable to that economy: unlike a fallow field, a
-    flattened terrace cannot be replanted. The finding that degradation tracks road proximity
+    flattened terrace cannot be replanted. The finding that degradation is associated with road proximity
     (p = {d.ROAD_PROXIMITY_MANNWHITNEY_P}) turns an abstract land-cover statistic into an actionable
-    lever — unregulated mining is not randomly distributed, it is access-driven, meaning targeted
+    lever — degradation is not randomly distributed but concentrated on the most accessible terraces, meaning targeted
     permitting and monitoring along road corridors near saffron-adjacent terraces could measurably slow
     it before the post-2015 acceleration reaches deeper into the Geographical Indication belt.</p>
     """,
@@ -118,9 +118,9 @@ card(
     ancient intermontane lake — are being quietly flattened by unregulated soil mining and urban
     sprawl. The loess capping these terraces is exactly what makes them suitable for saffron
     (<i>Crocus sativus</i>) cultivation, a Geographical Indication-tagged crop central to the Pampore
-    belt's economy. Journalistic accounts document the loss anecdotally. No systematic,
-    multi-decadal, satellite-based quantification has previously connected the physical erasure
-    of this landform to the economic fate of the industry it sustains — until now.</p>
+    belt's economy. Journalistic accounts document the loss anecdotally. This study did not identify
+    a prior systematic, multi-decadal, satellite-based quantification connecting the physical erasure
+    of this landform to the industry it sustains.</p>
     """,
     badge="Research Gap",
 )
@@ -130,8 +130,8 @@ card(
     """
     <p>A fully scripted, reproducible Python pipeline — DEM-derived Topographic Position Index (TPI)
     and slope thresholding to algorithmically delineate terrace boundaries, Landsat/Sentinel-2
-    time-series via Google Earth Engine to detect bare-earth land-cover change across a 1994–2025
-    window, zonal saffron-signature detection, and proximity/statistical testing against road
+    composites via Google Earth Engine to detect bare-earth land-cover change at four time slices across a 1994–2025
+    window, zonal saffron-signature detection, and proximity/statistical testing against road and building
     infrastructure. QGIS is used only for visual quality assurance — never for manual digitization.</p>
     """,
     badge="Methodology",
@@ -141,19 +141,19 @@ card(
     "Headline Finding",
     f"""
     <p style="font-size:1.4rem; color:{GOLD}; font-weight:800; margin-bottom:0.2rem;">
-        {d.NET_CONVERSION_HA} ha lost
+        {d.NET_CONVERSION_HA} ha
     </p>
-    <p style="color:#9AA5B8; margin-top:0;">of karewa terrace converted to bare earth, 1994–2025</p>
+    <p style="color:#9AA5B8; margin-top:0;">net increase in bare-earth cover on mapped karewa terraces, 1994–2025</p>
     <hr>
     <p style="font-size:1.4rem; color:{GOLD}; font-weight:800; margin-bottom:0.2rem;">
-        {d.DEGRADED_POLY_LOSS_SHARE_OF_TOTAL_LOSS_PCT}% of that loss
+        {d.DEGRADED_POLY_LOSS_SHARE_OF_TOTAL_LOSS_PCT}% of that increase
     </p>
     <p style="color:#9AA5B8; margin-top:0;">is concentrated within just {d.DEGRADED_COUNT} of {d.TOTAL_TERRACES} terraces ({d.DEGRADED_PCT_OF_TERRACES}%)</p>
     <hr>
     <p style="font-size:1.4rem; color:{GOLD}; font-weight:800; margin-bottom:0.2rem;">
         p = {d.ROAD_PROXIMITY_MANNWHITNEY_P}
     </p>
-    <p style="color:#9AA5B8; margin-top:0;">degradation is statistically linked to road proximity</p>
+    <p style="color:#9AA5B8; margin-top:0;">degradation is statistically associated with road proximity</p>
     """,
     badge="At A Glance",
 )

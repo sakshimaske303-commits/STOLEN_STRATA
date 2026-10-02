@@ -13,7 +13,13 @@ TEAL = "#2EC4B6"
 CREAM = "#F5F1E8"
 
 def gp(name):
-    return gpd.read_file(os.path.join(DATA_DIR, name))
+    gdf = gpd.read_file(os.path.join(DATA_DIR, name))
+    # 'terrace_candidate' is the raster value from script 01 and is 1 for every polygon,
+    # so it is useless as a label. All 201-row terrace layers share the same row order,
+    # so a 1-based row number gives a stable, consistent terrace ID across maps.
+    if len(gdf) == 201 and "terrace_candidate" in gdf.columns:
+        gdf["terrace_id"] = range(1, len(gdf) + 1)
+    return gdf
 
 def save(fmap, folder):
     d = os.path.join(OUT_DIR, folder)
@@ -29,9 +35,14 @@ def status_style(feature):
     return {"fillColor": MAROON if s == "likely_degraded" else TEAL, "color": MAROON if s == "likely_degraded" else "#1a7a70", "weight": 1, "fillOpacity": 0.55}
 
 def terrace_popup_fields(gdf):
-    fields = ["terrace_candidate", "status", "area_km2", "bare_frac_2025"]
+    fields = ["terrace_id", "status", "area_km2", "bare_frac_2025"]
     aliases = ["Terrace #", "Status", "Area (km²)", "Bare-earth 2025"]
     return folium.GeoJsonPopup(fields=fields, aliases=aliases, localize=True)
+
+def _saffron_ids():
+    """Map the 14 saffron terraces back to the same 1..201 terrace_id used on the other maps."""
+    full = gp("karewa_saffron_overlay.gpkg")
+    return full.loc[full["likely_saffron"], ["saffron_index", "terrace_id"]]
 
 # ============================================================
 # 01 — Study area overview
@@ -46,7 +57,7 @@ def build_01_study_area_overview():
                     tooltip=folium.GeoJsonTooltip(fields=["DISTRICT"], aliases=["District"])).add_to(m)
     folium.GeoJson(aoi, name="Study Area (AOI)", style_function=lambda f: {"fillColor": "none", "color": MAROON, "weight": 3}).add_to(m)
     folium.GeoJson(terraces, name="201 Candidate Terraces", style_function=lambda f: {"fillColor": TEAL, "color": "#1a7a70", "weight": 0.6, "fillOpacity": 0.5},
-                    tooltip=folium.GeoJsonTooltip(fields=["terrace_candidate", "area_km2"], aliases=["Terrace #", "Area (km²)"])).add_to(m)
+                    tooltip=folium.GeoJsonTooltip(fields=["terrace_id", "area_km2"], aliases=["Terrace #", "Area (km²)"])).add_to(m)
     folium.LayerControl(collapsed=False).add_to(m)
     save(m, "01_study_area_overview")
 
@@ -58,7 +69,7 @@ def build_02_terrace_degradation_status():
     m = base_map()
     folium.GeoJson(terraces, name="Degradation Status", style_function=status_style,
                     popup=terrace_popup_fields(terraces),
-                    tooltip=folium.GeoJsonTooltip(fields=["terrace_candidate", "status"], aliases=["Terrace #", "Status"])).add_to(m)
+                    tooltip=folium.GeoJsonTooltip(fields=["terrace_id", "status"], aliases=["Terrace #", "Status"])).add_to(m)
     legend = f"""
     <div style="position: fixed; bottom: 30px; left: 30px; z-index:9999; background: white; padding: 10px 14px; border-radius: 6px; box-shadow: 0 1px 4px rgba(0,0,0,0.3); font-size: 13px;">
     <b>Status</b><br>
@@ -75,21 +86,25 @@ def build_03_terrace_boundaries():
     terraces = gp("karewa_final_with_geomorphometrics.gpkg").to_crs(4326)
     m = base_map()
     folium.GeoJson(terraces, name="Terrace Boundaries", style_function=lambda f: {"fillColor": "none", "color": GOLD, "weight": 1.4},
-                    popup=folium.GeoJsonPopup(fields=["terrace_candidate", "area_km2", "mean_elevation", "compactness"],
+                    popup=folium.GeoJsonPopup(fields=["terrace_id", "area_km2", "mean_elevation", "compactness"],
                                                aliases=["Terrace #", "Area (km²)", "Mean elevation (m)", "Compactness"], localize=True)).add_to(m)
     save(m, "03_terrace_boundaries")
 
 # ============================================================
-# 04 — Validation at Lethpora saffron fields
+# 04 — Plausibility check at Lethpora saffron fields (folder name kept for existing links)
 # ============================================================
 def build_04_validation_lethpora():
     saffron = gp("karewa_saffron_overlay.gpkg").to_crs(4326)
-    m = base_map(center=[33.9358, 74.9128], zoom=13)  # Lethpora, Pampore
+    # Centre on the likely-saffron terraces themselves (Lethpora plateau, ~33.97N 74.95E).
+    # The previous hard-coded centre (33.9358, 74.9128) sat ~2.7 km from the nearest terrace.
+    c = saffron[saffron["likely_saffron"]].to_crs(32643).union_all().centroid
+    c = gpd.GeoSeries([c], crs=32643).to_crs(4326).iloc[0]
+    m = base_map(center=[c.y, c.x], zoom=13)
     folium.GeoJson(saffron, name="Terraces", style_function=lambda f: {
         "fillColor": GOLD if f["properties"]["likely_saffron"] else "#cccccc",
         "color": "#8a6d1a" if f["properties"]["likely_saffron"] else "#999999",
         "weight": 1, "fillOpacity": 0.6 if f["properties"]["likely_saffron"] else 0.15},
-        tooltip=folium.GeoJsonTooltip(fields=["terrace_candidate", "saffron_index", "likely_saffron"],
+        tooltip=folium.GeoJsonTooltip(fields=["terrace_id", "saffron_index", "likely_saffron"],
                                        aliases=["Terrace #", "Saffron index", "Likely saffron"])).add_to(m)
     save(m, "04_validation_lethpora")
 
@@ -98,6 +113,7 @@ def build_04_validation_lethpora():
 # ============================================================
 def build_05_saffron_proximity_risk():
     saf = gp("saffron_proximity_risk.gpkg")
+    saf = saf.merge(_saffron_ids(), on="saffron_index", how="left")
     degraded = gp("likely_degraded.gpkg")
     degraded_union = degraded.union_all()
     buffer_1km = gpd.GeoSeries([degraded_union.buffer(1000)], crs=degraded.crs).to_crs(4326)
@@ -110,7 +126,7 @@ def build_05_saffron_proximity_risk():
     folium.GeoJson(saf_wgs, name="Saffron Terraces", style_function=lambda f: {
         "fillColor": "#B8860B" if f["properties"]["at_risk"] else GOLD,
         "color": "#5c4508", "weight": 1.5, "fillOpacity": 0.75},
-        tooltip=folium.GeoJsonTooltip(fields=["terrace_candidate", "dist_to_nearest_degraded_m", "at_risk"],
+        tooltip=folium.GeoJsonTooltip(fields=["terrace_id", "dist_to_nearest_degraded_m", "at_risk"],
                                        aliases=["Terrace #", "Distance to degradation (m)", "Within 1km risk radius"])).add_to(m)
     folium.LayerControl(collapsed=False).add_to(m)
     save(m, "05_saffron_proximity_risk")
@@ -127,7 +143,7 @@ def build_06_road_network_proximity():
     m = base_map()
     folium.GeoJson(roads_merged, name="Road Network", style_function=lambda f: {"color": "#555555", "weight": 1}).add_to(m)
     folium.GeoJson(terraces, name="Terrace Status", style_function=status_style,
-                    tooltip=folium.GeoJsonTooltip(fields=["terrace_candidate", "status", "dist_to_road_m"],
+                    tooltip=folium.GeoJsonTooltip(fields=["terrace_id", "status", "dist_to_road_m"],
                                                    aliases=["Terrace #", "Status", "Distance to road (m)"])).add_to(m)
     folium.LayerControl(collapsed=False).add_to(m)
     save(m, "06_road_network_proximity")
@@ -140,10 +156,10 @@ def build_07_settlement_proximity():
     terraces = gp("karewa_settlement_proximity.gpkg").to_crs(4326)
 
     m = base_map()
-    folium.GeoJson(buildings, name="Building Footprints (3,266)", style_function=lambda f: {"fillColor": "#555555", "color": "#333333", "weight": 0.4, "fillOpacity": 0.6},
+    folium.GeoJson(buildings, name=f"Building Footprints ({len(buildings):,})", style_function=lambda f: {"fillColor": "#555555", "color": "#333333", "weight": 0.4, "fillOpacity": 0.6},
                     marker=folium.CircleMarker(radius=1.5, color="#333333", fill=True, fill_opacity=0.6)).add_to(m)
     folium.GeoJson(terraces, name="Terrace Status", style_function=status_style,
-                    tooltip=folium.GeoJsonTooltip(fields=["terrace_candidate", "status", "dist_to_settlement_m"],
+                    tooltip=folium.GeoJsonTooltip(fields=["terrace_id", "status", "dist_to_settlement_m"],
                                                    aliases=["Terrace #", "Status", "Distance to settlement (m)"])).add_to(m)
     folium.LayerControl(collapsed=False).add_to(m)
     save(m, "07_settlement_proximity")
@@ -155,6 +171,7 @@ def build_08_economic_value_at_risk():
     YIELD_KG_PER_HA = 5.27
     PRICE_PER_KG_RS = 272998
     saf = gp("saffron_proximity_risk.gpkg")
+    saf = saf.merge(_saffron_ids(), on="saffron_index", how="left")
     saf["area_ha"] = saf.geometry.area / 10000
     saf["annual_value_rs"] = saf["area_ha"] * YIELD_KG_PER_HA * PRICE_PER_KG_RS
     saf["annual_value_lakh"] = (saf["annual_value_rs"] / 1e5).round(1)
@@ -167,7 +184,7 @@ def build_08_economic_value_at_risk():
     folium.GeoJson(degraded, name="Degraded Terraces", style_function=lambda f: {"fillColor": "#555555", "color": "#333333", "weight": 1, "fillOpacity": 0.35}).add_to(m)
     folium.GeoJson(saf_wgs, name="Saffron Value-at-Risk", style_function=lambda f: {
         "fillColor": colormap(f["properties"]["annual_value_lakh"]), "color": "#5c4508", "weight": 1.5, "fillOpacity": 0.85},
-        tooltip=folium.GeoJsonTooltip(fields=["terrace_candidate", "area_ha", "annual_value_lakh", "at_risk"],
+        tooltip=folium.GeoJsonTooltip(fields=["terrace_id", "area_ha", "annual_value_lakh", "at_risk"],
                                        aliases=["Terrace #", "Area (ha)", "Est. annual value (Rs lakh)", "Within 1km risk radius"])).add_to(m)
     colormap.add_to(m)
     folium.LayerControl(collapsed=False).add_to(m)
