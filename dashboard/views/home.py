@@ -33,7 +33,8 @@ stats([("Terraces mapped", f"{n['terraces']}", f"{n['terrace_km2']:.1f} km² of 
        ("Inside brick-kiln fields", f"≈ {n['kiln_ha']:.0f} ha", f"95% interval {n['kiln_lo']:.0f}–{n['kiln_hi']:.0f} ha")])
 st.markdown("<div style='height:0.8rem'></div>", unsafe_allow_html=True)
 caption("Landsat 8/9 only, 30 m pixels, 2013–2015 compared with 2023–2025. The kiln figure comes from a hand-labelled sample of 120 points; "
-        f"counting only points labelled kiln ground at close zoom it is about {n['kiln_first_ha']:.0f} ha.")
+        f"counting only points labelled kiln ground at close zoom it is about {n['kiln_first_ha']:.0f} ha, and counting only points that imagery "
+        f"of 2013–2014 also shows as vegetated it is about {n['kiln_before_ha']:.0f} ha.")
 
 st.markdown("<br>", unsafe_allow_html=True)
 
@@ -63,7 +64,7 @@ card(
     "What it does not show",
     """
     <p>How deep the ground was dug. Any link to the saffron land at Pampore. The whole Karewa formation: the map covers scarp-bounded
-    tablelands only. And, at each sample point, what was there in 2013: that check against older imagery is not finished.
+    tablelands only. And a blind check of the past: older imagery was looked at only for points already flagged.
     The page <i>What It Cannot Show</i> lists these in full.</p>
     """,
     badge="Limits",

@@ -57,6 +57,8 @@ def numbers():
     k = ar[(ar.reference_class == "kiln") & (ar.stratum != "C_not_flagged")]
     var = sum((r.stratum_ha ** 2) * r.share * (1 - r.share) / (r.n - 1) for r in k.itertuples())
     tot = float(k.est_ha.sum())
+    br = table("west_extension/accuracy_before_result.csv")
+    kb = br[(br.stratum == "A_and_B") & (br.measure == "vegetated before and inside a kiln field today")].iloc[0]
     return dict(
         terraces=int(table("west_extension/conversion_by_terrace_wide.csv").shape[0]),
         terrace_km2=float(cs.loc["terraces", "stratum_km2"]), flat_km2=float(cs.loc["other_flat", "stratum_km2"]),
@@ -66,6 +68,7 @@ def numbers():
         kiln_ha=tot, kiln_lo=tot - 1.96 * var ** 0.5, kiln_hi=tot + 1.96 * var ** 0.5,
         kiln_first_ha=float(ap[[i for i in ap.index if i.startswith("first pass")][0]]),
         kiln_second_ha=float(ap[[i for i in ap.index if i.startswith("added by second")][0]]),
+        kiln_before_ha=float(kb.est_ha), kiln_before_lo=float(kb.est_ha_low), kiln_before_hi=float(kb.est_ha_high),
     )
 
 

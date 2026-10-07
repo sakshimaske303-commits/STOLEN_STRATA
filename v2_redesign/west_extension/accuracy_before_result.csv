@@ -1,0 +1,19 @@
+stratum,n,stratum_ha,measure,hits,share,ci95_low,ci95_high,est_ha,est_ha_low,est_ha_high
+A_strict,25,107.01,vegetated before,25,1.0,0.867,1.0,107.0,92.8,107.0
+A_strict,25,107.01,not vegetated before,0,0.0,0.0,0.133,0.0,0.0,14.3
+A_strict,25,107.01,unclear before,0,0.0,0.0,0.133,0.0,0.0,14.3
+A_strict,25,107.01,vegetated before and not vegetated today,25,1.0,0.867,1.0,107.0,92.8,107.0
+A_strict,25,107.01,vegetated before and inside a kiln field today,19,0.76,0.566,0.885,81.3,60.5,94.7
+A_strict,25,107.01,inside a kiln field today (05_accuracy_result.py),19,0.76,0.566,0.885,81.3,60.5,94.7
+B_drop_only,60,224.01,vegetated before,47,0.783,0.664,0.869,175.5,148.7,194.6
+B_drop_only,60,224.01,not vegetated before,12,0.2,0.118,0.318,44.8,26.5,71.2
+B_drop_only,60,224.01,unclear before,1,0.017,0.003,0.089,3.7,0.7,19.8
+B_drop_only,60,224.01,vegetated before and not vegetated today,37,0.617,0.49,0.729,138.1,109.8,163.3
+B_drop_only,60,224.01,vegetated before and inside a kiln field today,14,0.233,0.144,0.354,52.3,32.3,79.4
+B_drop_only,60,224.01,inside a kiln field today (05_accuracy_result.py),16,0.267,0.171,0.39,59.7,38.4,87.4
+A_and_B,85,331.02,vegetated before,72,0.847,0.756,0.908,282.5,258.9,306.1
+A_and_B,85,331.02,not vegetated before,12,0.141,0.083,0.231,44.8,21.9,67.7
+A_and_B,85,331.02,unclear before,1,0.012,0.002,0.064,3.7,0.0,11.1
+A_and_B,85,331.02,vegetated before and not vegetated today,62,0.729,0.627,0.812,245.1,217.3,272.9
+A_and_B,85,331.02,vegetated before and inside a kiln field today,33,0.388,0.292,0.495,133.6,103.3,163.9
+A_and_B,85,331.02,inside a kiln field today (05_accuracy_result.py),35,0.412,0.313,0.518,141.0,109.8,172.2

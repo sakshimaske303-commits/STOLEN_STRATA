@@ -45,7 +45,7 @@ card(
 st.markdown("### Limitations, in full")
 st.markdown(
     """
-- **Before-state of the sample.** The 120 points describe 2026. Whether each flagged point was vegetated in 2013–2015 rests on the Landsat record; the check against older high-resolution imagery is not finished.
+- **Before-state of the sample.** The 85 flagged points were looked up in imagery of 2013–2014, knowing they were flagged and mostly on one image of September 2014. Vegetation is visible at 72 of them; 13 of the 60 drop-only points were not clearly vegetated in that image. One image shows one day, while the tests use the peak of the year.
 - **One labeller, 120 points, one image date.** 25 points in the strict stratum, most of them in one kiln field.
 - **No accuracy figure for the terrace map.** Its reference sample is drawn and not labelled. The geological check uses a schematic figure and covers the original box only.
 - **Missed kiln land is not estimated.** The tests detect new loss. Kiln land already bare before 2013 enters only through the long series.

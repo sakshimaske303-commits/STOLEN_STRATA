@@ -35,6 +35,7 @@ tableland was lost, where and when, using one family of satellite sensors at a t
 | Vegetated in 2013–15, bare in 2023–25, on terraces | 107 ha by a strict test; 329 ha by a looser one (286 ha net of reverse change) |
 | Of that, inside brick-kiln fields today | about 141 ha (95% interval roughly 110–172 ha), from a hand-labelled sample of 120 points |
 | Of that, recognisable as kiln ground at close zoom | about 40 ha |
+| Flagged sample points that show vegetation in 2013–14 imagery | 72 of 85 (all 25 strict, 47 of 60 looser); kiln-field land restricted to those: about 134 ha |
 | Where | Two belts in Budgam: Rangeen Kultreh (a kiln field that opens in 2017–2018) and Bandagam–Batapora (older, slower) |
 | Back to the mid-1990s | A net loss of roughly 335 ha in the two belts. Indicative only: the Landsat record before 2013 is thin. |
 
@@ -43,7 +44,7 @@ tableland was lost, where and when, using one family of satellite sensors at a t
 - **Depth or volume.** Every free elevation model predates the Rangeen Kultreh kiln field; the result is "vegetated to bare", not "excavated".
 - **A saffron link.** No conversion of this kind is seen on the Pampore tablelands in 2013–2025.
 - **The whole Karewa formation.** The terrace map covers scarp-bounded tablelands, about a quarter of the mapped formation in the original box, and has no accuracy figure of its own yet.
-- **The state of each sample point in 2013.** The sample describes 2026. A check against older imagery is prepared and not finished.
+- **A blind check of the earlier state.** The 85 flagged sample points were looked up in 2013–14 imagery, mostly one image of September 2014, knowing they were flagged. Thirteen of the 60 looser points were not clearly vegetated in it.
 
 The paper's Section 6 lists every limitation.
 
@@ -87,6 +88,7 @@ python v2_redesign/west_extension/02_conversion_wide_box.py
 python v2_redesign/west_extension/03_drop_test_wide.py
 python v2_redesign/west_extension/05_accuracy_result.py
 python v2_redesign/west_extension/09_accuracy_by_labelling_pass.py
+python v2_redesign/west_extension/10_before_check_result.py
 python v2_redesign/west_extension/06_delineation_sensitivity.py
 python v2_redesign/west_extension/07_drop_test_sensitivity.py
 python v2_redesign/west_extension/08_long_series_wide.py

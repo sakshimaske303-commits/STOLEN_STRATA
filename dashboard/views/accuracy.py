@@ -11,6 +11,8 @@ pts = mapfile("accuracy_points.csv")
 res = table("west_extension/accuracy_result.csv")
 bp = table("west_extension/accuracy_by_labelling_pass.csv")
 bt = table("west_extension/accuracy_points_by_terrace.csv")
+br = table("west_extension/accuracy_before_result.csv")
+bl = table("west_extension/accuracy_before_pass.csv")
 
 st.markdown(
     """
@@ -81,9 +83,46 @@ the rest was counted only from its setting inside a kiln field.
 """
     )
 
+st.markdown("---")
+st.markdown("### Were the flagged points vegetated before?")
+c1, c2 = st.columns([3, 2])
+B = lambda s, m: br[(br.stratum == s) & (br.measure == m)].iloc[0]
+with c1:
+    BCLS = [("vegetated before", "Vegetated in 2013–14 imagery", TEAL), ("not vegetated before", "Not vegetated", OCHRE), ("unclear before", "Unclear", GREY)]
+    rows = [("A_strict", "Flagged by strict test"), ("B_drop_only", "Flagged by drop test only"), ("A_and_B", "Flagged land together")]
+    fig = go.Figure()
+    for m, lab, colr in BCLS:
+        v = [B(s, m) for s, _ in rows]
+        fig.add_trace(go.Bar(y=[l for _, l in rows], x=[x.hits / x.n * 100 for x in v], name=lab, orientation="h", customdata=[int(x.hits) for x in v],
+                             marker=dict(color=colr, line=dict(color="#0A0E1A", width=2)), hovertemplate="%{y}<br>" + lab + ": %{customdata} points (%{x:.0f}%)<extra></extra>"))
+    fig.update_layout(barmode="stack", xaxis_title="Share of flagged sample points (%)", yaxis=dict(autorange="reversed"), xaxis_range=[0, 100])
+    show(style_fig(fig, 300))
+    with st.expander("The thirteen points that were not clearly vegetated in the older image"):
+        x = bl[bl.before_label != "vegetated"].merge(pts[["point_id", "final"]], on="point_id")
+        frame(x.rename(columns={"point_id": "Point", "before_label": "2013–14 image", "image_date": "Image date", "basis": "What is seen at the point", "final": "2026 class"})
+              [["Point", "2013–14 image", "Image date", "What is seen at the point", "2026 class"]])
+with c2:
+    va, vb, vt = B("A_strict", "vegetated before"), B("B_drop_only", "vegetated before"), B("A_and_B", "vegetated before")
+    kt = B("A_and_B", "vegetated before and inside a kiln field today"); gt = B("A_and_B", "vegetated before and not vegetated today")
+    st.markdown(
+        f"""
+The labels above describe 2026. For the earlier state, each of the 85 flagged points was looked up in Google Earth Pro imagery of
+2013–2014, mostly one image of September 2014.
+
+Vegetation is visible at **{int(vt.hits)} of 85** points ({vt.share * 100:.0f}%, interval {r(vt.ci95_low)}–{r(vt.ci95_high)}%): all {int(va.hits)} strict points
+and {int(vb.hits)} of 60 drop-only points ({vb.share * 100:.0f}%).
+
+Two of the points that were not vegetated then are counted as kiln field today. Restricted to points the older image also shows as
+vegetated, the kiln-field estimate is about **{kt.est_ha:.0f} ha** (roughly {kt.est_ha_low:.0f}–{kt.est_ha_high:.0f} ha) instead of {n['kiln_ha']:.0f} ha.
+Land vegetated then and not vegetated today, whatever it became, is about {gt.est_ha:.0f} ha.
+"""
+    )
+caption("\"Vegetated\" in the older image is a low bar: crop fields and orchards, but also rough grass and scattered trees on dry ground. "
+        "The pass was not blind, since only flagged points were looked at, and one image shows one day while the tests use the peak of the year.")
+
 note(
     "<b>Read these numbers with four cautions.</b><br>"
-    "1. <b>The sample shows today, not 2013.</b> It cannot confirm that a point was vegetated before. That rests on the Landsat record. A check against older high-resolution imagery is prepared and not finished.<br>"
+    "1. <b>The check of the earlier state is not blind.</b> Older imagery was looked at only for the 85 flagged points, mostly on one image date. 13 of the 60 drop-only points were not clearly vegetated in it.<br>"
     f"2. <b>The strict stratum is mostly one place.</b> {int(bt[(bt.stratum == 'A_strict')].points.max())} of its 25 points fall on one terrace and 21 fall in the Rangeen Kultreh kiln field, because that is where most of the strict-test area lies.<br>"
     "3. <b>One labeller, one image date.</b> For roughly eight uncertain points I took a second opinion; the rest I labelled alone. There is no second labeller yet.<br>"
     f"4. <b>Missed kiln land is not estimated.</b> One of 35 unflagged points was inside a kiln field, which gives a range ({k.est_ha_low['C_not_flagged']:.0f} to {round(k.est_ha_high['C_not_flagged'], -1):,.0f} ha) too wide to mean anything.",

@@ -20,6 +20,8 @@ My first version said bare ground on Kashmir's karewa terraces had more than qua
 | Vegetated in 2013–15, gone by 2023–25, on terraces | 107 ha by a strict test, 329 ha by a looser one |
 | Of that, inside brick-kiln fields | **about 141 ha (roughly 110–172 ha)** |
 | Of that, recognisable as kiln ground at close zoom | about 40 ha |
+| Flagged sample points that show vegetation in 2013–14 imagery | 72 of 85 (all 25 strict, 47 of 60 looser) |
+| Kiln-field land where the older image also shows vegetation | about 134 ha (roughly 103–164 ha) |
 | Net loss in the two kiln belts since the mid-1990s | roughly 335 ha, indicative only: the record before 2013 is thin |
 | Loss on the other 140 km² of terraces | None that this method can see |
 
@@ -37,13 +39,14 @@ My first version said bare ground on Kashmir's karewa terraces had more than qua
 - **Terrace map against geology.** 80% of the mapped terrace area lies on Karewa formations on a published map.
 - **My own choices.** Nine versions of the terrace rule and 51 versions of the change thresholds. The hectares move; the contrast and the locations do not.
 - **By eye.** 120 random points, labelled without knowing which group each came from. The vegetation is gone at 100% of strict detections and 82% of looser ones (two of the 60 looser points could not be told). Three quarters of strict detections lie inside a kiln field; about one quarter of the looser ones do, the rest being houses, roads and other bare ground. Most of these points were first labelled plain bare ground and counted as kiln only on a second look, one zoom level out. Counting only points labelled kiln ground at close zoom gives about 40 ha instead of 141.
+- **Back in time, point by point.** I looked up the 85 flagged points in Google Earth imagery of 2013–2014. Vegetation is visible at 72 of them: all 25 strict points and 47 of the 60 looser ones. Twelve looser points were not green in that image (three were already kiln ground, three were buildings or hard ground, three were bare ground beside sheds, three were bare soil plots) and one could not be told. Two of the twelve are points I count as kiln field today, so the kiln figure restricted to land the older image shows as vegetated is about 134 ha instead of 141.
 
 ## What I could not show
 
 - **How deep the ground was dug.** Every free elevation model is older than the Rangeen Kultreh kiln field, and the space laser data has only nine shots on it.
 - **A saffron link.** The saffron tablelands at Pampore are about 7 km or more from the main kiln field and show no conversion of this kind in 2013–2025. The saffron value-at-risk figure in the earlier version is withdrawn.
 - **The whole karewa.** I map scarp-bounded tablelands, about a quarter of the Karewa formation area on the geological map. The terrace map itself has no accuracy figure yet.
-- **The past, at each point.** The accuracy sample shows what is there today, not that it was green in 2013. A check against old imagery is prepared but not done.
+- **A blind check of the past.** The older-imagery check looked only at points already flagged, mostly on one image of September 2014, and "vegetated" there includes rough grass and scattered trees. One image shows one day; the test uses the peak of the year.
 - **Roads, settlements and the 25 "degraded terraces".** Those analyses depended on the withdrawn layer and are dropped.
 
 ## Why it matters

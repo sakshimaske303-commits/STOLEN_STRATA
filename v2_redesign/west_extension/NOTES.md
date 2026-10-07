@@ -95,5 +95,23 @@ report in NGT OA 594/2022 (Syed Riyaz v. UT of J&K, 1 Jan 2023) says most kilns 
 consent. Kilns there are identified from imagery only.
 
 **Not done.** Geology check for the strip west of 74.66 E (needs the map figure captured again; the in-app browser was not usable).
-**Prepared, waiting for a person.** `accuracy_sample_points.kml` + `accuracy_before_pass.html`: check in Google Earth Pro's historical
-imagery what each sample point was before 2015. A second labeller for the 120 points is also still open.
+**Still open.** A second labeller for the 120 points.
+
+## Before check (10_before_check_result.py): the 85 flagged points in imagery of 2013-2014
+
+Each flagged sample point (strata A and B) was looked up in Google Earth Pro historical imagery, from `accuracy_sample_points.kml`,
+and labelled vegetated / not_vegetated / unclear at the point. Record: `accuracy_before_pass.csv` (label, image date, what is seen).
+September 2014 imagery for 77 points, a clear image between June 2013 and July 2014 for the other eight. Not blind: only flagged
+points were looked at. Labels were drafted from screen captures and each was confirmed on screen by the author.
+
+| Stratum | n | vegetated | not vegetated | unclear | vegetated then and kiln field now |
+|---|---|---|---|---|---|
+| A_strict | 25 | 25 | 0 | 0 | 19 (81 ha) |
+| B_drop_only | 60 | 47 | 12 | 1 | 14 (52 ha) |
+| together | 85 | 72 (85%, 76-91%) | 12 | 1 | 33 (134 ha, about 103-164) |
+
+The twelve: already kiln benches or drying rows (27, 30, 32); buildings or hard ground (79, 87, 114); bare ground and tracks beside
+sheds and structures (8, 39, 69); bare soil plots (20, 78, 106). Unclear: 90. All thirteen are drop-only points whose Landsat median
+yearly peak in 2013-2015 was 0.45 or more, so picture and record disagree there: mixed 30 m pixels, or one image date against a
+yearly peak. Kiln estimate restricted to points vegetated in the older image: 134 ha, against 141 ha from the satellite test alone.
+`accuracy_before_pass.html` was the labelling page prepared for this pass; the record that counts is the csv.

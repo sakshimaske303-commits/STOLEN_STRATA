@@ -34,6 +34,7 @@ My log covers everything. I built a terrain analysis code using TPI nd slope cut
 24. [Entry 24](#entry-24)
 25. [Entry 25](#entry-25)
 26. [Entry 26](#entry-26)
+27. [Entry 27](#entry-27)
 
 ---
 
@@ -426,3 +427,21 @@ The title changed too. "Threat to the saffron economy" is gone from it bcz I cou
 Things I made myself write down in the limitations even though they hurt the paper: I map a quarter of the karewa formation, not the karewas. I cannot say how deep anything was dug. My accuracy sample shows today nd not 2013. I labelled it alone nd took a second opinion on roughly eight points. Some of the news nd tribunal facts I still hve to read in the original myself before this goes anywhere.
 
 Still to do before it can be submitted or the preprint replaced: read every cited source in the original, the old imagery check on the sample points, a 2nd labeller if I can find one, new PDFs, nd the README nd the EarthArXiv coversheet version, which still carry the old numbers. Figures for the new paper are in `v2_redesign/paper_figures`.
+
+## Entry 27
+
+The old imagery check, finally. This was the hole I kept writing into the limitations: my 120 points show wht is there today, not tht the land was green before.
+
+Only the 85 flagged points matter for this (25 strict, 60 loose), the 35 unflagged ones were never claimed to hve changed. I opened each point in Google Earth Pro with the historical imagery slider. My professor said this part needs no special skill, where it is green it is vegetated, nd tht is how it went. I kept the slider on September 2014 for almost everything, 77 points. For eight points tht image was under cloud, in a cloud shadow or too hazy, so those are on a clear image between June 2013 nd July 2014 nd the date is written per point.
+
+How the labels were made, honestly. I took a screen capture of each point, got a first-pass label on the capture, nd then confirmed or changed it myself on screen. This was not blind, I knew all 85 were flagged. Several points did not get a label on the 1st capture: cloudy ones were held back until I found a clear date, edge points until I looked from directly above, nd points sitting under the grey road overlay until I switched tht layer off (it draws today's roads over the 2014 picture). Two things I learnt the slow way: zooming in too far makes a 2014 image worse not better, nd the date on the slider is not always the date of the picture, the status bar is.
+
+Result. 72 of 85 show vegetation in 2013 to 2014. All 25 strict points. 47 of the 60 loose ones. 12 loose points were not green nd 1 I could not tell.
+
+The 12 are four groups of three. Already kiln ground or brick rows in 2014 (27, 30, 32). Buildings or hard ground in a compound or settlement (79, 87, 114). Bare ground nd tracks next to sheds (8, 39, 69). Bare soil plots (20, 78, 106). Point 78 is small bed plots, proper farmland, jst bare in a June picture.
+
+Wht this does to my number. Two of those twelve (27 nd 30) are points I counted as kiln field today. If I only count kiln points where the old picture also shows green, 141 hectares becomes about 134, somewhere between 103 nd 164. I am keeping both in the paper: 141 is wht the satellite test gives, 134 is wht survives an independent picture of the before state. Land tht was green then nd is not green now, whatever it became, is about 245 hectares of the 331 flagged.
+
+Wht I should not oversell. "Vegetated" here is a low bar. At Rangeen Kultreh the before picture is scattered trees nd bushes on dry ground, not thick green. Nd one picture is one day, while my test uses the greenest time of the year, so a point bare in one image is not proof the satellite was wrong, nd a green one is not proof it was right for the whole year. The strict test comes out of this very well, 25 out of 25 both ways. The loose test is confirmed as loose: about one in five of its points was not clearly green to begin with.
+
+Files: `accuracy_before_pass.csv` (label, image date nd wht is seen at each point) nd `10_before_check_result.py` in `v2_redesign/west_extension`. Paper section 4.5 has a new Table 4. Still open from the old list: read every cited source in the original, nd a 2nd labeller.
