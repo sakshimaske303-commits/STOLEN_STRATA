@@ -19,7 +19,7 @@ My first version said bare ground on Kashmir's karewa terraces had more than qua
 | Same rule and statistic, Landsat only | 2.02% (1994), 2.16% (2015), 0.07% (2025) |
 | Vegetated in 2013–15, gone by 2023–25, on terraces | 107 ha by a strict test, 329 ha by a looser one |
 | Of that, inside brick-kiln fields | **about 141 ha (roughly 110–172 ha)** |
-| Of that, directly under kilns and brick rows | about 40 ha |
+| Of that, recognisable as kiln ground at close zoom | about 40 ha |
 | Net loss in the two kiln belts since the mid-1990s | roughly 335 ha, indicative only: the record before 2013 is thin |
 | Loss on the other 140 km² of terraces | None that this method can see |
 
@@ -36,7 +36,7 @@ My first version said bare ground on Kashmir's karewa terraces had more than qua
 - **One sensor family at a time.** Landsat 8/9 for the main test, Landsat 7 on its own as a second opinion (it confirms 86% of the pixels), Sentinel-2 as a third.
 - **Terrace map against geology.** 80% of the mapped terrace area lies on Karewa formations on a published map.
 - **My own choices.** Nine versions of the terrace rule and 51 versions of the change thresholds. The hectares move; the contrast and the locations do not.
-- **By eye.** 120 random points, labelled without knowing which group each came from. The vegetation is gone at 100% of strict detections and 85% of looser ones. Three quarters of strict detections lie inside a kiln field; about one quarter of the looser ones do, the rest being houses, roads and other bare ground. Most of these points were first labelled plain bare ground and counted as kiln only on a second look, one zoom level out. Counting only points that fall directly on kilns or brick rows gives about 40 ha instead of 141.
+- **By eye.** 120 random points, labelled without knowing which group each came from. The vegetation is gone at 100% of strict detections and 82% of looser ones (two of the 60 looser points could not be told). Three quarters of strict detections lie inside a kiln field; about one quarter of the looser ones do, the rest being houses, roads and other bare ground. Most of these points were first labelled plain bare ground and counted as kiln only on a second look, one zoom level out. Counting only points labelled kiln ground at close zoom gives about 40 ha instead of 141.
 
 ## What I could not show
 

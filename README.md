@@ -34,7 +34,7 @@ tableland was lost, where and when, using one family of satellite sensors at a t
 | Terraces mapped | 180 scarp-bounded tablelands, 173.3 km² |
 | Vegetated in 2013–15, bare in 2023–25, on terraces | 107 ha by a strict test; 329 ha by a looser one (286 ha net of reverse change) |
 | Of that, inside brick-kiln fields today | about 141 ha (95% interval roughly 110–172 ha), from a hand-labelled sample of 120 points |
-| Of that, directly under kilns and rows of bricks | about 40 ha |
+| Of that, recognisable as kiln ground at close zoom | about 40 ha |
 | Where | Two belts in Budgam: Rangeen Kultreh (a kiln field that opens in 2017–2018) and Bandagam–Batapora (older, slower) |
 | Back to the mid-1990s | A net loss of roughly 335 ha in the two belts. Indicative only: the Landsat record before 2013 is thin. |
 

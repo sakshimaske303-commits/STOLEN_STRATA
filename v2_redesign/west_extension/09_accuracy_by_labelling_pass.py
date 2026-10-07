@@ -1,6 +1,6 @@
 """v2 extended box: how much of the kiln estimate rests on each labelling pass, and where the sample points fall.
 
-First pass  : the point centre itself looks like kiln ground (kilns, drying rows, stacked bricks).
+First pass  : the point is labelled kiln ground at close zoom (kiln, clay pit, drying rows, worked bare earth in a kiln field).
 Second pass : points first labelled bare or road that lie inside a brick-kiln field when seen one zoom level out.
 The paper's figure uses both. This script reports the two separately so a reader can see the dependence.
 

@@ -33,7 +33,7 @@ stats([("Terraces mapped", f"{n['terraces']}", f"{n['terrace_km2']:.1f} km² of 
        ("Inside brick-kiln fields", f"≈ {n['kiln_ha']:.0f} ha", f"95% interval {n['kiln_lo']:.0f}–{n['kiln_hi']:.0f} ha")])
 st.markdown("<div style='height:0.8rem'></div>", unsafe_allow_html=True)
 caption("Landsat 8/9 only, 30 m pixels, 2013–2015 compared with 2023–2025. The kiln figure comes from a hand-labelled sample of 120 points; "
-        f"counting only points that fall directly on kilns or rows of bricks it is about {n['kiln_first_ha']:.0f} ha.")
+        f"counting only points labelled kiln ground at close zoom it is about {n['kiln_first_ha']:.0f} ha.")
 
 st.markdown("<br>", unsafe_allow_html=True)
 
@@ -55,7 +55,7 @@ card(
     <p><b>It sits in two brick-kiln belts in Budgam.</b> At Rangeen Kultreh a kiln field opens in 2017–2018 on land that was green in the
     satellite record until 2016. On the Bandagam–Batapora tablelands the low-vegetation land is larger and older.</p>
     <p><b>About {n['kiln_ha']:.0f} ha of the flagged land lies inside brick-kiln fields today</b> ({n['kiln_lo']:.0f}–{n['kiln_hi']:.0f} ha),
-    of which about {n['kiln_first_ha']:.0f} ha is directly under kilns and rows of bricks.</p>
+    of which about {n['kiln_first_ha']:.0f} ha was recognisable as kiln ground at close zoom.</p>
     """,
     badge="Findings",
 )

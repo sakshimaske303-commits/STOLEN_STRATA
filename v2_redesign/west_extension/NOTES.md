@@ -56,7 +56,7 @@ inside a brick-kiln field or not. A first-pass-only version could not separate k
 | B drop test only | 60 | 224 ha | 16 (27%) | 17 | 16 | 9 (15%) | 2 |
 | C not flagged | 35 | 17,000 ha | 1 (3%) | 4 | 8 | 22 (63%) | 0 |
 
-- Both tests are right that the vegetation is gone: 100% (CI 87–100%) for strict, 85% (74–92%) for drop-only.
+- Both tests are right that the vegetation is gone: 100% (CI 87–100%) for strict, 82% (70–89%) for drop-only (49 of 60; two more points are unclear and are not counted as bare).
 - What it went to differs. Strict: about three quarters kiln ground. Drop-only: about a quarter kiln, a quarter buildings and
   roads, a quarter other bare ground, 15% false alarms.
 - **Kiln ground among flagged terrace land: about 141 ha (95% CI roughly 110–172 ha)** = 81 ha from the strict test + 60 ha from the drop-only part.

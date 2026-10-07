@@ -39,9 +39,10 @@ def wilson(k, n, z=1.96):
 rows = []
 for s, g in d.groupby("stratum"):
     n = len(g); ha = int(g.stratum_px.iloc[0]) * HA
-    for name, hit in [("kiln", g.final == "kiln"), ("not vegetated", g.final != "vegetated"),
+    for name, hit in [("kiln", g.final == "kiln"), ("not vegetated", ~g.final.isin(["vegetated", "unclear"])),
                       ("built_up or road, not kiln", g.final.isin(["built_up", "road"])),
-                      ("other bare ground, not kiln", g.final == "bare_other"), ("still vegetated", g.final == "vegetated")]:
+                      ("other bare ground, not kiln", g.final == "bare_other"), ("still vegetated", g.final == "vegetated"),
+                      ("unclear", g.final == "unclear")]:
         k = int(hit.sum()); lo, hi = wilson(k, n)
         rows.append(dict(stratum=s, n=n, stratum_ha=ha, reference_class=name, hits=k, share=k / n, ci95_low=lo, ci95_high=hi,
                          est_ha=ha * k / n, est_ha_low=ha * lo, est_ha_high=ha * hi))

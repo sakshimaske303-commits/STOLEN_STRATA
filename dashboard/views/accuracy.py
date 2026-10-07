@@ -42,7 +42,7 @@ k = res[res.reference_class == "kiln"].set_index("stratum"); nv = res[res.refere
 st.markdown(
     f"""
 **The tests are right that the vegetation is gone.** All 25 strict points and {int(nv.hits['B_drop_only'])} of 60 drop-only points
-({nv.share['B_drop_only'] * 100:.0f}%) are not vegetated today.
+({nv.share['B_drop_only'] * 100:.0f}%) are not vegetated today; two more could not be told and are not counted.
 
 **They differ in what the land became.** {k.share['A_strict'] * 100:.0f}% of strict detections lie inside a kiln field
 (95% interval {r(k.ci95_low['A_strict'])}–{r(k.ci95_high['A_strict'])}%). Drop-only detections are a mixture: about a quarter kiln field
@@ -62,7 +62,7 @@ with c1:
     xs = [NAME[s] for s in first.index] + ["Flagged land together"]
     y1 = list(first.est_ha) + [first.est_ha.sum()]; y2 = list(second.est_ha) + [second.est_ha.sum()]
     fig = go.Figure()
-    fig.add_trace(go.Bar(x=xs, y=y1, name="Point centre is a kiln, drying row or brick stack (first pass)", marker=dict(color=ORANGE, line=dict(color="#0A0E1A", width=2)),
+    fig.add_trace(go.Bar(x=xs, y=y1, name="Labelled kiln ground at close zoom (first pass)", marker=dict(color=ORANGE, line=dict(color="#0A0E1A", width=2)),
                          text=[f"{v:.0f} ha" for v in y1], textposition="inside", hovertemplate="%{x}: %{y:.0f} ha<extra>first pass</extra>"))
     fig.add_trace(go.Bar(x=xs, y=y2, name="Bare or road point inside a kiln field (second pass)", marker=dict(color="#8A4A2A", line=dict(color="#0A0E1A", width=2)),
                          text=[f"{v:.0f} ha" for v in y2], textposition="inside", hovertemplate="%{x}: %{y:.0f} ha<extra>second pass</extra>"))
@@ -76,8 +76,8 @@ bare or road were looked at a second time, one zoom level out, with one question
 
 Counting only the first pass, the estimate is about **{n['kiln_first_ha']:.0f} ha**. The second pass adds about **{n['kiln_second_ha']:.0f} ha**.
 
-So the {n['kiln_ha']:.0f} ha is land *inside brick-kiln fields*. Roughly {n['kiln_first_ha']:.0f} ha of it is kilns and rows of bricks themselves;
-the rest is the worked, bare ground between them.
+So the {n['kiln_ha']:.0f} ha is land *inside brick-kiln fields*. Roughly {n['kiln_first_ha']:.0f} ha of it was recognisable as kiln ground at close zoom (a kiln, a clay pit, drying rows or worked earth);
+the rest was counted only from its setting inside a kiln field.
 """
     )
 

@@ -46,7 +46,7 @@ for col, key, title, colr in ((c1, "Strict (% of area)", "Strict test", ORANGE),
 frame(t1)
 caption(f"By the strict test terraces convert about {a.veg_to_bare_pct['terraces'] / a.veg_to_bare_pct['other_flat']:.0f} times faster than other flat, raised land, "
         f"and by the drop test about {(d.drop_ha['terraces'] / km2['terraces']) / (d.drop_ha['other_flat'] / km2['other_flat']):.0f} times faster. "
-        "Off the terraces the drop test picks up a great deal of change in both directions, which is what fields, building and road works produce; those rows are not interpreted further.")
+        "These rates divide by the whole area of each kind of land, not by the part that was vegetated in 2013–2015. Off the terraces the drop test picks up a great deal of change in both directions, which is what fields, building and road works produce; those rows are not interpreted further.")
 
 st.markdown("---")
 st.markdown("### It is concentrated")
