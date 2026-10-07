@@ -1,6 +1,6 @@
 cff-version: 1.2.0
-message: "If you use this software or its findings, please cite it using the metadata below."
-title: "Stolen Strata: Quantifying the Anthropogenic Erasure of Kashmir's Karewa Terraces and Its Threat to the Saffron Economy"
+message: "If you use this work, please cite it using the metadata below. Do not cite the figures of version 1.0.0 (1.84% to 8.43%, 190.3 ha): they are withdrawn."
+title: "Stolen Strata: Brick Kilns and the Loss of Karewa Tableland in Budgam, Kashmir, 1993-2025, with a Correction to an Earlier Estimate"
 type: software
 authors:
   - family-names: "Maske"
@@ -10,47 +10,32 @@ url: "https://github.com/sakshimaske303-commits/STOLEN_STRATA"
 identifiers:
   - type: doi
     value: "10.5281/zenodo.21766464"
-    description: "Zenodo archive of Stolen Strata v1.0.0"
-doi: "10.5281/zenodo.21766464"
+    description: "Zenodo archive of version 1.0.0, the earlier version whose main results are withdrawn. Version 2 is not yet archived."
 abstract: >-
-  A satellite remote-sensing study quantifying bare-earth conversion on
-  Kashmir's karewa terraces — elevated, flat-topped remnants of a
-  Pliocene-Pleistocene intermontane lake basin that underlie one of Kashmir's
-  most economically important agricultural systems, the saffron cultivation
-  belt of Pampore — a signal consistent with unregulated soil mining and
-  unplanned urban expansion. This study
-  delineates 201 karewa terraces (3,305.3 hectares) across the central
-  Kashmir Valley using a Topographic Position Index and slope-threshold
-  terrain analysis, then tracks their bare-earth land-cover fraction across
-  four time slices (1994, 2005 [2001-2009 composite], 2015, 2025) using Landsat
-  and Sentinel-2 composites (1994 and 2025 season-matched). Mean bare-earth fraction rose from 1.84% to 8.43%
-  over the study period, concentrated almost entirely in the final decade;
-  bare-earth-classified surface rose by a net 190.3 hectares, 67% of it
-  within just 12.4% of terraces. A saffron-signature index, exploiting the
-  crop's inverted phenology, identifies 14 likely saffron-cultivating
-  terraces, 43% of which lie within 1 km of an already-degraded terrace
-  despite no direct overlap. Mann-Whitney U tests indicate degraded
-  terraces sit significantly closer to roads (p = 0.0116) and OSM building
-  footprints (p = 0.0001) than intact terraces, an association consistent
-  with accessibility-driven extraction. Threshold-sensitivity sweeps, a resolution-matched
-  robustness check (resampling the 2025 Sentinel-2 composite to the 30m
-  Landsat pixel size used in earlier years), and effect-size/multiple-
-  comparison corrections show the headline pattern persists under the
-  tested perturbations (other sensor differences and spatial dependence are
-  not tested). Together these results indicate karewa degradation is recent,
-  accelerating, spatially concentrated, and associated with infrastructure, with direct implications for how saffron-sector policy
-  investment should be spatially targeted.
+  A satellite study of vegetated karewa tableland lost to brick kilns in the
+  Kashmir Valley. An earlier version reported that the bare-earth share of
+  karewa terraces rose from 1.84% in 1994 to 8.43% in 2025; that result came
+  from comparing Landsat composites with a differently built Sentinel-2
+  composite and is withdrawn. This version maps 180 scarp-bounded karewa
+  terraces (173.3 square kilometres) from the Copernicus elevation model using
+  slope, height above drainage and scarp share, checks the map against a
+  published geological map, and follows the yearly peak NDVI of every 30 m
+  pixel using Landsat only. Between 2013-2015 and 2023-2025 a strict test
+  finds 107 ha of terrace land converted from vegetated to bare and a looser
+  test 329 ha. A hand-labelled sample of 120 points indicates that about
+  141 ha of the flagged land (95% interval roughly 110-172 ha) lies inside
+  brick-kiln fields, concentrated in two belts in Budgam district, Rangeen
+  Kultreh and Bandagam-Batapora. Depth of excavation could not be measured,
+  and no link to the saffron tablelands of Pampore was found.
 keywords:
-  - karewa terraces
-  - Kashmir
-  - saffron
-  - land degradation
-  - remote sensing
-  - multi-temporal change detection
-  - unregulated mining
-  - geomorphology
+  - karewa
+  - Kashmir Valley
+  - brick kilns
+  - land conversion
+  - Landsat time series
+  - sensor consistency
+  - accuracy assessment
   - Google Earth Engine
-  - spatial statistics
 license: CC-BY-4.0
-version: 1.0.0
-date-released: "2026-08-03"
+version: 2.0.0
+date-released: "2026-10-07"

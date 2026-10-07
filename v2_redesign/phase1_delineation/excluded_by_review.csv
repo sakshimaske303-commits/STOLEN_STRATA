@@ -1,0 +1,6 @@
+terrace_id,area_km2,scarp_frac,mean_elev,ai_reason
+29,1.46,0.29,1620.89,"Foothill apron at Shalimar/Harwan (built-up, SKUAST campus); only 5% inside the study box."
+69,0.21,0.39,1605.52,"Apron around the isolated Hari Parbat hill in Srinagar (bedrock hill, urban)."
+81,0.12,0.36,1778.02,Valley floor inside the mountains (~1780 m).
+91,0.1,0.29,1740.03,Valley floor inside the mountains (~1740 m).
+124,0.06,0.4,1689.61,Small flat at the mountain foot.

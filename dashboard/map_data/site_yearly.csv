@@ -1,0 +1,109 @@
+year,site,median_clear_obs,usable,below_035_pct,below_035_ha,median_peak_ndvi
+1990,Rangeen Kultreh terraces,2.0,False,1.81,8.8,0.519
+1990,Bandagam-Batapora terraces,2.0,False,13.53,365.8,0.628
+1990,All other terraces,2.0,False,25.17,3481.9,0.486
+1991,Rangeen Kultreh terraces,1.0,False,23.31,113.4,0.401
+1991,Bandagam-Batapora terraces,1.0,False,92.45,2573.5,0.236
+1991,All other terraces,1.0,False,40.43,5684.3,0.389
+1992,Rangeen Kultreh terraces,5.0,False,99.98,486.4,0.185
+1992,Bandagam-Batapora terraces,5.0,False,99.98,2783.2,0.154
+1992,All other terraces,5.0,False,88.63,12460.0,0.195
+1993,Rangeen Kultreh terraces,14.0,True,8.83,42.9,0.482
+1993,Bandagam-Batapora terraces,14.0,True,45.48,1266.1,0.364
+1993,All other terraces,14.0,True,11.66,1639.8,0.474
+1994,Rangeen Kultreh terraces,15.0,True,1.04,5.0,0.525
+1994,Bandagam-Batapora terraces,15.0,True,3.01,83.9,0.615
+1994,All other terraces,15.0,True,3.3,463.9,0.543
+1995,Rangeen Kultreh terraces,3.0,False,95.28,463.5,0.249
+1995,Bandagam-Batapora terraces,3.0,False,84.36,2348.5,0.234
+1995,All other terraces,3.0,False,80.22,11279.2,0.265
+1996,Rangeen Kultreh terraces,8.0,False,0.59,2.9,0.538
+1996,Bandagam-Batapora terraces,8.0,False,18.36,511.0,0.447
+1996,All other terraces,8.0,False,3.98,560.2,0.552
+1997,Rangeen Kultreh terraces,3.0,False,50.68,246.5,0.348
+1997,Bandagam-Batapora terraces,3.0,False,6.22,173.1,0.725
+1997,All other terraces,3.0,False,26.91,3784.0,0.457
+1998,Rangeen Kultreh terraces,12.0,True,0.46,2.2,0.619
+1998,Bandagam-Batapora terraces,12.0,True,3.6,100.3,0.738
+1998,All other terraces,12.0,True,3.89,547.0,0.592
+1999,Rangeen Kultreh terraces,14.0,True,8.57,41.7,0.451
+1999,Bandagam-Batapora terraces,14.0,True,6.94,193.2,0.752
+1999,All other terraces,14.0,True,15.31,2153.3,0.484
+2000,Rangeen Kultreh terraces,20.0,True,8.4,40.9,0.456
+2000,Bandagam-Batapora terraces,20.0,True,7.79,216.8,0.552
+2000,All other terraces,20.0,True,8.9,1251.5,0.504
+2001,Rangeen Kultreh terraces,14.0,True,73.14,355.8,0.309
+2001,Bandagam-Batapora terraces,14.0,True,24.97,695.2,0.468
+2001,All other terraces,14.0,True,51.25,7206.0,0.346
+2002,Rangeen Kultreh terraces,10.0,True,0.96,4.7,0.516
+2002,Bandagam-Batapora terraces,10.0,True,6.58,183.1,0.674
+2002,All other terraces,10.0,True,4.95,696.0,0.588
+2003,Rangeen Kultreh terraces,14.0,True,0.2,1.0,0.578
+2003,Bandagam-Batapora terraces,14.0,True,4.93,137.2,0.687
+2003,All other terraces,14.0,True,3.17,445.3,0.591
+2004,Rangeen Kultreh terraces,12.0,True,11.82,57.5,0.457
+2004,Bandagam-Batapora terraces,12.0,True,7.15,199.1,0.717
+2004,All other terraces,12.0,True,9.95,1399.4,0.515
+2005,Rangeen Kultreh terraces,17.0,True,0.22,1.1,0.531
+2005,Bandagam-Batapora terraces,17.0,True,6.04,168.1,0.692
+2005,All other terraces,17.0,True,3.41,479.7,0.613
+2006,Rangeen Kultreh terraces,15.0,True,1.15,5.6,0.545
+2006,Bandagam-Batapora terraces,15.0,True,5.63,156.8,0.689
+2006,All other terraces,15.0,True,7.06,992.9,0.573
+2007,Rangeen Kultreh terraces,19.0,True,0.17,0.8,0.508
+2007,Bandagam-Batapora terraces,19.0,True,8.08,225.0,0.594
+2007,All other terraces,19.0,True,4.94,694.0,0.533
+2008,Rangeen Kultreh terraces,21.0,True,0.41,2.0,0.489
+2008,Bandagam-Batapora terraces,21.0,True,12.25,341.1,0.702
+2008,All other terraces,21.0,True,8.9,1251.7,0.517
+2009,Rangeen Kultreh terraces,26.0,True,0.19,0.9,0.492
+2009,Bandagam-Batapora terraces,26.0,True,11.88,330.8,0.7
+2009,All other terraces,26.0,True,5.46,768.3,0.521
+2010,Rangeen Kultreh terraces,30.0,True,0.0,0.0,0.614
+2010,Bandagam-Batapora terraces,30.0,True,9.95,276.9,0.613
+2010,All other terraces,30.0,True,2.88,405.2,0.635
+2011,Rangeen Kultreh terraces,22.0,True,0.0,0.0,0.601
+2011,Bandagam-Batapora terraces,22.0,True,10.45,291.0,0.742
+2011,All other terraces,22.0,True,3.51,492.9,0.617
+2012,Rangeen Kultreh terraces,16.0,True,3.79,18.4,0.54
+2012,Bandagam-Batapora terraces,16.0,True,11.67,324.8,0.572
+2012,All other terraces,16.0,True,8.83,1242.2,0.561
+2013,Rangeen Kultreh terraces,42.0,True,0.22,1.1,0.647
+2013,Bandagam-Batapora terraces,42.0,True,8.08,225.0,0.739
+2013,All other terraces,42.0,True,1.84,258.7,0.652
+2014,Rangeen Kultreh terraces,32.0,True,1.33,6.5,0.62
+2014,Bandagam-Batapora terraces,32.0,True,9.53,265.4,0.721
+2014,All other terraces,32.0,True,1.96,275.6,0.656
+2015,Rangeen Kultreh terraces,37.0,True,1.96,9.5,0.678
+2015,Bandagam-Batapora terraces,37.0,True,10.87,302.5,0.654
+2015,All other terraces,37.0,True,1.81,254.6,0.673
+2016,Rangeen Kultreh terraces,50.0,True,3.31,16.1,0.646
+2016,Bandagam-Batapora terraces,50.0,True,10.22,284.4,0.704
+2016,All other terraces,50.0,True,2.17,305.5,0.673
+2017,Rangeen Kultreh terraces,44.0,True,15.25,74.2,0.644
+2017,Bandagam-Batapora terraces,44.0,True,11.31,314.8,0.706
+2017,All other terraces,44.0,True,2.0,281.2,0.671
+2018,Rangeen Kultreh terraces,46.0,True,20.59,100.2,0.59
+2018,Bandagam-Batapora terraces,46.0,True,10.52,292.8,0.705
+2018,All other terraces,46.0,True,2.47,347.1,0.647
+2019,Rangeen Kultreh terraces,35.0,True,20.76,101.0,0.665
+2019,Bandagam-Batapora terraces,35.0,True,9.57,266.4,0.718
+2019,All other terraces,35.0,True,1.73,242.7,0.699
+2020,Rangeen Kultreh terraces,50.0,True,21.83,106.2,0.6
+2020,Bandagam-Batapora terraces,50.0,True,10.43,290.4,0.694
+2020,All other terraces,50.0,True,2.08,292.0,0.65
+2021,Rangeen Kultreh terraces,42.0,True,22.59,109.9,0.672
+2021,Bandagam-Batapora terraces,42.0,True,11.1,308.9,0.701
+2021,All other terraces,42.0,True,1.82,256.1,0.671
+2022,Rangeen Kultreh terraces,68.0,True,23.39,113.8,0.638
+2022,Bandagam-Batapora terraces,68.0,True,11.06,307.9,0.697
+2022,All other terraces,68.0,True,1.78,250.6,0.687
+2023,Rangeen Kultreh terraces,65.0,True,23.18,112.8,0.656
+2023,Bandagam-Batapora terraces,65.0,True,12.17,338.8,0.703
+2023,All other terraces,65.0,True,1.74,244.3,0.697
+2024,Rangeen Kultreh terraces,58.0,True,25.14,122.3,0.642
+2024,Bandagam-Batapora terraces,58.0,True,13.94,388.1,0.704
+2024,All other terraces,58.0,True,2.2,310.0,0.682
+2025,Rangeen Kultreh terraces,38.0,True,25.48,123.9,0.585
+2025,Bandagam-Batapora terraces,38.0,True,14.24,396.3,0.596
+2025,All other terraces,38.0,True,1.92,269.9,0.652

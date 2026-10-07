@@ -96,13 +96,13 @@
         
     
             var tile_layer_8ca7a8b567fbca13939c22509067eb54 = L.tileLayer(
-                "https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png",
+                "https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Light_Gray_Base/MapServer/tile/{z}/{y}/{x}",
                 {
   "minZoom": 0,
   "maxZoom": 20,
-  "maxNativeZoom": 20,
+  "maxNativeZoom": 16,
   "noWrap": false,
-  "attribution": "\u0026copy; \u003ca href=\"https://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors \u0026copy; \u003ca href=\"https://carto.com/attributions\"\u003eCARTO\u003c/a\u003e",
+  "attribution": "Tiles \u0026copy; Esri \u2014 Esri, HERE, Garmin, \u0026copy; OpenStreetMap contributors",
   "subdomains": "abcd",
   "detectRetina": false,
   "tms": false,
@@ -247,7 +247,7 @@
     
             var layer_control_2acad83ecd6a2cabe94f3cde73da77ca_layers = {
                 base_layers : {
-                    "cartodbpositron" : tile_layer_8ca7a8b567fbca13939c22509067eb54,
+                    "Light basemap" : tile_layer_8ca7a8b567fbca13939c22509067eb54,
                 },
                 overlays :  {
                     "1 km Risk Buffer" : geo_json_464a7828942788d90d3efd340fd0a2e1,

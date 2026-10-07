@@ -1,0 +1,11 @@
+series,years,part,terraces_ha,terraces_pct,other_flat_pct,rest_pct
+Landsat 5/7,1993-1994-1998,old box,47.97,0.513,0.266,3.163
+Landsat 5/7,1993-1994-1998,west/south extension,17.1,0.214,1.374,1.682
+Landsat 5/7,2005-2006-2007,old box,78.3,0.837,0.549,2.874
+Landsat 5/7,2005-2006-2007,west/south extension,55.98,0.702,1.425,1.327
+Landsat 8/9 only,2013-2014-2015,old box,45.27,0.484,0.376,1.927
+Landsat 8/9 only,2013-2014-2015,west/south extension,43.83,0.55,1.31,1.219
+Landsat 8/9 only,2023-2024-2025,old box,166.05,1.775,0.819,3.19
+Landsat 8/9 only,2023-2024-2025,west/south extension,110.61,1.387,1.436,1.418
+Sentinel-2,2023-2024-2025,old box,358.74,3.835,4.38,7.316
+Sentinel-2,2023-2024-2025,west/south extension,464.31,5.822,3.2,3.33

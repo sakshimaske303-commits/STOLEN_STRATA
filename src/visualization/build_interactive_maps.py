@@ -27,8 +27,14 @@ def save(fmap, folder):
     fmap.save(os.path.join(d, "index.html"))
     print(f"saved {folder}/index.html")
 
+# Basemap: Esri Light Gray Canvas (the CARTO basemap started asking for an API key)
+ESRI_LIGHT = "https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Light_Gray_Base/MapServer/tile/{z}/{y}/{x}"
+ESRI_ATTR = "Tiles &copy; Esri — Esri, HERE, Garmin, &copy; OpenStreetMap contributors"
+
 def base_map(center=[33.99, 74.95], zoom=11):
-    return folium.Map(location=center, zoom_start=zoom, tiles="CartoDB positron", control_scale=True)
+    m = folium.Map(location=center, zoom_start=zoom, tiles=None, control_scale=True)
+    folium.TileLayer(tiles=ESRI_LIGHT, attr=ESRI_ATTR, name="Light basemap", max_native_zoom=16).add_to(m)
+    return m
 
 def status_style(feature):
     s = feature["properties"]["status"]

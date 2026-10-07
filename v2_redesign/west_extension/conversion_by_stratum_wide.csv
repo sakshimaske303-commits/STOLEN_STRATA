@@ -1,0 +1,37 @@
+series,early,late,part,stratum,stratum_km2,veg_to_bare_ha,veg_to_bare_pct,bare_to_veg_ha
+Landsat 8/9 only,2013-2014-2015,2023-2024-2025,whole box,terraces,173.307,107.01,0.617,5.31
+Landsat 8/9 only,2013-2014-2015,2023-2024-2025,whole box,other_flat,161.906,11.43,0.071,2.52
+Landsat 8/9 only,2013-2014-2015,2023-2024-2025,whole box,rest,1826.626,328.95,0.18,54.09
+Landsat 8/9 only,2013-2014-2015,2023-2024-2025,old box,terraces,93.551,89.82,0.96,0.99
+Landsat 8/9 only,2013-2014-2015,2023-2024-2025,old box,other_flat,78.428,5.85,0.075,2.25
+Landsat 8/9 only,2013-2014-2015,2023-2024-2025,old box,rest,1056.648,262.53,0.248,32.94
+Landsat 8/9 only,2013-2014-2015,2023-2024-2025,west/south extension,terraces,79.755,17.19,0.216,4.32
+Landsat 8/9 only,2013-2014-2015,2023-2024-2025,west/south extension,other_flat,83.479,5.58,0.067,0.27
+Landsat 8/9 only,2013-2014-2015,2023-2024-2025,west/south extension,rest,769.979,66.42,0.086,21.15
+Landsat 8/9 only,2013-2014-2015,2019-2020-2021,whole box,terraces,173.307,68.58,0.396,1.89
+Landsat 8/9 only,2013-2014-2015,2019-2020-2021,whole box,other_flat,161.906,1.89,0.012,0.54
+Landsat 8/9 only,2013-2014-2015,2019-2020-2021,whole box,rest,1826.626,82.98,0.045,33.75
+Landsat 8/9 only,2013-2014-2015,2019-2020-2021,old box,terraces,93.551,63.09,0.674,0.18
+Landsat 8/9 only,2013-2014-2015,2019-2020-2021,old box,other_flat,78.428,0.27,0.003,0.54
+Landsat 8/9 only,2013-2014-2015,2019-2020-2021,old box,rest,1056.648,60.39,0.057,23.4
+Landsat 8/9 only,2013-2014-2015,2019-2020-2021,west/south extension,terraces,79.755,5.49,0.069,1.71
+Landsat 8/9 only,2013-2014-2015,2019-2020-2021,west/south extension,other_flat,83.479,1.62,0.019,0.0
+Landsat 8/9 only,2013-2014-2015,2019-2020-2021,west/south extension,rest,769.979,22.59,0.029,10.35
+Landsat 7 only,2013-2014-2015,2019-2020-2021,whole box,terraces,173.307,70.83,0.409,5.22
+Landsat 7 only,2013-2014-2015,2019-2020-2021,whole box,other_flat,161.906,2.61,0.016,1.8
+Landsat 7 only,2013-2014-2015,2019-2020-2021,whole box,rest,1826.626,67.05,0.037,68.49
+Landsat 7 only,2013-2014-2015,2019-2020-2021,old box,terraces,93.551,64.98,0.695,1.26
+Landsat 7 only,2013-2014-2015,2019-2020-2021,old box,other_flat,78.428,0.45,0.006,1.17
+Landsat 7 only,2013-2014-2015,2019-2020-2021,old box,rest,1056.648,46.53,0.044,45.54
+Landsat 7 only,2013-2014-2015,2019-2020-2021,west/south extension,terraces,79.755,5.85,0.073,3.96
+Landsat 7 only,2013-2014-2015,2019-2020-2021,west/south extension,other_flat,83.479,2.16,0.026,0.63
+Landsat 7 only,2013-2014-2015,2019-2020-2021,west/south extension,rest,769.979,20.52,0.027,22.95
+Landsat 5/7,1993-1994-1998,2005-2006-2007,whole box,terraces,173.307,30.33,0.175,2.07
+Landsat 5/7,1993-1994-1998,2005-2006-2007,whole box,other_flat,161.906,16.92,0.105,2.34
+Landsat 5/7,1993-1994-1998,2005-2006-2007,whole box,rest,1826.626,207.99,0.114,169.02
+Landsat 5/7,1993-1994-1998,2005-2006-2007,old box,terraces,93.551,18.99,0.203,1.44
+Landsat 5/7,1993-1994-1998,2005-2006-2007,old box,other_flat,78.428,16.02,0.204,0.9
+Landsat 5/7,1993-1994-1998,2005-2006-2007,old box,rest,1056.648,162.0,0.153,114.57
+Landsat 5/7,1993-1994-1998,2005-2006-2007,west/south extension,terraces,79.755,11.34,0.142,0.63
+Landsat 5/7,1993-1994-1998,2005-2006-2007,west/south extension,other_flat,83.479,0.9,0.011,1.44
+Landsat 5/7,1993-1994-1998,2005-2006-2007,west/south extension,rest,769.979,45.99,0.06,54.45

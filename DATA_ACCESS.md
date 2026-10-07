@@ -1,36 +1,36 @@
-# Raw Data Access
+# Raster data
 
-`data/raw/` is gitignored (see `.gitignore`) because the rasters are too large
-to keep in the repo. This means cloning the repo alone is not enough to
-re-run the `src/analysis/` pipeline from scratch — the six files below have
-to be fetched and placed in `data/raw/` first. This file exists so that gap
-doesn't stay implicit. It documents what each raw file is and roughly how it
-was pulled, based on the actual acquisition steps recorded in
-`SS_Development_Log.md` (Entries 2, 3, 5, 8) — it is not a re-run script, and
-where the log doesn't pin down an exact parameter (precise cloud-cover cutoff,
-compositing function for every single year), that's left unstated here rather
-than guessed at.
+`data/raw/` and `data/interim/` are not stored in the repository because the rasters are too large. The dashboard does not
+need them. The analysis scripts do. Every raster below is produced by an Earth Engine script that is in the repository:
+run the script in the Earth Engine code editor, start the export tasks, and put the downloaded GeoTIFFs in `data/raw/`.
 
-| File expected in `data/raw/` | Used by | Source | Notes |
-|---|---|---|---|
-| `StolenStrata_DEM_GLO30.tif` | `01_extract_karewa_terraces.py` | Copernicus DEM GLO-30 (30m), via Google Earth Engine | AOI: 33.85–34.15°N, 74.75–75.15°E (Pampore / Pulwama / Budgam / Zewan, central Kashmir) |
-| `StolenStrata_NDVI_1994_v2.tif` | `03_ndvi_change_detection.py` | Landsat 5, Google Earth Engine | Season-matched to the June–September window (originally pulled from a wider 1993–1996 stack, then narrowed to match the 2025 window — see Entry 3) |
-| `StolenStrata_NDVI_2025.tif` | `03_ndvi_change_detection.py`, `12_robustness_and_effect_sizes.py` | Sentinel-2, Google Earth Engine | June–September window, ~10m native resolution |
-| `StolenStrata_NDVI_2005.tif` | `08_multitemporal_trend.py` | Landsat 5, Google Earth Engine | **Not a single-year image** — the June–September / low-cloud Landsat 5 query for 2005 alone returned nothing, so the window was widened to May–October and a 9-year span (2001–2009) centered on 2005, with no cloud filter and a median composite used to suppress cloud noise instead (see Entry 8, and the caveat already in `SS_Executive_Summary.md`) |
-| `StolenStrata_NDVI_2015.tif` | `08_multitemporal_trend.py` | Landsat 8, Google Earth Engine | May–October window |
-| `StolenStrata_SaffronIndex_2025_v2.tif` | `04_saffron_overlay.py` | Sentinel-2, Google Earth Engine (3-band index raster, band 1 = Saffron_Index) | March window — chosen because saffron's leaf canopy grows out post-flowering, after winter snowmelt, not during the October–November flowering period (see Entry 5) |
+## Wide box (74.55°–75.15° E, 33.80°–34.15° N): the results reported in the paper
 
-`data/raw/` also contains `StolenStrata_Slope.tif`, the original Earth Engine slope export. It is entirely NaN (the corrupted export described in Entry 2 of the development log) and is not used; slope is computed locally from the DEM.
+Script: `v2_redesign/west_extension/gee_04_extended_box.js`. All at 30 m, EPSG:32643, one band per year.
 
-Everything else the pipeline needs is either downloaded live at run time
-(the OSM road network and building footprints, via `osmnx`/Overpass in
-`09_road_proximity.py`, `14a_download_settlement_footprints.py`, and the
-`src/visualization/` export scripts — no manual download needed, just a live
-internet connection) or already checked into `data/processed/`.
+| File in `data/raw/` | Content |
+|---|---|
+| `StolenStrata_v2w_OLIonly_p90_2013_2025.tif` | Landsat 8/9, unadjusted: yearly 90th percentile of NDVI. The series both conversion tests use. |
+| `StolenStrata_v2w_L7only_p90_2013_2021.tif` | Landsat 7 alone, same measure. |
+| `StolenStrata_v2w_S2_p90_2019_2025.tif` | Sentinel-2 with Cloud Score+, same measure. |
+| `StolenStrata_v2w_LS_p90_1990_2007.tif`, `StolenStrata_v2w_LS_p90_2008_2025.tif` | Landsat 5/7/8/9 together, with 8/9 adjusted to 7 (Roy et al., 2016). The long series. |
+| `StolenStrata_v2w_LS_counts_1990_2025.tif` | Clear observations per pixel per year. |
+| `StolenStrata_v2w_DEM_GLO30_buffered.tif` | Copernicus GLO-30 with a buffer of about 10 km. |
 
-Shared parameters used throughout the pipeline (the AOI box, the projection,
-and every calibrated threshold — TPI window/threshold, slope cutoff,
-elevation range, bare-earth/degradation/saffron thresholds, the saffron
-risk radius) now live in `config.py` at the repo root instead of being
-retyped in each script — see that file for the values and where each one
-was calibrated.
+## Original box (74.75°–75.15° E, 33.85°–34.15° N): the first pass, the geology check and the rerun of the earlier rule
+
+| File in `data/raw/` | Script | Content |
+|---|---|---|
+| `StolenStrata_v2_LS_p90_1990_2025.tif`, `StolenStrata_v2_L7only_p90_2013_2021.tif`, `StolenStrata_v2_OLIonly_p90_2013_2025.tif`, `StolenStrata_v2_S2_p90_2019_2025.tif` | `v2_redesign/phase2_timeseries/gee_01_annual_composites.js` | As above, for the original box. |
+| `StolenStrata_v2_LS_summer_1990_2025.tif`, `StolenStrata_v2_LS_counts_1990_2025.tif` | `v2_redesign/phase2_timeseries/gee_02_summer_counts.js` | June–September median NDVI per year (the measure of the earlier version) and observation counts. |
+| `StolenStrata_v2_DEM_SRTM_2000.tif`, `StolenStrata_v2_DEM_AW3D30_2006_2011.tif`, `StolenStrata_v2_GEDI_ground_2019_2025.tif` | `v2_redesign/phase4_elevation/gee_03_elevation_gate_test.js` | Elevation test. In the GEDI file a cell with no shot carries 0 in both the height and the count band; the script keeps only cells with a count above 0. |
+| `StolenStrata_DEM_GLO30_buffered.tif` | exported as in `gee_04_extended_box.js`, for the original box | Copernicus GLO-30 with buffer. |
+
+`data/interim/` is written by the two delineation scripts (`01_flat_top_delineation*.py`), which reproject the elevation model to UTM 43N.
+
+## Files of the earlier version
+
+`v2_redesign/phase2_timeseries/05_v1_rule_matched_statistic.py` (the check in Section 4.1 of the paper) reads the Sentinel-2 composite
+of the earlier version, `data/raw/StolenStrata_NDVI_2025.tif`, and the earlier polygons in `data/processed/karewa_multitemporal_trend.gpkg`.
+The other rasters of the earlier version (`StolenStrata_NDVI_1994_v2.tif`, `_2005`, `_2015`, `StolenStrata_DEM_GLO30.tif`,
+`StolenStrata_SaffronIndex_2025_v2.tif`) are used only by the withdrawn scripts in `archive_v1/`.

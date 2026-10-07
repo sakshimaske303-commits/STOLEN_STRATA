@@ -1,0 +1,6 @@
+layer,area_km2,on_karewa_fm,on_reworked,on_alluvium
+v2 terraces (scarp share >= 0.25),80.9,0.8,0.0,0.2
+prototype: scarp_bounded,69.6,0.81,0.0,0.19
+prototype: ambiguous,26.3,0.44,0.33,0.23
+prototype: rejected,63.2,0.3,0.36,0.35
+whole study box below 2000 m,699.8,0.39,0.07,0.54

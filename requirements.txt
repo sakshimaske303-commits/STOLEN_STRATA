@@ -1,14 +1,14 @@
+# analysis (v2_redesign/) and dashboard/build_data.py
+numpy
+pandas
+scipy
 geopandas
 rasterio
-numpy
-scipy
-osmnx
-matplotlib
-matplotlib-scalebar
-contextily  # optional: web-tile backdrop for static maps 01/04 (falls back to DEM hillshade)
 shapely
+pysheds
+matplotlib
+pillow
 folium
-branca
-streamlit>=1.32
-plotly>=5.18
-kaleido==0.2.1
+# dashboard (see also dashboard/requirements.txt)
+streamlit>=1.36,<2
+plotly>=5.18,<7

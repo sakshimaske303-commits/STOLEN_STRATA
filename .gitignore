@@ -18,3 +18,13 @@ data/raw/
 
 # osmnx HTTP response cache
 cache/
+
+# local preview images saved by the desktop app, not part of the project
+?????? outputs/
+
+# title page carries personal contact details
+Title_Page.md
+Title_Page.docx
+
+# working rasters written by the delineation scripts
+data/interim/

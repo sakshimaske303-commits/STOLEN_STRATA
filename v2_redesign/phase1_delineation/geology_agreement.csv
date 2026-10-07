@@ -1,0 +1,7 @@
+,value
+users_accuracy,0.796
+producers_accuracy_all_karewa_fm,0.237
+producers_accuracy_flat_karewa_fm,0.382
+mapped_karewa_fm_km2,271.4
+flat_mapped_karewa_fm_km2,164.1
+users_accuracy_range_under_0.6km_shift,0.67-0.89

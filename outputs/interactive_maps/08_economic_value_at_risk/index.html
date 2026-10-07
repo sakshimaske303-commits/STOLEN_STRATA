@@ -97,13 +97,13 @@
         
     
             var tile_layer_adb60b283ce8a91334ec0af4adb75e60 = L.tileLayer(
-                "https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png",
+                "https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Light_Gray_Base/MapServer/tile/{z}/{y}/{x}",
                 {
   "minZoom": 0,
   "maxZoom": 20,
-  "maxNativeZoom": 20,
+  "maxNativeZoom": 16,
   "noWrap": false,
-  "attribution": "\u0026copy; \u003ca href=\"https://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors \u0026copy; \u003ca href=\"https://carto.com/attributions\"\u003eCARTO\u003c/a\u003e",
+  "attribution": "Tiles \u0026copy; Esri \u2014 Esri, HERE, Garmin, \u0026copy; OpenStreetMap contributors",
   "subdomains": "abcd",
   "detectRetina": false,
   "tms": false,
@@ -293,7 +293,7 @@
     
             var layer_control_edc264f0391c6c252b99c99f9a383013_layers = {
                 base_layers : {
-                    "cartodbpositron" : tile_layer_adb60b283ce8a91334ec0af4adb75e60,
+                    "Light basemap" : tile_layer_adb60b283ce8a91334ec0af4adb75e60,
                 },
                 overlays :  {
                     "Degraded Terraces" : geo_json_bc7d484a7ce1a53d0ce737812ae827b8,

@@ -1,145 +1,118 @@
-# STOLEN STRATA — A Landform Under Erasure
+# STOLEN STRATA
 
-**Quantifying how much of Kashmir's karewa terraces have been lost to unregulated mining — and what that means for the saffron economy they sustain.**
+**Brick kilns and the loss of karewa tableland in Budgam, Kashmir, 1993–2025, with a correction to an earlier estimate.**
 
-[![EarthArXiv](https://img.shields.io/badge/EarthArXiv-Preprint-B7410E.svg)](https://eartharxiv.org/repository/view/14805/) [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.21766464.svg)](https://doi.org/10.5281/zenodo.21766464)
+> **This repository was revised in October 2026.** The version of September 2026 reported that bare ground on Kashmir's karewa
+> terraces rose from 1.84% to 8.43% between 1994 and 2025 (a net 190.3 ha), with 25 degraded terraces and a saffron value at
+> risk of ₹17.8 crore. Those numbers came from comparing two differently built satellite products and are **withdrawn**, with
+> everything built on them. Section 4.1 of the paper shows the check. The September preprint
+> ([EarthArXiv](https://eartharxiv.org/repository/view/14805/), [Zenodo](https://doi.org/10.5281/zenodo.21766464)) is that earlier version and has not yet been replaced.
 
-## Live Dashboard
+## Live dashboard
 
-**[View the interactive dashboard →](https://stolenstrata-ekmgvmukfnfkpigxtgsak6.streamlit.app/)**
+**[Open the dashboard →](https://stolenstrata-ekmgvmukfnfkpigxtgsak6.streamlit.app/)**
 
-## Project Documentation
+## Documents
 
-| Document | What's Inside |
+| Document | What it is |
 |---|---|
-| [`SS_Executive_Summary.pdf`](./SS_Executive_Summary.pdf) ([.md source](./SS_Executive_Summary.md)) | One-page executive summary — project overview, question, method, headline finding, robustness checklist (start here) |
-| [`SS_Research_Paper.md`](./SS_Research_Paper.md) | Formal academic paper — literature review, statistical methodology, results, discussion |
-| [`SS_Development_Log.md`](./SS_Development_Log.md) | Full technical development log — every bug, debugging session, and methodology iteration |
+| [`SS_Executive_Summary.md`](./SS_Executive_Summary.md) | Two pages: what changed, what the study shows, what it cannot show. Start here. |
+| [`SS_Research_Paper.md`](./SS_Research_Paper.md) | The full paper. |
+| [`SS_Development_Log.md`](./SS_Development_Log.md) | Day-by-day record. Entries 1–15 describe the first version; Entries 16 onward the rebuild and the correction. |
 
----
+## The question
 
-STOLEN STRATA is a geospatial framework that automatically delineates Kashmir's karewa terraces from terrain data and tracks bare-earth conversion on them — a signal consistent with unchecked soil mining and urbanization, though the spectral classifier alone can't distinguish mining from construction, tillage, or natural erosion — across four time slices in a 31-year satellite observation window (1994-2025). Every terrace boundary, degradation flag, and proximity-risk figure in this project runs through one fully scripted pipeline connecting a geologically unique landform to the economy it makes possible — saffron, valued here in rupees rather than just hectares — and to the legal context around its extraction: excavation proceeds under general revenue and mining permissions, with no karewa-specific protection law in place.
+Karewas are the flat-topped, scarp-bounded tablelands left by the old lake and river deposits of the Kashmir Valley. Reporting
+from Kashmir has said for years that they are being dug away for brick clay and fill. This project measures how much vegetated
+tableland was lost, where and when, using one family of satellite sensors at a time.
 
-This isn't a marketing brochure — it's built in the same "trust, but check" spirit as the rest of this portfolio: every hypothesis this study could test statistically was tested, and every finding reported honestly, including the saffron-detection shortfall against an independent FAO baseline, and the governance-alignment question (RQ4) this study couldn't test due to a lack of accessible data.
+## What the study shows
 
----
+| | |
+|---|---|
+| Study box | 74.55°–75.15° E, 33.80°–34.15° N, about 2,160 km² (Budgam, Pulwama, Srinagar) |
+| Terraces mapped | 180 scarp-bounded tablelands, 173.3 km² |
+| Vegetated in 2013–15, bare in 2023–25, on terraces | 107 ha by a strict test; 329 ha by a looser one (286 ha net of reverse change) |
+| Of that, inside brick-kiln fields today | about 141 ha (95% interval roughly 110–172 ha), from a hand-labelled sample of 120 points |
+| Of that, directly under kilns and rows of bricks | about 40 ha |
+| Where | Two belts in Budgam: Rangeen Kultreh (a kiln field that opens in 2017–2018) and Bandagam–Batapora (older, slower) |
+| Back to the mid-1990s | A net loss of roughly 335 ha in the two belts. Indicative only: the Landsat record before 2013 is thin. |
 
-## Interactive Maps
+## What it does not show
 
-Eight fully interactive, pannable/zoomable maps, built directly from this project's own geopackages and hosted via GitHub Pages:
+- **Depth or volume.** Every free elevation model predates the Rangeen Kultreh kiln field; the result is "vegetated to bare", not "excavated".
+- **A saffron link.** No conversion of this kind is seen on the Pampore tablelands in 2013–2025.
+- **The whole Karewa formation.** The terrace map covers scarp-bounded tablelands, about a quarter of the mapped formation in the original box, and has no accuracy figure of its own yet.
+- **The state of each sample point in 2013.** The sample describes 2026. A check against older imagery is prepared and not finished.
 
-**Terrace Delineation and Degradation**
-- [Study Area Overview](https://sakshimaske303-commits.github.io/STOLEN_STRATA/outputs/interactive_maps/01_study_area_overview/index.html)
-- [Terrace Degradation Status](https://sakshimaske303-commits.github.io/STOLEN_STRATA/outputs/interactive_maps/02_terrace_degradation_status/index.html)
-- [Delineated Terrace Boundaries](https://sakshimaske303-commits.github.io/STOLEN_STRATA/outputs/interactive_maps/03_terrace_boundaries/index.html)
-- [Plausibility Check at Saffron Fields, Lethpora](https://sakshimaske303-commits.github.io/STOLEN_STRATA/outputs/interactive_maps/04_validation_lethpora/index.html)
+The paper's Section 6 lists every limitation.
 
-**Saffron and Economic Risk**
-- [Saffron Proximity Risk](https://sakshimaske303-commits.github.io/STOLEN_STRATA/outputs/interactive_maps/05_saffron_proximity_risk/index.html)
-- [Saffron Economic Value-at-Risk](https://sakshimaske303-commits.github.io/STOLEN_STRATA/outputs/interactive_maps/08_economic_value_at_risk/index.html)
-
-**Infrastructure**
-- [Road Network Proximity](https://sakshimaske303-commits.github.io/STOLEN_STRATA/outputs/interactive_maps/06_road_network_proximity/index.html)
-- [Settlement Proximity](https://sakshimaske303-commits.github.io/STOLEN_STRATA/outputs/interactive_maps/07_settlement_proximity/index.html)
-
-*(Same eight maps are also browsable from a single dropdown on the [live dashboard](https://stolenstrata-ekmgvmukfnfkpigxtgsak6.streamlit.app/) → Interactive Maps page)*
-
-**Additional Static Figures**
-- [Distance to Nearest Settlement by Degradation Status](outputs/figures/06_settlement_distance_by_status.png)
-- [Degradation vs Settlement Proximity (static map)](outputs/maps/07_settlement_proximity.png)
-- [Saffron Economic Value-at-Risk (static map)](outputs/maps/08_economic_value_at_risk.png)
-
-*(Settlement-proximity, economic-valuation, and legal-status findings are also presented as live charts and cards on the dashboard's Governance and Saffron Vulnerability pages — visit the [live dashboard](https://stolenstrata-ekmgvmukfnfkpigxtgsak6.streamlit.app/) for the full interactive versions)*
-
----
-
-## What This Project Does
-
-- Automatically delineates 201 karewa terrace polygons from the Copernicus DEM using a TPI and slope threshold — no manual digitization. (The rule picks up terrace rims, spurs and edges more than the broad flat interiors of large plateaus; see the paper's Limitations.)
-- Shows when bare-earth land-cover conversion accelerated (between 2015 and 2025) rather than rising steadily, using Landsat and Sentinel-2 composites at four time slices (1994, 2005 [a 2001–2009 composite], 2015, 2025); the 1994 and 2025 endpoints are season-matched (June–September), 2005 and 2015 use May–October.
-- Detects saffron-cultivating terraces using an inverted-phenology signature, and quantifies each one's distance to the nearest degraded terrace as a leading risk indicator, expressed as an estimated rupee value-at-risk using official state saffron yield and price data.
-- Compares degraded terraces against the OpenStreetMap road network and building footprints — two distinct (but spatially correlated) accessibility measures — using Mann-Whitney U tests to check whether degraded terraces are more accessible.
-- Benchmarks detected saffron area against an independent FAO baseline rather than claiming a loss of cropland, and reports the resulting detection-recall shortfall transparently.
-- Identifies whether any karewa-specific legislation currently exists to restrict karewa excavation in J&K.
-- Shares all results on an interactive 11-page Streamlit dashboard with live charts, static maps (Python- and QGIS-rendered), and interactive maps.
-
-## Key Findings
-
-The mean bare-earth fraction across 201 terraces rose only modestly from 1994 to 2015 but jumped more than threefold between 2015 and 2025: a net increase of 190.3 hectares of bare-earth-classified surface, 67% of it within just 12.4% of terraces (9.7% of the mapped terrace area). That is bare-earth increase, not a direct measure of mined area.
-
-Degraded terraces sit significantly closer to both drivable roads (75.6 m vs. 133.1 m for intact terraces, p = 0.0116) and building footprints (455.9 m vs. 999.7 m for intact terraces, p = 0.0001) than intact terraces do. Both infrastructure signals agree in direction, and settlement proximity is the largest effect in the study (rank-biserial r = 0.465, moderate). These are associations: they don't establish that access causes mining, the tests don't adjust for spatial clustering of terraces, and OSM building coverage in this area is incomplete.
-
-Fourteen terraces were flagged as likely saffron-cultivating; 43% sit within 1 km of an already-degraded terrace, with the nearest just 80 m away. "At risk" here is a proximity indicator, not a probability. That at-risk subset represents an estimated ₹17.8 crore in annual production value at official 2024-25 saffron yield and price figures — 55% of the total production value this study attributes to the flagged saffron-terrace area, using statewide average yield and price. This is a value-at-risk finding, not a claim of loss already incurred, and the shortfall against the FAO baseline is documented openly rather than glossed over.
-
-As of the most recent reporting located (February 2025), there is no karewa-specific law protecting karewa surfaces from being dug up. A private member's bill, the J&K Karewa Protection Bill, 2025 — which would set up a Karewa Protection Authority, make an environmental impact assessment mandatory before mining leases, and impose fines of up to ₹10 lakh per violation and up to five years' imprisonment for repeat offences — was pending, while the Revenue and Geology & Mining Departments continued to issue the excavation permissions it would restrict. So the infrastructure-proximity findings aren't evidence of a karewa protection rule being poorly enforced — no such rule exists yet; extraction happens under general permits without karewa-specific protection. This status should be re-checked before being treated as current.
-
-The methodology in this study, including the governance-alignment question this study wasn't yet able to test, is described on the dashboard's Methodology page and in `SS_Research_Paper.md`.
-
-## Repository Structure
+## Repository layout
 
 ```text
 STOLEN_STRATA/
-├── dashboard/                       # Streamlit dashboard (11 pages: app.py home + 10 pages/)
-│   └── pages/                       # Individual dashboard pages
-├── data/
-│   ├── raw/                         # DEM, satellite composites (gitignored — see DATA_ACCESS.md)
-│   └── processed/                   # Terrace, saffron, road-, and settlement-proximity datasets
-├── src/
-│   ├── analysis/                    # Terrace delineation, change detection, statistical tests,
-│   │                                 #   settlement proximity, economic valuation (scripts 01–15; there is
-│   │                                 #   no script 13, and the ground-truth sampling script is not in the repo)
-│   └── visualization/               # AOI/settlement/road exports, interactive map builder (folium),
-│                                     #   static print-layout map builder (matplotlib)
-├── outputs/
-│   ├── maps/                        # Static print-layout map exports (8 maps, plus chart-image duplicates also available in outputs/figures/)
-│   ├── interactive_maps/            # Interactive Leaflet web-map exports (8 maps)
-│   ├── figures/                     # Static maps, matplotlib figures, and exported Plotly chart PNGs
-│   ├── ground_truth_sample_points.gpkg  # Stratified sample for manual accuracy-assessment labelling
-│   └── economic_valuation_results.json
-├── notebooks/                       # (currently empty)
-├── config.py                        # Shared AOI/CRS/threshold constants used across src/analysis and src/visualization
-├── DATA_ACCESS.md                   # What each data/raw/ file is and how it was pulled
-├── SS_Executive_Summary.pdf         # One-page executive summary
-├── SS_Executive_Summary.md          # Executive summary source (incl. Project Overview)
-├── SS_Research_Paper.md             # Formal academic research paper
-├── SS_Development_Log.md            # Full technical development log
-└── requirements.txt                 # Full pipeline dependencies (see also dashboard/requirements.txt)
+├── SS_Research_Paper.md, SS_Executive_Summary.md, SS_Development_Log.md
+├── v2_redesign/                  the revised analysis: scripts, result tables, layers, labelled sample
+│   ├── phase1_delineation/       terrace rule and geology check, original box
+│   ├── phase2_timeseries/        single-sensor series, the rerun of the earlier rule, strict test, original box
+│   ├── phase4_elevation/         elevation test (failed)
+│   ├── west_extension/           everything on the wide box: terraces, both tests, accuracy sample, sensitivity, long series
+│   ├── paper_figures/            Figures 1–4 and the scripts that draw them
+│   └── RESUME_HERE.md            what is done and what is still open
+├── dashboard/                    Streamlit dashboard (app.py, views/, map_data/)
+├── data/processed/               layers of the earlier version; the Section 4.1 check reads the old polygons from here
+├── data/raw/                     rasters (not stored in the repository, see DATA_ACCESS.md)
+├── archive_v1/                   the withdrawn first version, kept for the record
+├── DATA_ACCESS.md, CITATION.cff, LICENSE, requirements.txt
 ```
 
-## Tech Stack
-
-Python · GeoPandas · Rasterio · NumPy / SciPy · Plotly · Kaleido · Folium · Matplotlib · Streamlit · QGIS · GitHub Pages · Google Earth Engine · OSMnx
-
-## Data Sources
-
-| Dataset | Provider |
-|---|---|
-| Elevation, Slope | Copernicus DEM GLO-30 |
-| Multi-Temporal Land Cover (1994, 2005, 2015) | Landsat 5 (1994, 2001–2009 composite for 2005), Landsat 8 (2015) |
-| Multi-Temporal Land Cover (2025) | Sentinel-2 |
-| Road Network, Building Footprints | OpenStreetMap (via OSMnx) |
-| Saffron Cultivation Baseline | FAO GIAHS — Saffron Heritage Site of Kashmir |
-
-## Running Locally
+## Rerunning
 
 ```bash
 git clone https://github.com/sakshimaske303-commits/STOLEN_STRATA.git
 cd STOLEN_STRATA
 pip install -r requirements.txt
-cd dashboard
-streamlit run app.py
+
+# dashboard only (needs no rasters)
+pip install -r dashboard/requirements.txt
+streamlit run dashboard/app.py
 ```
+
+The analysis scripts run from the repository root and need the rasters listed in [`DATA_ACCESS.md`](./DATA_ACCESS.md) in `data/raw/`.
+The Earth Engine scripts in `v2_redesign/` regenerate them. Order, for the wide box:
+
+```bash
+python v2_redesign/west_extension/01_flat_top_delineation_wide.py
+python v2_redesign/west_extension/02_conversion_wide_box.py
+python v2_redesign/west_extension/03_drop_test_wide.py
+python v2_redesign/west_extension/05_accuracy_result.py
+python v2_redesign/west_extension/09_accuracy_by_labelling_pass.py
+python v2_redesign/west_extension/06_delineation_sensitivity.py
+python v2_redesign/west_extension/07_drop_test_sensitivity.py
+python v2_redesign/west_extension/08_long_series_wide.py
+python v2_redesign/paper_figures/make_figures.py
+python v2_redesign/paper_figures/make_maps.py
+python dashboard/build_data.py
+```
+
+## Data sources
+
+| Data | Provider |
+|---|---|
+| Elevation | Copernicus DEM GLO-30; SRTM; ALOS World 3D; GEDI |
+| Time series | Landsat 5, 7, 8, 9 Collection 2 Level 2; Sentinel-2 with Cloud Score+ |
+| Geology | Dar and Zeeden (2020), Figure 2, after Bhatt (1982) |
+| Reference labels | Google Maps satellite view, 2026 |
+
+## Use of AI tools
+
+The code, the checks and the drafting of this revision were done with heavy assistance from a generative AI assistant.
+I ran the satellite exports, labelled the accuracy sample, and reviewed and take responsibility for the content.
 
 ## Author
 
-**Sakshi D. Maske**
-
-Independent Geospatial Researcher
+**Sakshi D. Maske**, Independent Geospatial Researcher
 
 ## License
 
-This project is licensed under [CC BY 4.0](LICENSE). See `CITATION.cff` for citation metadata.
-
----
-
-*This project's full development process — including every debugging session, methodology iteration, and technical decision — is documented in `SS_Development_Log.md` for full transparency and reproducibility.*
+CC BY 4.0. See [`LICENSE`](./LICENSE).

@@ -23,6 +23,17 @@ My log covers everything. I built a terrain analysis code using TPI nd slope cut
 13. [Entry 13](#entry-13)
 14. [Entry 14](#entry-14)
 15. [Entry 15](#entry-15)
+16. [Entry 16](#entry-16)
+17. [Entry 17](#entry-17)
+18. [Entry 18](#entry-18)
+19. [Entry 19](#entry-19)
+20. [Entry 20](#entry-20)
+21. [Entry 21](#entry-21)
+22. [Entry 22](#entry-22)
+23. [Entry 23](#entry-23)
+24. [Entry 24](#entry-24)
+25. [Entry 25](#entry-25)
+26. [Entry 26](#entry-26)
 
 ---
 
@@ -249,3 +260,169 @@ Audit corrections, October 2026. A full re-check of the code, data, figures and 
 - "No legal framework" is replaced by "no karewa-specific law": excavation proceeds under Revenue and Geology & Mining permissions. The bill's name (J&K Karewa Protection Bill, 2025) and penalties (up to Rs 10 lakh per violation, up to 5 years for repeat offences) now match the cited reporting.
 - Static maps 01 (study area) and 04 (Lethpora plausibility check) were QGIS exports: map 01's title carried stray quotation marks, and map 04 filled every terrace in the "Detected Saffron Signature" colour and was titled "Validation". Both are now built by `src/visualization/build_static_maps.py` from the project's own layers (saffron-flagged, other and degraded terraces shown separately, with the field-photo points), over a DEM hillshade, or web tiles when `contextily` and internet are available.
 - Other corrections: 2005 window (+-4 years, May-October); trend endpoints are 1994 and 2025; resolution matching cuts net conversion by about 13% and the 2015-2025 jump by about 16%; the TPI window is about 455 m on the 26.8 m grid; the elevation filter removed no polygons; the settlement layer is distinct from roads but not statistically independent; spatial dependence and incomplete OSM building coverage are disclosed; the trend charts use straight segments (the spline invented a dip between 2005 and 2015); slope in script 10 now masks DEM nodata (terrace results unchanged).
+
+## Entry 16
+
+Applied Geography rejected the paper. Honestly after the Entry 15 audit I was half expecting it, bcz the biggest problem was sitting right there in my own limitations section: my "terraces" were nvr the terraces. They were the rims. So instead of polishing the same paper again, I chose to rebuild the research itself as a v2, phase by phase, n keep the old v1 files untouched as a record. Everything new goes inside a separate `v2_redesign/` folder. (I am doing this rebuild with heavy AI assistance for the code nd the checks, n I am writing down clearly which parts were done tht way so nothing is hidden later.)
+
+Phase 1 is the delineation, bcz every other number sits on top of it. My old rule was TPI greater than 3 n slope under 8. The trouble is tht TPI only asks "is this pixel higher than its neighbours within about 455 meters". On a wide flat plateau the middle pixels are the same height as their neighbours, so TPI is zero there n the whole interior gets thrown out. Only the edges nd spurs survive. Tht is exactly why my Lethpora photos were landing outside every polygon while I was literally standing on the karewa.
+
+So the new rule asks a different question: is this ground flat, is it sitting above the nearest stream, nd is it surrounded by scarps? In numbers: slope under 4 degrees, height above nearest drainage (HAND) more than 15 meters, elevation under 1950 meters. HAND was needed bcz my 1st attempt used a simple "height above the lowest point within 8 km" n tht failed badly, the valley floor itself rises toward the south so half the plain started looking elevated. HAND follows the actual water flow path down to the nearest stream, so a sloping valley floor stays near zero while a plateau top cut by nalas comes out 30 to 60 meters.
+
+Tht still was not enough. A big alluvial fan is also flat n also sits above the main river (the Rambiara fan in the south got picked up as one giant 45 sq km "karewa", which is plain wrong). The thing tht separates a karewa from a fan is the scarp: a karewa top ends in a steep drop, a fan jst fades into the plain. So for every flat patch the script now measures wht share of its outer ring is steeper than 6 degrees. 0.45 or more I am calling scarp bounded, 0.20 to 0.45 ambiguous, n below 0.20 rejected. The fan scored 0.05 to 0.11 n dropped out cleanly.
+
+One more fix on the way. My DEM stopped exactly at the study box, so any plateau cut by the box edge had no scarp on tht side n scored too low. I re-exported the Copernicus DEM from Earth Engine with roughly a 10 km buffer (`StolenStrata_DEM_GLO30_buffered.tif`) n reran everything on tht. The big plateau near the airport, which had wrongly gone into rejected, came back as scarp bounded.
+
+Results on the buffered DEM: 49 scarp bounded patches (77.4 sq km inside my box), 24 ambiguous (29.2 sq km), 51 rejected (67.5 sq km). Compare tht with v1: 201 polygons nd only 33.1 sq km. All 4 of my Lethpora photo points now fall inside a scarp bounded plateau. About half of the old rim area lies inside the new plateaus, tracing their edges, which is exactly wht rims should do. The uncomfortable one: 14 of my 25 old "degraded" terraces are not within 100 meters of any plateau at all. They were sitting in Srinagar city nd on the valley floor. So a good part of my v1 degradation result was not even on karewa.
+
+I wanted the GSI geology layer (Karewa Group polygons) as an independent check, but the Bhukosh portal jst timed out on me, so tht is still pending. For the 24 ambiguous patches n the 15 biggest rejected ones, the 1st pass review was done by the AI assistant, mostly from the terrain (hillshade, elevation, scarps) nd for a handful from satellite imagery. Out of the ambiguous ones, 8 came out as karewa (the big ones, like the Pampore plateau extension toward Dussu nd Ladhu), 8 as not karewa (small bits like the apron around Hari Parbat), nd 8 unsure. I am treating this only as a working decision to move forward. It is NOT validation, n 17 of those 39 calls are low confidence.
+
+With tht, the working v2 terrace layer is `karewa_terraces_v2.gpkg`: 55 polygons, 100.2 sq km inside the study box, each with a proper unique terrace_id this time (no more "every terrace is number 1").
+
+A warning I do not want to forget. When the old NDVI rasters are read on the new plateaus, the bare share goes 0.14% (1994), 0.36% (2005), 0.39% (2015), then 4.65% in 2025 (3.98% at 30 m). Tht is a roughly 12 times jump landing exactly where Landsat hands over to Sentinel-2. It might be real. It might also be the sensor, or the fact tht saffron fields are bare in summer anyway. I am not quoting this number anywhere until Phase 2 rebuilds the series from one sensor family.
+
+For the proper accuracy check I now have a stratified sample of 460 random points (150 on kept plateaus, 100 on excluded flat patches, 150 on other valley land below 2000 meters, 60 within 60 meters of a plateau boundary). The labelling file has no stratum n no predicted class in it, so whoever labels cannot see wht the algorithm said. The key sits in a separate file. Nothing is labelled yet.
+
+Still open in Phase 1: the geology layer, the labelling of the 460 points, n calibrating the three thresholds (4 degrees, 15 meters, 0.45) from those labels instead of from my eye. Scripts for all of this are `01_flat_top_delineation.py`, `02_review_map.py` n `03_finalize_and_sample.py` inside `v2_redesign/phase1_delineation/`.
+
+## Entry 17
+
+Bhukosh still would not open. Tried again n again, same timeout. So I stopped waiting for the GSI layer nd went looking for any published karewa map I could lean on instead. The answer was already sitting in my own reference list: Dar nd Zeeden 2020 hve a figure showing where the different Karewa Group sediments lie across the whole valley, redrawn after Bhatt 1982. It is open access, so I can use it with credit.
+
+It is only a picture, not a GIS layer, so it had to be georeferenced. The figure has latitude nd longitude ticks on its border, n those ticks turned out to be evenly spaced (about 1419 pixels per degree both ways), so a plain straight line conversion from pixel to coordinate works. As a sanity check the Srinagar n Anantnag dots on the figure land within roughly 1 to 1.5 km of the true towns. Tht is the honest accuracy of this map. It is a schematic valley scale drawing, each pixel is about 100 meters, so I am using it as a rough independent check nd nothing finer than tht. (The capture, the colour classification n the overlay were done with the AI assistant, the script is `04_geology_check.py`.)
+
+Then I simply asked: wht colour does the map show under each of my flat patches?
+
+The result made me happy bcz it was not designed by me in any way. The patches with a high scarp share sit 81% on Karewa formations nd 0% on the green "reworked karewa sediments" class. The rejected ones sit only 30% on Karewa formations nd 36% on reworked sediments, with the rest on recent alluvium. So the thing my scarp rule threw out as "fan" is, on a geologist's map from 1982, mostly material washed off the karewas n laid down again. Tht is exactly wht a fan is. The whole box below 2000 meters is only 39% Karewa formation, so 81% is far above chance. Across the 44 patches big enough for the map to resolve, scarp share nd share on Karewa formations move together (Spearman 0.58).
+
+This also let me set one threshold from evidence instead of from my eye. Earlier I had 0.45 as "definitely karewa" nd a messy ambiguous band below it tht needed someone to look at each polygon. The map says: at a scarp share of 0.25 or more, 90% of the larger patches are on Karewa formations; drop to 0.20 nd it falls to 79%. So the cut is now 0.25, n the manual keep or drop decisions are gone. Only 5 small patches tht pass the rule are still removed by hand (aprons at hill feet nd valley floors inside the mountains, 1.9 sq km in total), n they are listed with reasons in `excluded_by_review.csv`. One call from the earlier review turned out wrong: the big 12 sq km patch in the west tht was marked karewa is 82% reworked sediments on the map. The rule drops it now anyway.
+
+The working layer after this: 57 terraces, 90.9 sq km inside the box.
+
+Now the part I do not like but hve to write. Of everything inside my terraces, 80% is Karewa formation on the map (somewhere between 67% nd 89% if the map is nudged by up to 600 meters, which is within its error). Tht is the good direction. The other direction is weak: my terraces cover only 24% of all the Karewa formation area the map shows in my box, n 38% of the part of it tht is flat. So I am NOT mapping "the karewas". I am mapping the scarp bounded tablelands, the classic flat topped ones. Karewa ground tht slopes gently with no scarp (the Tral valley side is the clearest case) or tht lies low near the valley floor is left out. Part of this gap is the map being a broad brush drawing, but part of it is real, n the paper has to say plainly tht the unit of study is scarp bounded karewa tableland nd not the whole Karewa Group outcrop.
+
+Wht is still not done in Phase 1: the slope nd height above drainage cut offs (4 degrees, 15 meters) are still my choices, the schematic map is too coarse to tune them. The 460 blind sample points are drawn but nobody has labelled them. If Bhukosh ever opens I will rerun this same check on the proper GSI polygons. For now I am calling Phase 1 good enough to build on nd moving to Phase 2, the single sensor time series, bcz tht 12 times jump at the Landsat to Sentinel switch is the next thing tht can sink this.
+
+## Entry 18
+
+Phase 2. The question was simple: is the big rise in bare ground real, or did it come from switching Landsat to Sentinel-2 for 2025. To answer it I needed every year from one sensor family, so the AI assistant wrote an Earth Engine script nd I ran it in my account. Six exports: yearly Landsat NDVI (the 90th percentile of the whole year, so a pixel only counts as bare if it never greens up at all), the June to September median (same as v1), the number of clear observations per pixel, then Landsat 7 alone, Landsat 8/9 alone nd Sentinel-2 alone for the recent years. Two of the six failed on the 1st run bcz of a filter bug in the script (a blank filler image had no date on it). The fixed version is saved as `gee_02_summer_counts.js`.
+
+1st result, n it is the one I was afraid of. The v1 headline is gone. Same v1 polygons, same rule (summer NDVI below 0.15), but Landsat all the way through: 1.15% bare in 1994, 1.11% in 2015, 0.09% in 2025. v1 said 8.43% for 2025. Tht number was Sentinel-2 seeing the ground differently, not the ground changing. So the 190 hectares nd everything built on it (the 25 terraces, the rupee figures) cannot stand as they are.
+
+2nd, the summer median itself is a bad measure here. It jumps from under 1% to 16% nd back within a few years around 2000. Land does not do tht. The counts file shows why: before 2009 a pixel got somewhere between 0 nd 8 clear looks in a whole summer bcz of monsoon cloud, nd in 1991, 1992 nd 1995 basically none. Six years (1990, 1991, 1992, 1995, 1996, 1997) hve too few observations to use at all.
+
+3rd, the level depends on who is looking. For 2025 the yearly measure gives 1.6% with harmonised Landsat, 2.3% with raw Landsat 8/9 nd 4.7% with Sentinel-2. So I can never again write "x% of the karewas are bare". Only change measured inside one sensor means anything.
+
+So I asked a stricter question. Which pixels were clearly vegetated in all three of 2013, 2014, 2015 nd clearly bare in all three of 2023, 2024, 2025, using Landsat 8/9 only. Three years on each side so one dry or cloudy year cannot fake it. Answer: 88.9 hectares on my terraces, which is 0.98% of them. On the other flat raised land tht is not karewa (the fans) it is 6 hectares, 0.07%. In the rest of the box 0.25%. Going the other way, bare to green, 0.8 hectares. Landsat 7 on its own finds 64 hectares by 2019 to 2021 nd Landsat 8 finds 62 for the same window, nd Sentinel-2 agrees tht 98% of those pixels are bare now. Three sensors, same answer. This one is real.
+
+But it is not "the karewas". 76 of the 89 hectares sit on ONE terrace (number 5, about 6.8 sq km, so 11% of it is gone), nd another 11 on the terrace next to it. 52 of my 57 terraces show nothing. It started in 2017 nd 2018 nd kept growing till 2023. I looked at the spot on satellite imagery (33.944 N, 74.848 E, between Auwan Pora nd Tumchi Nowpora) nd it is a field of brick kilns, dozens of them, one is even labelled on the map. Which makes sense, karewa clay is wht bricks are made of. I hve not verified this from any document or on the ground yet, it is one look at imagery.
+
+Wht this means for the paper. The story is no longer a slow valley wide loss. It is tht the earlier number was mostly a sensor artefact, n tht the loss which does survive every check is small, recent nd concentrated in one brick kiln cluster. Smaller claim, but I can defend every part of it. Still open: the 0.25 nd 0.35 cut offs are my choice nd need a sensitivity run, low NDVI does not tell excavation from buildings (tht is Phase 3), nd before 2013 the record is too thin to run the same three year test.
+
+## Entry 19
+
+Three follow ups on the Phase 2 finding, all same day.
+
+Sensitivity. I did not want the 89 hectares to hang on my choice of 0.25 nd 0.35, so the AI assistant ran 24 versions: bare cut at 0.20, 0.25 or 0.30, different vegetated cuts, nd both "all 3 years" n "at least 2 of 3 years". The hectares move a lot, from 37 to 151, so the paper has to give a range nd not one number. But two things do not move. In every version the terraces convert at 2.6 to 63 times the rate of the other flat raised land. N in every version 80 to 99% of it is on terraces 5 nd 3. So the size is soft, the location nd the contrast are solid.
+
+Year by year on terrace 5 (`kiln_field_onset_map.png`): 1.3 hectares bare in 2013, 21 in 2017, 66 in 2018, 92 in 2025. It is one compact block at the north tip of the terrace. 46 hectares opened in 2017 to 2018 alone.
+
+Then the part I wanted most nd did not get. I wanted to show the ground actually went DOWN, bcz tht is wht "stolen strata" should mean. Problem: every free DEM is older than the kiln field. SRTM is 2000, ALOS is 2006 to 2011, Copernicus is 2011 to 2015, nd the field opens in 2017. I checked them anyway nd, as expected, the converted block looks jst like the rest of the terrace in all of them, nothing had happened yet. The only free height data after 2017 is the GEDI laser on the space station. Ran tht too. It is accurate enough on the flat terrace tops (noise around 0.7 m), but it only shoots along tracks, nd on my converted block there are 9 usable shots in total, all from 2019, none later. Those 9 show no lowering (minus 0.3 m against minus 0.5 m on the untouched part of the same terrace), but 9 shots prove nothing either way.
+
+So Phase 4 fails its gate test with free data. I am writing tht down plainly: I can say this land went from vegetated to persistently bare, I can say where nd when, I cannot say how deep or how much volume. ICESat-2 tracks might give a few more points nd I may try them, but I am not going to build the paper on a depth number I do not hve.
+
+## Entry 20
+
+Since the whole surviving result now sits on one block, I had to know wht tht block actually is. One look at Google imagery is not evidence. So the AI assistant searched for documents nd I am noting wht came back.
+
+The best one is official. A J&K Pollution Control Committee report filed before the National Green Tribunal in July 2024, in a case called Koka Brick Kiln, Rangeen versus UT of J&K. Koka Brick Kiln is the exact name tht shows on the map inside my block. The report says the kiln is at Rangeen Kultreh in Chadoora tehsil, tht it was commissioned in 2017 without consent, tht a closure order was issued in September 2018, nd tht there are 20 brick kilns within 1 km of it. My satellite onset for the block is 2017 to 2018. I did not know about this document when I got tht date, so the two are independent n they agree.
+
+Other pieces: a 2023 article by Raja Muzaffar Bhat says Rangeen Kultreh is karewa land with about two dozen kilns nd tht around a thousand almond trees were cut for new ones. His 2021 piece in Greater Kashmir names Wadipora nd Kultreh as karewas damaged by dozens of kilns. An Air Force letter from 2023 complains the kilns around the station grew fast over the last decade.
+
+One thing does not fit nd I am not hiding it. A 2023 news report says the roughly 24 kilns there were built between 2003 nd 2012 n nothing new came in 2013 to 2022. But on Landsat this block is green every single usable year from 1993 to 2016 nd only goes bare in 2017. Either the older kilns are in another part of the village, or the news timeline is off. The official filing agrees with the satellite. Not settled.
+
+Also all of this was read off the pages by an automated reader, so before any of it goes in the paper I hve to open each source nd read it myself. List with links is in `KILN_BLOCK_EVIDENCE.md`.
+
+Saffron. I checked how far the block is from the saffron land I mapped in v1. 6.3 km at the nearest, nd only 0.2 hectares of all the converted pixels are within 1 km of saffron. So the saffron story from v1 does not attach to this loss. Wht is being lost here is karewa under orchards n fields in Budgam, to brick kilns. The saffron belt at Pampore shows no such conversion in 2013 to 2025 by this test.
+
+## Entry 21
+
+One worry was left from Phase 1. My terraces cover only about a quarter of the Karewa formation the geology map shows in the box, bcz the rule only keeps scarp bounded flat tops. So maybe the real damage is on karewa ground my rule threw out, nd I am looking in the wrong place. Checked it: ran the same vegetated to bare test over the whole box nd split it by the geology map.
+
+Whole box, 358 hectares converted. Karewa formation inside my terraces: 1.36% of wht was green in 2013 to 2015. Karewa formation outside my terraces: 0.19%. Plain valley alluvium: 0.19%. So the karewa my rule left out is behaving exactly like ordinary valley floor. There is no 2nd hot spot hiding in this box. Good, n a bit of a relief.
+
+Then I went through the biggest clusters one by one, bcz I wanted to know wht this test really catches. Number 1 is the kiln block, 85 hectares. Number 2, 37 hectares on a hillside near Awantipora, is the AIIMS campus being built, clear on the imagery. Then six clusters adding to 58 hectares are INSIDE Dal Lake, which is lake weed turning to open water nd nothing to do with land. Three more next to the kiln block, 25 hectares. The thin lines are road works nd the river shifting its channel.
+
+So two lessons. The test is honest, it finds real things I can name. But "vegetated to bare" is not "mined". It catches a hospital, a lake nd a road as happily as a brick kiln. In the paper every hectare I call kiln loss has to be backed by looking at it, not by the index alone.
+
+The open question now is the box itself. It was drawn around Pampore for saffron. The one real result is at its western side in Budgam, nd the documents say the main kiln belt (Wathoora, Panzan, Nagam side) runs further west, partly outside my box. If the paper is going to be about karewas nd brick kilns, the box probably has to move west. Tht is a real change of study area, so I am deciding it deliberately nd not drifting into it.
+
+## Entry 22
+
+Moved the box west. Old one was 74.75 to 75.15 E, drawn around Pampore. New one is 74.55 to 75.15 E nd goes a bit further south too, so it takes in the Budgam karewas. Ran the Earth Engine exports again for the bigger box (one big Landsat file was still running when I did this, it is not needed for wht follows). Same rules as before, I did not touch a single threshold: 180 terraces, 173 sq km, of which about 80 sq km is new ground.
+
+I expected the west to light up with kilns. It did not. Vegetated in 2013 to 2015 nd bare in 2023 to 2025: 107 hectares on terraces in the whole box, n 90 of those are in the old box. The whole new strip adds 17. The rate on terraces in the new strip is 0.22%, still about 3 times the other flat land there, but small.
+
+The reason is obvious once I think about it. The documents say most Budgam kilns came up between the 1970s nd 2012. Land tht was already bare in 2013 cannot "convert" after 2013. My test only sees new loss.
+
+Wht the wider box did give me: a 2nd site. One terrace near 34.02 N, 74.67 E has about 10 hectares of new conversion, nd on imagery it is brick kilns again. So two kiln fields, both on karewa terraces, n nothing comparable anywhere else in 2,160 sq km. Rangeen Kultreh alone is still 82% of all the terrace conversion. I also tried the same test inside the old Landsat 5 nd 7 years (early 1990s to 2005 to 2007) to catch the older kilns, nd it shows nothing special on terraces, but with only three usable early years I do not trust tht either way.
+
+So the honest shape of the result after widening: I looked across the whole Budgam to Pampore karewa belt, nd new conversion of karewa tableland after 2013 is rare, 8 terraces out of 180, n where it happens it is brick kilns. It is a sharper nd narrower paper than I planned. I would rather hve tht than a big number tht falls over.
+
+## Entry 23
+
+Hve to correct Entry 22 the same day I wrote it. I said the west adds little. Tht was my test, not the ground.
+
+I went to look at the 2nd site on imagery to see wht 10 hectares of kiln looks like. It is not 10 hectares. Zoomed out, the whole tableland around Bandagam, Chand Pora, Hardu Bata Pora, Nijlu nd Bonahama is tan coloured kiln ground with the oval kilns sitting in it, several kilometres across. My strict test had seen almost none of it.
+
+Why: the strict test wants a pixel to drop below 0.25. But a Landsat pixel is 30 meters nd kiln ground is not clean bare soil, it has drying yards, tracks, weeds, a strip of field left in between. Such pixels sit at 0.25 to 0.45. In a 20 sq km window over tht belt the share of pixels under 0.35 goes from 11.6% in 2013 to 18.1% in 2025, while the share under 0.25 only goes from 3.5 to 8.7. So the cut at 0.25 was throwing away most of the thing I am studying. It only caught Rangeen Kultreh so well bcz tht block was cleared all at once nd completely.
+
+So a 2nd test, built on the size of the fall instead of a fixed floor: clearly green in 2013 to 2015 (0.45 or more), under 0.40 in 2023 to 2025, n a fall of at least 0.20. With tht: 163 hectares on terraces in the old box nd 166 in the new strip, 329 together. Run the same rule backwards (land going from low to green) nd it gives 11 nd 31, so about 286 net. 27 terraces out of 180 lose a hectare or more, 13 lose 5 or more, nd a whole bunch of them sit together in the Bandagam belt. Landsat 7 agrees on 86% of the pixels. In the new strip most of the fall comes after 2021.
+
+This test is looser so it is also noisier. Outside the terraces it throws up a lot of change in both directions, which is fields nd building nd wht not. On terraces the reverse change is small, which is why I trust it there more, but I cannot jst swap one number for the other.
+
+Where tht leaves me: two numbers. 107 hectares is a floor, land tht went completely bare, almost all one block. Around 290 to 330 is the wider estimate, two kiln belts. Before either goes in the paper I need to check a sample of the flagged pixels by eye against imagery nd report how many are really kiln ground. Lesson for me: I trusted a threshold bcz it gave a clean answer in the 1st place I tried it.
+
+## Entry 24
+
+Accuracy check, done by hand, by me. 120 random points on the terraces: 25 from land the strict test flagged, 60 from land only the looser drop test flagged, 35 from land neither flagged. The points file did not say which group a point came from, tht was kept in a separate key file I did not open. For each point I opened the 2026 satellite image nd wrote wht is at the centre.
+
+1st attempt in the in-app browser failed (the map would not draw unless the window was in front), so I did it myself in Chrome from a small labelling page.
+
+It took two passes, nd the 1st one taught me something about my own labelling. I had seven classes. After the 1st dozen points I almost stopped using "kiln ground" nd was calling everything brown "other bare ground", even points sitting 200 meters from ones I had called kiln a few minutes before, inside the same block. At tht zoom, if there is no kiln or brick row right at the centre, worked kiln ground nd any other bare ground look the same. So the kiln versus bare split from pass 1 was useless. Pass 2: only the 68 points I had called bare or road, map opened one step zoomed out, one question, is this point inside a kiln field or not. I got confused on the edge cases nd asked the AI assistant about roughly eight points across both passes (noted in the folder), the rest I did alone.
+
+Result. Strict test, 25 points: all 25 are not vegetated today. 19 kiln, 4 other bare, 2 road. Drop only, 60 points: 51 not vegetated, 9 still green. Of the 51, 16 kiln, 17 buildings or roads, 16 other bare, 2 unclear. Not flagged, 35 points: 22 green, 1 kiln, the rest bare or built.
+
+So both tests are right tht the green is gone (100% nd 85%). Where they differ is wht it became. The strict test is mostly kilns, three out of four. The loose test is a mix, only about one in four is a kiln, as much again is houses nd roads.
+
+Putting it together: of the land my tests flag on terraces, about 141 hectares is kiln ground, somewhere between 110 nd 172. Tht is the number I can stand behind now. It is higher than the 107 floor nd much lower than the 329 gross, which is about wht I should hve expected.
+
+Wht this check can not do. It shows wht is there today, not tht it was green in 2013. One person labelled it. Over a third of the unflagged points also look bare in the image, bcz a dry season picture of a karewa is brown anyway. N for kiln ground tht my tests missed I hve one point out of 35, which gives a range so wide (86 to 2,470 hectares) tht it says nothing.
+
+## Entry 25
+
+Went through the list of weak points tht could still be fixed nd did the ones tht need only computing.
+
+The two cut offs I chose by hand for wht counts as a terrace (flatter than 4 degrees, more than 15 meters above the drainage). Tried 3, 4, 5 degrees against 10, 15, 20 meters, nine versions. The terrace area changes a lot, 106 to 258 sq km. The result does not: strict conversion stays between 95 nd 120 hectares, nd terraces always convert 5 to 13 times faster than other flat land. Height above drainage barely matters, slope matters more. Same exercise for the three numbers inside the loose test, 27 versions, net loss between 234 nd 374 hectares. So none of my hand picked numbers is carrying the result.
+
+Then the thing I had been missing. The last big Landsat file finally came through, so I could put 1993 to 2025 together as one sensor family for the wide box. This shows the older kilns my 2013 onwards test could never see. On the Bandagam to Batapora terraces, land tht never greens up properly was about 100 hectares in the mid 1990s, 300 by 2008 to 2012, 378 now. It grew in two steps. Rangeen Kultreh is different, basically zero until 2015 nd then 100 plus hectares in three years. Over the whole thirty years the two belts together lost about 335 hectares of green terrace land. Meanwhile all the other terraces, 140 sq km of them, did not lose anything, they come out a little greener.
+
+One caution on tht last line. Everything looks a bit greener from 2013 on bcz Landsat 8 gives more looks per year, so the "greener elsewhere" part is partly the instrument. It works against my finding, not for it, so the 335 is on the safe side.
+
+Looked for documents on the Bandagam belt nd found none tht name those villages. Only district numbers: the Pollution Control Committee counted 213 kilns in Budgam in April 2023 nd said most outside the airport radius had no valid consent. So for tht belt I hve imagery nd the district count, no village level paper.
+
+Not done: the geology check for the far west strip, the browser would not cooperate. Still needs a human: checking old imagery to confirm the flagged points were green before 2015 (the files for it are ready), nd a 2nd person labelling the 120 points.
+
+## Entry 26
+
+Rewrote the paper nd the executive summary today, start to finish. Not an edit, a new paper under the old name.
+
+The hardest line to write was the 1st one after my name: tht the numbers in the September preprint are withdrawn. 1.84 to 8.43 percent, the 190 hectares, the 25 degraded terraces, the 17.8 crore of saffron at risk, the road nd settlement tests. All of it stood on one layer nd tht layer was a satellite switch. I put the correction up front nd gave it its own results section with the figure, bcz anyone who read the preprint should see exactly how it fell, not jst tht it did.
+
+Wht the paper says now. 180 scarp bounded tablelands, 173 sq km, mapped by slope, height above drainage nd scarp share, checked against the Dar nd Zeeden geology map. Yearly peak NDVI for every pixel from 1993 to 2025, Landsat only. Two tests for land tht was green in 2013 to 2015 nd is not in 2023 to 2025: 107 hectares strict, 329 loose. My 120 hand labelled points say about 141 hectares of tht is brick kiln ground, give or take thirty. Two places carry it, Rangeen Kultreh, which did not exist as a kiln field before 2016, nd the Bandagam to Batapora tablelands, which hve been going since the 1990s. Thirty years, about 335 hectares between them. The other 140 sq km of tablelands, nothing.
+
+The title changed too. "Threat to the saffron economy" is gone from it bcz I could not find tht threat in the data. The saffron tablelands at Pampore are not being converted this way, at least not since 2013. I kept "Stolen Strata" bcz it is still true, only in Budgam nd for bricks.
+
+Things I made myself write down in the limitations even though they hurt the paper: I map a quarter of the karewa formation, not the karewas. I cannot say how deep anything was dug. My accuracy sample shows today nd not 2013. I labelled it alone nd asked the AI assistant about roughly eight points. Some of the news nd tribunal facts were pulled by an automated reader nd I still hve to read each source myself before this goes anywhere. The code, the checks nd the drafting were done with heavy AI assistance nd the paper says so.
+
+Still to do before it can be submitted or the preprint replaced: read every cited source in the original, the old imagery check on the sample points, a 2nd labeller if I can find one, new PDFs, nd the README nd the EarthArXiv coversheet version, which still carry the old numbers. Figures for the new paper are in `v2_redesign/paper_figures`.

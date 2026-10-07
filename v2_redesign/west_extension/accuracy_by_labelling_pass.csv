@@ -1,0 +1,10 @@
+stratum,n,stratum_ha,definition,hits,share,est_ha,est_ha_low,est_ha_high
+A_strict,25,107.01,first pass only: point centre is kiln ground,4,0.16,17.1,6.9,37.1
+A_strict,25,107.01,added by second pass: bare or road point inside a kiln field,15,0.6,64.2,43.6,82.0
+A_strict,25,107.01,both passes (figure used in the paper),19,0.76,81.3,60.5,94.7
+B_drop_only,60,224.01,first pass only: point centre is kiln ground,6,0.1,22.4,10.4,45.1
+B_drop_only,60,224.01,added by second pass: bare or road point inside a kiln field,10,0.167,37.3,20.9,62.8
+B_drop_only,60,224.01,both passes (figure used in the paper),16,0.267,59.7,38.4,87.4
+C_not_flagged,35,16999.65,first pass only: point centre is kiln ground,0,0.0,0.0,0.0,1681.3
+C_not_flagged,35,16999.65,added by second pass: bare or road point inside a kiln field,1,0.029,485.7,86.0,2470.6
+C_not_flagged,35,16999.65,both passes (figure used in the paper),1,0.029,485.7,86.0,2470.6
