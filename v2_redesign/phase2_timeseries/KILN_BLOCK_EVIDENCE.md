@@ -31,7 +31,7 @@ URLs:
 - **Does not match:** source 3 says the ~24 kilns date from 2003–2012 with nothing new in 2013–2022. The satellite record shows this
   block fully vegetated until 2016. Either the older kilns stand somewhere else in the village, or the news timeline is wrong.
   Source 1 (an official filing) sides with the satellite. Not resolved.
-- These facts have not yet been read in the original. **Each must be re-read in the original before it is cited in the paper.**
+- Update, 7 October 2026: the tribunal filing (OA 364/2024) and the district list of kilns (status report in OA 594/2022, 4 October 2023) have been read in full; 2017, the closure order of 10-09-2018 and the 20 kilns within 1 km are as stated. The district list has six entries for Kultreh, three of them not yet built, so it does not support two dozen older kilns under this village's name. The press reports were checked against extracts.
 
 ## Saffron
 The v1 "likely saffron" polygons (14 polygons, 225 ha, all around 33.96–34.02 N, 74.92–74.97 E) are 6.3 km or more from this block.

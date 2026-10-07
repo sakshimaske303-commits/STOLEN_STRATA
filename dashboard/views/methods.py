@@ -57,5 +57,5 @@ run from the repository root and write the tables this dashboard reads. This das
 """
 )
 
-note("<b>Status, October 2026.</b> The analysis and the paper are revised. Still open: the check of the sample points against older imagery, reading every cited document in the original, "
-     "and replacing the September preprint, which still carries the withdrawn numbers.", "caution")
+note("<b>Status, October 2026.</b> The analysis and the paper are revised. The flagged sample points have been checked against imagery of 2013–2014 and the two official documents read in full. Still open: a second labeller for the sample, "
+     "an accuracy figure for the terrace map, and replacing the September preprint, which still carries the withdrawn numbers.", "caution")

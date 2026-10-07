@@ -29,7 +29,7 @@ My first version said bare ground on Kashmir's karewa terraces had more than qua
 
 **Rangeen Kultreh (Chadoora tehsil).** Green in every usable year from 1993 to 2016 (one anomalous year, 2001, aside). Then a kiln field opens: 21 ha bare in 2017, 66 ha in 2018, and today about a quarter of that terrace. Three satellites agree. A Pollution Control Committee report to the National Green Tribunal says one of the kilns there was commissioned in 2017 without consent and ordered closed in 2018, with 20 kilns within a kilometre. I got the 2017 date from the satellite record before I found that document.
 
-**Bandagam–Batapora tablelands.** Older and slower. Land that never greens up was about 100 ha in the mid-1990s, about 300 ha by 2008–2012 and 378 ha now. The rise is not steady, and the early part rests on few images.
+**Bandagam–Batapora tablelands.** Older and slower. Land that never greens up was about 100 ha in the mid-1990s, about 300 ha by 2008–2012 and 378 ha now. The rise is not steady, and the early part rests on few images. The Pollution Control Committee's list of October 2023 has registered kilns under most of the village names in this belt, without locations.
 
 **Everywhere else.** Of 180 terraces, 27 lost a hectare or more after 2013 by the looser test and only 8 by the strict one. Terraces convert several times faster than other flat, raised land in every version of the analysis I tried.
 

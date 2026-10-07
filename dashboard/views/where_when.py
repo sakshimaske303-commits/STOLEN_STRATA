@@ -56,11 +56,12 @@ st.markdown(
 | J&K Pollution Control Committee report to the National Green Tribunal, OA 364/2024 (1 July 2024) | A kiln at Rangeen Kultreh was commissioned in 2017 without consent; closure order in September 2018; 20 kilns within 1 km. | Agrees with the satellite onset |
 | The Leaflet (2023); Greater Kashmir (2021) | Rangeen Kultreh is karewa land with about two dozen kilns; orchards felled for new ones. | Agrees on land use and place |
 | Business Standard (2023) | Air Force Station letter: kilns around the station increased rapidly over the last decade. | Agrees on period |
-| Kashmir Despatch (2023) | About 24 kilns were built 2003–2012 and none permitted 2013–2022. | **Does not agree:** the satellite record shows this block vegetated until 2016 |
+| J&K Pollution Control Committee status report, OA 594/2022 (4 October 2023) | Six entries for the village among 226 kilns in the district: three kilns standing (one with consent, two under closure orders) and three with consent to establish, not yet built. | Agrees: no sign of two dozen older kilns under this village's name |
+| The Leaflet (2023); Kashmir Despatch (2023) | About two dozen kilns were built 2003–2012 and none permitted 2013–2022. | **Does not agree:** the satellite record shows this block vegetated until 2016 |
 """
 )
-note("<b>Two open points.</b> The contradiction with the 2003–2012 dates is not resolved: either the older kilns stand in another part of the village or the reported dates are wrong. "
-     "And these facts have not yet all been checked against the original documents. The satellite onset was obtained before the tribunal filing was found.", "caution")
+note("<b>One open point.</b> The contradiction with the 2003–2012 dates is not resolved: either the older kilns stand in another part of the village or the reported dates are wrong. "
+     "The two official documents were read in full; the press reports were checked against extracts. The satellite onset was obtained before the tribunal filing was found.", "caution")
 
 # ------------------------------------------------------------------ Bandagam-Batapora and the long view
 st.markdown("---")
