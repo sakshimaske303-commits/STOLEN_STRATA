@@ -89,6 +89,7 @@ python v2_redesign/west_extension/03_drop_test_wide.py
 python v2_redesign/west_extension/05_accuracy_result.py
 python v2_redesign/west_extension/09_accuracy_by_labelling_pass.py
 python v2_redesign/west_extension/10_before_check_result.py
+python v2_redesign/west_extension/11_removed_flat_tops_check.py
 python v2_redesign/west_extension/06_delineation_sensitivity.py
 python v2_redesign/west_extension/07_drop_test_sensitivity.py
 python v2_redesign/west_extension/08_long_series_wide.py

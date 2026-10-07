@@ -91,11 +91,12 @@ greening elsewhere overstated. 1999–2002 is noisy (few scenes) and is not used
 
 **Documents for the Bandagam–Batapora belt.** None found that name those villages. District level only: the J&K Pollution Control
 Committee reported 213 brick kilns in Budgam (19 April 2023), 96 notices for lapsed consent, 46 closure orders; a status
-report by the Committee in NGT OA 594/2022 (Syed Riyaz v. UT of J&K), dated 1 October 2023, lists 226 kilns in Budgam: 100 consented,
-11 under process, 43 with closure orders, 72 with legal notices. Its table appears to include kilns at Bandgam (Magam), Batapora
-Chandpora, Nigloo and Bonhama (Beerwah), and Koka Brick Kiln at Kultreh as without consent with a closure order; to be read in
-the original before it is cited. An additional report of 1 January 2024 says kilns within 8 km of the Srinagar Airport runway may
-not operate from 1 November to 31 March. Until the table is read, kilns in this belt are identified from imagery only.
+report by the Committee in NGT OA 594/2022 (Syed Riyaz v. UT of J&K), dated 4 October 2023, lists 226 kilns in Budgam: 100 consented,
+11 under process, 43 with closure orders, 72 with legal notices. Read in full. Rows by village name: Chandpora 22, 51, 56, 63, 71, 129, 135, 141, 142, 151, 158, 172 (Batapora Chandpora);
+Bonhama/Bunhama Beerwah 38, 72, 153, 189, 215, 224; Batpora 41, 98, 107, 110 (Batpora Wudar); Harda Batapora 219; Bandgam Magam 148;
+Nigloo Beerwah 208. Kultreh: 199 Koka K11 (without consent, closure order), 202 Modern 17T (consented), 203 Brick No. 37 D (closure
+order); Kultruch 221-223 with consent to establish, not yet built. No coordinates and, for most rows, no date of establishment. An additional report of 1 January 2024 says kilns within 8 km of the Srinagar Airport runway may
+not operate from 1 November to 31 March. Which kilns stand on mapped terraces is still identified from imagery only.
 
 **Not done.** Geology check for the strip west of 74.66 E (needs the map figure captured again; the in-app browser was not usable).
 **Still open.** A second labeller for the 120 points.

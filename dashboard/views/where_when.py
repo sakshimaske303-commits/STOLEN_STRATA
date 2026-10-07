@@ -78,7 +78,7 @@ show(style_fig(fig, 430))
 bb = stock[stock.site == "Bandagam-Batapora terraces"].set_index("period").loc[order]
 caption("On the Bandagam–Batapora tablelands (about 74.60°–74.72° E, 33.99°–34.05° N) the low-vegetation land goes from "
         f"{bb.below_035_ha.iloc[0]:.0f} ha in 1993–1998 to {bb.below_035_ha.iloc[-1]:.0f} ha in 2023–2025, but not steadily: "
-        + ", ".join(f"{v:.0f}" for v in bb.below_035_ha) + " ha across the seven periods. Imagery shows kiln ground across several villages there; I found no document that names them.")
+        + ", ".join(f"{v:.0f}" for v in bb.below_035_ha) + " ha across the seven periods. Imagery shows kiln ground across several villages there. The Pollution Control Committee's list of October 2023 has registered kilns under most of those village names, without locations.")
 
 l = longd[(longd.early == "1993-1998") & (longd.late == "2023-2025")].copy()
 l["site"] = l.site.replace({"Bandagam-Batapora terraces": "Bandagam–Batapora terraces", "all terraces": "All terraces", "other terraces": "All other terraces", "other flat land": "Other flat, raised land"})
