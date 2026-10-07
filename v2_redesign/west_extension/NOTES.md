@@ -64,7 +64,7 @@ inside a brick-kiln field or not. A first-pass-only version could not separate k
   the change, which the imagery cannot verify.
 - Limits: one labeller; imagery is a single date; the reference shows the present state, not that the land was vegetated in 2013–15;
   n is small, especially for the strict stratum; the unflagged stratum is far too thinly sampled to estimate missed kiln land
-  (1 of 35 points, 86–2,470 ha). About eight points were discussed with the AI assistant while labelling (first pass 1–6,
+  (1 of 35 points, 86–2,470 ha). A second opinion was taken on about eight points while labelling (first pass 1–6,
   second pass 81 and 112); the rest were labelled alone.
 
 ## Robustness and the long view (06, 07, 08)

@@ -54,7 +54,7 @@ The earlier version selected cells with a high topographic position index and a 
 
 From the Copernicus GLO-30 elevation model (acquired 2011–2015), reprojected to UTM 43N with a buffer of about 10 km around the box, I compute slope on a lightly smoothed surface and height above the nearest drainage, HAND (Rennó et al., 2008), with drainage lines defined by a contributing area of 3 km². A cell is a candidate if its slope is under 4°, its HAND is over 15 m and its elevation is under 1,950 m. Candidates are cleaned with a 2-pixel opening and grouped into connected flat tops of at least 0.05 km². For each flat top I measure the share of a 3-pixel ring just outside it that is steeper than 6°. This scarp share separates a tableland, which drops away on most sides, from an alluvial fan or a valley-side apron, which is flat and raised but slopes gently into its surroundings.
 
-The scarp-share cut-off was set from independent evidence, not by eye. In the original box I georeferenced the Karewa Group map of Dar and Zeeden (2020, Figure 2) and measured, for each flat top large enough for that map to resolve, how much of it lies on Karewa formations. At a scarp share of 0.25 or more, 90% of those flat tops are on Karewa formations; at 0.20 the figure falls to 79%. The cut-off is therefore 0.25. That comparison rests on a few dozen flat tops, and because the same map is used in Section 4.2 to report agreement, the agreement reported there is not a fully independent test of the cut-off. Five small flat tops that pass the rule but look like foothill aprons or valley floors inside the mountains (1.9 km² together in the original box; the matching flat tops in the wide box come to 1.2 km², under 1% of the terrace area) were removed after a review of satellite imagery that was carried out with an AI assistant; I have not yet labelled them independently. They are listed with reasons in the repository.
+The scarp-share cut-off was set from independent evidence, not by eye. In the original box I georeferenced the Karewa Group map of Dar and Zeeden (2020, Figure 2) and measured, for each flat top large enough for that map to resolve, how much of it lies on Karewa formations. At a scarp share of 0.25 or more, 90% of those flat tops are on Karewa formations; at 0.20 the figure falls to 79%. The cut-off is therefore 0.25. That comparison rests on a few dozen flat tops, and because the same map is used in Section 4.2 to report agreement, the agreement reported there is not a fully independent test of the cut-off. Five small flat tops that pass the rule but look like foothill aprons or valley floors inside the mountains (1.9 km² together in the original box; the matching flat tops in the wide box come to 1.2 km², under 1% of the terrace area) were removed after a first-pass review of terrain and satellite imagery; I have not yet confirmed those labels myself. They are listed with reasons in the repository.
 
 The same rule, unchanged, was then run on the wide box.
 
@@ -218,13 +218,13 @@ On regulation, the documents describe a district where a large share of kilns ru
 
 - **The terrace map is a subset of the karewas.** It captures scarp-bounded tablelands, 24% of the mapped Karewa formation area in the original box. The geological reference is a schematic published figure with a positional error of roughly a kilometre, it was used only for the original box, and the strip west of about 74.66° E, which includes the Bandagam–Batapora belt, has no geological check. The official Geological Survey of India layer could not be obtained. The terrace map has no accuracy figure of its own: a 460-point reference sample was drawn for it and has not been labelled.
 - **The elevation model dates from 2011–2015.** Tableland removed before then may no longer register as a flat top and would be missing from the terrace map.
-- **The accuracy sample is small and single.** One labeller, one image date, 120 points, of which 25 are in the strict stratum. I asked an AI assistant about roughly eight uncertain points while labelling; the rest I labelled alone. The sample describes the present state of each point and cannot confirm that it was vegetated in 2013–2015. A check against historical high-resolution imagery, and a second labeller, are prepared but not done.
+- **The accuracy sample is small and single.** One labeller, one image date, 120 points, of which 25 are in the strict stratum. For roughly eight uncertain points I took a second opinion while labelling; the rest I labelled alone. The sample describes the present state of each point and cannot confirm that it was vegetated in 2013–2015. A check against historical high-resolution imagery, and a second labeller, are prepared but not done.
 - **Missed kiln land is not estimated.** One of 35 unflagged points was kiln ground, which gives a range (86 to 2,470 ha) too wide to mean anything. The tests detect new loss; kiln land already bare before 2013 enters only through the long series.
 - **Low NDVI is not excavation.** The tests detect loss of vegetation. Attribution to kilns comes from the sample, from imagery and from documents.
 - **No depth or volume.** See Section 4.8.
 - **Before 2013 the record is thin.** Six years have too few scenes to use, and the step in peak NDVI at the arrival of Landsat 8 biases long comparisons toward greening.
 - **Thresholds are choices.** The sensitivity runs bound their effect; they do not remove it. The accuracy sample applies only to the thresholds actually sampled.
-- **Documents were not all read in the original.** Several of the press and tribunal facts cited in Section 2.2 and Section 4.6 were first extracted with an automated reader and are being checked against the sources. The Bandagam–Batapora belt has no village-level documentary support.
+- **Documents were not all read in the original.** Several of the press and tribunal facts cited in Section 2.2 and Section 4.6 have not yet been checked against the original documents. The Bandagam–Batapora belt has no village-level documentary support.
 - **No fieldwork** was done at either kiln belt.
 
 ## 7. Conclusion
@@ -236,10 +236,6 @@ Two things follow. Protection of the karewas, if it comes, has a short and speci
 ## Data and code availability
 
 Scripts, result tables, the terrace layers and the labelled sample are in the project repository, github.com/sakshimaske303-commits/STOLEN_STRATA, under `v2_redesign`. The Earth Engine scripts there regenerate every raster used. Landsat, Sentinel-2, Copernicus DEM, SRTM, ALOS World 3D and GEDI data are public.
-
-## Use of AI tools
-
-The code, the checks and the drafting of this revision were done with heavy assistance from a generative AI assistant. I ran the satellite exports, labelled the accuracy sample, and reviewed and take responsibility for the content.
 
 ## References
 

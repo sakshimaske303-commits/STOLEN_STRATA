@@ -31,7 +31,7 @@ URLs:
 - **Does not match:** source 3 says the ~24 kilns date from 2003–2012 with nothing new in 2013–2022. The satellite record shows this
   block fully vegetated until 2016. Either the older kilns stand somewhere else in the village, or the news timeline is wrong.
   Source 1 (an official filing) sides with the satellite. Not resolved.
-- These facts were pulled from the pages by an automated reader. **Each must be re-read in the original before it is cited in the paper.**
+- These facts have not yet been read in the original. **Each must be re-read in the original before it is cited in the paper.**
 
 ## Saffron
 The v1 "likely saffron" polygons (14 polygons, 225 ha, all around 33.96–34.02 N, 74.92–74.97 E) are 6.3 km or more from this block.

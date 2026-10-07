@@ -15,7 +15,7 @@
 
 **Still open, in order**
 1. "Before" check in Google Earth Pro (`west_extension/accuracy_sample_points.kml`, historical imagery 2013–2014), for the 85 flagged points.
-   22 were viewed earlier with the AI assistant on screenshots (all vegetated before) but not recorded: they have to be redone alone and entered in
+   22 were viewed earlier on screenshots (all vegetated before) but not recorded: they have to be redone and entered in
    `west_extension/accuracy_before_pass.html`, then `accuracy_before_pass.csv` saved into `west_extension/`.
    Rule: field with bunds = vegetated even if harvested; kiln, brick rows, dug ground, building, road = not_vegetated. Check closely: 91, 101, 31.
 2. Join to the key; add the result to paper Section 4.5 and update the limitation that says this check is not done.

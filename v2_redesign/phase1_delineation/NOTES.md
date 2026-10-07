@@ -36,7 +36,7 @@ Reference: Dar & Zeeden (2020), Fig. 2, after Bhatt (1982); see `geology/SOURCE.
 - Slope (4°) and HAND (15 m) cut-offs are not calibrated; the schematic map cannot do that.
 - The GSI Bhukosh geology layer could not be downloaded (portal timing out).
 - `reference_sample_points.csv` (460 blind stratified points) is drawn but not labelled. Human labelling would give an accuracy estimate that does not depend on a schematic map.
-- First-pass review labels in `review_checklist.csv` were made by an AI assistant from terrain, with satellite imagery for six polygons; 17 of 39 are low confidence. They are used only to remove the five polygons above.
+- First-pass review labels in `review_checklist.csv` were made from terrain, with satellite imagery for six polygons, and are not yet confirmed by me; 17 of 39 are low confidence. They are used only to remove the five polygons above.
 
 ## Early warning for Phase 2
 On the first prototype plateaus, the share of pixels with summer NDVI < 0.15 was 0.14% (1994), 0.36% (2005), 0.39% (2015), 4.65% (2025 Sentinel-2 at 10 m), 3.98% (2025 at 30 m). A twelve-fold jump that coincides with the Landsat → Sentinel-2 switch cannot be trusted until it is reproduced with a single-sensor series.

@@ -3,7 +3,7 @@
 (a) karewa_terraces_v2.gpkg : flat-top polygons whose scarp share is >= SCARP_MIN. The 0.25
     cut-off comes from the comparison with the published Karewa Group map (04_geology_check.py):
     above it, 90% of the larger polygons sit on mapped Karewa formations. Polygons labelled
-    `not_karewa` in review_checklist.csv (my_label if filled, else ai_label) are removed and
+    `not_karewa` in review_checklist.csv (my_label if filled, else first_pass_label) are removed and
     listed in excluded_by_review.csv. Clipped to the study-area box because the NDVI rasters
     only cover the box.
 (b) reference_sample_points.csv / .gpkg : stratified random points for the accuracy assessment.
@@ -30,7 +30,7 @@ SCARP_MIN = 0.25
 
 g = gpd.read_file(os.path.join(OUT, "karewa_flat_tops_prototype.gpkg"))
 chk = pd.read_csv(os.path.join(OUT, "review_checklist.csv"))
-lab = chk["my_label"].where(chk["my_label"].notna() & (chk["my_label"].astype(str).str.strip() != ""), chk["ai_label"])
+lab = chk["my_label"].where(chk["my_label"].notna() & (chk["my_label"].astype(str).str.strip() != ""), chk["first_pass_label"])
 review = dict(zip(chk["terrace_id"], lab.astype(str).str.strip()))
 g["review_label"] = g["terrace_id"].map(review)
 
@@ -38,7 +38,7 @@ aoi = gpd.GeoSeries([box(*AOI_LONLAT)], crs=4326).to_crs(g.crs).iloc[0]
 by_rule = g["scarp_frac"] >= SCARP_MIN
 vetoed = by_rule & (g["review_label"] == "not_karewa")
 g[vetoed][["terrace_id", "area_km2", "scarp_frac", "mean_elev"]].merge(
-    chk[["terrace_id", "ai_reason"]], on="terrace_id", how="left").round(2).to_csv(
+    chk[["terrace_id", "first_pass_reason"]], on="terrace_id", how="left").round(2).to_csv(
     os.path.join(OUT, "excluded_by_review.csv"), index=False)
 v2 = g[by_rule & ~vetoed & (g["share_in_aoi"] > 0)].copy()
 v2["basis"] = np.where(v2["scarp_frac"] >= 0.45, "scarp>=0.45", "scarp 0.25-0.45")

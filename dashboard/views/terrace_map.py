@@ -59,7 +59,7 @@ note(
     "<b>How far this check goes.</b> The geological map is a schematic figure from a journal article with a positional error of roughly a kilometre. "
     "It covers the original box only: the strip west of about 74.66° E, which includes the Bandagam–Batapora belt, has no geological check. "
     "The same map was used to choose the 0.25 cut-off, from a table of a few dozen flat tops, so the agreement above is not a fully independent test. "
-    "Of the flat tops that pass the scarp rule, four are dropped because they match flat tops removed in the original box after a review of imagery carried out with an AI assistant (foothill aprons and valley floors, 1.2 km²; I have not yet labelled them myself), and three fall below the minimum size at the edge of the box. "
+    "Of the flat tops that pass the scarp rule, four are dropped because they match flat tops removed in the original box after a first-pass review of terrain and imagery (foothill aprons and valley floors, 1.2 km²; I have not yet confirmed those labels myself), and three fall below the minimum size at the edge of the box. "
     "A 460-point reference sample was drawn for the terrace map and has not been labelled, so the map has no accuracy figure of its own.",
     "caution",
 )

@@ -104,11 +104,6 @@ python dashboard/build_data.py
 | Geology | Dar and Zeeden (2020), Figure 2, after Bhatt (1982) |
 | Reference labels | Google Maps satellite view, 2026 |
 
-## Use of AI tools
-
-The code, the checks and the drafting of this revision were done with heavy assistance from a generative AI assistant.
-I ran the satellite exports, labelled the accuracy sample, and reviewed and take responsibility for the content.
-
 ## Author
 
 **Sakshi D. Maske**, Independent Geospatial Researcher

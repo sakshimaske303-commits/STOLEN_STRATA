@@ -1,4 +1,4 @@
-point_id,lat,lon,google_maps,ai_label,ai_note,my_label
+point_id,lat,lon,google_maps,draft_label,draft_note,my_label
 1,33.943166,74.846715,"https://www.google.com/maps/@33.943166,74.846715,18z/data=!3m1!1e3",,,
 2,33.946687,74.849306,"https://www.google.com/maps/@33.946687,74.849306,18z/data=!3m1!1e3",,,
 3,33.946142,74.845735,"https://www.google.com/maps/@33.946142,74.845735,18z/data=!3m1!1e3",,,

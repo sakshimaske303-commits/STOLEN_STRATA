@@ -47,26 +47,15 @@ st.markdown(
 """
 )
 
-c1, c2 = st.columns(2)
-with c1:
-    st.markdown("### Rerunning it")
-    st.markdown(
-        f"""
+st.markdown("### Rerunning it")
+st.markdown(
+    f"""
 The Python scripts and every result table are in the [repository]({GITHUB}) under `v2_redesign/`. The rasters are too large to store
 there; the Earth Engine scripts regenerate them, and `DATA_ACCESS.md` lists each file. With the rasters in `data/raw`, the scripts
 run from the repository root and write the tables this dashboard reads. This dashboard needs no rasters: the map layers are built once by
 `dashboard/build_data.py`.
 """
-    )
-with c2:
-    st.markdown("### Use of AI tools")
-    st.markdown(
-        """
-The code, the checks and the drafting of this revision were done with heavy assistance from a generative AI assistant.
-I ran the satellite exports, labelled the accuracy sample, and reviewed and take responsibility for the content. Where an AI
-assistant's judgement entered the analysis itself (the review of five small flat tops, and about eight uncertain sample points), the pages say so.
-"""
-    )
+)
 
 note("<b>Status, October 2026.</b> The analysis and the paper are revised. Still open: the check of the sample points against older imagery, reading every cited document in the original, "
      "and replacing the September preprint, which still carries the withdrawn numbers.", "caution")

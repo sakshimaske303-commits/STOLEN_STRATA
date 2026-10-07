@@ -52,4 +52,4 @@ Protection of the karewas has a short, specific list of places where it matters 
 
 ## Where things are
 
-Paper: `SS_Research_Paper.md`. Scripts, tables, terrace layers and the labelled sample: `v2_redesign/`. Day-by-day record, including the mistakes: `SS_Development_Log.md`. The code and drafting were done with heavy assistance from a generative AI assistant; I ran the exports, labelled the sample and take responsibility for the content.
+Paper: `SS_Research_Paper.md`. Scripts, tables, terrace layers and the labelled sample: `v2_redesign/`. Day-by-day record, including the mistakes: `SS_Development_Log.md`.

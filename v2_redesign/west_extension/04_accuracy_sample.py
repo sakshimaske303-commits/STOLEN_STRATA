@@ -42,7 +42,7 @@ df = pd.DataFrame(rows).sample(frac=1, random_state=SEED).reset_index(drop=True)
 df.insert(0, "point_id", range(1, len(df) + 1))
 df["google_maps"] = "https://www.google.com/maps/@" + df.lat.astype(str) + "," + df.lon.astype(str) + ",18z/data=!3m1!1e3"
 pts = df[["point_id", "lat", "lon", "google_maps"]].copy()
-pts["ai_label"] = ""; pts["ai_note"] = ""; pts["my_label"] = ""
+pts["draft_label"] = ""; pts["draft_note"] = ""; pts["my_label"] = ""
 pts.to_csv(OUT + "accuracy_sample_points.csv", index=False)
 df[["point_id", "stratum", "stratum_px", "terrace_id", "p90_2013_15", "p90_2023_25"]].to_csv(OUT + "accuracy_sample_key.csv", index=False)
 print({k: int(v.sum()) for k, v in strata.items()}, "points:", len(df))

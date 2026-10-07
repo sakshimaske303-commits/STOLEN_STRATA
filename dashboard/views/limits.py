@@ -52,7 +52,7 @@ st.markdown(
 - **Low NDVI is not excavation.** Attribution to kilns comes from the sample, from imagery and from documents.
 - **Before 2013 the Landsat record is thin.** Six years have too few scenes to use, 2001 is anomalous, and peak NDVI steps up when Landsat 8 arrives.
 - **Thresholds are choices.** The sensitivity runs bound their effect; they do not remove it.
-- **Documents not yet all read in the original.** Several press and tribunal facts were first extracted with an automated reader. The Bandagam–Batapora belt has no village-level documentary support.
+- **Documents not yet all read in the original.** Several press and tribunal facts have not yet been checked against the original documents. The Bandagam–Batapora belt has no village-level documentary support.
 - **One contradiction is unresolved.** A press report dates the Rangeen Kultreh kilns to 2003–2012; the satellite record shows that block vegetated until 2016.
 - **The 8.43% artefact is shown, not fully explained.** Which step of the earlier Sentinel-2 processing produced it has not been isolated.
 - **No fieldwork** was done at either kiln belt.

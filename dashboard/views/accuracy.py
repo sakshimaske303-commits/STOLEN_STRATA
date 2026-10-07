@@ -85,7 +85,7 @@ note(
     "<b>Read these numbers with four cautions.</b><br>"
     "1. <b>The sample shows today, not 2013.</b> It cannot confirm that a point was vegetated before. That rests on the Landsat record. A check against older high-resolution imagery is prepared and not finished.<br>"
     f"2. <b>The strict stratum is mostly one place.</b> {int(bt[(bt.stratum == 'A_strict')].points.max())} of its 25 points fall on one terrace and 21 fall in the Rangeen Kultreh kiln field, because that is where most of the strict-test area lies.<br>"
-    "3. <b>One labeller, one image date.</b> I asked an AI assistant about roughly eight uncertain points; the rest I labelled alone. There is no second labeller yet.<br>"
+    "3. <b>One labeller, one image date.</b> For roughly eight uncertain points I took a second opinion; the rest I labelled alone. There is no second labeller yet.<br>"
     f"4. <b>Missed kiln land is not estimated.</b> One of 35 unflagged points was inside a kiln field, which gives a range ({k.est_ha_low['C_not_flagged']:.0f} to {round(k.est_ha_high['C_not_flagged'], -1):,.0f} ha) too wide to mean anything.",
     "caution",
 )

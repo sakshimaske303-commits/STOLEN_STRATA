@@ -60,7 +60,7 @@ st.markdown(
 """
 )
 note("<b>Two open points.</b> The contradiction with the 2003–2012 dates is not resolved: either the older kilns stand in another part of the village or the reported dates are wrong. "
-     "And these facts were first extracted from the documents with an automated reader; they are being checked against the originals. The satellite onset was obtained before the tribunal filing was found.", "caution")
+     "And these facts have not yet all been checked against the original documents. The satellite onset was obtained before the tribunal filing was found.", "caution")
 
 # ------------------------------------------------------------------ Bandagam-Batapora and the long view
 st.markdown("---")

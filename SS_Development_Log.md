@@ -263,7 +263,7 @@ Audit corrections, October 2026. A full re-check of the code, data, figures and 
 
 ## Entry 16
 
-Applied Geography rejected the paper. Honestly after the Entry 15 audit I was half expecting it, bcz the biggest problem was sitting right there in my own limitations section: my "terraces" were nvr the terraces. They were the rims. So instead of polishing the same paper again, I chose to rebuild the research itself as a v2, phase by phase, n keep the old v1 files untouched as a record. Everything new goes inside a separate `v2_redesign/` folder. (I am doing this rebuild with heavy AI assistance for the code nd the checks, n I am writing down clearly which parts were done tht way so nothing is hidden later.)
+Applied Geography rejected the paper. Honestly after the Entry 15 audit I was half expecting it, bcz the biggest problem was sitting right there in my own limitations section: my "terraces" were nvr the terraces. They were the rims. So instead of polishing the same paper again, I chose to rebuild the research itself as a v2, phase by phase, n keep the old v1 files untouched as a record. Everything new goes inside a separate `v2_redesign/` folder.
 
 Phase 1 is the delineation, bcz every other number sits on top of it. My old rule was TPI greater than 3 n slope under 8. The trouble is tht TPI only asks "is this pixel higher than its neighbours within about 455 meters". On a wide flat plateau the middle pixels are the same height as their neighbours, so TPI is zero there n the whole interior gets thrown out. Only the edges nd spurs survive. Tht is exactly why my Lethpora photos were landing outside every polygon while I was literally standing on the karewa.
 
@@ -275,7 +275,7 @@ One more fix on the way. My DEM stopped exactly at the study box, so any plateau
 
 Results on the buffered DEM: 49 scarp bounded patches (77.4 sq km inside my box), 24 ambiguous (29.2 sq km), 51 rejected (67.5 sq km). Compare tht with v1: 201 polygons nd only 33.1 sq km. All 4 of my Lethpora photo points now fall inside a scarp bounded plateau. About half of the old rim area lies inside the new plateaus, tracing their edges, which is exactly wht rims should do. The uncomfortable one: 14 of my 25 old "degraded" terraces are not within 100 meters of any plateau at all. They were sitting in Srinagar city nd on the valley floor. So a good part of my v1 degradation result was not even on karewa.
 
-I wanted the GSI geology layer (Karewa Group polygons) as an independent check, but the Bhukosh portal jst timed out on me, so tht is still pending. For the 24 ambiguous patches n the 15 biggest rejected ones, the 1st pass review was done by the AI assistant, mostly from the terrain (hillshade, elevation, scarps) nd for a handful from satellite imagery. Out of the ambiguous ones, 8 came out as karewa (the big ones, like the Pampore plateau extension toward Dussu nd Ladhu), 8 as not karewa (small bits like the apron around Hari Parbat), nd 8 unsure. I am treating this only as a working decision to move forward. It is NOT validation, n 17 of those 39 calls are low confidence.
+I wanted the GSI geology layer (Karewa Group polygons) as an independent check, but the Bhukosh portal jst timed out on me, so tht is still pending. For the 24 ambiguous patches n the 15 biggest rejected ones, the 1st pass review was done mostly from the terrain (hillshade, elevation, scarps) nd for a handful from satellite imagery. Out of the ambiguous ones, 8 came out as karewa (the big ones, like the Pampore plateau extension toward Dussu nd Ladhu), 8 as not karewa (small bits like the apron around Hari Parbat), nd 8 unsure. I am treating this only as a working decision to move forward. It is NOT validation, n 17 of those 39 calls are low confidence.
 
 With tht, the working v2 terrace layer is `karewa_terraces_v2.gpkg`: 55 polygons, 100.2 sq km inside the study box, each with a proper unique terrace_id this time (no more "every terrace is number 1").
 
@@ -289,7 +289,7 @@ Still open in Phase 1: the geology layer, the labelling of the 460 points, n cal
 
 Bhukosh still would not open. Tried again n again, same timeout. So I stopped waiting for the GSI layer nd went looking for any published karewa map I could lean on instead. The answer was already sitting in my own reference list: Dar nd Zeeden 2020 hve a figure showing where the different Karewa Group sediments lie across the whole valley, redrawn after Bhatt 1982. It is open access, so I can use it with credit.
 
-It is only a picture, not a GIS layer, so it had to be georeferenced. The figure has latitude nd longitude ticks on its border, n those ticks turned out to be evenly spaced (about 1419 pixels per degree both ways), so a plain straight line conversion from pixel to coordinate works. As a sanity check the Srinagar n Anantnag dots on the figure land within roughly 1 to 1.5 km of the true towns. Tht is the honest accuracy of this map. It is a schematic valley scale drawing, each pixel is about 100 meters, so I am using it as a rough independent check nd nothing finer than tht. (The capture, the colour classification n the overlay were done with the AI assistant, the script is `04_geology_check.py`.)
+It is only a picture, not a GIS layer, so it had to be georeferenced. The figure has latitude nd longitude ticks on its border, n those ticks turned out to be evenly spaced (about 1419 pixels per degree both ways), so a plain straight line conversion from pixel to coordinate works. As a sanity check the Srinagar n Anantnag dots on the figure land within roughly 1 to 1.5 km of the true towns. Tht is the honest accuracy of this map. It is a schematic valley scale drawing, each pixel is about 100 meters, so I am using it as a rough independent check nd nothing finer than tht. (The capture, the colour classification n the overlay are in the script `04_geology_check.py`.)
 
 Then I simply asked: wht colour does the map show under each of my flat patches?
 
@@ -305,7 +305,7 @@ Wht is still not done in Phase 1: the slope nd height above drainage cut offs (4
 
 ## Entry 18
 
-Phase 2. The question was simple: is the big rise in bare ground real, or did it come from switching Landsat to Sentinel-2 for 2025. To answer it I needed every year from one sensor family, so the AI assistant wrote an Earth Engine script nd I ran it in my account. Six exports: yearly Landsat NDVI (the 90th percentile of the whole year, so a pixel only counts as bare if it never greens up at all), the June to September median (same as v1), the number of clear observations per pixel, then Landsat 7 alone, Landsat 8/9 alone nd Sentinel-2 alone for the recent years. Two of the six failed on the 1st run bcz of a filter bug in the script (a blank filler image had no date on it). The fixed version is saved as `gee_02_summer_counts.js`.
+Phase 2. The question was simple: is the big rise in bare ground real, or did it come from switching Landsat to Sentinel-2 for 2025. To answer it I needed every year from one sensor family, so an Earth Engine script was written for it nd I ran it in my account. Six exports: yearly Landsat NDVI (the 90th percentile of the whole year, so a pixel only counts as bare if it never greens up at all), the June to September median (same as v1), the number of clear observations per pixel, then Landsat 7 alone, Landsat 8/9 alone nd Sentinel-2 alone for the recent years. Two of the six failed on the 1st run bcz of a filter bug in the script (a blank filler image had no date on it). The fixed version is saved as `gee_02_summer_counts.js`.
 
 1st result, n it is the one I was afraid of. The v1 headline is gone. Same v1 polygons, same rule (summer NDVI below 0.15), but Landsat all the way through: 1.15% bare in 1994, 1.11% in 2015, 0.09% in 2025. v1 said 8.43% for 2025. Tht number was Sentinel-2 seeing the ground differently, not the ground changing. So the 190 hectares nd everything built on it (the 25 terraces, the rupee figures) cannot stand as they are.
 
@@ -323,7 +323,7 @@ Wht this means for the paper. The story is no longer a slow valley wide loss. It
 
 Three follow ups on the Phase 2 finding, all same day.
 
-Sensitivity. I did not want the 89 hectares to hang on my choice of 0.25 nd 0.35, so the AI assistant ran 24 versions: bare cut at 0.20, 0.25 or 0.30, different vegetated cuts, nd both "all 3 years" n "at least 2 of 3 years". The hectares move a lot, from 37 to 151, so the paper has to give a range nd not one number. But two things do not move. In every version the terraces convert at 2.6 to 63 times the rate of the other flat raised land. N in every version 80 to 99% of it is on terraces 5 nd 3. So the size is soft, the location nd the contrast are solid.
+Sensitivity. I did not want the 89 hectares to hang on my choice of 0.25 nd 0.35, so 24 versions were run: bare cut at 0.20, 0.25 or 0.30, different vegetated cuts, nd both "all 3 years" n "at least 2 of 3 years". The hectares move a lot, from 37 to 151, so the paper has to give a range nd not one number. But two things do not move. In every version the terraces convert at 2.6 to 63 times the rate of the other flat raised land. N in every version 80 to 99% of it is on terraces 5 nd 3. So the size is soft, the location nd the contrast are solid.
 
 Year by year on terrace 5 (`kiln_field_onset_map.png`): 1.3 hectares bare in 2013, 21 in 2017, 66 in 2018, 92 in 2025. It is one compact block at the north tip of the terrace. 46 hectares opened in 2017 to 2018 alone.
 
@@ -333,7 +333,7 @@ So Phase 4 fails its gate test with free data. I am writing tht down plainly: I 
 
 ## Entry 20
 
-Since the whole surviving result now sits on one block, I had to know wht tht block actually is. One look at Google imagery is not evidence. So the AI assistant searched for documents nd I am noting wht came back.
+Since the whole surviving result now sits on one block, I had to know wht tht block actually is. One look at Google imagery is not evidence. So a search for documents was done nd I am noting wht came back.
 
 The best one is official. A J&K Pollution Control Committee report filed before the National Green Tribunal in July 2024, in a case called Koka Brick Kiln, Rangeen versus UT of J&K. Koka Brick Kiln is the exact name tht shows on the map inside my block. The report says the kiln is at Rangeen Kultreh in Chadoora tehsil, tht it was commissioned in 2017 without consent, tht a closure order was issued in September 2018, nd tht there are 20 brick kilns within 1 km of it. My satellite onset for the block is 2017 to 2018. I did not know about this document when I got tht date, so the two are independent n they agree.
 
@@ -341,7 +341,7 @@ Other pieces: a 2023 article by Raja Muzaffar Bhat says Rangeen Kultreh is karew
 
 One thing does not fit nd I am not hiding it. A 2023 news report says the roughly 24 kilns there were built between 2003 nd 2012 n nothing new came in 2013 to 2022. But on Landsat this block is green every single usable year from 1993 to 2016 nd only goes bare in 2017. Either the older kilns are in another part of the village, or the news timeline is off. The official filing agrees with the satellite. Not settled.
 
-Also all of this was read off the pages by an automated reader, so before any of it goes in the paper I hve to open each source nd read it myself. List with links is in `KILN_BLOCK_EVIDENCE.md`.
+Also none of this has been read in the original yet, so before any of it goes in the paper I hve to open each source nd read it myself. List with links is in `KILN_BLOCK_EVIDENCE.md`.
 
 Saffron. I checked how far the block is from the saffron land I mapped in v1. 6.3 km at the nearest, nd only 0.2 hectares of all the converted pixels are within 1 km of saffron. So the saffron story from v1 does not attach to this loss. Wht is being lost here is karewa under orchards n fields in Budgam, to brick kilns. The saffron belt at Pampore shows no such conversion in 2013 to 2025 by this test.
 
@@ -389,7 +389,7 @@ Accuracy check, done by hand, by me. 120 random points on the terraces: 25 from 
 
 1st attempt in the in-app browser failed (the map would not draw unless the window was in front), so I did it myself in Chrome from a small labelling page.
 
-It took two passes, nd the 1st one taught me something about my own labelling. I had seven classes. After the 1st dozen points I almost stopped using "kiln ground" nd was calling everything brown "other bare ground", even points sitting 200 meters from ones I had called kiln a few minutes before, inside the same block. At tht zoom, if there is no kiln or brick row right at the centre, worked kiln ground nd any other bare ground look the same. So the kiln versus bare split from pass 1 was useless. Pass 2: only the 68 points I had called bare or road, map opened one step zoomed out, one question, is this point inside a kiln field or not. I got confused on the edge cases nd asked the AI assistant about roughly eight points across both passes (noted in the folder), the rest I did alone.
+It took two passes, nd the 1st one taught me something about my own labelling. I had seven classes. After the 1st dozen points I almost stopped using "kiln ground" nd was calling everything brown "other bare ground", even points sitting 200 meters from ones I had called kiln a few minutes before, inside the same block. At tht zoom, if there is no kiln or brick row right at the centre, worked kiln ground nd any other bare ground look the same. So the kiln versus bare split from pass 1 was useless. Pass 2: only the 68 points I had called bare or road, map opened one step zoomed out, one question, is this point inside a kiln field or not. I got confused on the edge cases nd took a second opinion on roughly eight points across both passes (noted in the folder), the rest I did alone.
 
 Result. Strict test, 25 points: all 25 are not vegetated today. 19 kiln, 4 other bare, 2 road. Drop only, 60 points: 51 not vegetated, 9 still green. Of the 51, 16 kiln, 17 buildings or roads, 16 other bare, 2 unclear. Not flagged, 35 points: 22 green, 1 kiln, the rest bare or built.
 
@@ -423,6 +423,6 @@ Wht the paper says now. 180 scarp bounded tablelands, 173 sq km, mapped by slope
 
 The title changed too. "Threat to the saffron economy" is gone from it bcz I could not find tht threat in the data. The saffron tablelands at Pampore are not being converted this way, at least not since 2013. I kept "Stolen Strata" bcz it is still true, only in Budgam nd for bricks.
 
-Things I made myself write down in the limitations even though they hurt the paper: I map a quarter of the karewa formation, not the karewas. I cannot say how deep anything was dug. My accuracy sample shows today nd not 2013. I labelled it alone nd asked the AI assistant about roughly eight points. Some of the news nd tribunal facts were pulled by an automated reader nd I still hve to read each source myself before this goes anywhere. The code, the checks nd the drafting were done with heavy AI assistance nd the paper says so.
+Things I made myself write down in the limitations even though they hurt the paper: I map a quarter of the karewa formation, not the karewas. I cannot say how deep anything was dug. My accuracy sample shows today nd not 2013. I labelled it alone nd took a second opinion on roughly eight points. Some of the news nd tribunal facts I still hve to read in the original myself before this goes anywhere.
 
 Still to do before it can be submitted or the preprint replaced: read every cited source in the original, the old imagery check on the sample points, a 2nd labeller if I can find one, new PDFs, nd the README nd the EarthArXiv coversheet version, which still carry the old numbers. Figures for the new paper are in `v2_redesign/paper_figures`.

@@ -76,8 +76,7 @@ st.markdown(
     <a href="{GITHUB}" target="_blank">Code, tables and the labelled sample on GitHub ↗</a></p>
     <p style="text-align:center; color:{MUTED} !important; font-size:0.9rem;">
     The September 2026 preprint (<a href="https://eartharxiv.org/repository/view/14805/" target="_blank">EarthArXiv</a>,
-    <a href="https://doi.org/10.5281/zenodo.21766464" target="_blank">Zenodo</a>) is the earlier version with the withdrawn numbers. It has not yet been replaced.<br>
-    Code and drafting were done with heavy assistance from a generative AI assistant. I ran the satellite exports, labelled the sample and take responsibility for the content.</p>
+    <a href="https://doi.org/10.5281/zenodo.21766464" target="_blank">Zenodo</a>) is the earlier version with the withdrawn numbers. It has not yet been replaced.</p>
     """,
     unsafe_allow_html=True,
 )

@@ -1,4 +1,4 @@
-terrace_id,cls,area_km2,scarp_frac,mean_elev,share_in_aoi,lat,lon,google_maps,ai_label,ai_confidence,ai_reason,my_label,notes
+terrace_id,cls,area_km2,scarp_frac,mean_elev,share_in_aoi,lat,lon,google_maps,first_pass_label,first_pass_confidence,first_pass_reason,my_label,notes
 5,ambiguous,12.5,0.22,1712.63,0.84,33.93766,74.76883,"https://www.google.com/maps/@33.93766,74.76883,2500m/data=!3m1!1e3",karewa,medium,Dissected upland between scarp-cut fingers of the Budgam block; continuous with scarp-bounded tops. Terrain only.,,
 13,ambiguous,5.88,0.28,1631.46,1.0,33.9878,74.98311,"https://www.google.com/maps/@33.9878,74.98311,2500m/data=!3m1!1e3",karewa,high,Continuation of the Pampore plateau toward the hill foot; imagery shows dry tilled brown fields at Dussu/Ladhu (saffron villages).,,
 14,ambiguous,5.71,0.29,1677.69,1.0,33.9175,75.07134,"https://www.google.com/maps/@33.9175,75.07134,2500m/data=!3m1!1e3",karewa,medium,Plateau with arcuate scarps on S and W near Tral; imagery shows orchards and dry fields.,,
