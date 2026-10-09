@@ -4,7 +4,7 @@ import streamlit as st
 from lib import GREY, OCHRE, ORANGE, ROSE, TEAL, caption, mapfile, numbers, show
 from style import CREAM, page_title
 
-page_title("Interactive Map", "Terraces, flagged land and the 120 sample points")
+page_title("Interactive Map", "Terraces, flagged land and the 240 sample points")
 n = numbers()
 terr, flag, pts = mapfile("terraces.geojson"), mapfile("flagged.geojson"), mapfile("accuracy_points.csv")
 
@@ -30,8 +30,8 @@ if "Sample points" in layers_on:
     for key, lab, colr in CLS:
         d = pts[pts.final == key]
         fig.add_trace(go.Scattermapbox(lat=d.lat, lon=d.lon, mode="markers", name=lab, marker=dict(size=11, color=colr, opacity=0.95),
-                                       customdata=list(zip(d.point_id, d.stratum.map(STR), d.my_label, d.p90_2013_15, d.p90_2023_25)),
-                                       hovertemplate="<b>Point %{customdata[0]}</b> · " + lab[8:] + "<br>%{customdata[1]}<br>first-pass label: %{customdata[2]}<br>peak NDVI %{customdata[3]:.2f} → %{customdata[4]:.2f}<extra></extra>"))
+                                       customdata=list(zip(d.point_id, d.stratum.map(STR), d.before_label.fillna("not checked"), d.p90_2013_15, d.p90_2023_25)),
+                                       hovertemplate="<b>Point %{customdata[0]}</b> · " + lab[8:] + "<br>%{customdata[1]}<br>2013–15 image: %{customdata[2]}<br>peak NDVI %{customdata[3]:.2f} → %{customdata[4]:.2f}<extra></extra>"))
 layers = []
 if base == "Satellite":
     layers.append(dict(sourcetype="raster", below="traces", sourceattribution="Imagery: Esri, Maxar, Earthstar Geographics",

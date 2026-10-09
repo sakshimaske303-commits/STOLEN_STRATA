@@ -53,19 +53,22 @@ def numbers():
     dt = dt[dt.test == "OLI 13-15>23-25"].groupby("stratum")[["drop_ha", "reverse_ha", "net_ha"]].sum()
     ap = table("west_extension/accuracy_by_labelling_pass.csv")
     ap = ap[ap.stratum != "C_not_flagged"].groupby("definition").est_ha.sum()
-    ar = table("west_extension/accuracy_result.csv")
-    k = ar[(ar.reference_class == "kiln") & (ar.stratum != "C_not_flagged")]
-    var = sum((r.stratum_ha ** 2) * r.share * (1 - r.share) / (r.n - 1) for r in k.itertuples())
-    tot = float(k.est_ha.sum())
-    br = table("west_extension/accuracy_before_result.csv")
-    kb = br[(br.stratum == "A_and_B") & (br.measure == "vegetated before and inside a kiln field today")].iloc[0]
+    pa = table("west_extension/pooled_accuracy_result.csv")
+    pa = pa[pa.stratum == "A_and_B"].set_index(["sample", "measure"])
+    pb = table("west_extension/pooled_before_result.csv")
+    pb = pb[pb.stratum == "A_and_B"].set_index(["sample", "measure"])
+    k, kb = pa.loc[("pooled", "kiln")], pb.loc[("pooled", "vegetated before and inside a kiln field today")]
+    nv, gn = pa.loc[("pooled", "not vegetated")], pb.loc[("pooled", "vegetated before and not vegetated today")]
     return dict(
         terraces=int(table("west_extension/conversion_by_terrace_wide.csv").shape[0]),
         terrace_km2=float(cs.loc["terraces", "stratum_km2"]), flat_km2=float(cs.loc["other_flat", "stratum_km2"]),
         strict_ha=float(cs.loc["terraces", "veg_to_bare_ha"]), strict_rev_ha=float(cs.loc["terraces", "bare_to_veg_ha"]),
         strict_pct=float(cs.loc["terraces", "veg_to_bare_pct"]), strict_pct_flat=float(cs.loc["other_flat", "veg_to_bare_pct"]),
         drop_ha=float(dt.loc["terraces", "drop_ha"]), drop_rev_ha=float(dt.loc["terraces", "reverse_ha"]), drop_net_ha=float(dt.loc["terraces", "net_ha"]),
-        kiln_ha=tot, kiln_lo=tot - 1.96 * var ** 0.5, kiln_hi=tot + 1.96 * var ** 0.5,
+        kiln_ha=float(k.est_ha), kiln_lo=float(k.est_ha_low), kiln_hi=float(k.est_ha_high),
+        kiln_draw1_ha=float(pa.loc[("draw 1", "kiln")].est_ha), kiln_draw2_ha=float(pa.loc[("draw 2", "kiln")].est_ha),
+        notveg_ha=float(nv.est_ha), notveg_lo=float(nv.est_ha_low), notveg_hi=float(nv.est_ha_high),
+        lost_ha=float(gn.est_ha), lost_lo=float(gn.est_ha_low), lost_hi=float(gn.est_ha_high),
         kiln_first_ha=float(ap[[i for i in ap.index if i.startswith("first pass")][0]]),
         kiln_second_ha=float(ap[[i for i in ap.index if i.startswith("added by second")][0]]),
         kiln_before_ha=float(kb.est_ha), kiln_before_lo=float(kb.est_ha_low), kiln_before_hi=float(kb.est_ha_high),

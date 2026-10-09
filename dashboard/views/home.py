@@ -30,11 +30,12 @@ note(
 stats([("Terraces mapped", f"{n['terraces']}", f"{n['terrace_km2']:.1f} km² of scarp-bounded tableland"),
        ("Strict test, on terraces", f"{n['strict_ha']:.0f} ha", "vegetated in 2013–15, bare in 2023–25"),
        ("Drop test, on terraces", f"{n['drop_ha']:.0f} ha", f"{n['drop_net_ha']:.0f} ha net of change the other way"),
+       ("Vegetated then, not now", f"≈ {n['lost_ha']:.0f} ha", f"of the flagged land, 95% interval {n['lost_lo']:.0f}–{n['lost_hi']:.0f} ha"),
        ("Inside brick-kiln fields", f"≈ {n['kiln_ha']:.0f} ha", f"95% interval {n['kiln_lo']:.0f}–{n['kiln_hi']:.0f} ha")])
 st.markdown("<div style='height:0.8rem'></div>", unsafe_allow_html=True)
-caption("Landsat 8/9 only, 30 m pixels, 2013–2015 compared with 2023–2025. The kiln figure comes from a hand-labelled sample of 120 points; "
-        f"counting only points labelled kiln ground at close zoom it is about {n['kiln_first_ha']:.0f} ha, and counting only points that imagery "
-        f"of 2013–2014 also shows as vegetated it is about {n['kiln_before_ha']:.0f} ha. A second sample of 120 points is being labelled and will be pooled with the first.")
+caption("Landsat 8/9 only, 30 m pixels, 2013–2015 compared with 2023–2025. The last two figures come from two hand-labelled samples, 240 points in all. "
+        f"The kiln figure depends on how the edges of kiln fields are counted: the first sample gives about {n['kiln_draw1_ha']:.0f} ha and the second "
+        f"about {n['kiln_draw2_ha']:.0f} ha. Counting only points that imagery of 2013–2015 also shows as vegetated it is about {n['kiln_before_ha']:.0f} ha.")
 
 st.markdown("<br>", unsafe_allow_html=True)
 
@@ -59,8 +60,9 @@ card(
     <p><b>It sits in two brick-kiln belts in Budgam.</b> At Rangeen Kultreh a kiln field opens in 2017–2018 on land that was green in the
     satellite record until 2016. On the Bandagam–Batapora tablelands low-vegetation land is older, and the looser test finds the largest
     post-2013 loss there.</p>
-    <p><b>About {n['kiln_ha']:.0f} ha of the flagged land lies inside brick-kiln fields today</b> ({n['kiln_lo']:.0f}–{n['kiln_hi']:.0f} ha),
-    of which about {n['kiln_first_ha']:.0f} ha was recognisable as kiln ground at close zoom.</p>
+    <p><b>About {n['notveg_ha']:.0f} ha of the 331 ha flagged is not vegetated today, and about {n['lost_ha']:.0f} ha of it was vegetated in imagery of 2013–2015.</b>
+    About {n['kiln_ha']:.0f} ha lies inside brick-kiln fields ({n['kiln_lo']:.0f}–{n['kiln_hi']:.0f} ha), but the two samples give {n['kiln_draw1_ha']:.0f} and
+    {n['kiln_draw2_ha']:.0f} ha depending on how the edges of kiln fields are counted, so the kiln share is less certain than the loss itself.</p>
     """,
     badge="Findings",
 )

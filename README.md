@@ -36,9 +36,10 @@ from Kashmir has said for years that they are being dug away for brick clay and 
 | Study box | 74.55°–75.15° E, 33.80°–34.15° N, about 2,160 km² (Budgam, Pulwama, Srinagar) |
 | Terraces mapped | 180 scarp-bounded tablelands, 173.3 km² |
 | Vegetated in 2013–15, bare in 2023–25, on terraces | 107 ha by a strict test; 329 ha by a looser one (286 ha net of reverse change) |
-| Of that, inside brick-kiln fields today | about 141 ha (95% interval roughly 110–172 ha), from a hand-labelled sample of 120 points |
-| Of that, recognisable as kiln ground at close zoom | about 40 ha |
-| Flagged sample points that show vegetation in 2013–14 imagery | 72 of 85 (all 25 strict, 47 of 60 looser); kiln-field land restricted to those: about 134 ha |
+| Of the flagged land, not vegetated today | about 299 ha of 331 (95% interval roughly 285–313 ha), from two hand-labelled samples, 240 points in all |
+| Vegetated in 2013–15 imagery and not vegetated today | about 260 ha (roughly 241–279 ha) |
+| Of the flagged land, inside brick-kiln fields today | about 188 ha (roughly 166–210 ha); 141 ha by the first sample and 232 ha by the second, depending on how the edges of kiln fields are counted |
+| Flagged sample points that show vegetation in 2013–15 imagery | 158 of 180 (59 of 60 strict, 99 of 120 looser); kiln-field land restricted to those: about 179 ha |
 | Where | Two belts in Budgam: Rangeen Kultreh (a kiln field that opens in 2017–2018) and Bandagam–Batapora (older, and the largest post-2013 loss by the looser test). Outside them, terraces convert at the same rate as comparable land. |
 | Back to the mid-1990s | A net loss of roughly 335 ha in the two belts. Indicative only: the Landsat record before 2013 is thin, and this series is being recomputed after a correction to the Landsat 8/9 adjustment. |
 
@@ -47,8 +48,8 @@ from Kashmir has said for years that they are being dug away for brick clay and 
 - **Depth or volume.** Every free elevation model predates the Rangeen Kultreh kiln field; the result is "vegetated to bare", not "excavated".
 - **A saffron link.** No conversion of this kind is seen on the Pampore tablelands in 2013–2025.
 - **The whole Karewa formation.** The terrace map covers scarp-bounded tablelands, about a quarter of the mapped formation in the original box, and has no accuracy figure of its own yet.
-- **A final accuracy figure.** A second 120-point sample is being labelled; the kiln figures will be updated when it is pooled with the first.
-- **A blind check of the earlier state.** The 85 flagged sample points were looked up in 2013–14 imagery, mostly one image of September 2014, knowing they were flagged. Thirteen of the 60 looser points were not clearly vegetated in it.
+- **A firm kiln figure.** The two samples agree on the loss of vegetation but give 141 and 232 ha of kiln land, because they counted the edges of kiln fields differently. A kiln-field outline on dated imagery or a second labeller is needed.
+- **A fully blind check of the earlier state.** The first sample's 85 flagged points were looked up in 2013–14 imagery knowing they were flagged; the second sample was labelled blind. Twenty-one of the 120 looser points were not clearly vegetated in the older image.
 
 The paper's Section 6 lists every limitation.
 
@@ -93,6 +94,7 @@ python v2_redesign/west_extension/03_drop_test_wide.py
 python v2_redesign/west_extension/05_accuracy_result.py
 python v2_redesign/west_extension/09_accuracy_by_labelling_pass.py
 python v2_redesign/west_extension/10_before_check_result.py
+python v2_redesign/west_extension/15_pooled_accuracy.py      # pools the two accuracy samples
 python v2_redesign/west_extension/11_removed_flat_tops_check.py
 python v2_redesign/west_extension/06_delineation_sensitivity.py
 python v2_redesign/west_extension/07_drop_test_sensitivity.py

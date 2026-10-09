@@ -54,8 +54,10 @@ for name, m in (("strict", strict & mt), ("drop_only", drop_only & mt)):
 gpd.GeoDataFrame(feats, crs=crs).to_crs(4326).to_file(OUT + "flagged.geojson", driver="GeoJSON", COORDINATE_PRECISION=5)
 
 # ---- accuracy sample ------------------------------------------------------------------------------
-pts = pd.read_csv(W + "accuracy_sample_points.csv")[["point_id", "lat", "lon"]].merge(
-    pd.read_csv(W + "accuracy_sample_labelled.csv")[["point_id", "stratum", "terrace_id", "p90_2013_15", "p90_2023_25", "my_label", "in_kiln_field", "final"]], on="point_id")
+# both samples (1-120 and 121-240), pooled by 15_pooled_accuracy.py
+xy = pd.concat([pd.read_csv(W + "accuracy_sample_points.csv")[["point_id", "lat", "lon"]],
+                pd.read_csv(W + "accuracy_sample2_points.csv")[["point_id", "lat", "lon"]]])
+pts = xy.merge(pd.read_csv(W + "pooled_points.csv")[["point_id", "draw", "stratum", "terrace_id", "p90_2013_15", "p90_2023_25", "final", "before_label"]], on="point_id")
 pts.to_csv(OUT + "accuracy_points.csv", index=False)
 
 # ---- yearly series by site (adjusted Landsat series, usable years only) ---------------------------

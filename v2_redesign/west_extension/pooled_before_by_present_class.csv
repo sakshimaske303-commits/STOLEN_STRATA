@@ -1,0 +1,6 @@
+stratum,before_label,bare_other,built_up,kiln,road,unclear,vegetated,n
+A_strict,not_vegetated,0,0,1,0,0,0,1
+A_strict,vegetated,4,2,51,2,0,0,59
+B_drop_only,not_vegetated,2,10,4,3,0,1,20
+B_drop_only,unclear,1,0,0,0,0,0,1
+B_drop_only,vegetated,17,10,47,9,2,14,99

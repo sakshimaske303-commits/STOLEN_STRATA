@@ -498,3 +498,16 @@ I went through the whole project again end to end, read-only first, and recomput
 - Several numbers had come from the first, smaller box and disagreed with the wide-box values (Rangeen Kultreh 21/66 ha, the 15% of 2001); these were replaced.
 
 The paper now states three research questions, the abstract starts from them, there is a short section on earlier satellite work on brick kilns and on Landsat change detection, and the limitations list the items above. Still to do by me: finish and pool the second sample, record image dates, write down what I counted as "inside a kiln field", label the terrace reference sample, re-export the long series, and a second labeller.
+
+## Entry 30
+
+9 October 2026. The second sample is finished and pooled with the first.
+
+All 120 points of the second sample are labelled, each from two screen captures (the newest image and the September 2014 image, or the nearest clear image of 2013–2015 where September was cloudy), with both dates recorded. Only then did I open the stratum key. Two points had no clear image in 2013–2015 (173 and 181); they count as unclear for the earlier state. Both are unflagged points, so the before-check of the flagged land is not affected. The pooled estimate is in `15_pooled_accuracy.py`.
+
+Pooled, the strata hold 60, 120 and 60 points. The loss of vegetation holds up well: 299 ha of the 331 ha flagged is not vegetated today (interval about 285 to 313 ha), and 260 ha was vegetated in the older image and is not vegetated now (241 to 279 ha). The two samples agree on these to within about 30 ha.
+
+The kiln figure does not hold up as well. Pooled it is 188 ha (166 to 210 ha), but the first sample alone gives 141 ha and the second 232 ha, and in the drop-only stratum the difference is too large to be chance (16 of 60 points against 35 of 60). It is not that the points are different: kiln, other bare ground and road together take 40 points in the first sample and 43 in the second. The difference is where I put bare worked ground, tracks and cleared plots at the edge of a kiln field. In the first sample most of them went to "other bare" or "road"; in the second, judged in one pass against the setting, most went to "kiln". So the kiln share depends on where the edge of a kiln field is drawn. The paper now gives 188 ha with both sample figures beside it, and puts the loss of vegetation first. Writing down a rule for the edge of a kiln field, or drawing the kiln fields on dated imagery, is the next step for this number.
+
+Changed: paper sections 3.5, 4.5 (Tables 2 to 4), 6 and 7 and the abstract; executive summary; README; dashboard. The first sample's own tables and scripts (05, 09, 10) are kept as they were, as the record of that sample.
+

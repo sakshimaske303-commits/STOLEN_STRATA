@@ -50,7 +50,8 @@ The drop test is noisier (the "rest" stratum shows large reverse change), so it 
 on a sample before either number goes in the paper. The statement in the first section that the extension
 "adds little" holds only for the strict test.
 
-## Accuracy check (04_accuracy_sample.py, 05_accuracy_result.py) — 120 points on terraces, labelled blind by the author
+## Accuracy check, first sample (04_accuracy_sample.py, 05_accuracy_result.py) — 120 points on terraces, labelled blind by the author
+(Kept as the record of the first sample. The figures used in the paper are now the pooled ones, see "Pooled accuracy" below.)
 Present-day Google imagery (2026). Two passes: 7 classes; then, for the 68 points first called bare_other or road, one question:
 inside a brick-kiln field or not. A first-pass-only version could not separate kiln ground from other bare ground.
 
@@ -103,7 +104,7 @@ order); Kultruch 221-223 with consent to establish, not yet built. No coordinate
 not operate from 1 November to 31 March. Which kilns stand on mapped terraces is still identified from imagery only.
 
 **Not done.** Geology check for the strip west of 74.66 E (needs the map figure captured again; the in-app browser was not usable).
-**Still open.** A second labeller for the 120 points.
+**Still open.** A second labeller; a written rule, or drawn outlines, for the edge of a kiln field.
 
 ## Before check (10_before_check_result.py): the 85 flagged points in imagery of 2013-2014
 
@@ -145,3 +146,29 @@ against 114 ha at Rangeen Kultreh; strict test 15 ha against 86 ha. The belt is 
 
 **Known issue.** The Landsat 8/9 adjustment in `gee_04_extended_box.js` uses Roy et al.'s ETM+ → OLI coefficients on OLI data (reverse
 direction). Only the long series (08) is affected. Re-export with the OLI → ETM+ coefficients and rerun 08 and `make_figures.py`.
+
+## Pooled accuracy (15_pooled_accuracy.py), 9 October 2026
+
+Second sample (121-240, `12_accuracy_sample_supplement.py`): all 120 labelled from two screen captures per point (newest image and
+September 2014, or the nearest clear image of 2013-2015), blind to stratum, both dates recorded in
+`accuracy_sample2_labels_in_progress.csv`. Present class in one pass: kiln = inside a kiln field, including bare worked ground,
+tracks and yards in it. 173 and 181 had no clear image in 2013-2015 and count as unclear before (both unflagged).
+
+| Stratum | n | kiln field | built / road | other bare | still vegetated | unclear |
+|---|---|---|---|---|---|---|
+| A strict | 60 | 52 (87%, 76-93%) | 4 | 4 | 0 | 0 |
+| B drop only | 120 | 51 (43%, 34-51%) | 32 | 20 | 15 (13%) | 2 |
+| C not flagged | 60 | 1 | 8 | 11 | 40 (67%) | 0 |
+
+Flagged land (331 ha), pooled, stratified estimate with 95% interval:
+- not vegetated today 299 ha (285-313); vegetated before and not vegetated now 260 ha (241-279)
+- inside a kiln field 188 ha (166-210); restricted to points vegetated before 179 ha (157-201)
+- vegetated before: 158 of 180 points (59/60 strict, 99/120 drop-only), 290 ha (274-306)
+
+By sample: kiln 141 ha (110-172) first, 232 ha (202-261) second. Drop-only kiln 16/60 against 35/60, Fisher p = 0.0008.
+Kiln + other bare + road in drop-only: 40 and 43 points, so the samples differ in where kiln-field edges went, not in what the
+points are. Not vegetated today 290 and 309 ha; vegetated before and not now 245 and 276 ha.
+Missed kiln land: 1 of 60 unflagged points, 50-1,505 ha, still too wide to use.
+Outputs: `pooled_points.csv`, `pooled_accuracy_result.csv` (pooled and by sample), `pooled_confusion.csv`,
+`pooled_before_result.csv`, `pooled_before_by_present_class.csv`.
+

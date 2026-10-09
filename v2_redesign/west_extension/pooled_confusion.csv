@@ -1,0 +1,4 @@
+stratum,bare_other,built_up,kiln,road,unclear,vegetated,n
+A_strict,4,2,52,2,0,0,60
+B_drop_only,20,20,51,12,2,15,120
+C_not_flagged,11,4,1,4,0,40,60

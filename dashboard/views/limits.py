@@ -45,8 +45,8 @@ card(
 st.markdown("### Limitations, in full")
 st.markdown(
     """
-- **Before-state of the sample.** The 85 flagged points were looked up in imagery of 2013–2014, knowing they were flagged and mostly on one image of September 2014. Vegetation is visible at 72 of them; 13 of the 60 drop-only points were not clearly vegetated in that image. One image shows one day, while the tests use the peak of the year.
-- **One labeller, 120 points, one image date.** 25 points in the strict stratum, most of them in one kiln field.
+- **Before-state of the sample.** The flagged points were looked up in imagery of 2013–2015, mostly one image of September 2014; in the first sample knowing they were flagged, in the second blind. Vegetation is visible at 158 of 180; 21 of the 120 drop-only points were not clearly vegetated.
+- **One labeller, 240 points.** 60 points in the strict stratum, most of them in one kiln field. No second, independent labeller yet.
 - **No accuracy figure for the terrace map.** Its reference sample is drawn and not labelled. The geological check uses a schematic figure and covers the original box only.
 - **Missed kiln land is not estimated.** The tests detect new loss. Kiln land already bare before 2013 enters only through the long series.
 - **Low NDVI is not excavation.** Attribution to kilns comes from the sample, from imagery and from documents.
@@ -56,8 +56,8 @@ st.markdown(
 - **Documents were not all read in the original.** The tribunal filing for Rangeen Kultreh and the district list of kilns were read in full. The press reports and the April 2023 district report were checked against extracts and summaries. For the Bandagam–Batapora belt the only document is a list of registered kilns by village, without locations or dates of establishment.
 - **One contradiction is unresolved.** A press report dates the Rangeen Kultreh kilns to 2003–2012; the satellite record shows that block vegetated until 2016.
 - **The 8.43% artefact is shown, not fully explained.** Which step of the earlier Sentinel-2 processing produced it has not been isolated.
-- **Reference imagery is not dated point by point.** The present-day labels use the newest image Google showed in October 2026; its date varies by place (2022–2026 in the second sample).
-- **A second sample is being labelled.** 120 more points from the same strata; the kiln figures will be revised when the two are pooled.
+- **Reference imagery is not dated point by point.** The present-day labels use the newest image Google showed in October 2026; its date varies by place (2022–2026 in the second sample, where it was recorded).
+- **The kiln figure depends on where a kiln field ends.** The two samples give 141 and 232 ha for the same land, because bare ground and tracks at the edge of kiln fields were counted differently. Pooled: 188 ha.
 - **The long series needs re-running.** The Landsat 8/9 adjustment was applied in the reverse direction; only the 1993–2025 view is affected.
 - **Landsat 9 adds scenes from 2022**, so the late window rests on more observations than the early one. This works against detecting loss; a Landsat 8-only run has not been made.
 - **No fieldwork** was done at either kiln belt.
