@@ -76,4 +76,5 @@ with c2:
     frame(d.rename(columns={"slope_max_deg": "Slope under (°)", "hand_min_m": "Height above drainage over (m)", "terraces": "Terraces", "terrace_km2": "Area (km²)", "strict_ha": "Strict test (ha)",
                             "drop_ha": "Drop test (ha)", "strict_ratio_vs_other_flat": "Strict: terraces ÷ other flat", "drop_ratio_vs_other_flat": "Drop: terraces ÷ other flat"}))
     caption(f"Nine versions of the rule. Terrace area runs from {ds.terrace_km2.min():.0f} to {ds.terrace_km2.max():.0f} km²; the strict conversion stays between "
-            f"{ds.strict_ha.min():.0f} and {ds.strict_ha.max():.0f} ha and terraces convert faster than other flat land in every version.")
+            f"{ds.strict_ha.min():.0f} and {ds.strict_ha.max():.0f} ha and terraces convert faster than other flat land in every version, a contrast that comes from the same two kiln belts. "
+            "This run works on the raster and does not apply the review removals or the size filter after clipping to the box, so its base row has 186 terraces (173.9 km²) against 180 (173.3 km²) elsewhere.")

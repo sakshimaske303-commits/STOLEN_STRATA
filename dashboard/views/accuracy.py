@@ -18,7 +18,8 @@ st.markdown(
     """
 A satellite test says vegetation was lost. It does not say what replaced it. To find out I drew **120 random points** on the terraces:
 25 from pixels flagged by the strict test, 60 from pixels flagged only by the drop test and 35 from pixels flagged by neither.
-The points were shuffled, and I labelled each one against the 2026 satellite view in Google Maps without knowing which group it came from.
+The points were shuffled, and I labelled each one against the most recent satellite view in Google Maps (October 2026) without knowing which group it came from.
+The acquisition date of that imagery varies by place and was not recorded point by point. A second sample of 120 points is being labelled and will be pooled with this one.
 """
 )
 
@@ -99,14 +100,14 @@ with c1:
     show(style_fig(fig, 300))
     with st.expander("The thirteen points that were not clearly vegetated in the older image"):
         x = bl[bl.before_label != "vegetated"].merge(pts[["point_id", "final"]], on="point_id")
-        frame(x.rename(columns={"point_id": "Point", "before_label": "2013–14 image", "image_date": "Image date", "basis": "What is seen at the point", "final": "2026 class"})
-              [["Point", "2013–14 image", "Image date", "What is seen at the point", "2026 class"]])
+        frame(x.rename(columns={"point_id": "Point", "before_label": "2013–14 image", "image_date": "Image date", "basis": "What is seen at the point", "final": "Present class"})
+              [["Point", "2013–14 image", "Image date", "What is seen at the point", "Present class"]])
 with c2:
     va, vb, vt = B("A_strict", "vegetated before"), B("B_drop_only", "vegetated before"), B("A_and_B", "vegetated before")
     kt = B("A_and_B", "vegetated before and inside a kiln field today"); gt = B("A_and_B", "vegetated before and not vegetated today")
     st.markdown(
         f"""
-The labels above describe 2026. For the earlier state, each of the 85 flagged points was looked up in Google Earth Pro imagery of
+The labels above describe the present state. For the earlier state, each of the 85 flagged points was looked up in Google Earth Pro imagery of
 2013–2014, mostly one image of September 2014.
 
 Vegetation is visible at **{int(vt.hits)} of 85** points ({vt.share * 100:.0f}%, interval {r(vt.ci95_low)}–{r(vt.ci95_high)}%): all {int(va.hits)} strict points
@@ -123,9 +124,9 @@ caption("\"Vegetated\" in the older image is a low bar: crop fields and orchards
 note(
     "<b>Read these numbers with four cautions.</b><br>"
     "1. <b>The check of the earlier state is not blind.</b> Older imagery was looked at only for the 85 flagged points, mostly on one image date. 13 of the 60 drop-only points were not clearly vegetated in it.<br>"
-    f"2. <b>The strict stratum is mostly one place.</b> {int(bt[(bt.stratum == 'A_strict')].points.max())} of its 25 points fall on one terrace and 21 fall in the Rangeen Kultreh kiln field, because that is where most of the strict-test area lies.<br>"
+    f"2. <b>The strict stratum is mostly one place.</b> {int(bt[(bt.stratum == 'A_strict')].points.max())} of its 25 points fall on one terrace and 21 on the two Rangeen Kultreh terraces (17 of them inside the kiln field), because that is where most of the strict-test area lies.<br>"
     "3. <b>One labeller, one image date.</b> For roughly eight uncertain points I took a second opinion; the rest I labelled alone. There is no second labeller yet.<br>"
     f"4. <b>Missed kiln land is not estimated.</b> One of 35 unflagged points was inside a kiln field, which gives a range ({k.est_ha_low['C_not_flagged']:.0f} to {round(k.est_ha_high['C_not_flagged'], -1):,.0f} ha) too wide to mean anything.",
     "caution",
 )
-caption("13 of the 35 unflagged points also look non-vegetated in the 2026 image, because a dry-season picture of a karewa is largely brown. Present-day bareness on its own means little; the tests rest on change in the satellite record.")
+caption("13 of the 35 unflagged points also look non-vegetated in the recent image, because a dry-season picture of a karewa is largely brown. Present-day bareness on its own means little; the tests rest on change in the satellite record.")

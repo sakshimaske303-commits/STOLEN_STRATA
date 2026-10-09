@@ -39,3 +39,11 @@ keywords:
 license: CC-BY-4.0
 version: 2.0.0
 date-released: "2026-10-07"
+preferred-citation:
+  type: report
+  title: "Stolen Strata: Brick Kilns and the Loss of Karewa Tableland in Budgam, Kashmir, 1993-2025, with a Correction to an Earlier Estimate"
+  authors:
+    - family-names: "Maske"
+      given-names: "Sakshi D."
+  year: 2026
+  url: "https://github.com/sakshimaske303-commits/STOLEN_STRATA"

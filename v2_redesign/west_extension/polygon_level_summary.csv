@@ -1,0 +1,3 @@
+selection,n_terraces,n_other_flat,terraces_with_strict_ha_ge_1_pct,other_flat_with_strict_ha_ge_1_pct,terraces_with_drop_ha_ge_1_pct,other_flat_with_drop_ha_ge_1_pct,terraces_with_drop_ha_ge_5_pct,other_flat_with_drop_ha_ge_5_pct,strict_pct_mean_terraces,strict_pct_mean_other_flat,strict_pct_mannwhitney_p_terraces_greater,drop_pct_mean_terraces,drop_pct_mean_other_flat,drop_pct_mannwhitney_p_terraces_greater
+all polygons,180,94,4.4444,2.1277,15.0,18.0851,7.2222,5.3191,0.187,0.0304,0.6061,1.2869,0.4866,0.6777
+outside the two belts,145,88,2.069,2.2727,6.8966,18.1818,2.069,5.6818,0.0593,0.0316,0.9387,0.5223,0.4861,0.9914

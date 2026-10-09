@@ -20,11 +20,14 @@
 | [`SS_Research_Paper.md`](./SS_Research_Paper.md) | The full paper. |
 | [`SS_Development_Log.md`](./SS_Development_Log.md) | Day-by-day record. Entries 1–15 describe the first version; Entries 16 onward the rebuild and the correction. |
 
-## The question
+## The questions
 
 Karewas are the flat-topped, scarp-bounded tablelands left by the old lake and river deposits of the Kashmir Valley. Reporting
-from Kashmir has said for years that they are being dug away for brick clay and fill. This project measures how much vegetated
-tableland was lost, where and when, using one family of satellite sensors at a time.
+from Kashmir has said for years that they are being dug away for brick clay and fill. Using one family of satellite sensors at a time, this project asks:
+
+1. How much karewa tableland that was vegetated in 2013–2015 was no longer vegetated in 2023–2025, and does it convert faster than comparable land?
+2. What did that land become, and how much of it now lies inside brick-kiln fields?
+3. Where and when did the change happen?
 
 ## What the study shows
 
@@ -36,14 +39,15 @@ tableland was lost, where and when, using one family of satellite sensors at a t
 | Of that, inside brick-kiln fields today | about 141 ha (95% interval roughly 110–172 ha), from a hand-labelled sample of 120 points |
 | Of that, recognisable as kiln ground at close zoom | about 40 ha |
 | Flagged sample points that show vegetation in 2013–14 imagery | 72 of 85 (all 25 strict, 47 of 60 looser); kiln-field land restricted to those: about 134 ha |
-| Where | Two belts in Budgam: Rangeen Kultreh (a kiln field that opens in 2017–2018) and Bandagam–Batapora (older, slower) |
-| Back to the mid-1990s | A net loss of roughly 335 ha in the two belts. Indicative only: the Landsat record before 2013 is thin. |
+| Where | Two belts in Budgam: Rangeen Kultreh (a kiln field that opens in 2017–2018) and Bandagam–Batapora (older, and the largest post-2013 loss by the looser test). Outside them, terraces convert at the same rate as comparable land. |
+| Back to the mid-1990s | A net loss of roughly 335 ha in the two belts. Indicative only: the Landsat record before 2013 is thin, and this series is being recomputed after a correction to the Landsat 8/9 adjustment. |
 
 ## What it does not show
 
 - **Depth or volume.** Every free elevation model predates the Rangeen Kultreh kiln field; the result is "vegetated to bare", not "excavated".
 - **A saffron link.** No conversion of this kind is seen on the Pampore tablelands in 2013–2025.
 - **The whole Karewa formation.** The terrace map covers scarp-bounded tablelands, about a quarter of the mapped formation in the original box, and has no accuracy figure of its own yet.
+- **A final accuracy figure.** A second 120-point sample is being labelled; the kiln figures will be updated when it is pooled with the first.
 - **A blind check of the earlier state.** The 85 flagged sample points were looked up in 2013–14 imagery, mostly one image of September 2014, knowing they were flagged. Thirteen of the 60 looser points were not clearly vegetated in it.
 
 The paper's Section 6 lists every limitation.
@@ -58,7 +62,7 @@ STOLEN_STRATA/
 │   ├── phase2_timeseries/        single-sensor series, the rerun of the earlier rule, strict test, original box
 │   ├── phase4_elevation/         elevation test (failed)
 │   ├── west_extension/           everything on the wide box: terraces, both tests, accuracy sample, sensitivity, long series
-│   ├── paper_figures/            Figures 1–4 and the scripts that draw them
+│   ├── paper_figures/            Figures 1–4; make_figures.py draws 2 and 4, make_maps.py draws 1 and 3
 │   └── RESUME_HERE.md            what is done and what is still open
 ├── dashboard/                    Streamlit dashboard (app.py, views/, map_data/)
 ├── data/processed/               layers of the earlier version; the Section 4.1 check reads the old polygons from here
@@ -83,7 +87,7 @@ The analysis scripts run from the repository root and need the rasters listed in
 The Earth Engine scripts in `v2_redesign/` regenerate them. Order, for the wide box:
 
 ```bash
-python v2_redesign/west_extension/01_flat_top_delineation_wide.py
+python v2_redesign/west_extension/01_flat_top_delineation_wide.py   # writes data/interim/, which 02 reads
 python v2_redesign/west_extension/02_conversion_wide_box.py
 python v2_redesign/west_extension/03_drop_test_wide.py
 python v2_redesign/west_extension/05_accuracy_result.py
@@ -93,10 +97,16 @@ python v2_redesign/west_extension/11_removed_flat_tops_check.py
 python v2_redesign/west_extension/06_delineation_sensitivity.py
 python v2_redesign/west_extension/07_drop_test_sensitivity.py
 python v2_redesign/west_extension/08_long_series_wide.py
+python v2_redesign/west_extension/13_polygon_level_comparison.py
+python v2_redesign/west_extension/14_omitted_karewa_both_tests.py
+python v2_redesign/phase2_timeseries/05_v1_rule_matched_statistic.py   # Section 4.1; needs the earlier rasters
+python v2_redesign/phase4_elevation/01_elevation_gate_test.py
 python v2_redesign/paper_figures/make_figures.py
 python v2_redesign/paper_figures/make_maps.py
 python dashboard/build_data.py
 ```
+
+The geology check (`v2_redesign/phase1_delineation/01_…` to `04_geology_check.py`) and the first strict-test pass (`v2_redesign/phase2_timeseries/`) run on the original box and need its rasters (see `DATA_ACCESS.md`).
 
 ## Data sources
 
@@ -105,7 +115,7 @@ python dashboard/build_data.py
 | Elevation | Copernicus DEM GLO-30; SRTM; ALOS World 3D; GEDI |
 | Time series | Landsat 5, 7, 8, 9 Collection 2 Level 2; Sentinel-2 with Cloud Score+ |
 | Geology | Dar and Zeeden (2020), Figure 2, after Bhatt (1982) |
-| Reference labels | Google Maps satellite view, 2026 |
+| Reference labels | Google Maps and Google Earth Pro imagery, newest available when labelled (October 2026) and 2013–2014 historical imagery |
 
 ## Author
 

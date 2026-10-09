@@ -28,3 +28,6 @@ Title_Page.docx
 
 # working rasters written by the delineation scripts
 data/interim/
+
+# local backups made before the review fixes of 9 October 2026
+_backup_before_review_fixes_*/

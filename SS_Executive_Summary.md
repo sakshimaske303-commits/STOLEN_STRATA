@@ -9,6 +9,14 @@ Executive Summary · Revised 7 October 2026 · Sakshi D. Maske
 
 My first version said bare ground on Kashmir's karewa terraces had more than quadrupled since 1994, almost all of it after 2015. That jump sat exactly where the analysis switched from Landsat to Sentinel-2. When I ran the same polygons, the same rule and the same statistic on Landsat alone, the 2025 figure came out at 0.07%, not 8.43%. The rise came from mixing two differently built satellite products, not from the ground. So I rebuilt the study: a new terrace map checked against a published geological map, a time series that never compares one sensor with another, and an accuracy sample I labelled by hand. What survives is smaller, and I can defend all of it.
 
+## The questions
+
+1. How much karewa tableland that was vegetated in 2013–2015 was no longer vegetated in 2023–2025, and does it convert faster than comparable land?
+2. What did that land become, and how much of it now lies inside brick-kiln fields?
+3. Where and when did the change happen?
+
+**Method in one line:** terraces mapped from the Copernicus elevation model (slope, height above drainage, scarp share); every 30 m pixel's yearly peak NDVI followed in Landsat 8/9 alone; a strict and a looser change test; a stratified random sample of 120 points labelled by hand to say what the flagged land is now.
+
 ## What the study now shows
 
 | | |
@@ -16,29 +24,29 @@ My first version said bare ground on Kashmir's karewa terraces had more than qua
 | Study box | About 2,160 km² across Budgam, Pulwama and Srinagar districts |
 | Terraces mapped | 180 scarp-bounded karewa tablelands, 173.3 km² |
 | Earlier headline | 1.84% → 8.43%, +190.3 ha: **artefact of mixing two satellite products, withdrawn** |
-| Same rule and statistic, Landsat only | 2.02% (1994), 2.16% (2015), 0.07% (2025) |
+| Same rule and statistic, Landsat only | 2.02% (1994), 7.31% (2005, a year of too few cloud-free summer images), 2.16% (2015), 0.07% (2025) |
 | Vegetated in 2013–15, gone by 2023–25, on terraces | 107 ha by a strict test, 329 ha by a looser one |
 | Of that, inside brick-kiln fields | **about 141 ha (roughly 110–172 ha)** |
 | Of that, recognisable as kiln ground at close zoom | about 40 ha |
 | Flagged sample points that show vegetation in 2013–14 imagery | 72 of 85 (all 25 strict, 47 of 60 looser) |
 | Kiln-field land where the older image also shows vegetation | about 134 ha (roughly 103–164 ha) |
-| Net loss in the two kiln belts since the mid-1990s | roughly 335 ha, indicative only: the record before 2013 is thin |
-| Loss on the other 140 km² of terraces | None that this method can see |
+| Net loss in the two kiln belts since the mid-1990s | roughly 335 ha, indicative only: the record before 2013 is thin, and this series is being recomputed (see below) |
+| The other 140 km² of terraces | Some conversion after 2013, at the same rate as comparable flat land |
 
 ## Where and when
 
-**Rangeen Kultreh (Chadoora tehsil).** Green in every usable year from 1993 to 2016 (one anomalous year, 2001, aside). Then a kiln field opens: 21 ha bare in 2017, 66 ha in 2018, and today about a quarter of that terrace. Three satellites agree. A Pollution Control Committee report to the National Green Tribunal says one of the kilns there was commissioned in 2017 without consent and ordered closed in 2018, with 20 kilns within a kilometre. I got the 2017 date from the satellite record before I found that document.
+**Rangeen Kultreh (Chadoora tehsil).** Green in every usable year from 1993 to 2016 (one anomalous year, 2001, aside). Then a kiln field opens: 24 ha bare in 2017, 75 ha in 2018, and today about a quarter of those terraces. Landsat 7 and Landsat 8 agree on the change; Sentinel-2 agrees on the present state. A Pollution Control Committee report to the National Green Tribunal says one of the kilns there was commissioned in 2017 without consent and ordered closed in 2018, with 20 kilns within a kilometre. I got the 2017 date from the satellite record before I found that document.
 
-**Bandagam–Batapora tablelands.** Older and slower. Land that never greens up was about 100 ha in the mid-1990s, about 300 ha by 2008–2012 and 378 ha now. The rise is not steady, and the early part rests on few images. The Pollution Control Committee's list of October 2023 has registered kilns under most of the village names in this belt, without locations.
+**Bandagam–Batapora tablelands.** Older, and also the largest recent loss. Land that never greens up was about 100 ha in the mid-1990s, about 300 ha by 2008–2012 and 378 ha now; the early part rests on few images. Inside the reliable Landsat 8/9 record (2013–2025) the looser test finds 142 ha of loss here, more than at Rangeen Kultreh, spread over many patches. The Pollution Control Committee's list of October 2023 has registered kilns under most of the village names in this belt, without locations.
 
-**Everywhere else.** Of 180 terraces, 27 lost a hectare or more after 2013 by the looser test and only 8 by the strict one. Terraces convert several times faster than other flat, raised land in every version of the analysis I tried.
+**Everywhere else.** Of 180 terraces, 27 lost a hectare or more after 2013 by the looser test and only 8 by the strict one. Taken as a whole, terraces convert several times faster than other flat, raised land, but that difference comes entirely from the two belts: outside them, and compared polygon by polygon, terraces convert at the same rate as comparable land.
 
 ## How I checked it
 
-- **One sensor family at a time.** Landsat 8/9 for the main test, Landsat 7 on its own as a second opinion (it confirms 86% of the pixels), Sentinel-2 as a third.
-- **Terrace map against geology.** 80% of the mapped terrace area lies on Karewa formations on a published map.
+- **One sensor family at a time.** Landsat 8/9 for the main test, Landsat 7 on its own as a second opinion on the change (it confirms 86% of the pixels), Sentinel-2 (from 2019) on the present state.
+- **Terrace map against geology.** In the original (eastern) study box, 80% of the mapped terrace area lies on Karewa formations on a published map. The western strip, including the Bandagam–Batapora belt, has no geological map.
 - **My own choices.** Nine versions of the terrace rule and 51 versions of the change thresholds. The hectares move; the contrast and the locations do not.
-- **By eye.** 120 random points, labelled without knowing which group each came from. The vegetation is gone at 100% of strict detections and 82% of looser ones (two of the 60 looser points could not be told). Three quarters of strict detections lie inside a kiln field; about one quarter of the looser ones do, the rest being houses, roads and other bare ground. Most of these points were first labelled plain bare ground and counted as kiln only on a second look, one zoom level out. Counting only points labelled kiln ground at close zoom gives about 40 ha instead of 141.
+- **By eye.** 120 random points, labelled without knowing which group each came from, against the most recent imagery available in October 2026. The vegetation is gone at 100% of strict detections and 82% of looser ones (two of the 60 looser points could not be told). Three quarters of strict detections lie inside a kiln field; about one quarter of the looser ones do, the rest being houses, roads and other bare ground. Most of these points were first labelled plain bare ground and counted as kiln only on a second look, one zoom level out. Counting only points labelled kiln ground at close zoom gives about 40 ha instead of 141.
 - **Back in time, point by point.** I looked up the 85 flagged points in Google Earth imagery of 2013–2014. Vegetation is visible at 72 of them: all 25 strict points and 47 of the 60 looser ones. Twelve looser points were not green in that image (three were already kiln ground, three were buildings or hard ground, three were bare ground beside sheds, three were bare soil plots) and one could not be told. Two of the twelve are points I count as kiln field today, so the kiln figure restricted to land the older image shows as vegetated is about 134 ha instead of 141.
 
 ## What I could not show
@@ -48,6 +56,11 @@ My first version said bare ground on Kashmir's karewa terraces had more than qua
 - **The whole karewa.** I map scarp-bounded tablelands, about a quarter of the Karewa formation area on the geological map. The terrace map itself has no accuracy figure yet.
 - **A blind check of the past.** The older-imagery check looked only at points already flagged, mostly on one image of September 2014, and "vegetated" there includes rough grass and scattered trees. One image shows one day; the test uses the peak of the year.
 - **Roads, settlements and the 25 "degraded terraces".** Those analyses depended on the withdrawn layer and are dropped.
+
+## Still in progress
+
+- A second random sample of 120 points is being labelled and will be pooled with the first; the kiln figures above will be updated then.
+- The long 1993–2025 series applied the Landsat 8/9 adjustment in the reverse direction and will be recomputed. The 2013–2025 results do not use that adjustment.
 
 ## Why it matters
 

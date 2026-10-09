@@ -8,7 +8,7 @@ n = numbers()
 st.markdown(
     f"""
     <div style="text-align:center; padding: 1.2rem 0 0.4rem 0;">
-        <div class="ss-badge" style="font-size:0.85rem;">GEOMORPHOLOGY · LANDSAT TIME SERIES · ACCURACY ASSESSMENT</div>
+        <div class="ss-badge" style="font-size:0.85rem;">TERRAIN ANALYSIS · LANDSAT TIME SERIES · ACCURACY ASSESSMENT</div>
         <div class="ss-hero-title">STOLEN STRATA</div>
         <p style="color:{GOLD} !important; font-family:'Montserrat',sans-serif; font-weight:700; font-size:1.15rem; margin-top:0.2rem;">
             Brick kilns and the loss of karewa tableland in Budgam, Kashmir, 1993–2025<br>with a correction to an earlier estimate
@@ -34,7 +34,7 @@ stats([("Terraces mapped", f"{n['terraces']}", f"{n['terrace_km2']:.1f} km² of 
 st.markdown("<div style='height:0.8rem'></div>", unsafe_allow_html=True)
 caption("Landsat 8/9 only, 30 m pixels, 2013–2015 compared with 2023–2025. The kiln figure comes from a hand-labelled sample of 120 points; "
         f"counting only points labelled kiln ground at close zoom it is about {n['kiln_first_ha']:.0f} ha, and counting only points that imagery "
-        f"of 2013–2014 also shows as vegetated it is about {n['kiln_before_ha']:.0f} ha.")
+        f"of 2013–2014 also shows as vegetated it is about {n['kiln_before_ha']:.0f} ha. A second sample of 120 points is being labelled and will be pooled with the first.")
 
 st.markdown("<br>", unsafe_allow_html=True)
 
@@ -42,8 +42,10 @@ card(
     "The question",
     """
     <p>Karewas are the flat-topped, scarp-bounded tablelands left by the old lake and river deposits of the Kashmir Valley.
-    Reporting from Kashmir has said for years that they are being dug away for brick clay and fill. I did not find a study that
-    measures how much, where and when from satellite data. This project tries to, and reports only what one family of sensors can show.</p>
+    Reporting from Kashmir has said for years that they are being dug away for brick clay and fill. Using one family of sensors at a time, this project asks:</p>
+    <ol><li>How much tableland that was vegetated in 2013–2015 was no longer vegetated in 2023–2025, and does it convert faster than comparable land?</li>
+    <li>What did that land become, and how much of it now lies inside brick-kiln fields?</li>
+    <li>Where and when did the change happen?</li></ol>
     """,
     badge="Research question",
 )
@@ -51,10 +53,12 @@ card(
     "What the study shows",
     f"""
     <p><b>Conversion is rare and concentrated.</b> Across {n['terrace_km2']:.0f} km² of mapped tableland, {n['strict_ha']:.0f} ha went from clearly
-    vegetated to bare between 2013–2015 and 2023–2025 by a strict test, and {n['drop_ha']:.0f} ha by a looser one. Terraces convert several
-    times faster than other flat, raised land in every variant tried.</p>
+    vegetated to bare between 2013–2015 and 2023–2025 by a strict test, and {n['drop_ha']:.0f} ha by a looser one. Taken as a whole, terraces convert
+    several times faster than other flat, raised land, but only because of two belts: outside them, and compared polygon by polygon,
+    terraces convert at the same rate as comparable land.</p>
     <p><b>It sits in two brick-kiln belts in Budgam.</b> At Rangeen Kultreh a kiln field opens in 2017–2018 on land that was green in the
-    satellite record until 2016. On the Bandagam–Batapora tablelands the low-vegetation land is larger and older.</p>
+    satellite record until 2016. On the Bandagam–Batapora tablelands low-vegetation land is older, and the looser test finds the largest
+    post-2013 loss there.</p>
     <p><b>About {n['kiln_ha']:.0f} ha of the flagged land lies inside brick-kiln fields today</b> ({n['kiln_lo']:.0f}–{n['kiln_hi']:.0f} ha),
     of which about {n['kiln_first_ha']:.0f} ha was recognisable as kiln ground at close zoom.</p>
     """,

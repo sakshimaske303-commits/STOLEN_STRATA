@@ -22,18 +22,24 @@ ax.set_xticks(list(x)); ax.set_xticklabels(v.year.astype(str)); ax.set_ylabel("B
 ax.set_ylim(0, 9.8); ax.legend(frameon=False, fontsize=8.5, loc="upper left"); ax.grid(axis="y", alpha=.25)
 plt.tight_layout(); plt.savefig(OUT + "Figure_2_earlier_estimate_vs_landsat_only.png", dpi=300); plt.close()
 
-# Figure 4: terrace land that never greens up, by site and period
+# Figure 4: terrace land that never greens up, by site and period, on a true time axis
 s = pd.read_csv("v2_redesign/west_extension/long_series_low_ndvi_stock.csv")
 order = ["1993-1998", "1999-2002", "2003-2007", "2008-2012", "2013-2015", "2018-2020", "2023-2025"]
+YEARS = {"1993-1998": (1993, 1994, 1998), "1999-2002": (1999, 2000, 2002), "2003-2007": (2003, 2005, 2007), "2008-2012": (2008, 2010, 2012),
+         "2013-2015": (2013, 2014, 2015), "2018-2020": (2018, 2019, 2020), "2023-2025": (2023, 2024, 2025)}   # as in 08_long_series_wide.py
+mid = [sum(YEARS[k]) / 3 for k in order]
 sites = [("Bandagam-Batapora terraces", "Bandagam–Batapora terraces", "#b2182b", "o"),
          ("Rangeen Kultreh terraces", "Rangeen Kultreh terraces", "#ef8a62", "s"),
          ("other terraces", "All other terraces", "#4d4d4d", "^"), ("other flat land", "Other flat, raised land", "#999999", "D")]
 fig, ax = plt.subplots(figsize=(7.4, 4.0))
+ax.axvspan(2012.5, 2026, color="#f0f0f0", zorder=0)
+ax.axvline(2013, color="#777777", lw=0.8, ls="--", zorder=1)
+ax.text(2013.3, 0.97, "Landsat 8 from 2013:\npeak NDVI steps up", transform=ax.get_xaxis_transform(), va="top", fontsize=7.5, color="#555555")
 for key, lab, col, mk in sites:
     d = s[s.site == key].set_index("period").loc[order]
-    ax.plot(order, d.below_035_pct, marker=mk, color=col, lw=1.6, ms=5, label=lab)
-    ax.annotate(f"{d.below_035_pct.iloc[-1]:.1f}%", (len(order) - 1, d.below_035_pct.iloc[-1]), xytext=(6, 3 if key == "other flat land" else -8 if key == "other terraces" else -3), textcoords="offset points", fontsize=8.5, color=col)
-ax.set_ylabel("Land with yearly peak NDVI < 0.35 (%)"); ax.set_xlabel("Period (median of three usable years)"); ax.tick_params(axis="x", labelsize=8.5)
-ax.set_xlim(-0.3, len(order) - 0.3); ax.legend(frameon=False, fontsize=8.5, loc="upper left"); ax.grid(axis="y", alpha=.25)
+    ax.plot(mid, d.below_035_pct, marker=mk, color=col, lw=1.6, ms=5, label=lab, zorder=3)
+    ax.annotate(f"{d.below_035_pct.iloc[-1]:.1f}%", (mid[-1], d.below_035_pct.iloc[-1]), xytext=(6, 3 if key == "other flat land" else -8 if key == "other terraces" else -3), textcoords="offset points", fontsize=8.5, color=col)
+ax.set_ylabel("Land with yearly peak NDVI < 0.35 (%)"); ax.set_xlabel("Year (each point: median of three usable years, plotted at their mean)")
+ax.set_xlim(1991.5, 2027.5); ax.legend(frameon=False, fontsize=8.5, loc="upper left"); ax.grid(axis="y", alpha=.25)
 plt.tight_layout(); plt.savefig(OUT + "Figure_4_low_ndvi_share_by_site.png", dpi=300); plt.close()
 print("ok")

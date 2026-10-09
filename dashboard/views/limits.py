@@ -35,8 +35,8 @@ card(
     "The whole karewa",
     """
     <p>The terrace map captures scarp-bounded tablelands: about a quarter of the Karewa formation area on the geological map of the original box.
-    Karewa ground outside the terraces converts at the same rate as ordinary valley floor in that box (0.19% against 0.19%), so the omission does not
-    hide a second area of loss there, but the unit of study is not the Karewa Group as a whole. The elevation model dates from 2011–2015: tableland
+    As far west as the geological map reaches (about 74.66° E), karewa ground outside the terraces converts no faster than ordinary valley floor
+    by either test (strict 0.14% against 0.19%; drop 0.95% against 1.75%), so the omission does not hide a second area of loss there, but the unit of study is not the Karewa Group as a whole. The elevation model dates from 2011–2015: tableland
     removed before then may no longer register as a flat top at all.</p>
     """,
     badge="Scope",
@@ -56,6 +56,10 @@ st.markdown(
 - **Documents were not all read in the original.** The tribunal filing for Rangeen Kultreh and the district list of kilns were read in full. The press reports and the April 2023 district report were checked against extracts and summaries. For the Bandagam–Batapora belt the only document is a list of registered kilns by village, without locations or dates of establishment.
 - **One contradiction is unresolved.** A press report dates the Rangeen Kultreh kilns to 2003–2012; the satellite record shows that block vegetated until 2016.
 - **The 8.43% artefact is shown, not fully explained.** Which step of the earlier Sentinel-2 processing produced it has not been isolated.
+- **Reference imagery is not dated point by point.** The present-day labels use the newest image Google showed in October 2026; its date varies by place (2022–2026 in the second sample).
+- **A second sample is being labelled.** 120 more points from the same strata; the kiln figures will be revised when the two are pooled.
+- **The long series needs re-running.** The Landsat 8/9 adjustment was applied in the reverse direction; only the 1993–2025 view is affected.
+- **Landsat 9 adds scenes from 2022**, so the late window rests on more observations than the early one. This works against detecting loss; a Landsat 8-only run has not been made.
 - **No fieldwork** was done at either kiln belt.
 """
 )

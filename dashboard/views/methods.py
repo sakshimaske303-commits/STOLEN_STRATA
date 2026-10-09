@@ -17,7 +17,7 @@ frame(pd.DataFrame([
     ("Third instrument", "Sentinel-2, Cloud Score+ masked, 2019–2025", "Confirms the 2023–2025 state"),
     ("Geology", "Dar and Zeeden (2020), Figure 2, georeferenced", "Check of the terrace map, original box"),
     ("Elevation change", "SRTM (2000), ALOS World 3D (2006–2011), GEDI (2019–2025)", "Depth test, which failed"),
-    ("Reference labels", "Google Maps satellite view, 2026", "120-point accuracy sample"),
+    ("Reference labels", "Google Maps / Google Earth Pro: newest imagery when labelled (Oct 2026) and 2013–2014 historical imagery", "120-point accuracy sample and its before-check"),
 ], columns=["Role", "Source", "Used for"]))
 caption("Study box: 74.55°–75.15° E, 33.80°–34.15° N, about 2,160 km². All satellite composites were exported from Google Earth Engine at 30 m and analysed locally in Python.")
 
@@ -42,6 +42,7 @@ st.markdown(
 | 6 | Sample drawn, labelled blind to stratum, area estimates | `west_extension/04_accuracy_sample.py`, `05_accuracy_result.py`, `09_accuracy_by_labelling_pass.py` |
 | 7 | Sensitivity to terrace cut-offs and to test thresholds | `west_extension/06_…`, `07_…`, `phase2_timeseries/03_…` |
 | 8 | Long series by site and period | `west_extension/08_long_series_wide.py` |
+| 8a | Terraces against other flat land, polygon by polygon; omitted karewa with both tests | `west_extension/13_polygon_level_comparison.py`, `14_omitted_karewa_both_tests.py` |
 | 9 | The earlier rule rerun on Landsat only | `phase2_timeseries/02_…`, `05_v1_rule_matched_statistic.py` |
 | 10 | Elevation test | `phase4_elevation/01_elevation_gate_test.py` |
 """
@@ -57,5 +58,5 @@ run from the repository root and write the tables this dashboard reads. This das
 """
 )
 
-note("<b>Status, October 2026.</b> The analysis and the paper are revised. The flagged sample points have been checked against imagery of 2013–2014 and the two official documents read in full. Still open: a second labeller for the sample, "
-     "an accuracy figure for the terrace map, and replacing the September preprint, which still carries the withdrawn numbers.", "caution")
+note("<b>Status, October 2026.</b> The analysis and the paper are revised. The flagged sample points have been checked against imagery of 2013–2014 and the two official documents read in full. Still open: completing and pooling a second 120-point sample, a second labeller, "
+     "an accuracy figure for the terrace map, recomputing the long series with the corrected Landsat 8/9 adjustment, and replacing the September preprint, which still carries the withdrawn numbers.", "caution")

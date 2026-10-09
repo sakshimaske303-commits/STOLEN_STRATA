@@ -1,3 +1,6 @@
+> **Note.** The table below was made when the scarp classes were ≥ 0.45 / 0.20–0.45 / < 0.20. The final rule keeps every flat top with a
+> scarp share of 0.25 or more. The 80% figure refers to this original-box layer (57 terraces), not to the 180 wide-box terraces.
+
 # v2 Phase 1 — flat-top karewa delineation (status: 2 Oct 2026)
 
 **Why:** the v1 rule (TPI > 3 m & slope < 8°) delineated terrace rims and spurs, not the flat karewa tops.

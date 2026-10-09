@@ -1,3 +1,7 @@
+> **Read this first (9 October 2026).** This file is a running record. Its early sections carry first-pass numbers and
+> statements that were later revised (for example "the extension adds little" and "no documents name these villages").
+> The final figures are in `SS_Research_Paper.md`. Additions of 9 October are at the end of this file.
+
 # Extended box (74.55–75.15 E, 33.80–34.15 N) — first pass, 2 Oct 2026
 
 Same rules as the original box, nothing re-tuned. `01_flat_top_delineation_wide.py` → 274 flat tops; scarp share ≥ 0.25 and
@@ -85,7 +89,7 @@ The accuracy labels apply only to the setting actually sampled (0.45 / 0.40 / 0.
 Drop test 1993–98 → 2023–25, net of reverse: Rangeen Kultreh +92 ha, Bandagam–Batapora +243 ha, all other terraces −336 ha.
 So the two kiln belts lost roughly 335 ha of vegetated terrace land over three decades while the rest of the terraces, if
 anything, got greener. Bandagam–Batapora grew in two steps (to 2008–12, and again after 2018–20); Rangeen Kultreh is entirely after 2015.
-Caution: yearly-peak NDVI is higher from 2013 on everywhere (terrace median 0.57 → 0.67), partly because Landsat 8 added
+Caution: yearly-peak NDVI is higher from 2013 on everywhere (terrace median 0.58 → 0.67), partly because Landsat 8 added
 observations. That pushes the long comparison toward "greener", so the two belts' losses are if anything understated and the
 greening elsewhere overstated. 1999–2002 is noisy (few scenes) and is not used for conclusions.
 
@@ -119,3 +123,25 @@ sheds and structures (8, 39, 69); bare soil plots (20, 78, 106). Unclear: 90. Al
 yearly peak in 2013-2015 was 0.45 or more, so picture and record disagree there: mixed 30 m pixels, or one image date against a
 yearly peak. Kiln estimate restricted to points vegetated in the older image: 134 ha, against 141 ha from the satellite test alone.
 `accuracy_before_pass.html` was the labelling page prepared for this pass; the record that counts is the csv.
+
+## Polygon-level comparison and omitted karewa with both tests (13_, 14_), 9 October 2026
+
+**Polygon by polygon (13_polygon_level_comparison.py).** 180 terraces against 94 other flat tops (each at least 0.05 km² inside the raster).
+Share losing ≥ 1 ha by the drop test: terraces 15.0%, other flat tops 18.1%; by the strict test 4.4% and 2.1%. The converted share of a
+polygon is not higher on terraces (one-sided Mann–Whitney p = 0.68 drop, 0.61 strict). Outside the two site boxes (145 terraces, 88 other):
+≥ 1 ha by the drop test 6.9% vs 18.2%; p = 0.99 and 0.94. Pixel rates outside the boxes: terraces 0.045% strict / 0.52% drop, other flat land
+0.071% / 0.57%. So the stratum contrast in Table 1 comes from a few terraces in the two belts, not from terraces as a class.
+
+**Omitted karewa, wide box, both tests (14_omitted_karewa_both_tests.py).** Geology map reaches west to about 74.66 E; valley part below 2,000 m.
+Share of initially vegetated land converted, strict / drop: Karewa formation inside terraces 0.95% / 2.03%; Karewa formation outside terraces
+0.14% / 0.95%; alluvium outside terraces 0.19% / 1.75%. With both belts removed, Karewa formation inside terraces 0.05% / 0.53%.
+The karewa ground the terrace rule leaves out converts no faster than valley floor by either test.
+
+Both scripts were run on 9 October 2026 and write `polygon_level_summary.csv` and `omitted_karewa_both_tests.csv`. The figures above
+and in the paper are those of that run.
+
+**Bandagam–Batapora in the Landsat 8/9 era.** Drop test 2013–15 → 2023–25 on terraces inside the site box: 142 ha (119 ha net of reverse),
+against 114 ha at Rangeen Kultreh; strict test 15 ha against 86 ha. The belt is older *and* holds the largest post-2013 loss by the drop test.
+
+**Known issue.** The Landsat 8/9 adjustment in `gee_04_extended_box.js` uses Roy et al.'s ETM+ → OLI coefficients on OLI data (reverse
+direction). Only the long series (08) is affected. Re-export with the OLI → ETM+ coefficients and rerun 08 and `make_figures.py`.

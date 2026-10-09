@@ -46,7 +46,7 @@ for col, key, title, colr in ((c1, "Strict (% of area)", "Strict test", ORANGE),
 frame(t1)
 caption(f"By the strict test terraces convert about {a.veg_to_bare_pct['terraces'] / a.veg_to_bare_pct['other_flat']:.0f} times faster than other flat, raised land, "
         f"and by the drop test about {(d.drop_ha['terraces'] / km2['terraces']) / (d.drop_ha['other_flat'] / km2['other_flat']):.0f} times faster. "
-        "These rates divide by the whole area of each kind of land, not by the part that was vegetated in 2013–2015. Off the terraces the drop test picks up a great deal of change in both directions, which is what fields, building and road works produce; those rows are not interpreted further.")
+        "These rates divide by the whole area of each kind of land, not by the part that was vegetated in 2013–2015. The difference comes entirely from the two kiln belts: outside them terraces convert at 0.045% (strict) and 0.52% (drop), against 0.071% and 0.57% on other flat land, and polygon by polygon terraces are no more likely to convert. Off the terraces the drop test picks up a great deal of change in both directions, which is what fields, building and road works produce; those rows are not interpreted further.")
 
 st.markdown("---")
 st.markdown("### It is concentrated")
@@ -74,7 +74,7 @@ with c1:
     fig.add_hline(y=1, line=dict(color=GREY, dash="dot"), annotation_text="same rate as other flat land", annotation_font_color=GREY)
     fig.update_layout(showlegend=False, xaxis_title="Net conversion on terraces (ha)", yaxis_title="Terraces ÷ other flat land", yaxis_range=[0, sens_d.ratio_vs_other_flat.max() * 1.15])
     show(style_fig(fig, 360, legend_top=False))
-    caption(f"Net of reverse change, {sens_d.terraces_net_ha.min():.0f} to {sens_d.terraces_net_ha.max():.0f} ha; terraces convert {sens_d.ratio_vs_other_flat.min():.1f} to {sens_d.ratio_vs_other_flat.max():.1f} times faster than other flat land in every variant.")
+    caption(f"Net of reverse change, {sens_d.terraces_net_ha.min():.0f} to {sens_d.terraces_net_ha.max():.0f} ha; terraces convert {sens_d.ratio_vs_other_flat.min():.1f} to {sens_d.ratio_vs_other_flat.max():.1f} times faster than other flat land in every variant, a ratio driven in every variant by the same two belts.")
 with c2:
     st.markdown("#### Strict test: 24 variants (original box)")
     fig = go.Figure(go.Scatter(x=sens_s.terraces_ha, y=sens_s.share_on_terraces_5_and_3 * 100, mode="markers", marker=dict(size=11, color=ORANGE, line=dict(color="#0A0E1A", width=2)),
@@ -85,6 +85,6 @@ with c2:
     caption(f"{sens_s.terraces_ha.min():.0f} to {sens_s.terraces_ha.max():.0f} ha; in every variant {sens_s.share_on_terraces_5_and_3.min() * 100:.0f}% to {sens_s.share_on_terraces_5_and_3.max() * 100:.0f}% of it is on the Rangeen Kultreh terraces.")
 
 note("<b>Do the instruments agree?</b> For the window Landsat 7 can cover (2013–2015 to 2019–2021), Landsat 7 alone gives 70.8 ha by the strict test on terraces and Landsat 8 gives 68.6 ha; "
-     "Landsat 7 confirms 86% of the Landsat 8 drop-test pixels. Sentinel-2 puts 97% of the strict-test terrace pixels below 0.25 in each of 2023, 2024 and 2025.", "note")
+     "Landsat 7 confirms 86% of the Landsat 8 drop-test pixels. Sentinel-2, which starts in 2019 and so confirms the present state rather than the change, puts 97% of the strict-test terrace pixels below 0.25 in each of 2023, 2024 and 2025.", "note")
 note("<b>What the tests cannot tell apart.</b> They detect loss of vegetation from any cause. Off the terraces the largest clusters are a hospital campus under construction at Awantipora, "
      "open water replacing floating vegetation in Dal Lake, road works and shifts of the Jhelum channel. That is why the kiln figure comes from the labelled sample and not from the tests alone.", "caution")

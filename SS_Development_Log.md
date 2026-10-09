@@ -1,5 +1,11 @@
 # Stolen Strata Development Log
 
+> **How to read this log.** It is a working diary, written as the work happened. Entries 1–15 describe the first version of the
+> project (saffron, roads, settlements, "25 degraded terraces", 1.84% → 8.43%). Those results were withdrawn in October 2026: they came
+> from comparing two differently built satellite products (Entry 18). Entries 16 onward describe the rebuild. The research questions
+> in Entry 1 (RQ1–RQ4) were replaced by the three questions in Section 1 of `SS_Research_Paper.md`. For the current findings read the
+> paper or the executive summary, not this log.
+
 Am studying Karewas in Kashmir. These are high, flat topped mud plateaus from a very old dried up lake, nd this special soil is the exact thing saffron plants need to grow properly. For many years, people have been illegally digging up this mud and building random houses on top of them (but nobody evr calculated the destruction with proper numbers before this). So, I built a fully automated code pipeline from scratch, using DEM elevation data all the way to a final web dashboard, to trace out every single plateau border using math, track how they became plain empty mud over a 31-year satellite timeline, nd link this physical destruction to the saffron economy sitting next to it (as value at risk, not realised loss), the new roads tht help trucks carry mud away easily, nd the total lack of strict government rules.
 
 My log covers everything. I built a terrain analysis code using TPI nd slope cutoffs to replace lazy hand drawn maps, nd I also wrote down my bad starts with the multi year NDVI code which I had to fix before the main destruction statistics made any sense. (Plus, I added notes from my multiple revision rounds where I pushed my math checks and limitations way further than my easy 1st draft did).
@@ -35,6 +41,8 @@ My log covers everything. I built a terrain analysis code using TPI nd slope cut
 25. [Entry 25](#entry-25)
 26. [Entry 26](#entry-26)
 27. [Entry 27](#entry-27)
+28. [Entry 28](#entry-28)
+29. [Entry 29](#entry-29)
 
 ---
 
@@ -80,6 +88,8 @@ So, my 2nd big milestone is done. I have saved all 201 filtered terrace shapes i
 
 ## Entry 3
 
+> [Withdrawn in v2. The result described in this entry depended on the withdrawn first-version layer; see the note at the top and Entry 18.]
+
 I started my nxt task. I wanted to see exactly how much the land got ruined inside my 201 approved Karewa boundaries by checking plant greenness between an old 1994 baseline n our current 2025 period, using satellite NDVI scores to separate green farms from brown mud mining pits nd new concrete structures. Fetched my satellite pictures using Earth Engine code. Specifically, I grabbed a bunch of old Landsat 5 images from 1993 to 1996 to map the past, pulled sharp Sentinel-2 pictures from 2024 to 2025 for the modern layer, calculated the NDVI greenness formula for both maps, nd ran zonal stats inside all 201 hill shapes to see the difference over time.
 
 The 1st code output was totally backwards (nd tht caught me completely off guard). My data showed tht the average NDVI score went up over these thirty years. Ugh. This made no sense at all because open cast mud mining is supposed to kill the green fields, so instead of blindly trusting this weird upward graph, I immediately stopped everything n treated it as a huge methodology error that I had to investigate nd fix right away.
@@ -94,6 +104,8 @@ So my 3rd milestone is officially checked. I saved this new dataset directly at 
 
 ## Entry 4
 
+> [Withdrawn in v2. The result described in this entry depended on the withdrawn first-version layer; see the note at the top and Entry 18.]
+
 So I needed a visual check. Had to see if the 25 hills tagged as ruined by my code script were true, on-the-ground mud pits or jst some stupid error from my math code pipeline. So I opened QGIS n loaded the file `data/processed/karewa_bare_earth_change.gpkg` right over a live Google satellite base map, changed the styling colors based on the status column to show ruined versus safe areas clearly, nd scrolled around with my mouse to check the locations by eye.
 
 The ruined spots were not random. They all clustered together nicely. Found the biggest group of broken hills right near Pari Gam Khalsa n Newa Pulwama, sitting perfectly on top of a massive, tan colored bare patch of ground on the satellite image which looks exactly like a working mining quarry or giant dirt pit compared to the green farms next to it. (Then I saw another smaller ruined shape sitting right nxt to the map marker for "Saffron Fields, Lethpora," which perfectly links this land theft to the main saffron capital area that my paper talks abt!). Also spotted a couple of lonely ruined hills sitting far away near the Srinagar airport n around Wuyan, but they were jst single broken spots instead of a big group.
@@ -104,6 +116,8 @@ Later, I ran a sensitivity test using different distance buffers to be double su
 
 ## Entry 5
 
+> [Withdrawn in v2. The result described in this entry depended on the withdrawn first-version layer; see the note at the top and Entry 18.]
+
 I changed my target goal. Needed to spot the saffron growing hills using their weird upside down lifecycle (they sleep in hot summers n grow green leaves only after winter flower season) so I can measure how close they sit to the already ruined mining hills. 
 
 But my 1st try broke down completely. So I calculated a new saffron index by subtracting summer NDVI from autumn NDVI, using an October to November green timeline, but my script threw out completely negative numbers across all 201 hill shapes. (This was a huge shock because it was the exact opposite of what the biology books say!). So I tracked this error down to crop timing. See, October n November is jst the flower picking time with almost zero green leaves on the ground, while the thick leaf canopy only grows out much later after the flowers drop during winter. Fixed this code blunder by shifting my green comparison timeline all the way to March because tht is when the post flowering plant leaves grow thick right after the winter snow melts away.
@@ -113,6 +127,8 @@ The new calculations worked. With the fixed March window running, I found tht ex
 So I found my main point. The overlay shows tht no saffron terrace touches a degraded terrace yet. Still, a huge portion of these premium farms sit dangerously close to expanding bare dirt pits. In short, my project is showing an encroachment risk. It is not a direct loss story. This is a much safer claim to defend than a fake overlap number.
 
 ## Entry 6
+
+> [Withdrawn in v2. The result described in this entry depended on the withdrawn first-version layer; see the note at the top and Entry 18.]
 
 I needed a quick reality check. Had to test if my 14 saffron hill shapes made any sense, so I compared their total size against an official, separate report on how much saffron land exists in Pampore. 
 
@@ -136,6 +152,8 @@ This is my main project result. Between 1994 n 2025, exactly 190.3 hectares of p
 
 ## Entry 8
 
+> [Withdrawn in v2. The result described in this entry depended on the withdrawn first-version layer; see the note at the top and Entry 18.]
+
 So I needed a better timeline. My old two point check from 1994 straight to 2025 was way too simple, so I chose to insert two middle checkpoints (2005 and 2015) to see if this Karewa land destruction is a slow, steady change over thirty years or if it jst boomed during one single bad decade. (This matches my main goal of using the absolute longest data chain instead of a quick shortcut).
 
 So I jumped back into Google Earth Engine. I downloaded season matched imagery from the May to October window for both 2005 using Landsat 5 n 2015 using Landsat 8, ran the exact same bare earth percentage logic I built for my 1994 n 2025 steps, n calculated the final average empty dirt share across all 201 hill shapes for every single one of these four selected years.
@@ -148,6 +166,8 @@ This fixes my old limitation. So I cleared up the two point date problem nd foun
 
 ## Entry 9
 
+> [Withdrawn in v2. The result described in this entry depended on the withdrawn first-version layer; see the note at the top and Entry 18.]
+
 So I ran a proper math test. Had to prove my 2nd research question properly, to see if the ruined mud hills sit systematically closer to roads than the untouched safe hills instead of jst looking at the map image n guessing like a layman. 
 
 So I pulled the road files. Used the `osmnx` Python package to download the full drivable road network map for this Kashmir zone (which gave me exactly 44,622 road line pieces), wrote a loop to measure the shortest distance from all 201 hill shapes to the closest road edge, nd compared the spacing lists between broken and intact hills using a one sided Mann Whitney U test because standard t tests break down on this type of non normal data tht has tons of zeros.
@@ -159,6 +179,8 @@ My 2nd research question is now answered with solid math support. I found tht la
 My final output file `data/processed/karewa_road_proximity.gpkg` now holds this whole updated data table with all the distance metrics saved inside. Now, I am officially done with the heavy data analysis part n can move straight into my final deliverables phase where I build the visual charts, export the GIS maps, style the interactive web dashboard, n draft the final research paper paragraphs.
 
 ## Entry 10
+
+> [Withdrawn in v2. The result described in this entry depended on the withdrawn first-version layer; see the note at the top and Entry 18.]
 
 I ran a massive quality double check. So I chose to review every single script file n web dashboard page inside my Stolen Strata folder to calculate every headline statistic again from scratch using the raw data files.
 
@@ -177,6 +199,8 @@ The results gave me a cool new shape proof. My calculations show tht the ruined 
 I finished my full Stolen Strata double check. I found exactly one bad reproducibility bug inside my scripts nd fixed it immediately (it was jst a wrong setting mismatch between my code n my final map results, so every single headline number I previously wrote down inside my paper was always 100% correct). No other calculation or statistical mismatch turned up in this specific audit round, though this covers only wht I re ran here, not every possible corner of the project. (Plus, I successfully completed tht extra shape analysis on geomorphometrics tht was hanging left undone before nd pasted it straight into my final website code folders).
 
 ## Entry 11
+
+> [Withdrawn in v2. The result described in this entry depended on the withdrawn first-version layer; see the note at the top and Entry 18.]
 
 So I pushed my work through four separate check rounds. I set up each round using a totally different reviewer lens (like checking the heavy math rules, the methodology logic, the file names, n matching it with my other portfolio code), acting exactly like a strict Erasmus Mundus GEM or CDE university panel member would cross question me. Funnily enough, all four rounds pointed directly at the exact same set of problems, which gave me a very clear hint abt where my true weak spots were hiding instead of throwing four totally random lists at me. (So inside this entry, I am writing down wht I fixed, wht I deeply investigated nd found to be completely correct already, n wht things I chose to skip and leave for future work with a proper logical reason). This is the exact same high review standard I am keeping for all my other project diaries across this portfolio.
 
@@ -208,6 +232,8 @@ So I finished all four rounds, ran code calculations to fix every single serious
 
 ## Entry 12
 
+> [Withdrawn in v2. The result described in this entry depended on the withdrawn first-version layer; see the note at the top and Entry 18.]
+
 Changed my mind about three items. So I previously listed them as things to do later in my future work section, but they were way too important to leave hanging on a sleepy checklist forever, so I sat down n did a full fresh pass to handle them right away. (These three tasks were a 2nd infrastructure proximity test, a better way to explain my saffron loss numbers to government officers, nd an accuracy check). 
 
 Inside this specific diary entry, I am covering town settlement distance, the cash valuation losses, n the current legal status of Karewa hills under local laws. My ground truth accuracy table is tracked in a completely separate file because it still needs me to finish clicking n marking a manual reference sample by hand.
@@ -229,6 +255,8 @@ I generated a brand new test dataset during this pass. So I coded a script to se
 So my coding work is fully complete now. Two new automated scripts named `14b_settlement_proximity.py` and `15_economic_valuation.py` are now added to my pipeline, matching my script-1st numbering system perfectly. So I also updated my older file `12_robustness_and_effect_sizes.py` in its place so it now runs across four statistical tests instead of three because house distance is a core part of my study design now. I went back n edited `SS_Research_Paper.md`, my main `README.md` file, nd all my web dashboard sections so this bigger scope matches everywhere.
 
 ## Entry 13
+
+> [Withdrawn in v2. The result described in this entry depended on the withdrawn first-version layer; see the note at the top and Entry 18.]
 
 So I completely rebuilt my interactive map layouts. So I wanted every single layer in this project, including the two extra datasets I coded in my last diary entry, to hve both a static picture format and a live web map format, plus I needed a fresh static map for house distance to match the new interactive webpage version.
 
@@ -394,7 +422,7 @@ It took two passes, nd the 1st one taught me something about my own labelling. I
 
 Result. Strict test, 25 points: all 25 are not vegetated today. 19 kiln, 4 other bare, 2 road. Drop only, 60 points: 51 not vegetated, 9 still green. Of the 51, 16 kiln, 17 buildings or roads, 16 other bare, 2 unclear. Not flagged, 35 points: 22 green, 1 kiln, the rest bare or built.
 
-So both tests are right tht the green is gone (100% nd 85%). Where they differ is wht it became. The strict test is mostly kilns, three out of four. The loose test is a mix, only about one in four is a kiln, as much again is houses nd roads.
+So both tests are right tht the green is gone (100% nd 85%). [Note, 9 Oct 2026: the 85% counts the two unclear drop-only points as not vegetated. Counting only clear labels it is 49 of 60, 82%, which is the figure in the paper.] Where they differ is wht it became. The strict test is mostly kilns, three out of four. The loose test is a mix, only about one in four is a kiln, as much again is houses nd roads.
 
 Putting it together: of the land my tests flag on terraces, about 141 hectares is kiln ground, somewhere between 110 nd 172. Tht is the number I can stand behind now. It is higher than the 107 floor nd much lower than the 329 gross, which is about wht I should hve expected.
 
@@ -444,4 +472,29 @@ Wht this does to my number. Two of those twelve (27 nd 30) are points I counted 
 
 Wht I should not oversell. "Vegetated" here is a low bar. At Rangeen Kultreh the before picture is scattered trees nd bushes on dry ground, not thick green. Nd one picture is one day, while my test uses the greenest time of the year, so a point bare in one image is not proof the satellite was wrong, nd a green one is not proof it was right for the whole year. The strict test comes out of this very well, 25 out of 25 both ways. The loose test is confirmed as loose: about one in five of its points was not clearly green to begin with.
 
-Files: `accuracy_before_pass.csv` (label, image date nd wht is seen at each point) nd `10_before_check_result.py` in `v2_redesign/west_extension`. Paper section 4.5 has a new Table 4. Still open from the old list: read every cited source in the original, nd a 2nd labeller.
+Files: `accuracy_before_pass.csv` (label, image date nd wht is seen at each point) nd `10_before_check_result.py` in `v2_redesign/west_extension`. Paper section 4.5 has a new Table 4. Still open from the old list: read every cited source in the original, nd a 2nd labeller. [Update: the two official filings were read in full on 7 October, Entry 28.]
+
+## Entry 28
+
+7 October 2026. Sources, a check on the removed flat tops, and a second sample.
+
+I read the two official documents in full: the Pollution Control Committee report in the tribunal case of the Koka kiln at Rangeen (OA 364/2024) and the Committee's status report with the district list of kilns (OA 594/2022, 4 October 2023). The 2017 commissioning without consent, the closure order of 10 September 2018 and the 20 kilns within one kilometre are as I had them. The district list has six entries for Kultreh, three of them not yet built, so it does not support two dozen older kilns under that village's name. It does list kilns under most of the Bandagam–Batapora village names (Chandpora, Bonhama, Batapora, Harda Batapora, Bandgam, Nigloo), without locations. The press reports I have checked only against extracts, and the paper says so. Six statements in the paper were corrected against the originals.
+
+The four flat tops removed by review in the wide box cover 0.5 km² inside the box and hold 0.09 ha of strict-test conversion and none by the drop test (`11_removed_flat_tops_check.py`), so no reported figure depends on that review.
+
+I drew a second random sample of 120 points from the same three strata (35 strict, 60 drop-only, 25 unflagged; `12_accuracy_sample_supplement.py`), to be pooled with the first. The stratum key is in a separate file that stays closed until all points are labelled. For this sample I record, for each point, the date of the newest image as well as the 2014 image, and only "inside a kiln field or not" for the present state. By the evening 93 of the 120 were labelled.
+
+## Entry 29
+
+9 October 2026. A full review of the whole project, and the fixes that followed.
+
+I went through the whole project again end to end, read-only first, and recomputed Table 1, the sensor cross-checks, the long series and the Section 4.1 check from the raw rasters. All of them matched. The review also turned up things I had missed:
+
+- The headline that terraces convert several times faster than other flat land comes entirely from the two kiln belts. Outside them, and compared polygon by polygon, terraces convert at the same rate as comparable land (`13_polygon_level_comparison.py`). The paper now says that.
+- Bandagam–Batapora is not only the older belt. In the Landsat 8/9 record it has the larger post-2013 loss by the drop test (142 ha against 114 ha at Rangeen Kultreh). My own notes from the second sample point the same way.
+- The check that omitted karewa behaves like valley floor had used only the strict test. Rerun with both tests on the wide box as far west as the geological map reaches, the conclusion holds (`14_omitted_karewa_both_tests.py`).
+- The Earth Engine scripts apply Roy et al.'s ETM+ → OLI coefficients to OLI data, the reverse direction. Only the long series is affected. It has to be re-exported.
+- The "2026 imagery" in the accuracy section was the date I looked, not the date of the image. The paper now says so; the image dates of the first sample still have to be recorded.
+- Several numbers had come from the first, smaller box and disagreed with the wide-box values (Rangeen Kultreh 21/66 ha, the 15% of 2001); these were replaced.
+
+The paper now states three research questions, the abstract starts from them, there is a short section on earlier satellite work on brick kilns and on Landsat change detection, and the limitations list the items above. Still to do by me: finish and pool the second sample, record image dates, write down what I counted as "inside a kiln field", label the terrace reference sample, re-export the long series, and a second labeller.

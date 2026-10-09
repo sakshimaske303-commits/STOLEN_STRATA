@@ -1,0 +1,17 @@
+belts_excluded,geology,where,area_km2,strict_ha,strict_pct_of_vegetated,drop_ha,drop_pct_of_vegetated
+False,karewa_formation,inside terraces,106.556,97.29,0.95,203.76,2.025
+False,karewa_formation,outside terraces,353.051,46.98,0.14,309.87,0.953
+False,reworked_karewa,inside terraces,5.626,0.09,0.016,2.79,0.511
+False,reworked_karewa,outside terraces,96.408,13.23,0.145,105.66,1.184
+False,alluvium,inside terraces,25.15,3.24,0.139,31.95,1.42
+False,alluvium,outside terraces,519.324,89.73,0.192,791.19,1.747
+False,unmapped,inside terraces,14.419,4.68,0.34,14.85,1.105
+False,unmapped,outside terraces,183.411,81.81,0.496,337.95,2.128
+True,karewa_formation,inside terraces,92.862,4.5,0.05,47.16,0.532
+True,karewa_formation,outside terraces,337.729,25.83,0.08,224.1,0.72
+True,reworked_karewa,inside terraces,5.62,0.09,0.016,2.79,0.512
+True,reworked_karewa,outside terraces,96.405,13.23,0.145,105.66,1.184
+True,alluvium,inside terraces,20.417,0.27,0.014,12.87,0.683
+True,alluvium,outside terraces,504.987,70.65,0.155,712.08,1.615
+True,unmapped,inside terraces,12.876,1.44,0.116,6.57,0.541
+True,unmapped,outside terraces,180.732,79.74,0.491,329.76,2.11

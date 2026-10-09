@@ -16,7 +16,7 @@ longd = table("west_extension/long_series_drop_test.csv")
 st.markdown("## Rangeen Kultreh")
 st.markdown(
     f"""
-On the terraces around 33.94° N, 74.85° E, about {sm['rangeen_block_ha']:.0f} ha passes the strict test. The chart follows those same pixels
+Inside the Rangeen Kultreh site box (around 33.94° N, 74.85° E), about {sm['rangeen_block_ha']:.0f} ha of terrace passes the strict test (87.8 ha on the two whole terraces, 9 and 3). The chart follows those same pixels
 back to 1993: their yearly peak NDVI in the Landsat record.
 """
 )
@@ -46,7 +46,7 @@ with c1:
     caption("Bare land on the Rangeen Kultreh terraces by year, Landsat 8/9 only.")
 with c2:
     picture(os.path.join(V2, "paper_figures", "Figure_3_rangeen_kultreh_onset.png"))
-    caption("The year from which each pixel stays bare. Terrace numbers in this figure are those of the first, smaller study box (terrace 5 there is terrace 9 in the wide-box run).")
+    caption("The year from which each strict-test pixel on terraces 9 and 3 stays bare. Most of the field opened in 2017–2018.")
 
 st.markdown("#### What documents say about this place")
 st.markdown(
@@ -79,7 +79,7 @@ show(style_fig(fig, 430))
 bb = stock[stock.site == "Bandagam-Batapora terraces"].set_index("period").loc[order]
 caption("On the Bandagam–Batapora tablelands (about 74.60°–74.72° E, 33.99°–34.05° N) the low-vegetation land goes from "
         f"{bb.below_035_ha.iloc[0]:.0f} ha in 1993–1998 to {bb.below_035_ha.iloc[-1]:.0f} ha in 2023–2025, but not steadily: "
-        + ", ".join(f"{v:.0f}" for v in bb.below_035_ha) + " ha across the seven periods. Imagery shows kiln ground across several villages there. The Pollution Control Committee's list of October 2023 has registered kilns under most of those village names, without locations.")
+        + ", ".join(f"{v:.0f}" for v in bb.below_035_ha) + " ha across the seven periods. Inside the reliable Landsat 8/9 record (2013–2025) the drop test finds 142 ha of loss on these terraces (119 ha net), more than at Rangeen Kultreh (114 ha). Imagery shows kiln ground across several villages there. The Pollution Control Committee's list of October 2023 has registered kilns under most of those village names, without locations.")
 
 l = longd[(longd.early == "1993-1998") & (longd.late == "2023-2025")].copy()
 l["site"] = l.site.replace({"Bandagam-Batapora terraces": "Bandagam–Batapora terraces", "all terraces": "All terraces", "other terraces": "All other terraces", "other flat land": "Other flat, raised land"})
@@ -91,6 +91,6 @@ note(
     "I do not put that on the same footing as the 2013–2025 figures, for three reasons. The two site boxes were drawn after the pattern had been seen. "
     f"Over all terraces the same test gives {al.drop_ha:.0f} ha of loss against {al.reverse_ha:.0f} ha in the opposite direction. "
     f"And before 2013 the low-vegetation land on the other terraces moves between {ot.min():.0f} and {ot.max():.0f} ha from one period to the next, which is as large as the signal. "
-    "The Rangeen Kultreh part is firm because all of it happens after 2016. The Bandagam–Batapora part shows a direction and not a reliable amount.",
+    "The Rangeen Kultreh part is firm because all of it happens after 2016. The Bandagam–Batapora part shows a direction and not a reliable amount. This long series also applied the Landsat 8/9 adjustment in the reverse direction and is being recomputed.",
     "caution",
 )
