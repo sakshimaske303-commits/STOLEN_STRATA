@@ -1,0 +1,5 @@
+photo,lat,lon,date,terrace_id,terrace_km2,m_inside_terrace_edge,on_strict,on_drop_only,m_to_strict,m_to_drop_only
+lethpora_01.jpg,33.97373,74.951189,2026-09-03,4,7.708,562,False,False,4548,429
+lethpora_02.jpg,33.973596,74.951186,2026-09-03,4,7.708,565,False,False,4559,416
+lethpora_03.jpg,33.973788,74.951186,2026-09-03,4,7.708,560,False,False,4543,435
+lethpora_04.jpg,33.973365,74.950956,2026-09-03,4,7.708,543,False,False,4566,402
