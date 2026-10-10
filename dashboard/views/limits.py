@@ -25,7 +25,7 @@ card(
     "A link to the saffron land",
     """
     <p>The saffron-signature polygons of the earlier version lie around Pampore, 7 km or more from the Rangeen Kultreh kiln field. The terraces
-    outside the two kiln belts, which include the Pampore and Lethpora tablelands, convert at 0.39% by the drop test, against 0.37% for other
+    outside the two kiln belts, which include the Pampore and Lethpora tablelands, convert at 0.48% by the drop test, against 0.49% for other
     flat land. So there is no evidence in 2013–2025 that the saffron tablelands are being converted the way the Budgam tablelands are.
     This says nothing about saffron decline from other causes, or about earlier decades. The saffron value-at-risk figure of the earlier version is withdrawn.</p>
     """,
@@ -58,7 +58,7 @@ st.markdown(
 - **The 8.43% artefact is shown, not fully explained.** Which step of the earlier Sentinel-2 processing produced it has not been isolated.
 - **Reference imagery is not dated point by point.** The present-day labels use the newest image Google showed in October 2026; its date varies by place (2022–2026 in the second sample, where it was recorded).
 - **The kiln figure rests on one written rule.** As first labelled, the two samples gave 141 and 232 ha; under one rule for where a kiln field ends they give 204 and 217 ha (pooled 210 ha). The rule was written after the samples were compared and applied by one labeller.
-- **The long series needs re-running.** The Landsat 8/9 adjustment was applied in the reverse direction; only the 1993–2025 view is affected.
+- **The long series was corrected once.** Its first run applied the Landsat 8/9 adjustment in the reverse direction; the corrected run (October 2026) raised the three-decade figure for the two belts from about 335 to about 407 ha. The 2013–2025 results never used the adjustment.
 - **Landsat 9 adds scenes from 2022**, so the late window rests on more observations than the early one. This works against detecting loss; a Landsat 8-only run has not been made.
 - **No fieldwork** was done at either kiln belt.
 """

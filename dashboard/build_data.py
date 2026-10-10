@@ -24,7 +24,7 @@ def load(name, scale=1e4):
 
 
 T, crs, shape, OLI = load("OLIonly_p90_2013_2025.tif")
-LS = {**load("LS_p90_1990_2007.tif")[3], **load("LS_p90_2008_2025.tif")[3]}
+LS = {**load("LS_p90_1990_2007.tif")[3], **load("LS_p90_2008_2025_fixed.tif")[3]}   # corrected Landsat 8/9 adjustment (gee_05_long_series_fixed.js)
 CNT = load("LS_counts_1990_2025.tif", 1)[3]
 t = gpd.read_file(W + "karewa_terraces_wide.gpkg").to_crs(crs)
 tid = rasterize([(g, int(i)) for g, i in zip(t.geometry, t.terrace_id)], out_shape=shape, transform=T); mt = tid > 0

@@ -91,6 +91,6 @@ note(
     "I do not put that on the same footing as the 2013–2025 figures, for three reasons. The two site boxes were drawn after the pattern had been seen. "
     f"Over all terraces the same test gives {al.drop_ha:.0f} ha of loss against {al.reverse_ha:.0f} ha in the opposite direction. "
     f"And before 2013 the low-vegetation land on the other terraces moves between {ot.min():.0f} and {ot.max():.0f} ha from one period to the next, which is as large as the signal. "
-    "The Rangeen Kultreh part is firm because all of it happens after 2016. The Bandagam–Batapora part shows a direction and not a reliable amount. This long series also applied the Landsat 8/9 adjustment in the reverse direction and is being recomputed.",
+    "The Rangeen Kultreh part is firm because all of it happens after 2016. The Bandagam–Batapora part shows a direction and not a reliable amount. This long series was recomputed in October 2026 after the Landsat 8/9 adjustment was found to have been applied in the reverse direction; the first run gave about 335 ha.",
     "caution",
 )

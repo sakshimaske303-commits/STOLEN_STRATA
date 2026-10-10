@@ -2,7 +2,9 @@ import pandas as pd
 import plotly.graph_objects as go
 import streamlit as st
 
-from lib import GREY, OCHRE, ORANGE, ROSE, TEAL, caption, frame, mapfile, note, numbers, show, style_fig, table
+import os
+
+from lib import GREY, OCHRE, ORANGE, ROSE, TEAL, V2, caption, frame, mapfile, note, numbers, picture, show, style_fig, table
 from style import page_title
 
 page_title("Accuracy Sample", "What the flagged land is today, point by point")
@@ -51,12 +53,12 @@ k = res[res.reference_class == "kiln"].set_index("stratum"); nv = res[res.refere
 st.markdown(
     f"""
 **The tests are right that the vegetation is gone.** All {int(nv.hits['A_strict'])} strict points and {int(nv.hits['B_drop_only'])} of 120 drop-only points
-({nv.share['B_drop_only'] * 100:.0f}%) are not vegetated today; two more could not be told and are not counted. Scaled by stratum area, about
+({nv.share['B_drop_only'] * 100:.0f}%) are not vegetated today; one more could not be told and is not counted. Scaled by stratum area, about
 **{n['notveg_ha']:.0f} ha** of the 331 ha flagged is not vegetated today (roughly {n['notveg_lo']:.0f}–{n['notveg_hi']:.0f} ha).
 
 **They differ in what the land became.** {k.share['A_strict'] * 100:.0f}% of strict detections lie inside a kiln field
-(95% interval {r(k.ci95_low['A_strict'])}–{r(k.ci95_high['A_strict'])}%). Drop-only detections are a mixture: about two fifths kiln field
-({r(k.share['B_drop_only'])}%, interval {r(k.ci95_low['B_drop_only'])}–{r(k.ci95_high['B_drop_only'])}%), about a quarter built-up land and roads, about a sixth other bare ground.
+(95% interval {r(k.ci95_low['A_strict'])}–{r(k.ci95_high['A_strict'])}%). Drop-only detections are a mixture: about half kiln field
+({r(k.share['B_drop_only'])}%, interval {r(k.ci95_low['B_drop_only'])}–{r(k.ci95_high['B_drop_only'])}%), about a quarter built-up land and roads, about an eighth other bare ground.
 
 Scaled by stratum area that is about **{k.est_ha['A_strict']:.0f} ha + {k.est_ha['B_drop_only']:.0f} ha = {n['kiln_ha']:.0f} ha** inside brick-kiln fields,
 with a 95% interval of roughly {n['kiln_lo']:.0f} to {n['kiln_hi']:.0f} ha.
@@ -141,3 +143,23 @@ note(
     "caution",
 )
 caption("20 of the 60 unflagged points also look non-vegetated in the recent image, because a dry-season picture of a karewa is largely brown. Present-day bareness on its own means little; the tests rest on change in the satellite record.")
+
+st.markdown("---")
+st.markdown("### A ground check at Lethpora")
+fp = table("phase1_delineation/field_photo_check.csv")
+cols = st.columns(4)
+for c, r_ in zip(cols, fp.itertuples()):
+    with c:
+        picture(os.path.join(V2, "phase1_delineation", "field_photos", r_.photo), f"{r_.lat:.5f} N, {r_.lon:.5f} E")
+st.markdown(
+    f"""
+Four photographs I took on **3 September 2026** on the Lethpora tableland beside the national highway, with a GPS camera that prints the position
+on each image. They show tilled saffron beds and scattered trees. The earlier terrace map left this spot out; it is the reason the terrace rule was rebuilt.
+
+On the new map all four fall **inside terrace {int(fp.terrace_id.iloc[0])}** ({fp.terrace_km2.iloc[0]:.1f} km²), {fp.m_inside_terrace_edge.min():.0f}–{fp.m_inside_terrace_edge.max():.0f} m from its edge,
+and **none is on flagged land**: the nearest drop-test pixels are about {round(fp.m_to_drop_only.min(), -1):.0f} m away, the nearest strict-test pixels about {fp.m_to_strict.min() / 1000:.1f} km.
+The ground, the map and the tests agree on this spot: a cultivated tableland, not converted.
+"""
+)
+caption("One place on one day, so this is a check on the map and not a validation of it. No fieldwork was done at either kiln belt.")
+

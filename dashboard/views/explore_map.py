@@ -1,18 +1,18 @@
 import plotly.graph_objects as go
 import streamlit as st
 
-from lib import GREY, OCHRE, ORANGE, ROSE, TEAL, caption, mapfile, numbers, show
+from lib import GREY, OCHRE, ORANGE, ROSE, TEAL, caption, mapfile, numbers, show, table
 from style import CREAM, page_title
 
 page_title("Interactive Map", "Terraces, flagged land and the 240 sample points")
 n = numbers()
 terr, flag, pts = mapfile("terraces.geojson"), mapfile("flagged.geojson"), mapfile("accuracy_points.csv")
 
-VIEWS = {"Whole study box": (33.975, 74.85, 9.6), "Rangeen Kultreh kiln field": (33.942, 74.850, 13.2), "Bandagam–Batapora belt": (34.02, 74.665, 11.8), "Pampore tablelands": (33.985, 74.94, 11.8)}
+VIEWS = {"Whole study box": (33.975, 74.85, 9.6), "Rangeen Kultreh kiln field": (33.942, 74.850, 13.2), "Bandagam–Batapora belt": (34.02, 74.665, 11.8), "Pampore tablelands": (33.985, 74.94, 11.8), "Lethpora field photos": (33.9736, 74.9511, 14.5)}
 c1, c2, c3 = st.columns([2, 2, 3])
 view = c1.selectbox("Go to", list(VIEWS))
 base = c2.radio("Background", ["Satellite", "Street map"], horizontal=True)
-layers_on = c3.multiselect("Show", ["Terraces", "Strict test", "Drop test only", "Sample points"], default=["Terraces", "Strict test", "Drop test only", "Sample points"])
+layers_on = c3.multiselect("Show", ["Terraces", "Strict test", "Drop test only", "Sample points", "Field photos"], default=["Terraces", "Strict test", "Drop test only", "Sample points", "Field photos"])
 
 lat, lon, zoom = VIEWS[view]
 fig = go.Figure()
@@ -32,6 +32,11 @@ if "Sample points" in layers_on:
         fig.add_trace(go.Scattermapbox(lat=d.lat, lon=d.lon, mode="markers", name=lab, marker=dict(size=11, color=colr, opacity=0.95),
                                        customdata=list(zip(d.point_id, d.stratum.map(STR), (d["before_label"].fillna("not checked") if "before_label" in d else ["not checked"] * len(d)), d.p90_2013_15, d.p90_2023_25)),
                                        hovertemplate="<b>Point %{customdata[0]}</b> · " + lab[8:] + "<br>%{customdata[1]}<br>2013–15 image: %{customdata[2]}<br>peak NDVI %{customdata[3]:.2f} → %{customdata[4]:.2f}<extra></extra>"))
+if "Field photos" in layers_on:
+    fp = table("phase1_delineation/field_photo_check.csv")
+    fig.add_trace(go.Scattermapbox(lat=fp.lat, lon=fp.lon, mode="markers", name="Field photos, Lethpora (3 Sep 2026)",
+                                   marker=dict(size=14, color="#FFFFFF", opacity=0.95), customdata=fp.photo,
+                                   hovertemplate="<b>Field photo</b> %{customdata}<br>saffron beds, 3 Sep 2026<br>inside a terrace, not flagged<extra></extra>"))
 layers = []
 if base == "Satellite":
     layers.append(dict(sourcetype="raster", below="traces", sourceattribution="Imagery: Esri, Maxar, Earthstar Geographics",
@@ -55,4 +60,5 @@ st.markdown(
     unsafe_allow_html=True,
 )
 caption("Flagged land is shown on terraces only, Landsat 8/9, 30 m pixels. The satellite background is recent imagery and is there for orientation: it is not the imagery the tests were run on. "
-        "Hover a terrace or a sample point for its values. Zoom in on Rangeen Kultreh to see the kiln field under the orange pixels.")
+        "Hover a terrace or a sample point for its values. Zoom in on Rangeen Kultreh to see the kiln field under the orange pixels. "
+        "White dots at Lethpora are my four field photographs (see Accuracy Sample).")

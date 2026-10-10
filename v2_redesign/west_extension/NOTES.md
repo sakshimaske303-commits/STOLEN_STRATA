@@ -144,8 +144,11 @@ and in the paper are those of that run.
 **Bandagam–Batapora in the Landsat 8/9 era.** Drop test 2013–15 → 2023–25 on terraces inside the site box: 142 ha (119 ha net of reverse),
 against 114 ha at Rangeen Kultreh; strict test 15 ha against 86 ha. The belt is older *and* holds the largest post-2013 loss by the drop test.
 
-**Known issue.** The Landsat 8/9 adjustment in `gee_04_extended_box.js` uses Roy et al.'s ETM+ → OLI coefficients on OLI data (reverse
-direction). Only the long series (08) is affected. Re-export with the OLI → ETM+ coefficients and rerun 08 and `make_figures.py`.
+**Known issue, fixed 10 October 2026.** The Landsat 8/9 adjustment in `gee_04_extended_box.js` used Roy et al.'s ETM+ → OLI coefficients on OLI data (reverse
+direction). The 2008–2025 stack was re-exported with the OLI → ETM+ coefficients (`gee_05_long_series_fixed.js`) and 08, `build_data.py` and `make_figures.py` rerun.
+Corrected long view, 1993–98 → 2023–25 net of reverse: Rangeen Kultreh +98 ha, Bandagam–Batapora +309 ha (about 407 ha together), all other terraces −202 ha;
+all terraces 622 ha drop against 417 ha reverse. Low-NDVI land 2023–25: Bandagam–Batapora 454 ha (16.3%), Rangeen Kultreh 125 ha, other terraces 400 ha (2.8%).
+The long-view table further up (and its 335 ha) is the first, reversed run.
 
 ## Pooled accuracy (15_pooled_accuracy.py), 9 October 2026
 

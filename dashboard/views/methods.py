@@ -12,7 +12,7 @@ st.markdown("### Data")
 frame(pd.DataFrame([
     ("Elevation", "Copernicus DEM GLO-30 (2011–2015)", "Terrace delineation: slope, height above drainage, scarp share"),
     ("Main time series", "Landsat 8 and 9, Collection 2 Level 2, 2013–2025", "Both conversion tests"),
-    ("Long series", "Landsat 5, 7, 8, 9, with 8/9 adjusted to 7 (Roy et al., 2016), 1990–2025", "The view back to 1993"),
+    ("Long series", "Landsat 5, 7, 8, 9, with 8/9 adjusted to 7 (Roy et al., 2016, OLI to ETM+), 1990–2025", "The view back to 1993"),
     ("Second opinion", "Landsat 7 alone, 2013–2021", "Independent check on Landsat 8"),
     ("Third instrument", "Sentinel-2, Cloud Score+ masked, 2019–2025", "Confirms the 2023–2025 state"),
     ("Geology", "Dar and Zeeden (2020), Figure 2, georeferenced", "Check of the terrace map, original box"),
@@ -59,4 +59,4 @@ run from the repository root and write the tables this dashboard reads. This das
 )
 
 note("<b>Status, October 2026.</b> The analysis and the paper are revised. Two accuracy samples (240 points) are labelled and pooled, the flagged points have been checked against imagery of 2013–2015, and the two official documents read in full. Kiln-field edges follow one written rule. Still open: a second labeller, kiln-field outlines on dated imagery, "
-     "an accuracy figure for the terrace map, recomputing the long series with the corrected Landsat 8/9 adjustment, and replacing the September preprint, which still carries the withdrawn numbers.", "caution")
+     "an accuracy figure for the terrace map, and replacing the September preprint, which still carries the withdrawn numbers.", "caution")

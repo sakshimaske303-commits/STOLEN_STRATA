@@ -41,7 +41,7 @@ from Kashmir has said for years that they are being dug away for brick clay and 
 | Of the flagged land, inside brick-kiln fields today | about 210 ha (roughly 189–231 ha), under one written rule for where a kiln field ends (`v2_redesign/west_extension/KILN_FIELD_RULE.md`); 204 ha by the first sample, 217 ha by the second |
 | Flagged sample points that show vegetation in 2013–15 imagery | 158 of 180 (59 of 60 strict, 99 of 120 looser); kiln-field land restricted to those: about 197 ha |
 | Where | Two belts in Budgam: Rangeen Kultreh (a kiln field that opens in 2017–2018) and Bandagam–Batapora (older, and the largest post-2013 loss by the looser test). Outside them, terraces convert at the same rate as comparable land. |
-| Back to the mid-1990s | A net loss of roughly 335 ha in the two belts. Indicative only: the Landsat record before 2013 is thin, and this series is being recomputed after a correction to the Landsat 8/9 adjustment. |
+| Back to the mid-1990s | A net loss of roughly 407 ha in the two belts. Indicative only: the Landsat record before 2013 is thin. (Recomputed in October 2026 after a correction to the Landsat 8/9 adjustment; the first run gave about 335 ha.) |
 
 ## What it does not show
 

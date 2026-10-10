@@ -1,5 +1,8 @@
 """v2 extended box — the long view, 1993-2025, one sensor family (Landsat 5/7/8/9, 8/9 adjusted to ETM+).
 
+The 2008-2025 stack is the corrected export of gee_05_long_series_fixed.js (October 2026); the earlier
+export of gee_04_extended_box.js applied the Landsat 8/9 adjustment in the reverse direction.
+
 (a) how much terrace land had a low yearly peak NDVI in each period (3-year median of p90 below 0.35 / 0.30);
 (b) the drop test run from the 1990s to today.
 Only years with a median of >= 10 clear observations on terraces are used.
@@ -24,7 +27,7 @@ def load(name, scale=1e4):
 
 
 T, crs, shape, LS = load("LS_p90_1990_2007.tif")
-LS.update(load("LS_p90_2008_2025.tif")[3])
+LS.update(load("LS_p90_2008_2025_fixed.tif")[3])   # Landsat 8/9 adjusted OLI -> ETM+ (gee_05_long_series_fixed.js)
 CNT = load("LS_counts_1990_2025.tif", 1)[3]
 t = gpd.read_file(OUT + "karewa_terraces_wide.gpkg").to_crs(crs)
 p = gpd.read_file(OUT + "karewa_flat_tops_wide.gpkg").to_crs(crs)

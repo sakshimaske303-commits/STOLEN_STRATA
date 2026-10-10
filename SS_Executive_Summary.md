@@ -31,14 +31,14 @@ My first version said bare ground on Kashmir's karewa terraces had more than qua
 | Of the flagged land, inside brick-kiln fields | **about 210 ha (roughly 189–231 ha)**, under one written rule for where a kiln field ends; 204 ha by the first sample, 217 ha by the second |
 | Flagged sample points that show vegetation in 2013–15 imagery | 158 of 180 (59 of 60 strict, 99 of 120 looser) |
 | Kiln-field land where the older image also shows vegetation | about 197 ha (roughly 176–218 ha) |
-| Net loss in the two kiln belts since the mid-1990s | roughly 335 ha, indicative only: the record before 2013 is thin, and this series is being recomputed (see below) |
+| Net loss in the two kiln belts since the mid-1990s | roughly 407 ha, indicative only: the record before 2013 is thin |
 | The other 140 km² of terraces | Some conversion after 2013, at the same rate as comparable flat land |
 
 ## Where and when
 
 **Rangeen Kultreh (Chadoora tehsil).** Green in every usable year from 1993 to 2016 (one anomalous year, 2001, aside). Then a kiln field opens: 24 ha bare in 2017, 75 ha in 2018, and today about a quarter of those terraces. Landsat 7 and Landsat 8 agree on the change; Sentinel-2 agrees on the present state. A Pollution Control Committee report to the National Green Tribunal says one of the kilns there was commissioned in 2017 without consent and ordered closed in 2018, with 20 kilns within a kilometre. I got the 2017 date from the satellite record before I found that document.
 
-**Bandagam–Batapora tablelands.** Older, and also the largest recent loss. Land that never greens up was about 100 ha in the mid-1990s, about 300 ha by 2008–2012 and 378 ha now; the early part rests on few images. Inside the reliable Landsat 8/9 record (2013–2025) the looser test finds 142 ha of loss here, more than at Rangeen Kultreh, spread over many patches. The Pollution Control Committee's list of October 2023 has registered kilns under most of the village names in this belt, without locations.
+**Bandagam–Batapora tablelands.** Older, and also the largest recent loss. Land that never greens up was about 100 ha in the mid-1990s, about 300 ha by 2008–2012 and about 450 ha now; the early part rests on few images. Inside the reliable Landsat 8/9 record (2013–2025) the looser test finds 142 ha of loss here, more than at Rangeen Kultreh, spread over many patches. The Pollution Control Committee's list of October 2023 has registered kilns under most of the village names in this belt, without locations.
 
 **Everywhere else.** Of 180 terraces, 27 lost a hectare or more after 2013 by the looser test and only 8 by the strict one. Taken as a whole, terraces convert several times faster than other flat, raised land, but that difference comes entirely from the two belts: outside them, and compared polygon by polygon, terraces convert at the same rate as comparable land.
 
@@ -61,7 +61,7 @@ My first version said bare ground on Kashmir's karewa terraces had more than qua
 
 ## Still in progress
 
-- The long 1993–2025 series applied the Landsat 8/9 adjustment in the reverse direction and will be recomputed. The 2013–2025 results do not use that adjustment.
+- The long 1993–2025 series first applied the Landsat 8/9 adjustment in the reverse direction. It was recomputed with the right coefficients in October 2026; the three-decade figure for the two belts rose from about 335 ha to about 407 ha. The 2013–2025 results never used that adjustment.
 
 ## Why it matters
 
