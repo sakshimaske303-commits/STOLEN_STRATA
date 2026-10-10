@@ -16,7 +16,7 @@ Karewa tablelands are the flat-topped, scarp-bounded remnants of the old lake an
 
 Karewas are the raised, flat-topped plateaus that stand above the floor of the Kashmir Valley. They are made of lake and river sediments laid down over the last few million years and capped with loess, and they carry orchards, saffron and dry-land crops. They are also a convenient source of clay. Journalists and activists in Kashmir have reported for years that karewas are being cut for brick kilns, for railway and road embankments, and for building plots (Rafi and Syed, 2023; Bhat, 2021).
 
-That is what the reporting says. What I could not find was a measurement: how many hectares, in which places, starting when, taken from satellite data and not from testimony. The first version of this study tried to supply one and got it wrong. It reported that bare ground on karewa terraces had more than quadrupled since 1994, with almost all of the rise after 2015, and it built a saffron value-at-risk figure on top of that. The rise coincided exactly with the point where the analysis switched from Landsat to Sentinel-2 imagery. I had noted that as a limitation. It was more than a limitation. It was the result.
+That is what the reporting says. What I could not find was a measurement: how many hectares, in which places, starting when, taken from satellite data and not from testimony. The first version of this study tried to supply one and got it wrong. It reported that bare ground on karewa terraces had more than quadrupled since 1994, with almost all of the rise after 2015, and it built a saffron value-at-risk figure on top of that. The rise coincided exactly with the point where the analysis switched from Landsat to Sentinel-2 imagery. I had noted that as a limitation, but it accounted for the whole rise.
 
 This paper asks three questions about the scarp-bounded karewa tablelands of central Kashmir:
 
@@ -24,7 +24,7 @@ This paper asks three questions about the scarp-bounded karewa tablelands of cen
 - **RQ2.** What did that land become, and in particular how much of it now lies inside brick-kiln fields? (Section 4.5)
 - **RQ3.** Where and when did the change happen? (Section 4.6)
 
-Every comparison through time is made inside one sensor family, on a terrace map checked against a published geological map. Section 4.1 first shows why the headline of the earlier version was wrong, so that nobody carries it forward. Sections 4.7 and 4.8 report two questions the data could not support: a link to the saffron land and the depth of excavation.
+Every comparison through time is made inside one sensor family, on a terrace map checked against a published geological map. Section 4.1 first shows why the headline of the earlier version was wrong. Sections 4.7 and 4.8 report two questions the data could not support: a link to the saffron land and the depth of excavation.
 
 The contribution is threefold: a dated, mapped and sample-validated estimate of vegetated karewa tableland now inside brick-kiln fields; a worked case of a cross-product NDVI comparison that manufactured a fourfold rise, with the single-sensor check that removes it; and a terrain rule (height above drainage plus scarp share) that separates scarp-bounded tablelands from fans and aprons.
 
