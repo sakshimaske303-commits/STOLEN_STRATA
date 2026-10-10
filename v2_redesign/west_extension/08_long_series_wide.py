@@ -7,7 +7,7 @@ export of gee_04_extended_box.js applied the Landsat 8/9 adjustment in the rever
 (b) the drop test run from the 1990s to today.
 Only years with a median of >= 10 clear observations on terraces are used.
 
-Run from the repo root:  python v2_redesign/west_extension/08_long_series_wide.py
+I run it from the repo root:  python v2_redesign/west_extension/08_long_series_wide.py
 """
 import numpy as np
 import pandas as pd

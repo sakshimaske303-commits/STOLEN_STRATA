@@ -1,7 +1,7 @@
 """v2 extended box — sensitivity of the drop test to its three cut-offs (early >= 0.45, late < 0.40, fall >= 0.20).
 Also splits the result by the accuracy strata so the reference labels can be re-used for nearby settings.
 
-Run from the repo root:  python v2_redesign/west_extension/07_drop_test_sensitivity.py
+I run it from the repo root:  python v2_redesign/west_extension/07_drop_test_sensitivity.py
 """
 import itertools
 import numpy as np

@@ -1,6 +1,6 @@
 // STOLEN STRATA v2 — Phase 4 gate test: did the ground actually get lower?
-// Paste into the Earth Engine Code Editor, press Run, start all 3 tasks. Files go to Drive folder
-// "StolenStrata_v2"; put them in data/raw/ with the others.
+// I paste this into the Earth Engine Code Editor, press Run, start all 3 tasks. Files go to Drive folder
+// "StolenStrata_v2"; I put them in data/raw/ with the others.
 //
 //   1 DEM_SRTM_2000        SRTM 1 arc-second, surface in February 2000
 //   2 DEM_AW3D30_2006_2011 ALOS World 3D 30 m, surface in 2006–2011

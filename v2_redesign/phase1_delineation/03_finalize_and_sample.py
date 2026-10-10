@@ -10,7 +10,7 @@
     The labelling file carries NO stratum or predicted class (blind labelling); the key is in
     reference_sample_key.csv and must not be opened while labelling.
 
-Run from the repo root:  python v2_redesign/phase1_delineation/03_finalize_and_sample.py
+I run it from the repo root:  python v2_redesign/phase1_delineation/03_finalize_and_sample.py
 """
 import os
 import numpy as np

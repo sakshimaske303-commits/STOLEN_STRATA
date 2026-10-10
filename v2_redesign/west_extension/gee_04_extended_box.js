@@ -1,7 +1,7 @@
 // STOLEN STRATA v2 — extended study box (old box + Budgam karewa belt to the west and a little south)
 // Old box: 74.75–75.15 E, 33.85–34.15 N.   New box: 74.55–75.15 E, 33.80–34.15 N.
-// Paste into the Earth Engine Code Editor, press Run, start all 7 tasks. Files go to Drive folder
-// "StolenStrata_v2"; put them in data/raw/ with the others. All names start with StolenStrata_v2w_ ("w" = wide box).
+// I paste this into the Earth Engine Code Editor, press Run, start all 7 tasks. Files go to Drive folder
+// "StolenStrata_v2"; I put them in data/raw/ with the others. All names start with StolenStrata_v2w_ ("w" = wide box).
 //
 //   1 DEM_GLO30_buffered     Copernicus DEM, new box + ~10 km buffer (for the terrace delineation)
 //   2 LS_p90_1990_2007       yearly 90th-percentile NDVI, Landsat 5/7 (same recipe as before)
@@ -28,10 +28,10 @@ function toNdvi(img, redBand, nirBand, harmonizeOli) {
   var red = img.select(redBand).multiply(0.0000275).add(-0.2);
   var nir = img.select(nirBand).multiply(0.0000275).add(-0.2);
   var valid = red.gt(0).and(red.lt(1)).and(nir.gt(0)).and(nir.lt(1));
-  // KNOWN ISSUE (found 9 Oct 2026): the two lines below use the coefficients Roy et al. (2016) give for
-  // ETM+ -> OLI, but here they are applied to OLI data, i.e. in the reverse direction. They are left unchanged
-  // so this script still reproduces the rasters behind the reported long series. To correct it, replace them
-  // with the OLI -> ETM+ coefficients of Roy et al. (2016, Table 2), re-export, and rerun 08_long_series_wide.py.
+  // KNOWN ISSUE (I found it on 9 Oct 2026): the two lines below use the coefficients Roy et al. (2016) give for
+  // ETM+ -> OLI, but here they are applied to OLI data, i.e. in the reverse direction. I left them unchanged
+  // so this script still reproduces the first run of the long series. I corrected it on 10 Oct 2026 in
+  // gee_05_long_series_fixed.js, which re-exports the 2008-2025 stack with the OLI -> ETM+ coefficients.
   // The conversion tests use the unadjusted Landsat 8/9 series (oliRaw) and are not affected.
   if (harmonizeOli) {                        // Roy et al. 2016 ETM+ -> OLI coefficients (see note above)
     red = red.multiply(0.9047).add(0.0061);

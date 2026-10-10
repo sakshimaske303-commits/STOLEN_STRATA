@@ -1,7 +1,7 @@
 """Figures 1 and 3 of the revised paper.
 Figure 1: study box, terraces and both conversion tests. Figure 3: Rangeen Kultreh, year from which each strict-test pixel stays bare.
-Needs the rasters in data/raw (see DATA_ACCESS.md).
-Run from the repo root, after the west_extension scripts:  python v2_redesign/paper_figures/make_maps.py
+It needs the rasters in data/raw (see DATA_ACCESS.md).
+I run it from the repo root, after the west_extension scripts:  python v2_redesign/paper_figures/make_maps.py
 """
 import numpy as np, geopandas as gpd, rasterio
 from rasterio.warp import reproject, Resampling, transform as warp_xy

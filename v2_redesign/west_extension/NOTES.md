@@ -50,7 +50,7 @@ The drop test is noisier (the "rest" stratum shows large reverse change), so it 
 on a sample before either number goes in the paper. The statement in the first section that the extension
 "adds little" holds only for the strict test.
 
-## Accuracy check, first sample (04_accuracy_sample.py, 05_accuracy_result.py) — 120 points on terraces, labelled blind by the author
+## Accuracy check, first sample (04_accuracy_sample.py, 05_accuracy_result.py) — 120 points on terraces, labelled blind by me
 (Kept as the record of the first sample. The figures used in the paper are now the pooled ones, see "Pooled accuracy" below.)
 Present-day Google imagery (2026). Two passes: 7 classes; then, for the 68 points first called bare_other or road, one question:
 inside a brick-kiln field or not. A first-pass-only version could not separate kiln ground from other bare ground.
@@ -111,7 +111,7 @@ not operate from 1 November to 31 March. Which kilns stand on mapped terraces is
 Each flagged sample point (strata A and B) was looked up in Google Earth Pro historical imagery, from `accuracy_sample_points.kml`,
 and labelled vegetated / not_vegetated / unclear at the point. Record: `accuracy_before_pass.csv` (label, image date, what is seen).
 September 2014 imagery for 77 points, a clear image between June 2013 and July 2014 for the other eight. Not blind: only flagged
-points were looked at. Labels were drafted from screen captures and each was confirmed on screen by the author.
+points were looked at. I drafted the labels from screen captures and confirmed each one on screen.
 
 | Stratum | n | vegetated | not vegetated | unclear | vegetated then and kiln field now |
 |---|---|---|---|---|---|

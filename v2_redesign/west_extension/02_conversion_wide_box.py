@@ -4,7 +4,7 @@ Same rules as the original box: terraces = flat tops with scarp share >= 0.25 (P
 >= 0.35 in all of 2013-15 and < 0.25 in all of 2023-25, Landsat 8/9 only (Phase 2).
 Also: the same test inside the Landsat 5/7 era (1993/94/98 -> 2005/06/07) and the stock of persistently bare land.
 
-Run from the repo root, after 01_flat_top_delineation_wide.py:
+I run it from the repo root, after 01_flat_top_delineation_wide.py:
     python v2_redesign/west_extension/02_conversion_wide_box.py
 """
 import os

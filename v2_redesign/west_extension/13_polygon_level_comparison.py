@@ -6,7 +6,7 @@ each other flat top (the flat tops that are not terraces, at least 0.05 km^2 ins
 converted by the strict and the drop test, with and without the two kiln-belt site boxes used in 08_long_series_wide.py.
 A polygon counts as "in a belt" when more than half of its area lies inside one of the two boxes.
 
-Run from the repo root:  python v2_redesign/west_extension/13_polygon_level_comparison.py
+I run it from the repo root:  python v2_redesign/west_extension/13_polygon_level_comparison.py
 Output: v2_redesign/west_extension/polygon_level_comparison.csv (one row per polygon)
         v2_redesign/west_extension/polygon_level_summary.csv
 """

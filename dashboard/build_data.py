@@ -1,7 +1,7 @@
 """Builds the small map and series files the dashboard reads, from the v2 results and the rasters.
 
 The dashboard itself needs no rasters: it reads the result tables in v2_redesign/ and the files written here.
-Run from the repo root, after the v2_redesign scripts and with the rasters in data/raw (see DATA_ACCESS.md):
+I run it from the repo root, after the v2_redesign scripts and with the rasters in data/raw (see DATA_ACCESS.md):
     python dashboard/build_data.py
 Writes to dashboard/map_data/: terraces.geojson, flagged.geojson, accuracy_points.csv, site_yearly.csv, block_yearly.csv, summary.json
 """

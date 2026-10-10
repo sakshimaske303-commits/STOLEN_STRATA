@@ -5,7 +5,7 @@ shares) as well as the pooled pixel share, on Landsat only.
 It also puts the earlier Sentinel-2 2025 raster on the Landsat 30 m grid, to show that pixel size
 is not what produced the 2025 jump, and compares the NDVI levels of the two 2025 products.
 
-Run from the repo root:  python v2_redesign/phase2_timeseries/05_v1_rule_matched_statistic.py
+I run it from the repo root:  python v2_redesign/phase2_timeseries/05_v1_rule_matched_statistic.py
 Inputs : data/processed/karewa_multitemporal_trend.gpkg          (earlier polygons and their reported shares)
          data/raw/StolenStrata_v2_LS_summer_1990_2025.tif        (Landsat-only June-September median, per year)
          data/raw/StolenStrata_NDVI_2025.tif                      (earlier Sentinel-2 2025 composite)

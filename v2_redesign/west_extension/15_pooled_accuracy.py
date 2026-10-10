@@ -11,7 +11,7 @@ Second draw: 35 / 60 / 25 points from the same strata, leaving out the pixels al
 Pooled     : 60 / 120 / 60 points. Each stratum is a simple random sample in both draws, so the pooled points are treated
              as one simple random sample per stratum (the second draw excluded the 120 first-draw pixels, a negligible change).
 
-Run from the repo root:  python v2_redesign/west_extension/15_pooled_accuracy.py
+I run it from the repo root:  python v2_redesign/west_extension/15_pooled_accuracy.py
 Output: v2_redesign/west_extension/pooled_accuracy_result.csv, pooled_before_result.csv, pooled_confusion.csv,
         pooled_before_by_present_class.csv, pooled_points.csv
 """

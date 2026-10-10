@@ -3,7 +3,7 @@
 Uses the same test as 02 (Landsat 8/9 only: p90 NDVI >= 0.35 in all of 2013-15, < 0.25 in all of 2023-25) and the
 Dar & Zeeden (2020) Karewa Group map tile from Phase 1 (schematic, ~100 m pixels, ~1 km positional error).
 
-Run from the repo root:  python v2_redesign/phase2_timeseries/04_conversion_whole_box.py
+I run it from the repo root:  python v2_redesign/phase2_timeseries/04_conversion_whole_box.py
 """
 import os
 import numpy as np

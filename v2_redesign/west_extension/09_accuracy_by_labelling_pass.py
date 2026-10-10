@@ -4,7 +4,7 @@ First pass  : the point is labelled kiln ground at close zoom (kiln, clay pit, d
 Second pass : points first labelled bare or road that lie inside a brick-kiln field when seen one zoom level out.
 The paper's figure uses both. This script reports the two separately so a reader can see the dependence.
 
-Run from the repo root:  python v2_redesign/west_extension/09_accuracy_by_labelling_pass.py
+I run it from the repo root:  python v2_redesign/west_extension/09_accuracy_by_labelling_pass.py
 Output: v2_redesign/west_extension/accuracy_by_labelling_pass.csv, accuracy_points_by_terrace.csv
 """
 import numpy as np, pandas as pd

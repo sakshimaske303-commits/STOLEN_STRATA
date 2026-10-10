@@ -4,7 +4,7 @@ The first sample (04_accuracy_sample.py) has 25 strict, 60 drop-only and 35 unfl
 from the same strata and by the same rule, leaving out the pixels already sampled, so the two draws can be pooled
 (60 / 120 / 60). Point ids continue from 121. As before, the points file carries no stratum; the key is a separate file.
 
-Run from the repo root:  python v2_redesign/west_extension/12_accuracy_sample_supplement.py
+I run it from the repo root:  python v2_redesign/west_extension/12_accuracy_sample_supplement.py
 Output: accuracy_sample2_points.csv, accuracy_sample2_key.csv, accuracy_sample2_points.kml
 """
 import geopandas as gpd, numpy as np, pandas as pd, rasterio

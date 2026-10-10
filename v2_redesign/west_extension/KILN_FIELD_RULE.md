@@ -17,7 +17,7 @@ Written on 9 October 2026, after pooling the two accuracy samples showed that th
 - it is a green field or orchard next to a kiln field: *vegetated*.
 
 **How it is applied.** Newest Google Earth Pro image, viewed from directly above, at a scale that shows about 200 m around the
-point; the image date is recorded. Labels are drafted from screen captures and confirmed by the author. The recheck covers every
+point; the image date is recorded. I draft the labels from screen captures and confirm each one myself. The recheck covers every
 flagged point whose kiln label depended on its setting: in the first sample the 57 points first labelled bare or road (32 not
 counted as kiln, 25 counted as kiln on the second look), in the second sample the 29 kiln points on edges, tracks, yards or cleared
 ground. Points that are kiln ground at the point itself, and points that are plainly something else, are not rechecked.

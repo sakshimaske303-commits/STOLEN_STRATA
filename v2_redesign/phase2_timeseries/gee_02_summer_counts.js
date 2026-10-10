@@ -18,10 +18,10 @@ function toNdvi(img, redBand, nirBand, harmonizeOli) {
   var red = img.select(redBand).multiply(0.0000275).add(-0.2);
   var nir = img.select(nirBand).multiply(0.0000275).add(-0.2);
   var valid = red.gt(0).and(red.lt(1)).and(nir.gt(0)).and(nir.lt(1));
-  // KNOWN ISSUE (found 9 Oct 2026): the two lines below use the coefficients Roy et al. (2016) give for
-  // ETM+ -> OLI, but here they are applied to OLI data, i.e. in the reverse direction. They are left unchanged
-  // so this script still reproduces the rasters behind the reported long series. To correct it, replace them
-  // with the OLI -> ETM+ coefficients of Roy et al. (2016, Table 2), re-export, and rerun 08_long_series_wide.py.
+  // KNOWN ISSUE (I found it on 9 Oct 2026): the two lines below use the coefficients Roy et al. (2016) give for
+  // ETM+ -> OLI, but here they are applied to OLI data, i.e. in the reverse direction. I left them unchanged
+  // so this script still reproduces the rasters behind Section 4.1 of the paper. I corrected the wide-box long
+  // series in gee_05_long_series_fixed.js; this original-box series has not been re-exported yet.
   // The conversion tests use the unadjusted Landsat 8/9 series (oliRaw) and are not affected.
   if (harmonizeOli) {                        // Roy et al. 2016 ETM+ -> OLI coefficients (see note above)
     red = red.multiply(0.9047).add(0.0061);

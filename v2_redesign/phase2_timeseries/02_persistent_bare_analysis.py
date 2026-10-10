@@ -14,7 +14,7 @@ Phase 1 rule rejected: fans / valley fill), rest (everything else in the study b
 "Bare" = yearly p90 NDVI < BARE. "Converted" = p90 >= VEG in all three early years AND < BARE in
 all three late years, so one cloudy or dry year cannot create or remove a conversion.
 
-Run from the repo root:  python v2_redesign/phase2_timeseries/02_persistent_bare_analysis.py
+I run it from the repo root:  python v2_redesign/phase2_timeseries/02_persistent_bare_analysis.py
 """
 import os
 import numpy as np

@@ -5,7 +5,7 @@ The points file carries no stratum; the key is kept in a separate file and only 
 Labels to use: kiln_ground (kiln, clay pit, drying yard, worked bare earth in a kiln field), built_up, road,
 vegetated (field, orchard, grass, trees), bare_other, water, unclear.
 
-Run from the repo root:  python v2_redesign/west_extension/04_accuracy_sample.py
+I run it from the repo root:  python v2_redesign/west_extension/04_accuracy_sample.py
 """
 import numpy as np
 import pandas as pd

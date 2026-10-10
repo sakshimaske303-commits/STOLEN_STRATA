@@ -14,7 +14,7 @@ is usable, otherwise another clear image of 2013-2014 (date recorded per point).
 This pass was not blind: only flagged points were looked at, and one image date shows the ground on one day, whereas the
 test uses the yearly peak. A point that is bare in a single image can still have had a green season in that year.
 
-Run from the repo root:  python v2_redesign/west_extension/10_before_check_result.py
+I run it from the repo root:  python v2_redesign/west_extension/10_before_check_result.py
 Output: v2_redesign/west_extension/accuracy_before_result.csv, accuracy_before_by_present_class.csv
 """
 import numpy as np

@@ -4,7 +4,7 @@ Builds (in v2_redesign/phase1_delineation/):
   review_map.html       satellite map; open in a browser (needs internet for the imagery)
   review_checklist.csv  the polygons that need a human decision; fill in `my_label`
 
-Run from the repo root:  python v2_redesign/phase1_delineation/02_review_map.py
+I run it from the repo root:  python v2_redesign/phase1_delineation/02_review_map.py
 """
 import os
 import folium

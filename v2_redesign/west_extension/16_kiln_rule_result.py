@@ -4,7 +4,7 @@ The two samples placed the edges of kiln fields differently (15_pooled_accuracy.
 KILN_FIELD_RULE.md was written down, and every flagged point whose kiln label depended on its setting was relabelled under it
 (kiln_edge_recheck.csv, 86 points: 57 from the first sample, 29 from the second). All other points keep their pooled label.
 
-Run from the repo root:  python v2_redesign/west_extension/16_kiln_rule_result.py
+I run it from the repo root:  python v2_redesign/west_extension/16_kiln_rule_result.py
 Output: v2_redesign/west_extension/kiln_rule_result.csv, kiln_rule_points.csv,
         kiln_rule_accuracy.csv and kiln_rule_before.csv (same layout as pooled_accuracy_result.csv and pooled_before_result.csv)
 """

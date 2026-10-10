@@ -5,7 +5,7 @@ floors inside the mountains, listed in phase1_delineation/excluded_by_review.csv
 This script measures how much land they cover inside the box and how much of it either conversion test flags, so a
 reader can see what keeping them would change.
 
-Run from the repo root:  python v2_redesign/west_extension/11_removed_flat_tops_check.py
+I run it from the repo root:  python v2_redesign/west_extension/11_removed_flat_tops_check.py
 Output: v2_redesign/west_extension/removed_flat_tops_check.csv
 """
 import geopandas as gpd, numpy as np, pandas as pd, rasterio

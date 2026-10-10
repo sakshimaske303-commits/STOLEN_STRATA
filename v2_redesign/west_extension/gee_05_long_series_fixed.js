@@ -1,6 +1,6 @@
 // STOLEN STRATA v2 - long series, recomputed with the Landsat 8/9 adjustment in the right direction
-// Paste into the Earth Engine Code Editor, press Run, then start the one task in the Tasks tab.
-// The file goes to Drive folder "StolenStrata_v2"; put it in data/raw/ next to the others.
+// I paste this into the Earth Engine Code Editor, press Run, then start the one task in the Tasks tab.
+// The file goes to Drive folder "StolenStrata_v2"; I put it in data/raw/ next to the others.
 //
 // gee_04_extended_box.js adjusted Landsat 8/9 with the Roy et al. (2016) ETM+ -> OLI coefficients, i.e. in the
 // reverse direction. Here Landsat 8/9 red and NIR are converted to ETM+ with the OLI -> ETM+ coefficients of

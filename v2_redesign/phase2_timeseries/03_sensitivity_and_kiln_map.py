@@ -1,7 +1,7 @@
 """v2 Phase 2 — (a) threshold sensitivity of the 2013-15 -> 2023-25 conversion, (b) the v1-rule check on the
 v1 polygons with Landsat only, (c) year-by-year map of the conversion on terraces 5 and 3.
 
-Run from the repo root:  python v2_redesign/phase2_timeseries/03_sensitivity_and_kiln_map.py
+I run it from the repo root:  python v2_redesign/phase2_timeseries/03_sensitivity_and_kiln_map.py
 """
 import os
 import numpy as np

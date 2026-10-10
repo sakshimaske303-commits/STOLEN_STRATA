@@ -9,7 +9,7 @@ Geology: Dar & Zeeden (2020, Fig. 2), same colour legend and georeferencing as 0
 Valley part only: elevation below 2,000 m (Copernicus GLO-30). Rates are a share of the land that was vegetated at the
 start under each test's own rule (strict: peak >= 0.35 in each of 2013-15; drop: median peak >= 0.45 in 2013-15).
 
-Run from the repo root:  python v2_redesign/west_extension/14_omitted_karewa_both_tests.py
+I run it from the repo root:  python v2_redesign/west_extension/14_omitted_karewa_both_tests.py
 Output: v2_redesign/west_extension/omitted_karewa_both_tests.csv
 """
 import os

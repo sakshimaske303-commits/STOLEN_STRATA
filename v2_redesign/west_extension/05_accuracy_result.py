@@ -1,13 +1,13 @@
 """v2 extended box — join the hand labels to the sample key and estimate what the flagged terrace area is today.
 
-Reference labels, both by the author from present-day Google imagery, blind to stratum:
+Reference labels, both mine, from present-day Google imagery, blind to stratum:
   accuracy_sample_my_labels.csv   first pass, 7 classes, 120 points
   accuracy_second_pass.csv        second pass on the 68 points first labelled bare_other or road: is the point inside a
                                   brick-kiln field (yes / no / unclear)? Needed because bare worked ground inside a kiln field
                                   could not be told from other bare ground at the first-pass zoom.
 Final class: kiln = first-pass kiln_ground or second-pass yes; otherwise the first-pass class (second-pass unclear kept apart).
 
-Run from the repo root:  python v2_redesign/west_extension/05_accuracy_result.py
+I run it from the repo root:  python v2_redesign/west_extension/05_accuracy_result.py
 """
 import numpy as np
 import pandas as pd

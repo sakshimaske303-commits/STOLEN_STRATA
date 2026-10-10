@@ -11,7 +11,7 @@ Rule (all thresholds are provisional and must be calibrated in the Phase 1 valid
                             -> >= 0.45 'scarp-bounded', 0.20-0.45 'ambiguous',
                                < 0.20 'rejected' (alluvial fan / valley fill)
 
-Run from the repo root:  python v2_redesign/phase1_delineation/01_flat_top_delineation.py
+I run it from the repo root:  python v2_redesign/phase1_delineation/01_flat_top_delineation.py
 Needs: data/raw/StolenStrata_DEM_GLO30_buffered.tif (study box + ~10 km buffer, so that
 plateaus are not cut by the DEM edge), and `pip install pysheds`.
 Terrain is processed on the buffered DEM; only plateaus that intersect the original

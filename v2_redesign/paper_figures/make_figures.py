@@ -1,5 +1,5 @@
 """Figures 2 and 4 of the revised paper, drawn from the result tables.
-Run from the repo root:  python v2_redesign/paper_figures/make_figures.py
+I run it from the repo root:  python v2_redesign/paper_figures/make_figures.py
 """
 import pandas as pd
 import matplotlib

@@ -6,7 +6,7 @@ Inputs in data/raw/ (from gee_03_elevation_gate_test.js) plus the Copernicus DEM
   data/interim/DEM_buffered_UTM43N.tif        Copernicus GLO-30 (2011-2015)
 
 Groups: converted (vegetated 2013-15 -> bare 2023-25, Phase 2), the rest of terraces 5 and 3, all other terraces.
-Run from the repo root:  python v2_redesign/phase4_elevation/01_elevation_gate_test.py
+I run it from the repo root:  python v2_redesign/phase4_elevation/01_elevation_gate_test.py
 """
 import os
 import numpy as np

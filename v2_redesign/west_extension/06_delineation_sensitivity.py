@@ -3,7 +3,7 @@
 Re-runs the Phase 1 flat-top rule for 3 x 3 combinations (slope 3/4/5 deg, HAND 10/15/20 m), everything else unchanged
 (elevation < 1950 m, opening 2 px, min 0.05 km2, scarp share >= 0.25), and repeats both conversion tests on each terrace set.
 
-Run from the repo root:  python v2_redesign/west_extension/06_delineation_sensitivity.py   (about 3 minutes)
+I run it from the repo root:  python v2_redesign/west_extension/06_delineation_sensitivity.py   (about 3 minutes)
 """
 import os
 import numpy as np

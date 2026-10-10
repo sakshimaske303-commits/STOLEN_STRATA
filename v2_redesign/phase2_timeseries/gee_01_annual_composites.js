@@ -1,8 +1,8 @@
 // NOTE: exports 2 and 3 (LS_summer, LS_counts) failed from this script in Earth Engine; they were
 // produced with gee_02_summer_counts.js. Exports 1, 4, 5, 6 ran from this script as written.
 // STOLEN STRATA v2 — Phase 2: annual single-sensor-family NDVI composites, 1990–2025
-// Paste into the Earth Engine Code Editor, press Run, then start all 6 tasks in the Tasks tab.
-// Files land in Google Drive folder "StolenStrata_v2". Put them in:  data/raw/v2/
+// I paste this into the Earth Engine Code Editor, press Run, then start all 6 tasks in the Tasks tab.
+// Files land in Google Drive folder "StolenStrata_v2"; I put them in data/raw/v2/
 //
 // What it exports (all 30 m, EPSG:32643, study box only, NDVI stored as int16 = NDVI x 10000, nodata -32768)
 //   1 LS_p90_1990_2025        one band per year: 90th percentile of NDVI over the whole year
@@ -34,10 +34,10 @@ function toNdvi(img, redBand, nirBand, harmonizeOli) {
   var red = img.select(redBand).multiply(0.0000275).add(-0.2);
   var nir = img.select(nirBand).multiply(0.0000275).add(-0.2);
   var valid = red.gt(0).and(red.lt(1)).and(nir.gt(0)).and(nir.lt(1));
-  // KNOWN ISSUE (found 9 Oct 2026): the two lines below use the coefficients Roy et al. (2016) give for
-  // ETM+ -> OLI, but here they are applied to OLI data, i.e. in the reverse direction. They are left unchanged
-  // so this script still reproduces the rasters behind the reported long series. To correct it, replace them
-  // with the OLI -> ETM+ coefficients of Roy et al. (2016, Table 2), re-export, and rerun 08_long_series_wide.py.
+  // KNOWN ISSUE (I found it on 9 Oct 2026): the two lines below use the coefficients Roy et al. (2016) give for
+  // ETM+ -> OLI, but here they are applied to OLI data, i.e. in the reverse direction. I left them unchanged
+  // so this script still reproduces the rasters behind Section 4.1 of the paper. I corrected the wide-box long
+  // series in gee_05_long_series_fixed.js; this original-box series has not been re-exported yet.
   // The conversion tests use the unadjusted Landsat 8/9 series (oliRaw) and are not affected.
   if (harmonizeOli) {                        // Roy et al. 2016 ETM+ -> OLI coefficients (see note above)
     red = red.multiply(0.9047).add(0.0061);

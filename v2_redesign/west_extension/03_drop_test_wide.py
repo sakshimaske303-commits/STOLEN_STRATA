@@ -6,7 +6,7 @@ kiln fields are mixed pixels with weeds and sit at p90 0.25-0.45, not below 0.25
 It catches more real change and more noise, so every figure is given with the reverse change (the same rule run
 backwards) and for the two comparison strata.
 
-Run from the repo root:  python v2_redesign/west_extension/03_drop_test_wide.py
+I run it from the repo root:  python v2_redesign/west_extension/03_drop_test_wide.py
 Writes drop_test_by_stratum_wide.csv, drop_test_by_terrace_wide.csv, low_ndvi_stock_wide.csv
 """
 import rasterio, numpy as np, geopandas as gpd, pandas as pd

@@ -9,7 +9,7 @@ Outputs (in v2_redesign/phase1_delineation/):
   geology_summary.csv         the same per layer, plus wall-to-wall agreement for the v2 terraces
   geology_threshold_table.csv precision/recall of the scarp-share cut-off against the map
 
-Run from the repo root:  python v2_redesign/phase1_delineation/04_geology_check.py
+I run it from the repo root:  python v2_redesign/phase1_delineation/04_geology_check.py
 """
 import os
 import numpy as np
