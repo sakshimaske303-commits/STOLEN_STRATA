@@ -72,7 +72,7 @@ inside a brick-kiln field or not. A first-pass-only version could not separate k
   (1 of 35 points, 86–2,470 ha). A second opinion was taken on about eight points while labelling (first pass 1–6,
   second pass 81 and 112); the rest were labelled alone.
 
-## Robustness and the long view (06, 07, 08)
+## Robustness and the long view (06, 07, 08) — long-view figures here are the first, reversed run; corrected figures under "Known issue, fixed" below
 **Terrace cut-offs (06).** Slope 3/4/5° × height above drainage 10/15/20 m. Terrace area swings from 106 to 258 km², but the
 strict conversion stays at 95–120 ha and the drop test at 221–422 ha; terraces convert 5–13 times (strict) and 2.4–3.7 times
 (drop) faster than other flat land in every one of the nine versions. Height above drainage hardly matters; slope does.
@@ -150,7 +150,7 @@ Corrected long view, 1993–98 → 2023–25 net of reverse: Rangeen Kultreh +98
 all terraces 622 ha drop against 417 ha reverse. Low-NDVI land 2023–25: Bandagam–Batapora 454 ha (16.3%), Rangeen Kultreh 125 ha, other terraces 400 ha (2.8%).
 The long-view table further up (and its 335 ha) is the first, reversed run.
 
-## Pooled accuracy (15_pooled_accuracy.py), 9 October 2026
+## Pooled accuracy (15_pooled_accuracy.py), 9 October 2026 — superseded by the kiln rule (next section)
 
 Second sample (121-240, `12_accuracy_sample_supplement.py`): all 120 labelled from two screen captures per point (newest image and
 September 2014, or the nearest clear image of 2013-2015), blind to stratum, both dates recorded in

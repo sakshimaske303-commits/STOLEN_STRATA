@@ -59,13 +59,14 @@ My first version said bare ground on Kashmir's karewa terraces had more than qua
 - **A fully blind check of the past.** In the first sample the older imagery was looked up only for points already flagged; the second sample was labelled blind. Mostly one image of September 2014 was used, and "vegetated" there includes rough grass and scattered trees. One image shows one day; the test uses the peak of the year.
 - **Roads, settlements and the 25 "degraded terraces".** Those analyses depended on the withdrawn layer and are dropped.
 
-## Still in progress
+## Corrected in October 2026, and what is still open
 
 - The long 1993–2025 series first applied the Landsat 8/9 adjustment in the reverse direction. It was recomputed with the right coefficients in October 2026; the three-decade figure for the two belts rose from about 335 ha to about 407 ha. The 2013–2025 results never used that adjustment.
+- Still open: the Landsat values in the check of the earlier estimate (the 0.07% for 2025) come from the original-box series, which still carries the reversed adjustment and has not yet been recomputed.
 
 ## Why it matters
 
-Protection of the karewas has a short, specific list of places where it matters most, and one of them was farmland ten years ago. And a satellite claim like my first one should be tested on a single sensor before it is published. Mine was not, and this revision is the result of doing that test late.
+Protection of the karewas has a short, specific list of places where it matters most, and one of them was vegetated land ten years ago. And a satellite claim like my first one should be tested on a single sensor before it is published. Mine was not, and this revision is the result of doing that test late.
 
 ## Where things are
 

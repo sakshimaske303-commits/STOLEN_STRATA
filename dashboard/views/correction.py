@@ -27,7 +27,8 @@ fig.add_trace(bars(yrs, m.landsat_only_mean_of_polygons_pct, TEAL, [f"{v:.2f}%" 
 fig.update_layout(barmode="group", yaxis_title="Bare-earth share, mean of 201 polygons (%)", yaxis_range=[0, 9.8], bargap=0.3, xaxis_type="category")
 show(style_fig(fig, 430))
 caption(f"In 2025 the Landsat-only figure is {m.landsat_only_mean_of_polygons_pct.iloc[-1]}%, not {m.earlier_reported_mean_of_polygons_pct.iloc[-1]}%. "
-        "The comparison is not exact in one respect: the Landsat-only values use a single year's June–September median, where the earlier version used composites of several years.")
+        "The comparison is not exact in one respect: the Landsat-only values use a single year's June–September median, where the earlier version used composites of several years. "
+        "The 2015 and 2025 Landsat values come from the original-box series, which still carries the reversed Landsat 8/9 adjustment of the first run and has not yet been recomputed.")
 
 c1, c2 = st.columns(2)
 with c1:
@@ -70,7 +71,7 @@ with c2:
     fig = go.Figure(bars(names, vals, [TEAL, TEAL, ORANGE], [f"{v:.1f}%" for v in vals]))
     fig.update_layout(yaxis_title="Yearly peak NDVI < 0.25 in 2025 (%)", showlegend=False, yaxis_range=[0, max(vals) * 1.25])
     show(style_fig(fig, 340, legend_top=False))
-    caption("Same terraces, same year, same rule, three instruments. A statement of the form “x% of the karewas are bare” has no single answer. Only change measured inside one instrument is defensible.")
+    caption("The adjusted series here is the first run, before the Landsat 8/9 adjustment was corrected. Same terraces, same year, same rule, three instruments. A statement of the form “x% of the karewas are bare” has no single answer. Only change measured inside one instrument is defensible.")
 
 note("<b>What follows from it.</b> Every comparison through time in the rest of this dashboard is made inside one sensor family. "
      "The road and settlement proximity tests, the 25 “degraded terraces”, the saffron proximity analysis and the rupee valuation of the earlier version all depended on the withdrawn layer and are not repeated.", "note")
