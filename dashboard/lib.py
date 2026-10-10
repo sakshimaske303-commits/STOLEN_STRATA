@@ -29,15 +29,27 @@ GREY = "#9AA5B8"     # comparison land, context
 GITHUB = "https://github.com/sakshimaske303-commits/STOLEN_STRATA"
 
 
-@st.cache_data
 def table(rel):
     """A result table from v2_redesign/, e.g. table('west_extension/accuracy_result.csv')."""
-    return pd.read_csv(os.path.join(V2, rel))
+    path = os.path.join(V2, rel)
+    return _table(path, os.path.getmtime(path))
 
 
 @st.cache_data
+def _table(path, mtime):
+    return pd.read_csv(path)
+
+
 def mapfile(name):
+    """A file from dashboard/map_data/. The file's modification time is part of the cache key, so a new file is read
+    again after a redeploy instead of an older cached copy being served."""
     path = os.path.join(MAPDATA, name)
+    return _mapfile(path, os.path.getmtime(path))
+
+
+@st.cache_data
+def _mapfile(path, mtime):
+    name = path
     if name.endswith(".csv"):
         return pd.read_csv(path)
     with open(path, encoding="utf-8") as f:

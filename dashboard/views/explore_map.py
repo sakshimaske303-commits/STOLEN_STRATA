@@ -30,7 +30,7 @@ if "Sample points" in layers_on:
     for key, lab, colr in CLS:
         d = pts[pts.final == key]
         fig.add_trace(go.Scattermapbox(lat=d.lat, lon=d.lon, mode="markers", name=lab, marker=dict(size=11, color=colr, opacity=0.95),
-                                       customdata=list(zip(d.point_id, d.stratum.map(STR), d.before_label.fillna("not checked"), d.p90_2013_15, d.p90_2023_25)),
+                                       customdata=list(zip(d.point_id, d.stratum.map(STR), (d["before_label"].fillna("not checked") if "before_label" in d else ["not checked"] * len(d)), d.p90_2013_15, d.p90_2023_25)),
                                        hovertemplate="<b>Point %{customdata[0]}</b> · " + lab[8:] + "<br>%{customdata[1]}<br>2013–15 image: %{customdata[2]}<br>peak NDVI %{customdata[3]:.2f} → %{customdata[4]:.2f}<extra></extra>"))
 layers = []
 if base == "Satellite":
