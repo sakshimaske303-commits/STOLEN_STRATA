@@ -6,7 +6,7 @@
 > terraces rose from 1.84% to 8.43% between 1994 and 2025 (a net 190.3 ha), with 25 degraded terraces and a saffron value at
 > risk of ₹17.8 crore. Those numbers came from comparing two differently built satellite products and are **withdrawn**, with
 > everything built on them. Section 4.1 of the paper shows the check. The September preprint
-> ([EarthArXiv](https://eartharxiv.org/repository/view/14805/), [Zenodo](https://doi.org/10.5281/zenodo.21766464)) is that earlier version and has not yet been replaced.
+> ([EarthArXiv](https://eartharxiv.org/repository/view/14805/)) is that earlier version and has not yet been replaced.
 
 ## Live dashboard
 

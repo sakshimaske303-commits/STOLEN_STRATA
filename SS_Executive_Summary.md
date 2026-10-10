@@ -3,7 +3,7 @@
 
 Executive Summary · Revised 7 October 2026 · Sakshi D. Maske
 
-*The earlier summary and preprint (DOI: 10.5281/zenodo.21766464, 4 September 2026) reported a rise in bare-earth share from 1.84% to 8.43% and a net increase of 190.3 ha. Those numbers are withdrawn. This summary replaces them.*
+*The earlier summary and preprint (4 September 2026) reported a rise in bare-earth share from 1.84% to 8.43% and a net increase of 190.3 ha. Those numbers are withdrawn. This summary replaces them.*
 
 ## What changed, in one paragraph
 

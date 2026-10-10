@@ -7,10 +7,6 @@ authors:
     given-names: "Sakshi D."
 repository-code: "https://github.com/sakshimaske303-commits/STOLEN_STRATA"
 url: "https://github.com/sakshimaske303-commits/STOLEN_STRATA"
-identifiers:
-  - type: doi
-    value: "10.5281/zenodo.21766464"
-    description: "Zenodo archive of version 1.0.0, the earlier version whose main results are withdrawn. Version 2 is not yet archived."
 abstract: >-
   A satellite study of vegetated karewa tableland lost to brick kilns in the
   Kashmir Valley. An earlier version reported that the bare-earth share of
