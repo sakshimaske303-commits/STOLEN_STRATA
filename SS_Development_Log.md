@@ -511,3 +511,13 @@ The kiln figure does not hold up as well. Pooled it is 188 ha (166 to 210 ha), b
 
 Changed: paper sections 3.5, 4.5 (Tables 2 to 4), 6 and 7 and the abstract; executive summary; README; dashboard. The first sample's own tables and scripts (05, 09, 10) are kept as they were, as the record of that sample.
 
+## Entry 31
+
+10 October 2026. One rule for where a kiln field ends, and the kiln figure settles.
+
+Pooling the two samples had shown that they put the edges of kiln fields in different places, so the kiln figure was 141 ha by one and 232 ha by the other. I wrote the rule down (`KILN_FIELD_RULE.md`): a point is kiln if it is on a kiln, a pit, brick rows or a kiln shed, or on worked ground, a track or a yard inside the worked area with bricks, a pit or a kiln within about 100 m and nothing like a house, a public road or a crop field in between. Then I went back to every flagged point whose label had depended on its setting, 57 from the first sample and 29 from the second, and labelled each again under the rule from a view straight down on the newest image.
+
+27 labels changed. Sixteen first-sample points moved into a kiln field: tracks and worked plots that I had called bare or road the first time. Four second-sample points moved out: three cleared or cut plots with nothing kiln-like within 100 m (148, 213, 238) and one too dark to tell (159). Point 40 I first read as bare ground on a wide view and then, closer, found brick stacks about 60 m away.
+
+With the same rule the two samples agree: 204 ha and 217 ha, 210 ha pooled (189 to 231 ha), and 197 ha on land the older image shows as vegetated. The loss of vegetation does not move (299 ha). This pass was not blind to stratum, and the rule was written after I had seen the two samples disagree, which the paper says. Most of the kiln land is still recognised from its setting within 100 m of bricks or a kiln, not from what lies at the point; outlines of the kiln fields on dated imagery would be the independent check.
+

@@ -1,0 +1,73 @@
+sample,stratum,n,stratum_ha,measure,hits,share,ci95_low,ci95_high,est_ha,est_ha_low,est_ha_high
+pooled,A_strict,60,107.01,kiln,56,0.933,0.841,0.974,99.9,90.0,104.2
+pooled,A_strict,60,107.01,not vegetated,60,1.0,0.94,1.0,107.0,100.6,107.0
+pooled,A_strict,60,107.01,"built_up or road, not kiln",3,0.05,0.017,0.137,5.4,1.8,14.7
+pooled,A_strict,60,107.01,"other bare ground, not kiln",1,0.017,0.003,0.089,1.8,0.3,9.5
+pooled,A_strict,60,107.01,still vegetated,0,0.0,0.0,0.06,0.0,0.0,6.4
+pooled,A_strict,60,107.01,unclear,0,0.0,0.0,0.06,0.0,0.0,6.4
+pooled,B_drop_only,120,224.01,kiln,59,0.492,0.404,0.58,110.1,90.5,129.9
+pooled,B_drop_only,120,224.01,not vegetated,103,0.858,0.785,0.91,192.3,175.8,203.8
+pooled,B_drop_only,120,224.01,"built_up or road, not kiln",30,0.25,0.181,0.334,56.0,40.6,74.9
+pooled,B_drop_only,120,224.01,"other bare ground, not kiln",14,0.117,0.071,0.186,26.1,15.9,41.7
+pooled,B_drop_only,120,224.01,still vegetated,16,0.133,0.084,0.206,29.9,18.8,46.1
+pooled,B_drop_only,120,224.01,unclear,1,0.008,0.001,0.046,1.9,0.3,10.2
+pooled,C_not_flagged,60,16999.65,kiln,1,0.017,0.003,0.089,283.3,50.1,1505.4
+pooled,C_not_flagged,60,16999.65,not vegetated,20,0.333,0.227,0.459,5666.5,3863.9,7810.2
+pooled,C_not_flagged,60,16999.65,"built_up or road, not kiln",8,0.133,0.069,0.242,2266.6,1175.4,4108.0
+pooled,C_not_flagged,60,16999.65,"other bare ground, not kiln",11,0.183,0.106,0.299,3116.6,1794.8,5086.3
+pooled,C_not_flagged,60,16999.65,still vegetated,40,0.667,0.541,0.773,11333.1,9189.4,13135.8
+pooled,C_not_flagged,60,16999.65,unclear,0,0.0,0.0,0.06,0.0,0.0,1022.9
+draw 1,A_strict,25,107.01,kiln,24,0.96,0.805,0.993,102.7,86.1,106.3
+draw 1,A_strict,25,107.01,not vegetated,25,1.0,0.867,1.0,107.0,92.8,107.0
+draw 1,A_strict,25,107.01,"built_up or road, not kiln",1,0.04,0.007,0.195,4.3,0.8,20.9
+draw 1,A_strict,25,107.01,"other bare ground, not kiln",0,0.0,0.0,0.133,0.0,0.0,14.3
+draw 1,A_strict,25,107.01,still vegetated,0,0.0,0.0,0.133,0.0,0.0,14.3
+draw 1,A_strict,25,107.01,unclear,0,0.0,0.0,0.133,0.0,0.0,14.3
+draw 1,B_drop_only,60,224.01,kiln,27,0.45,0.331,0.575,100.8,74.1,128.8
+draw 1,B_drop_only,60,224.01,not vegetated,50,0.833,0.72,0.907,186.7,161.2,203.1
+draw 1,B_drop_only,60,224.01,"built_up or road, not kiln",15,0.25,0.158,0.372,56.0,35.3,83.4
+draw 1,B_drop_only,60,224.01,"other bare ground, not kiln",8,0.133,0.069,0.242,29.9,15.5,54.1
+draw 1,B_drop_only,60,224.01,still vegetated,10,0.167,0.093,0.28,37.3,20.9,62.8
+draw 1,B_drop_only,60,224.01,unclear,0,0.0,0.0,0.06,0.0,0.0,13.5
+draw 1,C_not_flagged,35,16999.65,kiln,1,0.029,0.005,0.145,485.7,86.0,2470.6
+draw 1,C_not_flagged,35,16999.65,not vegetated,13,0.371,0.232,0.537,6314.2,3938.1,9122.6
+draw 1,C_not_flagged,35,16999.65,"built_up or road, not kiln",4,0.114,0.045,0.26,1942.8,771.0,4411.7
+draw 1,C_not_flagged,35,16999.65,"other bare ground, not kiln",8,0.229,0.121,0.39,3885.6,2051.1,6632.9
+draw 1,C_not_flagged,35,16999.65,still vegetated,22,0.629,0.463,0.768,10685.5,7877.1,13061.6
+draw 1,C_not_flagged,35,16999.65,unclear,0,0.0,0.0,0.099,0.0,0.0,1681.3
+draw 2,A_strict,35,107.01,kiln,32,0.914,0.776,0.97,97.8,83.1,103.8
+draw 2,A_strict,35,107.01,not vegetated,35,1.0,0.901,1.0,107.0,96.4,107.0
+draw 2,A_strict,35,107.01,"built_up or road, not kiln",2,0.057,0.016,0.186,6.1,1.7,19.9
+draw 2,A_strict,35,107.01,"other bare ground, not kiln",1,0.029,0.005,0.145,3.1,0.5,15.6
+draw 2,A_strict,35,107.01,still vegetated,0,0.0,0.0,0.099,0.0,0.0,10.6
+draw 2,A_strict,35,107.01,unclear,0,0.0,0.0,0.099,0.0,0.0,10.6
+draw 2,B_drop_only,60,224.01,kiln,32,0.533,0.409,0.654,119.5,91.6,146.4
+draw 2,B_drop_only,60,224.01,not vegetated,53,0.883,0.778,0.942,197.9,174.3,211.1
+draw 2,B_drop_only,60,224.01,"built_up or road, not kiln",15,0.25,0.158,0.372,56.0,35.3,83.4
+draw 2,B_drop_only,60,224.01,"other bare ground, not kiln",6,0.1,0.047,0.201,22.4,10.4,45.1
+draw 2,B_drop_only,60,224.01,still vegetated,6,0.1,0.047,0.201,22.4,10.4,45.1
+draw 2,B_drop_only,60,224.01,unclear,1,0.017,0.003,0.089,3.7,0.7,19.8
+draw 2,C_not_flagged,25,16999.65,kiln,0,0.0,0.0,0.133,0.0,0.0,2264.3
+draw 2,C_not_flagged,25,16999.65,not vegetated,7,0.28,0.143,0.476,4759.9,2428.2,8087.9
+draw 2,C_not_flagged,25,16999.65,"built_up or road, not kiln",4,0.16,0.064,0.347,2719.9,1088.5,5891.1
+draw 2,C_not_flagged,25,16999.65,"other bare ground, not kiln",3,0.12,0.042,0.3,2040.0,708.3,5092.4
+draw 2,C_not_flagged,25,16999.65,still vegetated,18,0.72,0.524,0.857,12239.7,8911.7,14571.5
+draw 2,C_not_flagged,25,16999.65,unclear,0,0.0,0.0,0.133,0.0,0.0,2264.3
+pooled,A_and_B,180,331.02,kiln,115,0.634,0.57,0.699,210.0,188.8,231.3
+pooled,A_and_B,180,331.02,not vegetated,163,0.904,0.862,0.947,299.3,285.3,313.3
+pooled,A_and_B,180,331.02,"built_up or road, not kiln",33,0.185,0.13,0.241,61.4,42.9,79.8
+pooled,A_and_B,180,331.02,"other bare ground, not kiln",15,0.084,0.044,0.125,27.9,14.5,41.3
+pooled,A_and_B,180,331.02,still vegetated,16,0.09,0.049,0.132,29.9,16.2,43.5
+pooled,A_and_B,180,331.02,unclear,1,0.006,0.0,0.017,1.9,0.0,5.5
+draw 1,A_and_B,85,331.02,kiln,51,0.615,0.525,0.704,203.5,173.9,233.2
+draw 1,A_and_B,85,331.02,not vegetated,75,0.887,0.823,0.952,293.7,272.4,315.0
+draw 1,A_and_B,85,331.02,"built_up or road, not kiln",16,0.182,0.103,0.261,60.3,34.1,86.4
+draw 1,A_and_B,85,331.02,"other bare ground, not kiln",8,0.09,0.032,0.149,29.9,10.4,49.3
+draw 1,A_and_B,85,331.02,still vegetated,10,0.113,0.048,0.177,37.3,16.0,58.6
+draw 1,A_and_B,85,331.02,unclear,0,0.0,0.0,0.0,0.0,0.0,0.0
+draw 2,A_and_B,95,331.02,kiln,64,0.656,0.565,0.748,217.3,187.1,247.6
+draw 2,A_and_B,95,331.02,not vegetated,88,0.921,0.866,0.976,304.9,286.5,323.2
+draw 2,A_and_B,95,331.02,"built_up or road, not kiln",17,0.188,0.109,0.267,62.1,36.0,88.2
+draw 2,A_and_B,95,331.02,"other bare ground, not kiln",7,0.077,0.022,0.132,25.5,7.3,43.6
+draw 2,A_and_B,95,331.02,still vegetated,6,0.068,0.016,0.119,22.4,5.3,39.5
+draw 2,A_and_B,95,331.02,unclear,1,0.011,0.0,0.033,3.7,0.0,11.1

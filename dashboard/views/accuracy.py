@@ -8,11 +8,12 @@ from style import page_title
 page_title("Accuracy Sample", "What the flagged land is today, point by point")
 n = numbers()
 pts = mapfile("accuracy_points.csv")
-pa = table("west_extension/pooled_accuracy_result.csv")
+pa = table("west_extension/kiln_rule_accuracy.csv")
+po = table("west_extension/pooled_accuracy_result.csv")
 res = pa[pa["sample"] == "pooled"].rename(columns={"measure": "reference_class"})
 bp = table("west_extension/accuracy_by_labelling_pass.csv")
 bt = table("west_extension/accuracy_points_by_terrace.csv")
-pb = table("west_extension/pooled_before_result.csv")
+pb = table("west_extension/kiln_rule_before.csv")
 br = pb[pb["sample"] == "pooled"]
 bl = table("west_extension/accuracy_before_pass.csv").rename(columns={"image_date": "before_date"})
 l2 = table("west_extension/accuracy_sample2_labels_in_progress.csv").rename(columns={"before_basis": "basis"})
@@ -24,7 +25,7 @@ A satellite test says vegetation was lost. It does not say what replaced it. To 
 240 in all: 60 from pixels flagged by the strict test, 120 from pixels flagged only by the drop test and 60 from pixels flagged by neither.
 The points were shuffled, and I labelled each one against the most recent satellite imagery without knowing which group it came from.
 In the first sample (points 1–120) the date of that imagery was not recorded; in the second (121–240) it was, and ranges from 2022 to 2026.
-The figures below pool the two samples.
+The figures below pool the two samples, with the edges of kiln fields judged under one written rule (see below).
 """
 )
 
@@ -63,34 +64,34 @@ with a 95% interval of roughly {n['kiln_lo']:.0f} to {n['kiln_hi']:.0f} ha.
 )
 
 st.markdown("---")
-st.markdown("### The kiln figure depends on where a kiln field ends")
+st.markdown("### Where a kiln field ends: one rule for both samples")
 c1, c2 = st.columns([3, 2])
 with c1:
     f = bp[bp.stratum != "C_not_flagged"]
     first = f[f.definition.str.startswith("first pass")].est_ha.sum()
-    kd = pa[(pa.stratum == "A_and_B") & (pa.measure == "kiln")].set_index("sample")
-    xs = ["First sample, close zoom only", "First sample, both passes", "Second sample", "Both samples pooled"]
-    ys = [first, kd.est_ha["draw 1"], kd.est_ha["draw 2"], kd.est_ha["pooled"]]
-    lo = [None, kd.est_ha_low["draw 1"], kd.est_ha_low["draw 2"], kd.est_ha_low["pooled"]]
-    hi = [None, kd.est_ha_high["draw 1"], kd.est_ha_high["draw 2"], kd.est_ha_high["pooled"]]
-    fig = go.Figure(go.Bar(x=xs, y=ys, marker=dict(color=["#8A4A2A", ORANGE, ORANGE, "#F2D24B"], line=dict(color="#0A0E1A", width=2)),
-                           error_y=dict(type="data", symmetric=False, array=[0 if h is None else h - y for h, y in zip(hi, ys)],
-                                        arrayminus=[0 if l is None else y - l for l, y in zip(lo, ys)], color="#F4EBD9"),
-                           text=[f"{v:.0f} ha" for v in ys], textposition="inside", hovertemplate="%{x}: %{y:.0f} ha<extra></extra>"))
-    fig.update_layout(yaxis_title="Flagged land inside a kiln field (ha)")
-    show(style_fig(fig, 400, legend_top=False))
+    xs = ["First sample", "Second sample", "Both samples pooled"]
+    fig = go.Figure()
+    for lab, src, colr in (("As first labelled", po, GREY), ("Under one rule", pa, ORANGE)):
+        kd = src[(src.stratum == "A_and_B") & (src.measure == "kiln")].set_index("sample")
+        ys = [kd.est_ha[s] for s in ("draw 1", "draw 2", "pooled")]
+        lo = [kd.est_ha_low[s] for s in ("draw 1", "draw 2", "pooled")]; hi = [kd.est_ha_high[s] for s in ("draw 1", "draw 2", "pooled")]
+        fig.add_trace(go.Bar(x=xs, y=ys, name=lab, marker=dict(color=colr, line=dict(color="#0A0E1A", width=2)),
+                             error_y=dict(type="data", symmetric=False, array=[h - y for h, y in zip(hi, ys)], arrayminus=[y - l for l, y in zip(lo, ys)], color="#F4EBD9"),
+                             text=[f"{v:.0f} ha" for v in ys], textposition="inside", hovertemplate="%{x}: %{y:.0f} ha<extra>" + lab + "</extra>"))
+    fig.update_layout(barmode="group", yaxis_title="Flagged land inside a kiln field (ha)", legend=dict(orientation="h", y=1.02, yanchor="bottom", x=0))
+    show(style_fig(fig, 400))
 with c2:
     st.markdown(
         f"""
-Both samples agree on how much vegetation was lost. They do not agree on how much of it is kiln land:
-about **{n['kiln_draw1_ha']:.0f} ha** by the first sample and **{n['kiln_draw2_ha']:.0f} ha** by the second.
+As first labelled, the two samples disagreed on how much of the flagged land is kiln land: about **{n['kiln_old1_ha']:.0f} ha** by the first
+and **{n['kiln_old2_ha']:.0f} ha** by the second. They had placed bare worked ground, tracks and cleared plots at the edge of a kiln field differently.
 
-The points are not different: kiln field, other bare ground and road together take 40 of 60 drop-only points in the first sample
-and 43 in the second. What differs is where bare worked ground, tracks and cleared plots at the edge of a kiln field went:
-in the first sample, labelled in two passes, mostly to other bare ground or road; in the second, judged in one pass against
-the setting, mostly to kiln. Counting only points that were kiln ground at close zoom, the first sample gives about {n['kiln_first_ha']:.0f} ha.
+So I wrote one rule down: a point is in a kiln field if it is on a kiln, pit, brick rows or kiln shed, or on worked ground, a track or a yard
+inside the worked area with bricks, a pit or a kiln **within about 100 m** and no house, public road or crop field in between.
+The 86 flagged points whose label depended on their setting were relabelled under it.
 
-So the pooled {n['kiln_ha']:.0f} ha is land inside or at the working edge of brick-kiln fields. Kiln-field outlines drawn on dated imagery would settle it.
+Under the one rule the samples agree: **{n['kiln_draw1_ha']:.0f} ha** and **{n['kiln_draw2_ha']:.0f} ha**, {n['kiln_ha']:.0f} ha pooled.
+Most of it is recognised from its setting, not from what lies at the point; kiln-field outlines on dated imagery would be an independent check.
 """
     )
 
@@ -123,7 +124,7 @@ The labels above describe the present state. For the earlier state, each of the 
 Vegetation is visible at **{int(vt.hits)} of 180** points: {int(va.hits)} of 60 strict points
 and {int(vb.hits)} of 120 drop-only points ({vb.share * 100:.0f}%).
 
-Five of the points that were not vegetated then are counted as kiln field today. Restricted to points the older image also shows as
+Seven of the points that were not vegetated then are counted as kiln field today. Restricted to points the older image also shows as
 vegetated, the kiln-field estimate is about **{kt.est_ha:.0f} ha** (roughly {kt.est_ha_low:.0f}–{kt.est_ha_high:.0f} ha) instead of {n['kiln_ha']:.0f} ha.
 Land vegetated then and not vegetated today, whatever it became, is about {gt.est_ha:.0f} ha.
 """
@@ -133,8 +134,8 @@ caption("\"Vegetated\" in the older image is a low bar: crop fields and orchards
 
 note(
     "<b>Read these numbers with four cautions.</b><br>"
-    "1. <b>The kiln figure rests on where a kiln field ends.</b> The two samples give 141 and 232 ha for the same land (see above).<br>"
-    "2. <b>The strict stratum is mostly one place.</b> 44 of its 60 points fall on one terrace and 52 on the two Rangeen Kultreh terraces (48 of them inside the kiln field), because that is where most of the strict-test area lies.<br>"
+    "1. <b>The kiln figure rests on one written rule for where a kiln field ends,</b> written after the two samples were compared, and applied by one labeller (see above).<br>"
+    "2. <b>The strict stratum is mostly one place.</b> 44 of its 60 points fall on one terrace and 52 on the two Rangeen Kultreh terraces (51 of them inside the kiln field), because that is where most of the strict-test area lies.<br>"
     "3. <b>One labeller.</b> For roughly eight uncertain points of the first sample I took a second opinion; the rest I labelled alone. There is no second, independent labeller yet.<br>"
     f"4. <b>Missed kiln land is not estimated.</b> One of 60 unflagged points was inside a kiln field, which gives a range ({k.est_ha_low['C_not_flagged']:.0f} to {round(k.est_ha_high['C_not_flagged'], -1):,.0f} ha) too wide to mean anything.",
     "caution",

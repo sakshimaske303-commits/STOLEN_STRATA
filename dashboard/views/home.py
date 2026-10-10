@@ -34,7 +34,7 @@ stats([("Terraces mapped", f"{n['terraces']}", f"{n['terrace_km2']:.1f} km² of 
        ("Inside brick-kiln fields", f"≈ {n['kiln_ha']:.0f} ha", f"95% interval {n['kiln_lo']:.0f}–{n['kiln_hi']:.0f} ha")])
 st.markdown("<div style='height:0.8rem'></div>", unsafe_allow_html=True)
 caption("Landsat 8/9 only, 30 m pixels, 2013–2015 compared with 2023–2025. The last two figures come from two hand-labelled samples, 240 points in all. "
-        f"The kiln figure depends on how the edges of kiln fields are counted: the first sample gives about {n['kiln_draw1_ha']:.0f} ha and the second "
+        f"Kiln-field edges follow one written rule; under it the first sample gives about {n['kiln_draw1_ha']:.0f} ha and the second "
         f"about {n['kiln_draw2_ha']:.0f} ha. Counting only points that imagery of 2013–2015 also shows as vegetated it is about {n['kiln_before_ha']:.0f} ha.")
 
 st.markdown("<br>", unsafe_allow_html=True)
@@ -61,8 +61,8 @@ card(
     satellite record until 2016. On the Bandagam–Batapora tablelands low-vegetation land is older, and the looser test finds the largest
     post-2013 loss there.</p>
     <p><b>About {n['notveg_ha']:.0f} ha of the 331 ha flagged is not vegetated today, and about {n['lost_ha']:.0f} ha of it was vegetated in imagery of 2013–2015.</b>
-    About {n['kiln_ha']:.0f} ha lies inside brick-kiln fields ({n['kiln_lo']:.0f}–{n['kiln_hi']:.0f} ha), but the two samples give {n['kiln_draw1_ha']:.0f} and
-    {n['kiln_draw2_ha']:.0f} ha depending on how the edges of kiln fields are counted, so the kiln share is less certain than the loss itself.</p>
+    About {n['kiln_ha']:.0f} ha lies inside brick-kiln fields ({n['kiln_lo']:.0f}–{n['kiln_hi']:.0f} ha), under one written rule for where a kiln field ends;
+    the two samples give {n['kiln_draw1_ha']:.0f} and {n['kiln_draw2_ha']:.0f} ha.</p>
     """,
     badge="Findings",
 )

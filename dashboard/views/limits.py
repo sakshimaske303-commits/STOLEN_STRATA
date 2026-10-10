@@ -57,7 +57,7 @@ st.markdown(
 - **One contradiction is unresolved.** A press report dates the Rangeen Kultreh kilns to 2003–2012; the satellite record shows that block vegetated until 2016.
 - **The 8.43% artefact is shown, not fully explained.** Which step of the earlier Sentinel-2 processing produced it has not been isolated.
 - **Reference imagery is not dated point by point.** The present-day labels use the newest image Google showed in October 2026; its date varies by place (2022–2026 in the second sample, where it was recorded).
-- **The kiln figure depends on where a kiln field ends.** The two samples give 141 and 232 ha for the same land, because bare ground and tracks at the edge of kiln fields were counted differently. Pooled: 188 ha.
+- **The kiln figure rests on one written rule.** As first labelled, the two samples gave 141 and 232 ha; under one rule for where a kiln field ends they give 204 and 217 ha (pooled 210 ha). The rule was written after the samples were compared and applied by one labeller.
 - **The long series needs re-running.** The Landsat 8/9 adjustment was applied in the reverse direction; only the 1993–2025 view is affected.
 - **Landsat 9 adds scenes from 2022**, so the late window rests on more observations than the early one. This works against detecting loss; a Landsat 8-only run has not been made.
 - **No fieldwork** was done at either kiln belt.

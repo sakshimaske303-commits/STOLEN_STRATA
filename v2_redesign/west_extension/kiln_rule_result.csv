@@ -1,0 +1,28 @@
+sample,measure,stratum,n,hits,share,est_ha,est_ha_low,est_ha_high
+pooled,kiln,A_strict,60,56,0.933,99.9,,
+pooled,kiln,B_drop_only,120,59,0.492,110.1,,
+pooled,kiln,A_and_B,180,115,0.634,210.0,188.8,231.3
+pooled,vegetated before and kiln,A_strict,60,55,0.917,98.1,,
+pooled,vegetated before and kiln,B_drop_only,120,53,0.442,98.9,,
+pooled,vegetated before and kiln,A_and_B,180,108,0.595,197.0,175.7,218.4
+pooled,not vegetated,A_strict,60,60,1.0,107.0,,
+pooled,not vegetated,B_drop_only,120,103,0.858,192.3,,
+pooled,not vegetated,A_and_B,180,163,0.904,299.3,285.3,313.3
+draw 1,kiln,A_strict,25,24,0.96,102.7,,
+draw 1,kiln,B_drop_only,60,27,0.45,100.8,,
+draw 1,kiln,A_and_B,85,51,0.615,203.5,173.9,233.2
+draw 1,vegetated before and kiln,A_strict,25,24,0.96,102.7,,
+draw 1,vegetated before and kiln,B_drop_only,60,23,0.383,85.9,,
+draw 1,vegetated before and kiln,A_and_B,85,47,0.57,188.6,159.6,217.6
+draw 1,not vegetated,A_strict,25,25,1.0,107.0,,
+draw 1,not vegetated,B_drop_only,60,50,0.833,186.7,,
+draw 1,not vegetated,A_and_B,85,75,0.887,293.7,272.4,315.0
+draw 2,kiln,A_strict,35,32,0.914,97.8,,
+draw 2,kiln,B_drop_only,60,32,0.533,119.5,,
+draw 2,kiln,A_and_B,95,64,0.656,217.3,187.1,247.6
+draw 2,vegetated before and kiln,A_strict,35,31,0.886,94.8,,
+draw 2,vegetated before and kiln,B_drop_only,60,30,0.5,112.0,,
+draw 2,vegetated before and kiln,A_and_B,95,61,0.625,206.8,176.0,237.6
+draw 2,not vegetated,A_strict,35,35,1.0,107.0,,
+draw 2,not vegetated,B_drop_only,60,53,0.883,197.9,,
+draw 2,not vegetated,A_and_B,95,88,0.921,304.9,286.5,323.2

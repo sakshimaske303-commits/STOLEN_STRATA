@@ -39,7 +39,7 @@ st.markdown(
 | 3 | Yearly peak NDVI and observation counts, by sensor | `west_extension/gee_04_extended_box.js` (Earth Engine) |
 | 4 | Strict test, by stratum and terrace; cross-sensor checks | `west_extension/02_conversion_wide_box.py` |
 | 5 | Drop test, with reverse change | `west_extension/03_drop_test_wide.py` |
-| 6 | Sample drawn, labelled blind to stratum, area estimates | `west_extension/04_accuracy_sample.py`, `05_accuracy_result.py`, `09_accuracy_by_labelling_pass.py`, `12_accuracy_sample_supplement.py`, `15_pooled_accuracy.py` |
+| 6 | Sample drawn, labelled blind to stratum, area estimates | `west_extension/04_accuracy_sample.py`, `05_accuracy_result.py`, `09_accuracy_by_labelling_pass.py`, `12_accuracy_sample_supplement.py`, `15_pooled_accuracy.py`, `16_kiln_rule_result.py` |
 | 7 | Sensitivity to terrace cut-offs and to test thresholds | `west_extension/06_…`, `07_…`, `phase2_timeseries/03_…` |
 | 8 | Long series by site and period | `west_extension/08_long_series_wide.py` |
 | 8a | Terraces against other flat land, polygon by polygon; omitted karewa with both tests | `west_extension/13_polygon_level_comparison.py`, `14_omitted_karewa_both_tests.py` |
@@ -58,5 +58,5 @@ run from the repository root and write the tables this dashboard reads. This das
 """
 )
 
-note("<b>Status, October 2026.</b> The analysis and the paper are revised. Two accuracy samples (240 points) are labelled and pooled, the flagged points have been checked against imagery of 2013–2015, and the two official documents read in full. Still open: a rule or drawn outlines for the edge of a kiln field, a second labeller, "
+note("<b>Status, October 2026.</b> The analysis and the paper are revised. Two accuracy samples (240 points) are labelled and pooled, the flagged points have been checked against imagery of 2013–2015, and the two official documents read in full. Kiln-field edges follow one written rule. Still open: a second labeller, kiln-field outlines on dated imagery, "
      "an accuracy figure for the terrace map, recomputing the long series with the corrected Landsat 8/9 adjustment, and replacing the September preprint, which still carries the withdrawn numbers.", "caution")

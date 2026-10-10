@@ -65,9 +65,11 @@ def numbers():
     dt = dt[dt.test == "OLI 13-15>23-25"].groupby("stratum")[["drop_ha", "reverse_ha", "net_ha"]].sum()
     ap = table("west_extension/accuracy_by_labelling_pass.csv")
     ap = ap[ap.stratum != "C_not_flagged"].groupby("definition").est_ha.sum()
-    pa = table("west_extension/pooled_accuracy_result.csv")
+    pa = table("west_extension/kiln_rule_accuracy.csv")
     pa = pa[pa.stratum == "A_and_B"].set_index(["sample", "measure"])
-    pb = table("west_extension/pooled_before_result.csv")
+    pb = table("west_extension/kiln_rule_before.csv")
+    old = table("west_extension/pooled_accuracy_result.csv")
+    old = old[old.stratum == "A_and_B"].set_index(["sample", "measure"])
     pb = pb[pb.stratum == "A_and_B"].set_index(["sample", "measure"])
     k, kb = pa.loc[("pooled", "kiln")], pb.loc[("pooled", "vegetated before and inside a kiln field today")]
     nv, gn = pa.loc[("pooled", "not vegetated")], pb.loc[("pooled", "vegetated before and not vegetated today")]
@@ -79,6 +81,7 @@ def numbers():
         drop_ha=float(dt.loc["terraces", "drop_ha"]), drop_rev_ha=float(dt.loc["terraces", "reverse_ha"]), drop_net_ha=float(dt.loc["terraces", "net_ha"]),
         kiln_ha=float(k.est_ha), kiln_lo=float(k.est_ha_low), kiln_hi=float(k.est_ha_high),
         kiln_draw1_ha=float(pa.loc[("draw 1", "kiln")].est_ha), kiln_draw2_ha=float(pa.loc[("draw 2", "kiln")].est_ha),
+        kiln_old1_ha=float(old.loc[("draw 1", "kiln")].est_ha), kiln_old2_ha=float(old.loc[("draw 2", "kiln")].est_ha),
         notveg_ha=float(nv.est_ha), notveg_lo=float(nv.est_ha_low), notveg_hi=float(nv.est_ha_high),
         lost_ha=float(gn.est_ha), lost_lo=float(gn.est_ha_low), lost_hi=float(gn.est_ha_high),
         kiln_first_ha=float(ap[[i for i in ap.index if i.startswith("first pass")][0]]),

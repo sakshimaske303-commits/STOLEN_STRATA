@@ -104,7 +104,7 @@ order); Kultruch 221-223 with consent to establish, not yet built. No coordinate
 not operate from 1 November to 31 March. Which kilns stand on mapped terraces is still identified from imagery only.
 
 **Not done.** Geology check for the strip west of 74.66 E (needs the map figure captured again; the in-app browser was not usable).
-**Still open.** A second labeller; a written rule, or drawn outlines, for the edge of a kiln field.
+**Still open.** A second labeller; kiln-field outlines drawn on dated imagery as an independent check of the kiln rule.
 
 ## Before check (10_before_check_result.py): the 85 flagged points in imagery of 2013-2014
 
@@ -171,4 +171,23 @@ points are. Not vegetated today 290 and 309 ha; vegetated before and not now 245
 Missed kiln land: 1 of 60 unflagged points, 50-1,505 ha, still too wide to use.
 Outputs: `pooled_points.csv`, `pooled_accuracy_result.csv` (pooled and by sample), `pooled_confusion.csv`,
 `pooled_before_result.csv`, `pooled_before_by_present_class.csv`.
+
+## Kiln estimate under one rule (16_kiln_rule_result.py), 10 October 2026
+
+Rule: `KILN_FIELD_RULE.md` (kiln = on a kiln, pit, brick rows/stacks or kiln shed, or on worked ground / track / yard inside the
+bunds of the worked area with bricks, pits or a kiln within about 100 m and no house, public road or crop field in between).
+Relabelled under it: the 57 first-sample points first labelled bare or road, and the 29 second-sample kiln points on edges,
+tracks, yards or cleared ground (`kiln_edge_recheck.csv`, all 86 confirmed). 27 labels changed: 16 first-sample points into kiln,
+4 second-sample points out of kiln (148, 213, 238 to bare_other; 159 unclear), the rest between non-kiln classes.
+
+| | kiln, flagged land | 95% interval |
+|---|---|---|
+| first sample | 204 ha | 174-233 |
+| second sample | 217 ha | 187-248 |
+| pooled | **210 ha** | 189-231 |
+| pooled, vegetated in the older image | 197 ha | 176-218 |
+
+Drop-only kiln 27/60 against 32/60, Fisher p = 0.47 (was 16/60 against 35/60, p = 0.0008). Strict 56/60 (93%), drop-only 59/120 (49%).
+Not vegetated today unchanged at 299 ha; vegetated before and not now 262 ha (243-281).
+Outputs: `kiln_rule_result.csv`, `kiln_rule_points.csv` (pooled points with `final_rule`).
 

@@ -27,10 +27,10 @@ My first version said bare ground on Kashmir's karewa terraces had more than qua
 | Same rule and statistic, Landsat only | 2.02% (1994), 7.31% (2005, a year of too few cloud-free summer images), 2.16% (2015), 0.07% (2025) |
 | Vegetated in 2013–15, gone by 2023–25, on terraces | 107 ha by a strict test, 329 ha by a looser one |
 | Of the flagged land, not vegetated today | **about 299 ha of 331 (roughly 285–313 ha)** |
-| Vegetated in 2013–15 imagery and not vegetated today | **about 260 ha (roughly 241–279 ha)** |
-| Of the flagged land, inside brick-kiln fields | about 188 ha (roughly 166–210 ha); 141 ha by the first sample, 232 ha by the second, depending on how the edges of kiln fields are counted |
+| Vegetated in 2013–15 imagery and not vegetated today | **about 262 ha (roughly 243–281 ha)** |
+| Of the flagged land, inside brick-kiln fields | **about 210 ha (roughly 189–231 ha)**, under one written rule for where a kiln field ends; 204 ha by the first sample, 217 ha by the second |
 | Flagged sample points that show vegetation in 2013–15 imagery | 158 of 180 (59 of 60 strict, 99 of 120 looser) |
-| Kiln-field land where the older image also shows vegetation | about 179 ha (roughly 157–201 ha) |
+| Kiln-field land where the older image also shows vegetation | about 197 ha (roughly 176–218 ha) |
 | Net loss in the two kiln belts since the mid-1990s | roughly 335 ha, indicative only: the record before 2013 is thin, and this series is being recomputed (see below) |
 | The other 140 km² of terraces | Some conversion after 2013, at the same rate as comparable flat land |
 
@@ -47,15 +47,15 @@ My first version said bare ground on Kashmir's karewa terraces had more than qua
 - **One sensor family at a time.** Landsat 8/9 for the main test, Landsat 7 on its own as a second opinion on the change (it confirms 86% of the pixels), Sentinel-2 (from 2019) on the present state.
 - **Terrace map against geology.** In the original (eastern) study box, 80% of the mapped terrace area lies on Karewa formations on a published map. The western strip, including the Bandagam–Batapora belt, has no geological map.
 - **My own choices.** Nine versions of the terrace rule and 51 versions of the change thresholds. The hectares move; the contrast and the locations do not.
-- **By eye.** Two random samples, 240 points in all, labelled without knowing which group each came from, against the most recent imagery available. The vegetation is gone at 100% of strict detections and 86% of looser ones (two of the 120 looser points could not be told). Most strict detections (87%) lie inside a kiln field; about two fifths of the looser ones do, the rest being houses, roads and other bare ground. The two samples agree on how much vegetation was lost but not on how much of it is kiln land: 141 ha by the first, 232 ha by the second. The difference comes from how bare ground, tracks and cleared plots at the edge of a kiln field were counted, so the kiln figure is less certain than the loss itself.
-- **Back in time, point by point.** I looked up the 180 flagged points in Google Earth imagery of 2013–2015. Vegetation is visible at 158 of them: 59 of the 60 strict points and 99 of the 120 looser ones. Twenty-one were not green in that image (kiln ground or tracks already there, buildings, yards and roads, bare plots) and one could not be told. Five of the twenty-one are points I count as kiln field today, so the kiln figure restricted to land the older image shows as vegetated is about 179 ha instead of 188.
+- **By eye.** Two random samples, 240 points in all, labelled without knowing which group each came from, against the most recent imagery available. The vegetation is gone at 100% of strict detections and 86% of looser ones (one of the 120 looser points could not be told). Almost all strict detections (93%) lie inside a kiln field; about half of the looser ones do, the rest being houses, roads and other bare ground. At first the two samples disagreed on how much of the land is kiln land (141 against 232 ha), because they had counted bare ground, tracks and cleared plots at the edge of a kiln field differently. I wrote down one rule for where a kiln field ends and relabelled the 86 edge points of both samples under it; the samples then agree (204 and 217 ha).
+- **Back in time, point by point.** I looked up the 180 flagged points in Google Earth imagery of 2013–2015. Vegetation is visible at 158 of them: 59 of the 60 strict points and 99 of the 120 looser ones. Twenty-one were not green in that image (kiln ground or tracks already there, buildings, yards and roads, bare plots) and one could not be told. Seven of the twenty-one are points I count as kiln field today, so the kiln figure restricted to land the older image shows as vegetated is about 197 ha instead of 210.
 
 ## What I could not show
 
 - **How deep the ground was dug.** Every free elevation model is older than the Rangeen Kultreh kiln field, and the space laser data has only nine shots on it.
 - **A saffron link.** The saffron tablelands at Pampore are about 7 km or more from the main kiln field and show no conversion of this kind in 2013–2025. The saffron value-at-risk figure in the earlier version is withdrawn.
 - **The whole karewa.** I map scarp-bounded tablelands, about a quarter of the Karewa formation area on the geological map. The terrace map itself has no accuracy figure yet.
-- **A firm kiln figure.** The two samples put the kiln share at 141 and 232 ha. An outline of each kiln field on dated imagery, or a second labeller, is needed to settle it.
+- **An independent kiln figure.** The kiln area rests on one written rule applied by one labeller, mostly from the setting of each point within about 100 m of bricks, pits or a kiln. Kiln-field outlines on dated imagery, or a second labeller, would test it.
 - **A fully blind check of the past.** In the first sample the older imagery was looked up only for points already flagged; the second sample was labelled blind. Mostly one image of September 2014 was used, and "vegetated" there includes rough grass and scattered trees. One image shows one day; the test uses the peak of the year.
 - **Roads, settlements and the 25 "degraded terraces".** Those analyses depended on the withdrawn layer and are dropped.
 
