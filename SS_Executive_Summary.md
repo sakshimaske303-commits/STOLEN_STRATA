@@ -7,7 +7,7 @@ Executive Summary · Revised 7 October 2026 · Sakshi D. Maske
 
 ## What changed, in one paragraph
 
-My first version said bare ground on Kashmir's karewa terraces had more than quadrupled since 1994, almost all of it after 2015. That jump sat exactly where the analysis switched from Landsat to Sentinel-2. When I ran the same polygons, the same rule and the same statistic on Landsat alone, the 2025 figure came out at 0.07%, not 8.43%. The rise came from mixing two differently built satellite products, not from the ground. So I rebuilt the study: a new terrace map checked against a published geological map, a time series that never compares one sensor with another, and an accuracy sample I labelled by hand. What survives is smaller, and I can defend all of it.
+My first version said bare ground on Kashmir's karewa terraces had more than quadrupled since 1994, almost all of it after 2015. That jump sat exactly where the analysis switched from Landsat to Sentinel-2. When I ran the same polygons, the same rule and the same statistic on Landsat alone, the 2025 figure came out at 0.07%, not 8.43%. The rise came from mixing two differently built satellite products, not from the ground. So I rebuilt the study: a new terrace map checked against a published geological map, a time series that never compares one sensor with another, and an accuracy sample I labelled by hand. What remains is smaller.
 
 ## The questions
 
@@ -66,8 +66,8 @@ My first version said bare ground on Kashmir's karewa terraces had more than qua
 
 ## Why it matters
 
-Protection of the karewas has a short, specific list of places where it matters most, and one of them was vegetated land ten years ago. And a satellite claim like my first one should be tested on a single sensor before it is published. Mine was not, and this revision is the result of doing that test late.
+If the karewas are to be protected, this study points to a short and specific list of places, and one of them was vegetated land ten years ago. A satellite claim like my first one should also be tested on a single sensor before it is published; mine was not.
 
 ## Where things are
 
-Paper: `SS_Research_Paper.md`. Scripts, tables, terrace layers and the labelled sample: `v2_redesign/`. Day-by-day record, including the mistakes: `SS_Development_Log.md`.
+Paper: `SS_Research_Paper.md`. Scripts, tables, terrace layers and the labelled sample: `v2_redesign/`. Day-by-day record: `SS_Development_Log.md`.
