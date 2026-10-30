@@ -1,5 +1,5 @@
 > **Read this first.** First pass on the original box, 2 October 2026. The figures here (88.9 ha, terrace 5, 0.98%) are from the
-> 57-terrace original-box layer and were superseded by the wide-box run in `west_extension/`. Final figures: `SS_Research_Paper.md`.
+> 57-terrace original-box layer and were superseded by the wide-box run in `west_extension/`. Final figures: `docs/SS_Research_Paper.md`.
 
 # v2 Phase 2 — single-sensor time series (status: first full pass done, 2 Oct 2026)
 

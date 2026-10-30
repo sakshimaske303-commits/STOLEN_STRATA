@@ -70,4 +70,4 @@ If the karewas are to be protected, this study points to a short and specific li
 
 ## Where things are
 
-Paper: `SS_Research_Paper.md`. Scripts, tables, terrace layers and the labelled sample: `v2_redesign/`. Day-by-day record: `SS_Development_Log.md`.
+Paper: `docs/SS_Research_Paper.md`. Scripts, tables, terrace layers and the labelled sample: `v2_redesign/`. Day-by-day record: `docs/SS_Development_Log.md`.

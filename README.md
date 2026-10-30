@@ -16,10 +16,10 @@
 
 | Document | What it is |
 |---|---|
-| [`SS_Executive_Summary.md`](./SS_Executive_Summary.md) | Two pages: what changed, what the study shows, what it cannot show. Start here. |
-| [`SS_Research_Paper.md`](./SS_Research_Paper.md) | The full paper. |
-| [`SS_Development_Log.md`](./SS_Development_Log.md) | Day-by-day record. Entries 1–15 describe the first version; Entries 16 onward the rebuild and the correction. |
-| [`SS_Declarations.pdf`](./SS_Declarations.pdf) | Highlights, author contributions, funding, competing interests, data and code availability, corrections, use of AI tools. |
+| [`docs/SS_Executive_Summary.md`](./docs/SS_Executive_Summary.md) | Two pages: what changed, what the study shows, what it cannot show. Start here. |
+| [`docs/SS_Research_Paper.md`](./docs/SS_Research_Paper.md) | The full paper. |
+| [`docs/SS_Development_Log.md`](./docs/SS_Development_Log.md) | Day-by-day record. Entries 1–15 describe the first version; Entries 16 onward the rebuild and the correction. |
+| [`docs/SS_Declarations.pdf`](./docs/SS_Declarations.pdf) | Highlights, author contributions, funding, competing interests, data and code availability, corrections, use of AI tools. |
 
 ## The questions
 
@@ -58,7 +58,8 @@ The paper's Section 6 lists every limitation.
 
 ```text
 STOLEN_STRATA/
-├── SS_Research_Paper.md, SS_Executive_Summary.md, SS_Development_Log.md
+├── docs/                         paper, executive summary, development log and declarations (Markdown and PDF)
+│   └── sources/                  the two Pollution Control Committee filings to the National Green Tribunal
 ├── v2_redesign/                  the revised analysis: scripts, result tables, layers, labelled sample
 │   ├── phase1_delineation/       terrace rule and geology check, original box
 │   ├── phase2_timeseries/        single-sensor series, the rerun of the earlier rule, strict test, original box
@@ -66,7 +67,6 @@ STOLEN_STRATA/
 │   ├── west_extension/           everything on the wide box: terraces, both tests, accuracy sample, sensitivity, long series
 │   ├── paper_figures/            Figures 1–4; make_figures.py draws 2 and 4, make_maps.py draws 1 and 3
 │   └── STATUS.md                 what is done and what is still open
-├── documents/                    the two Pollution Control Committee filings to the National Green Tribunal
 ├── dashboard/                    Streamlit dashboard (app.py, views/, map_data/)
 ├── data/processed/               layers of the earlier version; the Section 4.1 check reads the old polygons from here
 ├── data/raw/                     rasters (not stored in the repository, see DATA_ACCESS.md)
@@ -124,7 +124,7 @@ The geology check (`v2_redesign/phase1_delineation/01_…` to `04_geology_check.
 
 ## Declarations
 
-The full statement is in [`SS_Declarations.pdf`](./SS_Declarations.pdf) (source: [`SS_Declarations.md`](./SS_Declarations.md)).
+The full statement is in [`SS_Declarations.pdf`](./docs/SS_Declarations.pdf) (source: [`SS_Declarations.md`](./docs/SS_Declarations.md)).
 
 - **Author contributions:** single-author study; Sakshi D. Maske did the conceptualization, methodology, software, analysis, data curation, writing and visualization.
 - **Funding:** none. I covered all costs myself.

@@ -128,7 +128,7 @@ Pixel size is not the explanation. Averaging the earlier Sentinel-2 composite on
 
 Two further things came out of this check. First, the summer median is not a usable measure in this valley. Before 2009 a terrace pixel had between 0 and 8 clear summer observations a year because of monsoon cloud, and the summer bare share swings from under 1% to 16% and back within a few years around 2000. The high 2005 value in the paragraph above is part of that noise. Second, the level of any bare-share figure depends on the instrument. On the terraces of the original box in 2025, the share of pixels with a yearly peak below 0.25 is 1.6% in the adjusted Landsat series (first run, not yet recomputed), 2.3% in Landsat 8/9 unadjusted and 4.7% in Sentinel-2. A statement of the form "x% of the karewas are bare" has no single answer. Only change measured within one instrument is defensible, and the rest of this paper is confined to that.
 
-![Figure 2. The earlier estimate against the same polygons, rule and statistic on Landsat alone.](v2_redesign/paper_figures/Figure_2_earlier_estimate_vs_landsat_only.png)
+![Figure 2. The earlier estimate against the same polygons, rule and statistic on Landsat alone.](../v2_redesign/paper_figures/Figure_2_earlier_estimate_vs_landsat_only.png)
 
 ### 4.2 The terrace map
 
@@ -140,7 +140,7 @@ Against the geological map, in the original box where the map was georeferenced,
 
 The weak direction is coverage. The terraces include only 24% of the Karewa formation area the map shows in that box, and 38% of the flat part of it. Karewa ground that slopes gently without a bounding scarp, or that lies low near the valley floor, is not in the map. Section 4.6 shows that, as far west as the map reaches, this omitted karewa ground converts no faster than ordinary valley floor by either test, so within that area the omission does not hide a second area of loss; the unit of study is still scarp-bounded tableland and not the Karewa Group as a whole.
 
-![Figure 1. Study box in the Kashmir Valley (UTM 43N), the 180 terraces, and pixels flagged by the strict test (red) and by the drop test only (orange), 2013–2015 to 2023–2025, Landsat 8/9. Flagged pixels are drawn enlarged and include all land covers: the AIIMS campus works near Awantipora and changes in Dal Lake are labelled.](v2_redesign/paper_figures/Figure_1_study_box_terraces_conversion.png)
+![Figure 1. Study box in the Kashmir Valley (UTM 43N), the 180 terraces, and pixels flagged by the strict test (red) and by the drop test only (orange), 2013–2015 to 2023–2025, Landsat 8/9. Flagged pixels are drawn enlarged and include all land covers: the AIIMS campus works near Awantipora and changes in Dal Lake are labelled.](../v2_redesign/paper_figures/Figure_1_study_box_terraces_conversion.png)
 
 ### 4.3 Conversion after 2013
 
@@ -234,9 +234,9 @@ I treat the 407 ha as indicative, and not as a measurement of the same standing 
 
 *What else the test finds.* The largest clusters off the terraces are the AIIMS campus under construction at Awantipora (37 ha on a hillside), about 58 ha inside Dal Lake where floating vegetation gave way to open water, road works and shifts of the Jhelum channel. The test detects loss of vegetation from any cause, which is why the kiln figure comes from the labelled sample and not from the test alone.
 
-![Figure 3. Rangeen Kultreh: for the strict-test pixels on terraces 9 and 3 (87.8 ha), the year from which each stays bare (peak NDVI below 0.25) to 2025, Landsat 8/9. Most of the field opened in 2017–2018 (46 ha), then 2019–2021 (31 ha) and 2022–2023 (11 ha).](v2_redesign/paper_figures/Figure_3_rangeen_kultreh_onset.png)
+![Figure 3. Rangeen Kultreh: for the strict-test pixels on terraces 9 and 3 (87.8 ha), the year from which each stays bare (peak NDVI below 0.25) to 2025, Landsat 8/9. Most of the field opened in 2017–2018 (46 ha), then 2019–2021 (31 ha) and 2022–2023 (11 ha).](../v2_redesign/paper_figures/Figure_3_rangeen_kultreh_onset.png)
 
-![Figure 4. Share of land whose yearly peak NDVI stays below 0.35, by site, in the adjusted Landsat 5–9 series. Each point is the median of three usable years, plotted at their mean year. Peak NDVI steps up everywhere from 2013 (shaded), when Landsat 8 arrives. The two site boxes were drawn after the pattern had been seen.](v2_redesign/paper_figures/Figure_4_low_ndvi_share_by_site.png)
+![Figure 4. Share of land whose yearly peak NDVI stays below 0.35, by site, in the adjusted Landsat 5–9 series. Each point is the median of three usable years, plotted at their mean year. Peak NDVI steps up everywhere from 2013 (shaded), when Landsat 8 arrives. The two site boxes were drawn after the pattern had been seen.](../v2_redesign/paper_figures/Figure_4_low_ndvi_share_by_site.png)
 
 ### 4.7 Saffron
 

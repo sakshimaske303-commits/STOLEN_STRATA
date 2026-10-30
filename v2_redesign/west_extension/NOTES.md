@@ -1,6 +1,6 @@
 > **Read this first (9 October 2026).** This file is a running record. Its early sections carry first-pass numbers and
 > statements that were later revised (for example "the extension adds little" and "no documents name these villages").
-> The final figures are in `SS_Research_Paper.md`. Additions of 9 October are at the end of this file.
+> The final figures are in `docs/SS_Research_Paper.md`. Additions of 9 October are at the end of this file.
 
 # Extended box (74.55–75.15 E, 33.80–34.15 N) — first pass, 2 Oct 2026
 

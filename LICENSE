@@ -29,10 +29,10 @@ as publicity, privacy, or moral rights may limit how you use the material.
 
 Third-party material in this repository is not covered by this licence and
 keeps its own terms: the two National Green Tribunal / J&K Pollution Control
-Committee filings (PDF files in documents/), the crop of
+Committee filings (PDF files in docs/sources/), the crop of
 Figure 2 of Dar & Zeeden (2020) in v2_redesign/phase1_delineation/geology/
 (CC BY 4.0, Frontiers; see SOURCE.md there), and satellite and elevation data
-from their providers (see the Data acknowledgements in SS_Research_Paper.md).
+from their providers (see the Data acknowledgements in docs/SS_Research_Paper.md).
 
 This is a human-readable summary of (and not a substitute for) the full
 license text. The complete legal code is available at:
