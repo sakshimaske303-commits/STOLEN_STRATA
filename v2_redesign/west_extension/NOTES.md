@@ -154,7 +154,7 @@ The long-view table further up (and its 335 ha) is the first, reversed run.
 
 Second sample (121-240, `12_accuracy_sample_supplement.py`): all 120 labelled from two screen captures per point (newest image and
 September 2014, or the nearest clear image of 2013-2015), blind to stratum, both dates recorded in
-`accuracy_sample2_labels_in_progress.csv`. Present class in one pass: kiln = inside a kiln field, including bare worked ground,
+`accuracy_sample2_labels.csv`. Present class in one pass: kiln = inside a kiln field, including bare worked ground,
 tracks and yards in it. 173 and 181 had no clear image in 2013-2015 and count as unclear before (both unflagged).
 
 | Stratum | n | kiln field | built / road | other bare | still vegetated | unclear |

@@ -42,5 +42,5 @@ save();
 document.getElementById("dl").addEventListener("click",()=>{
   const lines=["point_id,lat,lon,my_label"].concat(PTS.map(p=>[p.id,p.lat,p.lon,state[p.id]||""].join(",")));
   const a=document.createElement("a");a.href=URL.createObjectURL(new Blob([lines.join("\n")],{type:"text/csv"}));
-  a.download="accuracy_sample_my_labels.csv";a.click();});
+  a.download="accuracy_sample1_first_pass_labels.csv";a.click();});
 </script></body></html>

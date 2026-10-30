@@ -13,7 +13,9 @@ Script: `v2_redesign/west_extension/gee_04_extended_box.js`. All at 30 m, EPSG:3
 | `StolenStrata_v2w_OLIonly_p90_2013_2025.tif` | Landsat 8/9, unadjusted: yearly 90th percentile of NDVI. The series both conversion tests use. |
 | `StolenStrata_v2w_L7only_p90_2013_2021.tif` | Landsat 7 alone, same measure. |
 | `StolenStrata_v2w_S2_p90_2019_2025.tif` | Sentinel-2 with Cloud Score+, same measure. |
-| `StolenStrata_v2w_LS_p90_1990_2007.tif`, `StolenStrata_v2w_LS_p90_2008_2025.tif` | Landsat 5/7/8/9 together, with 8/9 adjusted to 7 (Roy et al., 2016). The long series. |
+| `StolenStrata_v2w_LS_p90_1990_2007.tif` | Landsat 5/7 (no Landsat 8/9 before 2013). The long series, 1990–2007. |
+| `StolenStrata_v2w_LS_p90_2008_2025_fixed.tif` | Landsat 5/7/8/9 together, with 8/9 adjusted to 7 (Roy et al., 2016, OLI to ETM+). The long series, 2008–2025. Script: `v2_redesign/west_extension/gee_05_long_series_fixed.js`. |
+| `StolenStrata_v2w_LS_p90_2008_2025.tif` | The first run of the same stack, with the Landsat 8/9 adjustment in the reverse direction. Kept only to reproduce that run; no reported figure uses it. |
 | `StolenStrata_v2w_LS_counts_1990_2025.tif` | Clear observations per pixel per year. |
 | `StolenStrata_v2w_DEM_GLO30_buffered.tif` | Copernicus GLO-30 with a buffer of about 10 km. |
 
@@ -45,7 +47,8 @@ SHA-256 of the files in `data/raw/` that produced the numbers in the paper (comp
 | `StolenStrata_v2w_L7only_p90_2013_2021.tif` | `3fbad751bd41c23de73f1e8b488321a1e0289acf0bb4029b8c2e4ce9e573be29` |
 | `StolenStrata_v2w_LS_counts_1990_2025.tif` | `fe859a7590ef0516c5768dd616679baa872f7b5646bbc3c830d58705f27c913f` |
 | `StolenStrata_v2w_LS_p90_1990_2007.tif` | `a7903bb6d11f13086ba1a81486283d83ed619eb4e87af53137a91311a070b848` |
-| `StolenStrata_v2w_LS_p90_2008_2025.tif` | `76d70965936cdcb084147a679bd183038f4dcf7a9810ecb8540132ce94ebbc03` |
+| `StolenStrata_v2w_LS_p90_2008_2025_fixed.tif` (computed 30 October 2026) | `03ccec0b74623dce35acc645018423b0392eb553758dd08ccc2a6109ab7223c5` |
+| `StolenStrata_v2w_LS_p90_2008_2025.tif` (first run) | `76d70965936cdcb084147a679bd183038f4dcf7a9810ecb8540132ce94ebbc03` |
 | `StolenStrata_v2w_OLIonly_p90_2013_2025.tif` | `24a934c64bca49341f0c5f5cabb669874edb5a9b4ebb878a3ca5befbe77467a5` |
 | `StolenStrata_v2w_S2_p90_2019_2025.tif` | `79339cd84ef4f50947249995bd587289a75f5918e29a642b8ba0f51aed40e97e` |
 | `StolenStrata_v2_LS_summer_1990_2025.tif` | `bd7a8541fa335d7e0ac0a6bcaff41cdcb68d24c0f2638d7c3db2d828a06edd9e` |

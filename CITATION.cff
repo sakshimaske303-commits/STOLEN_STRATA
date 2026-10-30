@@ -5,6 +5,7 @@ type: software
 authors:
   - family-names: "Maske"
     given-names: "Sakshi D."
+    orcid: "https://orcid.org/0009-0002-5683-5966"
 repository-code: "https://github.com/sakshimaske303-commits/STOLEN_STRATA"
 url: "https://github.com/sakshimaske303-commits/STOLEN_STRATA"
 abstract: >-
@@ -18,10 +19,11 @@ abstract: >-
   published geological map, and follows the yearly peak NDVI of every 30 m
   pixel using Landsat only. Between 2013-2015 and 2023-2025 a strict test
   finds 107 ha of terrace land converted from vegetated to bare and a looser
-  test 329 ha. A hand-labelled sample of 120 points indicates that about
-  141 ha of the flagged land (95% interval roughly 110-172 ha) lies inside
-  brick-kiln fields, concentrated in two belts in Budgam district, Rangeen
-  Kultreh and Bandagam-Batapora. Depth of excavation could not be measured,
+  test 329 ha. Two stratified random samples, 240 hand-labelled points in
+  all, show that about 262 ha of the flagged land was vegetated in imagery of
+  2013-2015 and is not today, and that about 210 ha (95% interval roughly
+  189-231 ha) lies inside brick-kiln fields, concentrated in two belts in
+  Budgam district, Rangeen Kultreh and Bandagam-Batapora. Depth of excavation could not be measured,
   and no link to the saffron tablelands of Pampore was found.
 keywords:
   - karewa
@@ -34,7 +36,7 @@ keywords:
   - Google Earth Engine
 license: CC-BY-4.0
 version: 2.0.0
-date-released: "2026-10-07"
+date-released: "2026-10-30"
 preferred-citation:
   type: report
   title: "Stolen Strata: Brick Kilns and the Loss of Karewa Tableland in Budgam, Kashmir, 1993-2025, with a Correction to an Earlier Estimate"

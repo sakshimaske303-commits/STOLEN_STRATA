@@ -1,7 +1,7 @@
 """v2 extended box — join the hand labels to the sample key and estimate what the flagged terrace area is today.
 
 Reference labels, both mine, from present-day Google imagery, blind to stratum:
-  accuracy_sample_my_labels.csv   first pass, 7 classes, 120 points
+  accuracy_sample1_first_pass_labels.csv   first pass, 7 classes, 120 points
   accuracy_second_pass.csv        second pass on the 68 points first labelled bare_other or road: is the point inside a
                                   brick-kiln field (yes / no / unclear)? Needed because bare worked ground inside a kiln field
                                   could not be told from other bare ground at the first-pass zoom.
@@ -15,7 +15,7 @@ import pandas as pd
 OUT = "v2_redesign/west_extension/"
 HA = 0.09
 d = (pd.read_csv(OUT + "accuracy_sample_key.csv")
-     .merge(pd.read_csv(OUT + "accuracy_sample_my_labels.csv")[["point_id", "my_label"]], on="point_id")
+     .merge(pd.read_csv(OUT + "accuracy_sample1_first_pass_labels.csv")[["point_id", "my_label"]], on="point_id")
      .merge(pd.read_csv(OUT + "accuracy_second_pass.csv"), on="point_id", how="left"))
 d["in_kiln_field"] = d.in_kiln_field.fillna("")
 assert (d.my_label.fillna("") != "").all()

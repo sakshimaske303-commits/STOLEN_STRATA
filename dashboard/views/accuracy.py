@@ -18,7 +18,7 @@ bt = table("west_extension/accuracy_points_by_terrace.csv")
 pb = table("west_extension/kiln_rule_before.csv")
 br = pb[pb["sample"] == "pooled"]
 bl = table("west_extension/accuracy_before_pass.csv").rename(columns={"image_date": "before_date"})
-l2 = table("west_extension/accuracy_sample2_labels_in_progress.csv").rename(columns={"before_basis": "basis"})
+l2 = table("west_extension/accuracy_sample2_labels.csv").rename(columns={"before_basis": "basis"})
 bl = pd.concat([bl[["point_id", "before_label", "before_date", "basis"]], l2[["point_id", "before_label", "before_date", "basis"]]])
 
 st.markdown(

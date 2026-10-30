@@ -6,7 +6,7 @@
 > terraces rose from 1.84% to 8.43% between 1994 and 2025 (a net 190.3 ha), with 25 degraded terraces and a saffron value at
 > risk of ₹17.8 crore. Those numbers came from comparing two differently built satellite products and are **withdrawn**, with
 > everything built on them. Section 4.1 of the paper shows the check. The September preprint
-> ([EarthArXiv](https://eartharxiv.org/repository/view/14805/)) is that earlier version and has not yet been replaced.
+> ([EarthArXiv](https://eartharxiv.org/repository/view/14805/), DOI 10.31223/X5HB8J) is that earlier version.
 
 ## Live dashboard
 
@@ -19,6 +19,7 @@
 | [`SS_Executive_Summary.md`](./SS_Executive_Summary.md) | Two pages: what changed, what the study shows, what it cannot show. Start here. |
 | [`SS_Research_Paper.md`](./SS_Research_Paper.md) | The full paper. |
 | [`SS_Development_Log.md`](./SS_Development_Log.md) | Day-by-day record. Entries 1–15 describe the first version; Entries 16 onward the rebuild and the correction. |
+| [`SS_Declarations.pdf`](./SS_Declarations.pdf) | Highlights, author contributions, funding, competing interests, data and code availability, corrections, use of AI tools. |
 
 ## The questions
 
@@ -61,10 +62,11 @@ STOLEN_STRATA/
 ├── v2_redesign/                  the revised analysis: scripts, result tables, layers, labelled sample
 │   ├── phase1_delineation/       terrace rule and geology check, original box
 │   ├── phase2_timeseries/        single-sensor series, the rerun of the earlier rule, strict test, original box
-│   ├── phase4_elevation/         elevation test (failed)
+│   ├── phase4_elevation/         elevation test (no usable result: every elevation model predates the kiln field)
 │   ├── west_extension/           everything on the wide box: terraces, both tests, accuracy sample, sensitivity, long series
 │   ├── paper_figures/            Figures 1–4; make_figures.py draws 2 and 4, make_maps.py draws 1 and 3
-│   └── RESUME_HERE.md            what is done and what is still open
+│   └── STATUS.md                 what is done and what is still open
+├── documents/                    the two Pollution Control Committee filings to the National Green Tribunal
 ├── dashboard/                    Streamlit dashboard (app.py, views/, map_data/)
 ├── data/processed/               layers of the earlier version; the Section 4.1 check reads the old polygons from here
 ├── data/raw/                     rasters (not stored in the repository, see DATA_ACCESS.md)
@@ -99,7 +101,7 @@ python v2_redesign/west_extension/16_kiln_rule_result.py     # kiln estimate und
 python v2_redesign/west_extension/11_removed_flat_tops_check.py
 python v2_redesign/west_extension/06_delineation_sensitivity.py
 python v2_redesign/west_extension/07_drop_test_sensitivity.py
-python v2_redesign/west_extension/08_long_series_wide.py
+python v2_redesign/west_extension/08_long_series_wide.py         # reads the corrected export of gee_05_long_series_fixed.js
 python v2_redesign/west_extension/13_polygon_level_comparison.py
 python v2_redesign/west_extension/14_omitted_karewa_both_tests.py
 python v2_redesign/phase2_timeseries/05_v1_rule_matched_statistic.py   # Section 4.1; needs the earlier rasters
@@ -119,6 +121,17 @@ The geology check (`v2_redesign/phase1_delineation/01_…` to `04_geology_check.
 | Time series | Landsat 5, 7, 8, 9 Collection 2 Level 2; Sentinel-2 with Cloud Score+ |
 | Geology | Dar and Zeeden (2020), Figure 2, after Bhatt (1982) |
 | Reference labels | Google Maps and Google Earth Pro imagery, newest available when labelled (October 2026) and 2013–2014 historical imagery |
+
+## Declarations
+
+The full statement is in [`SS_Declarations.pdf`](./SS_Declarations.pdf) (source: [`SS_Declarations.md`](./SS_Declarations.md)).
+
+- **Author contributions:** single-author study; Sakshi D. Maske did the conceptualization, methodology, software, analysis, data curation, writing and visualization.
+- **Funding:** none. I covered all costs myself.
+- **Competing interests:** none.
+- **Ethics:** not applicable; no human participants, animals or personal data.
+- **Analysis transparency:** both accuracy samples rest on one labeller's judgement; the second sample was labelled blind to stratum, the first sample's check of the earlier state was not, and the rule for where a kiln field ends was written after the two samples had been compared.
+- **Use of AI tools:** I used Claude (Anthropic), an AI assistant, at several points in this project, including one step of the accuracy assessment. For the 2013–2015 check of the first sample and for every label of the second sample, I took a screen capture of each point and the assistant suggested a first-pass label from it; I then confirmed or changed every label myself on screen in Google Earth Pro, so the final labels are my own decisions. The second opinion I took on roughly eight uncertain points of the first sample was also the assistant's. Beyond that, most of its help was checking: whether the areas and intervals quoted in the paper, executive summary, README and dashboard matched my output tables. When a script failed or returned something I could not explain, I sometimes used it to help trace the problem in my code. I wrote the paper and the other documents myself; I used it to point out sentences that were unclear or too technical, places where something seemed to be missing, and punctuation errors, and I decided what to change. I also used it for the layout of the project pages. It did not download or process the satellite data or run the analysis. The research questions, the terrace rule, the change tests, the sampling design, the rule for where a kiln field ends, the decision to withdraw the earlier estimate and the interpretation are my own. I checked every suggestion before using it and take full responsibility for the content.
 
 ## Author
 

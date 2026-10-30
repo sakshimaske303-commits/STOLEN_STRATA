@@ -3,7 +3,7 @@
 First draw : 25 strict / 60 drop-only / 35 unflagged points (04_accuracy_sample.py), labels in
              accuracy_sample_labelled.csv (present class) and accuracy_before_pass.csv (before class, flagged points only).
 Second draw: 35 / 60 / 25 points from the same strata, leaving out the pixels already sampled (12_accuracy_sample_supplement.py).
-             Labels in accuracy_sample2_labels_in_progress.csv: present class and before class for every point, from Google
+             Labels in accuracy_sample2_labels.csv: present class and before class for every point, from Google
              Earth Pro historical imagery, labelled blind to stratum (the key was opened only after all 120 were labelled).
              Present class "kiln" already covers both labelling passes of the first draw (kiln ground at the point, or bare
              worked ground / track inside a kiln field). Points with no clear image in 2013-2015 (before_date not in 2013-2015)
@@ -28,7 +28,7 @@ s1 = s1.merge(b1[["point_id", "before_label", "image_date"]], on="point_id", how
 s1 = s1.rename(columns={"image_date": "before_date"}); s1["draw"] = 1
 
 k2 = pd.read_csv(OUT + "accuracy_sample2_key.csv")
-l2 = pd.read_csv(OUT + "accuracy_sample2_labels_in_progress.csv", dtype=str, keep_default_na=False)
+l2 = pd.read_csv(OUT + "accuracy_sample2_labels.csv", dtype=str, keep_default_na=False)
 assert len(l2) == 120 and (l2.confirmed_by_author == "yes").all()
 l2["point_id"] = l2.point_id.astype(int)
 s2 = k2.merge(l2[["point_id", "before_label", "before_date", "now_class"]], on="point_id")
