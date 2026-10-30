@@ -71,7 +71,8 @@ STOLEN_STRATA/
 ├── data/processed/               layers of the earlier version; the Section 4.1 check reads the old polygons from here
 ├── data/raw/                     rasters (not stored in the repository, see DATA_ACCESS.md)
 ├── archive_v1/                   the withdrawn first version, kept for the record
-├── DATA_ACCESS.md, CITATION.cff, LICENSE, requirements.txt
+├── DATA_ACCESS.md, CITATION.cff, LICENSE
+├── requirements.txt              packages; requirements-lock.txt has the exact versions I used
 ```
 
 ## Rerunning
@@ -79,7 +80,7 @@ STOLEN_STRATA/
 ```bash
 git clone https://github.com/sakshimaske303-commits/STOLEN_STRATA.git
 cd STOLEN_STRATA
-pip install -r requirements.txt
+pip install -r requirements.txt        # or requirements-lock.txt for the exact versions I used
 
 # dashboard only (needs no rasters)
 pip install -r dashboard/requirements.txt
