@@ -8,6 +8,11 @@
 > everything built on them. Section 4.1 of the paper shows the check. The September preprint
 > ([EarthArXiv](https://eartharxiv.org/repository/view/14805/), DOI 10.31223/X5HB8J) is that earlier version.
 
+## Preprint and Archive
+
+- **Preprint (EarthArXiv):** DOI [10.31223/X5HB8J](https://doi.org/10.31223/X5HB8J) (the September 2026 version, whose headline figures are withdrawn)
+- **Code and data (Zenodo):** DOI [10.5281/zenodo.21766463](https://doi.org/10.5281/zenodo.21766463) (always resolves to the latest archived version)
+
 ## Live dashboard
 
 **[Open the dashboard →](https://stolenstrata-ekmgvmukfnfkpigxtgsak6.streamlit.app/)**

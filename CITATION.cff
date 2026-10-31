@@ -8,6 +8,14 @@ authors:
     orcid: "https://orcid.org/0009-0002-5683-5966"
 repository-code: "https://github.com/sakshimaske303-commits/STOLEN_STRATA"
 url: "https://github.com/sakshimaske303-commits/STOLEN_STRATA"
+doi: "10.5281/zenodo.21766463"
+identifiers:
+  - type: doi
+    value: "10.5281/zenodo.21766463"
+    description: "Zenodo archive of code and data (all versions)"
+  - type: doi
+    value: "10.31223/X5HB8J"
+    description: "EarthArXiv preprint (earlier version, headline figures withdrawn)"
 abstract: >-
   A satellite study of vegetated karewa tableland lost to brick kilns in the
   Kashmir Valley. An earlier version reported that the bare-earth share of
@@ -36,7 +44,7 @@ keywords:
   - Google Earth Engine
 license: CC-BY-4.0
 version: 2.0.0
-date-released: "2026-10-30"
+date-released: "2026-10-31"
 preferred-citation:
   type: report
   title: "Stolen Strata: Brick Kilns and the Loss of Karewa Tableland in Budgam, Kashmir, 1993-2025, with a Correction to an Earlier Estimate"
@@ -44,4 +52,5 @@ preferred-citation:
     - family-names: "Maske"
       given-names: "Sakshi D."
   year: 2026
+  doi: "10.5281/zenodo.21766463"
   url: "https://github.com/sakshimaske303-commits/STOLEN_STRATA"

@@ -5,7 +5,7 @@
 Sakshi D. Maske · Independent Geospatial Researcher · ORCID [0009-0002-5683-5966](https://orcid.org/0009-0002-5683-5966)
 
 Version 2.0.0  
-Preprint: EarthArXiv, DOI [10.31223/X5HB8J](https://doi.org/10.31223/X5HB8J) (the earlier version, whose headline figures are withdrawn) · Code and data: [github.com/sakshimaske303-commits/STOLEN_STRATA](https://github.com/sakshimaske303-commits/STOLEN_STRATA)
+Preprint: EarthArXiv, DOI [10.31223/X5HB8J](https://doi.org/10.31223/X5HB8J) (the earlier version, whose headline figures are withdrawn) · Code and data: Zenodo, DOI [10.5281/zenodo.21766463](https://doi.org/10.5281/zenodo.21766463) · [github.com/sakshimaske303-commits/STOLEN_STRATA](https://github.com/sakshimaske303-commits/STOLEN_STRATA)
 
 ## Highlights
 
